@@ -1,13 +1,13 @@
-using Platformer3d.UI.MenuSystem.Items;
+using Platformer.UI.MenuSystem.Items;
 using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Platformer3d.EditorExtentions;
-using Platformer3d.UI.MenuSystem.Commands.Base;
+using Platformer.EditorExtentions;
+using Platformer.UI.MenuSystem.Commands.Base;
 using RotaryHeart.Lib.SerializableDictionary;
 
-namespace Platformer3d.UI.MenuSystem
+namespace Platformer.UI.MenuSystem
 {
     [Serializable]
     public class MenuCommandDictionary : SerializableDictionaryBase<string, MenuCommand> { }

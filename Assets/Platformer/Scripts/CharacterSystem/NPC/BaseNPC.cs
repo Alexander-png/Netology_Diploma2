@@ -1,8 +1,8 @@
-using Platformer3d.GameCore;
+using Platformer.GameCore;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.CharacterSystem.NPC
+namespace Platformer.CharacterSystem.NPC
 {
 	public abstract class BaseNPC : MonoBehaviour
 	{

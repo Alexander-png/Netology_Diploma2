@@ -1,7 +1,7 @@
-using Platformer3d.PlayerSystem;
+using Platformer.PlayerSystem;
 using UnityEngine;
 
-namespace Platformer3d.LevelEnvironment.Triggers
+namespace Platformer.LevelEnvironment.Triggers
 {
 	public class AnimationTrigger : MonoBehaviour
 	{

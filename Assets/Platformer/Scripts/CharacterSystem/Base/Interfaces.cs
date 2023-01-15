@@ -1,8 +1,8 @@
-using Platformer3d.SkillSystem;
+using Platformer.SkillSystem;
 using System;
 using UnityEngine;
 
-namespace Platformer3d.CharacterSystem.Base
+namespace Platformer.CharacterSystem.Base
 {
 	public interface IPlayerInteractable
 	{

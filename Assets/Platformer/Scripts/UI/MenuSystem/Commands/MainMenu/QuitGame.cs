@@ -1,6 +1,6 @@
-using Platformer3d.UI.MenuSystem.Commands.Base;
+using Platformer.UI.MenuSystem.Commands.Base;
 
-namespace Platformer3d.UI.MenuSystem.Commands.MainMenu
+namespace Platformer.UI.MenuSystem.Commands.MainMenu
 {
 	public class QuitGame : MenuCommand
 	{

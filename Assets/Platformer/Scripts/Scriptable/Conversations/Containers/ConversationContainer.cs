@@ -1,9 +1,9 @@
-using Platformer3d.Scriptable.Conversations.Configurations;
-using Platformer3d.Scriptable.Conversations.Configurations.Phrases;
+using Platformer.Scriptable.Conversations.Configurations;
+using Platformer.Scriptable.Conversations.Configurations.Phrases;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer3d.Scriptable.Conversations.Containers
+namespace Platformer.Scriptable.Conversations.Containers
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Conversation container")]
 	public class ConversationContainer : ScriptableObject

@@ -1,9 +1,9 @@
 using Newtonsoft.Json.Linq;
-using Platformer3d.GameCore;
+using Platformer.GameCore;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.LevelEnvironment.Mechanisms.Doors
+namespace Platformer.LevelEnvironment.Mechanisms.Doors
 {
     public abstract class Gate : MonoBehaviour, ISaveable
 	{

@@ -1,7 +1,7 @@
-using Platformer3d.CharacterSystem.NPC;
+using Platformer.CharacterSystem.NPC;
 using UnityEngine;
 
-namespace Platformer3d.Interaction
+namespace Platformer.Interaction
 {
     public interface ITalkable : IPerformer
     {

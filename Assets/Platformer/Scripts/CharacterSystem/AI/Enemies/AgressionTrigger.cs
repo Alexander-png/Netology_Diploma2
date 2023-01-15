@@ -1,7 +1,7 @@
-using Platformer3d.PlayerSystem;
+using Platformer.PlayerSystem;
 using UnityEngine;
 
-namespace Platformer3d.CharacterSystem.AI.Enemies
+namespace Platformer.CharacterSystem.AI.Enemies
 {
 	public class AgressionTrigger : MonoBehaviour
 	{

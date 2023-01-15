@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Platformer3d.LevelEnvironment.Mechanisms.Animations
+namespace Platformer.LevelEnvironment.Mechanisms.Animations
 {
     public class TwoDoorAnimation : MonoBehaviour
     {

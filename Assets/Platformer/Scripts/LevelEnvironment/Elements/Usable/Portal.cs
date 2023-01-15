@@ -1,7 +1,7 @@
-using Platformer3d.CharacterSystem.Base;
+using Platformer.CharacterSystem.Base;
 using UnityEngine;
 
-namespace Platformer3d.LevelEnvironment.Elements.Usable
+namespace Platformer.LevelEnvironment.Elements.Usable
 {
 	public class Portal : MonoBehaviour
 	{

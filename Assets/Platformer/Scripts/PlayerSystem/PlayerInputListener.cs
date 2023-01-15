@@ -1,10 +1,10 @@
-using Platformer3d.CharacterSystem.Interactors;
-using Platformer3d.CharacterSystem.Movement;
-using Platformer3d.Weapons;
+using Platformer.CharacterSystem.Interactors;
+using Platformer.CharacterSystem.Movement;
+using Platformer.Weapons;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Platformer3d.PlayerSystem
+namespace Platformer.PlayerSystem
 {
 	public class PlayerInputListener : MonoBehaviour
 	{

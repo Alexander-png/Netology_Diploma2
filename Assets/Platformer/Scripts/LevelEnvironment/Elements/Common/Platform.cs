@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Platformer3d.LevelEnvironment.Elements.Common
+namespace Platformer.LevelEnvironment.Elements.Common
 {
 	public class Platform : BaseLevelElement
 	{

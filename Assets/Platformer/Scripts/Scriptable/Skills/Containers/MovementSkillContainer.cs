@@ -1,9 +1,9 @@
-using Platformer3d.Scriptable.Skills.Configurations;
-using Platformer3d.SkillSystem.Skills;
+using Platformer.Scriptable.Skills.Configurations;
+using Platformer.SkillSystem.Skills;
 using System;
 using UnityEngine;
 
-namespace Platformer3d.Scriptable.Skills.Containers
+namespace Platformer.Scriptable.Skills.Containers
 {
     [CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Skills/Containers/Movement skill container")]
     public class MovementSkillContainer : SkillContainer<CharacterMovementSkill>

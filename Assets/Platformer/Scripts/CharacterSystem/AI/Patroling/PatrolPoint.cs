@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Platformer3d.CharacterSystem.AI.Patroling
+namespace Platformer.CharacterSystem.AI.Patroling
 {
 	public class PatrolPoint : MonoBehaviour
 	{

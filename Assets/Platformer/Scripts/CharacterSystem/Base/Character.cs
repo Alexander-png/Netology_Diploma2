@@ -1,13 +1,13 @@
 using Newtonsoft.Json;
-using Platformer3d.CharacterSystem.DataContainers;
-using Platformer3d.CharacterSystem.Enums;
-using Platformer3d.EditorExtentions;
-using Platformer3d.GameCore;
-using Platformer3d.Scriptable.Characters;
+using Platformer.CharacterSystem.DataContainers;
+using Platformer.CharacterSystem.Enums;
+using Platformer.EditorExtentions;
+using Platformer.GameCore;
+using Platformer.Scriptable.Characters;
 using System;
 using UnityEngine;
 
-namespace Platformer3d.CharacterSystem.Base
+namespace Platformer.CharacterSystem.Base
 {
     public abstract class Character : MonoBehaviour
     {

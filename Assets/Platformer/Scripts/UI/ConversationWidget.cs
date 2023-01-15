@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Platformer3d.UI
+namespace Platformer.UI
 {
 	public class ConversationWidget : MonoBehaviour
 	{

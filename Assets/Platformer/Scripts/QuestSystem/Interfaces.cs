@@ -1,4 +1,4 @@
-namespace Platformer3d.QuestSystem
+namespace Platformer.QuestSystem
 {
 	public interface IQuestGiver
 	{

@@ -1,10 +1,10 @@
 using Newtonsoft.Json.Linq;
-using Platformer3d.GameCore;
-using Platformer3d.Interaction;
-using Platformer3d.QuestSystem;
+using Platformer.GameCore;
+using Platformer.Interaction;
+using Platformer.QuestSystem;
 using UnityEngine;
 
-namespace Platformer3d.CharacterSystem.NPC
+namespace Platformer.CharacterSystem.NPC
 {
 	public class TalkableNPC : BaseNPC, ITalkable, IQuestGiver, IQuestTarget, ISaveable
     {

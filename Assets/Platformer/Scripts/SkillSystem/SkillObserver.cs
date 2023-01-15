@@ -1,14 +1,14 @@
 using Newtonsoft.Json.Linq;
-using Platformer3d.CharacterSystem.Base;
-using Platformer3d.CharacterSystem.Movement.Base;
-using Platformer3d.GameCore;
-using Platformer3d.SkillSystem.Skills;
+using Platformer.CharacterSystem.Base;
+using Platformer.CharacterSystem.Movement.Base;
+using Platformer.GameCore;
+using Platformer.SkillSystem.Skills;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.SkillSystem
+namespace Platformer.SkillSystem
 {
 	public class SkillObserver : MonoBehaviour, ISaveable
 	{

@@ -1,9 +1,9 @@
-using Platformer3d.CharacterSystem.Movement.Base;
+using Platformer.CharacterSystem.Movement.Base;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Platformer3d.CharacterSystem.Movement
+namespace Platformer.CharacterSystem.Movement
 {
 	public class PlayerMovement : CharacterMovement
 	{

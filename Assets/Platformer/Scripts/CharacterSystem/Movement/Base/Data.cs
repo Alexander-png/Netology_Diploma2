@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Platformer3d.CharacterSystem.Movement.Base
+namespace Platformer.CharacterSystem.Movement.Base
 {
     public struct CharacterStatsInfo
     {

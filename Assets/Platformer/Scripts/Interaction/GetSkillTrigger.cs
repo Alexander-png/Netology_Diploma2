@@ -1,8 +1,8 @@
-using Platformer3d.GameCore;
+using Platformer.GameCore;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.Interaction
+namespace Platformer.Interaction
 {
     public class GetSkillTrigger : InteractionTrigger
     {

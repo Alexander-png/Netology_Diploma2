@@ -1,13 +1,13 @@
 using Newtonsoft.Json.Linq;
-using Platformer3d.CharacterSystem.Base;
-using Platformer3d.GameCore;
-using Platformer3d.PlayerSystem;
-using Platformer3d.Scriptable.Characters;
+using Platformer.CharacterSystem.Base;
+using Platformer.GameCore;
+using Platformer.PlayerSystem;
+using Platformer.Scriptable.Characters;
 using System;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.CharacterSystem.AI.Enemies
+namespace Platformer.CharacterSystem.AI.Enemies
 {
 	public abstract class Enemy : MoveableCharacter, IDamagableCharacter, ISaveable
     {

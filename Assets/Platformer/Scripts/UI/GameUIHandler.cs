@@ -1,11 +1,11 @@
-using Platformer3d.GameCore;
-using Platformer3d.UI.MenuSystem;
+using Platformer.GameCore;
+using Platformer.UI.MenuSystem;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-namespace Platformer3d.UI
+namespace Platformer.UI
 {
 	public class GameUIHandler : MonoBehaviour
 	{

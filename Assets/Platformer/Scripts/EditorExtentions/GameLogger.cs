@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Platformer3d.EditorExtentions
+namespace Platformer.EditorExtentions
 {
     public static class GameLogger
     {

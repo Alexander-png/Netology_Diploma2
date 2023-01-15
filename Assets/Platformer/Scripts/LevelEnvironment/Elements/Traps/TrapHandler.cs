@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Platformer3d.Interactables.Elements.Traps
+namespace Platformer.Interactables.Elements.Traps
 {
 	public abstract class TrapHandler : MonoBehaviour
 	{

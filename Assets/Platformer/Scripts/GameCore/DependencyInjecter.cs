@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.GameCore
+namespace Platformer.GameCore
 {
 	public class DependencyInjecter : MonoInstaller
 	{

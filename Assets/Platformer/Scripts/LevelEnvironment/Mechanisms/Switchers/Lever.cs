@@ -1,9 +1,9 @@
-using Platformer3d.LevelEnvironment.Mechanisms.Animations;
-using Platformer3d.LevelEnvironment.Switchers;
+using Platformer.LevelEnvironment.Mechanisms.Animations;
+using Platformer.LevelEnvironment.Switchers;
 using System;
 using UnityEngine;
 
-namespace Platformer3d.LevelEnvironment.Mechanisms.Switchers
+namespace Platformer.LevelEnvironment.Mechanisms.Switchers
 {
 	public class Lever : Switcher
 	{

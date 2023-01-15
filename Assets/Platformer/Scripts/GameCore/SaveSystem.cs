@@ -1,13 +1,13 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Platformer3d.PlayerSystem;
+using Platformer.PlayerSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.GameCore
+namespace Platformer.GameCore
 {
     public interface ISaveable
     {

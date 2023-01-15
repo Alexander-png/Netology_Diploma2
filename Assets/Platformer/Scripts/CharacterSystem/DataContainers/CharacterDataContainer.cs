@@ -1,7 +1,7 @@
-using Platformer3d.CharacterSystem.Enums;
+using Platformer.CharacterSystem.Enums;
 using UnityEngine;
 
-namespace Platformer3d.CharacterSystem.DataContainers
+namespace Platformer.CharacterSystem.DataContainers
 {
 	public class CharacterDataContainer
 	{

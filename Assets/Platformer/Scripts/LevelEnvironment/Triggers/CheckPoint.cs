@@ -1,9 +1,9 @@
-using Platformer3d.GameCore;
-using Platformer3d.PlayerSystem;
+using Platformer.GameCore;
+using Platformer.PlayerSystem;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.LevelEnvironment.Triggers
+namespace Platformer.LevelEnvironment.Triggers
 {
 	public class CheckPoint : MonoBehaviour
 	{

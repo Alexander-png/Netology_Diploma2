@@ -1,7 +1,7 @@
-using Platformer3d.CharacterSystem.Movement.Base;
+using Platformer.CharacterSystem.Movement.Base;
 using UnityEngine;
 
-namespace Platformer3d.CharacterSystem.Base
+namespace Platformer.CharacterSystem.Base
 {
 	public abstract class MoveableCharacter : Character
 	{

@@ -1,14 +1,14 @@
-using Platformer3d.GameCore;
-using Platformer3d.Interaction;
-using Platformer3d.Scriptable.Conversations.Configurations.Phrases;
-using Platformer3d.Scriptable.Conversations.Containers;
+using Platformer.GameCore;
+using Platformer.Interaction;
+using Platformer.Scriptable.Conversations.Configurations.Phrases;
+using Platformer.Scriptable.Conversations.Containers;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.ConversationSystem
+namespace Platformer.ConversationSystem
 {
 	public class ConversationHandler : MonoBehaviour
 	{

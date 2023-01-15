@@ -1,8 +1,8 @@
-using Platformer3d.CharacterSystem.Movement.Base;
+using Platformer.CharacterSystem.Movement.Base;
 using System;
 using System.Collections.Generic;
 
-namespace Platformer3d.SkillSystem.Skills
+namespace Platformer.SkillSystem.Skills
 {
     public enum SkillTypes : byte
     {

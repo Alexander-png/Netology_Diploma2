@@ -1,10 +1,10 @@
-using Platformer3d.CharacterSystem.Base;
-using Platformer3d.LevelEnvironment.Elements.Common;
-using Platformer3d.Scriptable.LevelElements;
+using Platformer.CharacterSystem.Base;
+using Platformer.LevelEnvironment.Elements.Common;
+using Platformer.Scriptable.LevelElements;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer3d.Interactables.Elements.Traps
+namespace Platformer.Interactables.Elements.Traps
 {
 	public class HazardLevelElement : Platform
 	{

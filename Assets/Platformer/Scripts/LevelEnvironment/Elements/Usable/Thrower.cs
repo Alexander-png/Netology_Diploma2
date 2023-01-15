@@ -1,8 +1,8 @@
-using Platformer3d.CharacterSystem.Movement.Base;
-using Platformer3d.LevelEnvironment.Elements.Common;
+using Platformer.CharacterSystem.Movement.Base;
+using Platformer.LevelEnvironment.Elements.Common;
 using UnityEngine;
 
-namespace Platformer3d.LevelEnvironment.Elements.Usable
+namespace Platformer.LevelEnvironment.Elements.Usable
 {
 	public class Thrower : Platform
 	{

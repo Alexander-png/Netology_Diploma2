@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Platformer3d.Interaction
+namespace Platformer.Interaction
 {
     public interface ISwitcher : IPerformer
     {

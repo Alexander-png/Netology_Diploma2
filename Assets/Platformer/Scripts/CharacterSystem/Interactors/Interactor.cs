@@ -1,12 +1,12 @@
-using Platformer3d.GameCore;
-using Platformer3d.Interaction;
-using Platformer3d.PlayerSystem;
+using Platformer.GameCore;
+using Platformer.Interaction;
+using Platformer.PlayerSystem;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-namespace Platformer3d.CharacterSystem.Interactors
+namespace Platformer.CharacterSystem.Interactors
 {
     public class Interactor : MonoBehaviour
     {

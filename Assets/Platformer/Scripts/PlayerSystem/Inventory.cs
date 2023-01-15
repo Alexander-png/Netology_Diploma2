@@ -1,10 +1,10 @@
 using Newtonsoft.Json.Linq;
-using Platformer3d.GameCore;
+using Platformer.GameCore;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.PlayerSystem
+namespace Platformer.PlayerSystem
 {
     public interface IInventoryItem 
     {

@@ -1,11 +1,11 @@
-using Platformer3d.GameCore;
-using Platformer3d.PlayerSystem;
+using Platformer.GameCore;
+using Platformer.PlayerSystem;
 using System;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.UI
+namespace Platformer.UI
 {
 	public class HealthBar : MonoBehaviour
 	{

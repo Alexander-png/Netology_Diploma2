@@ -1,9 +1,9 @@
-using Platformer3d.PlayerSystem;
-using Platformer3d.Scriptable.Quests.Containers;
+using Platformer.PlayerSystem;
+using Platformer.Scriptable.Quests.Containers;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer3d.QuestSystem
+namespace Platformer.QuestSystem
 {
 	public class QuestHandler : MonoBehaviour
 	{

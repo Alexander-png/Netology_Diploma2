@@ -1,10 +1,10 @@
-using Platformer3d.CharacterSystem.Base;
-using Platformer3d.ConversationSystem;
-using Platformer3d.EditorExtentions;
-using Platformer3d.Interaction;
-using Platformer3d.PlayerSystem;
-using Platformer3d.QuestSystem;
-using Platformer3d.Scriptable.Skills.Containers;
+using Platformer.CharacterSystem.Base;
+using Platformer.ConversationSystem;
+using Platformer.EditorExtentions;
+using Platformer.Interaction;
+using Platformer.PlayerSystem;
+using Platformer.QuestSystem;
+using Platformer.Scriptable.Skills.Containers;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -17,7 +17,7 @@ using UnityEngine;
 // TODO: think about saving game object id's instead of names
 // TODO: save quest state
 
-namespace Platformer3d.GameCore
+namespace Platformer.GameCore
 {
     public class GameSystem : MonoBehaviour
     {

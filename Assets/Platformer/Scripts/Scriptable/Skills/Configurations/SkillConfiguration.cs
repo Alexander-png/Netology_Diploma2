@@ -1,8 +1,8 @@
-using Platformer3d.SkillSystem.Skills;
+using Platformer.SkillSystem.Skills;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer3d.Scriptable.Skills.Configurations
+namespace Platformer.Scriptable.Skills.Configurations
 {
 	public abstract class SkillConfiguration : ScriptableObject
 	{

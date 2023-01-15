@@ -1,11 +1,11 @@
 using Newtonsoft.Json.Linq;
-using Platformer3d.GameCore;
-using Platformer3d.PlayerSystem;
-using Platformer3d.QuestSystem;
+using Platformer.GameCore;
+using Platformer.PlayerSystem;
+using Platformer.QuestSystem;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.LevelEnvironment.Collectables
+namespace Platformer.LevelEnvironment.Collectables
 {
     public class CollectableItem : MonoBehaviour, IInventoryItem, IQuestTarget, ISaveable
     {

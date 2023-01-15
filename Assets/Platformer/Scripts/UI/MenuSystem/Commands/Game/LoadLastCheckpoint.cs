@@ -1,6 +1,6 @@
-using Platformer3d.UI.MenuSystem.Commands.Base;
+using Platformer.UI.MenuSystem.Commands.Base;
 
-namespace Platformer3d.UI.MenuSystem.Commands.Game
+namespace Platformer.UI.MenuSystem.Commands.Game
 {
 	public class LoadLastCheckpoint : MenuCommand
 	{

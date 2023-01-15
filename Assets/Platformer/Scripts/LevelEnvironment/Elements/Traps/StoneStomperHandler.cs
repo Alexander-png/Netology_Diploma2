@@ -1,8 +1,8 @@
-using Platformer3d.LevelEnvironment.Switchers;
-using Platformer3d.LevelEnvironment.Triggers;
+using Platformer.LevelEnvironment.Switchers;
+using Platformer.LevelEnvironment.Triggers;
 using UnityEngine;
 
-namespace Platformer3d.Interactables.Elements.Traps
+namespace Platformer.Interactables.Elements.Traps
 {
 	public class StoneStomperHandler : TrapHandler, ISwitcherTarget
 	{

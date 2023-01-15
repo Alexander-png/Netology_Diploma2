@@ -1,4 +1,4 @@
-namespace Platformer3d.CharacterSystem.Enums
+namespace Platformer.CharacterSystem.Enums
 {
 	public enum SideTypes : byte
 	{

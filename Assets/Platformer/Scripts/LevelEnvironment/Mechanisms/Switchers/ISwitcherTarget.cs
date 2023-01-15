@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Platformer3d.LevelEnvironment.Switchers
+namespace Platformer.LevelEnvironment.Switchers
 {
     public interface ISwitcherTarget
     {

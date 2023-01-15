@@ -1,7 +1,7 @@
-using Platformer3d.GameCore;
-using Platformer3d.UI.MenuSystem.Commands.Base;
+using Platformer.GameCore;
+using Platformer.UI.MenuSystem.Commands.Base;
 
-namespace Platformer3d.UI.MenuSystem.Commands.Game
+namespace Platformer.UI.MenuSystem.Commands.Game
 {
 	public class ExitToMainMenu : MenuCommand
 	{

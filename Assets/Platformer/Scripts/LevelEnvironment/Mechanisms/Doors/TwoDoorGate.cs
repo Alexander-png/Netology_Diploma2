@@ -1,9 +1,9 @@
 using Newtonsoft.Json.Linq;
-using Platformer3d.LevelEnvironment.Mechanisms.Animations;
-using Platformer3d.LevelEnvironment.Switchers;
+using Platformer.LevelEnvironment.Mechanisms.Animations;
+using Platformer.LevelEnvironment.Switchers;
 using UnityEngine;
 
-namespace Platformer3d.LevelEnvironment.Mechanisms.Doors
+namespace Platformer.LevelEnvironment.Mechanisms.Doors
 {
 	public class TwoDoorGate : Gate, ISwitcherTarget
 	{

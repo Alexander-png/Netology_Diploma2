@@ -1,15 +1,15 @@
 using Newtonsoft.Json.Linq;
-using Platformer3d.CharacterSystem.Base;
-using Platformer3d.CharacterSystem.DataContainers;
-using Platformer3d.GameCore;
-using Platformer3d.Scriptable.Characters;
-using Platformer3d.SkillSystem;
+using Platformer.CharacterSystem.Base;
+using Platformer.CharacterSystem.DataContainers;
+using Platformer.GameCore;
+using Platformer.Scriptable.Characters;
+using Platformer.SkillSystem;
 using System;
 using System.Collections;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.PlayerSystem
+namespace Platformer.PlayerSystem
 {
     public class Player : MoveableCharacter, IDamagableCharacter, ISkillObservable, ISaveable
     {

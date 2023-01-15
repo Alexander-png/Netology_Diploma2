@@ -1,8 +1,8 @@
-using Platformer3d.LevelEnvironment.Elements.Common;
-using Platformer3d.Scriptable.Characters;
+using Platformer.LevelEnvironment.Elements.Common;
+using Platformer.Scriptable.Characters;
 using UnityEngine;
 
-namespace Platformer3d.CharacterSystem.Movement.Base
+namespace Platformer.CharacterSystem.Movement.Base
 {
     public abstract class CharacterMovement : MonoBehaviour
 	{

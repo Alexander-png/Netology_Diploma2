@@ -1,7 +1,7 @@
-using Platformer3d.CharacterSystem.Interactors;
+using Platformer.CharacterSystem.Interactors;
 using UnityEngine;
 
-namespace Platformer3d.Interaction
+namespace Platformer.Interaction
 {
     public interface IPerformer
     {

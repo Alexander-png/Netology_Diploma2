@@ -1,7 +1,7 @@
-using Platformer3d.CharacterSystem.Base;
+using Platformer.CharacterSystem.Base;
 using UnityEngine;
 
-namespace Platformer3d.Weapons
+namespace Platformer.Weapons
 {
 	public class KamikazeWeapon : EnemyWeapon
     {

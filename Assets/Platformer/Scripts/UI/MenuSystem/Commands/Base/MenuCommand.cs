@@ -1,8 +1,8 @@
-using Platformer3d.GameCore;
+using Platformer.GameCore;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.UI.MenuSystem.Commands.Base
+namespace Platformer.UI.MenuSystem.Commands.Base
 {
     [System.Serializable]
 	public class MenuCommand : MonoBehaviour

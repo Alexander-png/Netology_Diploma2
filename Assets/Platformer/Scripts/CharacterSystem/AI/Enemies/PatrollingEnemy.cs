@@ -1,9 +1,9 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Platformer3d.CharacterSystem.AI.Patroling;
+using Platformer.CharacterSystem.AI.Patroling;
 using UnityEngine;
 
-namespace Platformer3d.CharacterSystem.AI.Enemies
+namespace Platformer.CharacterSystem.AI.Enemies
 {
 	public abstract class PatrollingEnemy : Enemy
 	{

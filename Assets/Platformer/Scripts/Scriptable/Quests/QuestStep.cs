@@ -1,6 +1,6 @@
 using System;
 
-namespace Platformer3d.Scriptable.Quests
+namespace Platformer.Scriptable.Quests
 {
 	public enum QuestStepType : byte
 	{

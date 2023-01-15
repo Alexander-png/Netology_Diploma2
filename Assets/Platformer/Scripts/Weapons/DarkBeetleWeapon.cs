@@ -1,4 +1,4 @@
-namespace Platformer3d.Weapons
+namespace Platformer.Weapons
 {
 	public class DarkBeetleWeapon : EnemyWeapon
     {

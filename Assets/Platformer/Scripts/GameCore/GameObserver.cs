@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-namespace Platformer3d.GameCore
+namespace Platformer.GameCore
 {
 	public enum SceneTypes : byte
     {

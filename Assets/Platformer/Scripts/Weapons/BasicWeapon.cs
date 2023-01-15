@@ -1,8 +1,8 @@
-using Platformer3d.CharacterSystem.Base;
-using Platformer3d.Scriptable.LevelElements;
+using Platformer.CharacterSystem.Base;
+using Platformer.Scriptable.LevelElements;
 using UnityEngine;
 
-namespace Platformer3d.Weapons
+namespace Platformer.Weapons
 {
 	public class BasicWeapon : MonoBehaviour
 	{

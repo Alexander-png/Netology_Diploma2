@@ -1,9 +1,9 @@
-using Platformer3d.QuestSystem;
+using Platformer.QuestSystem;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-namespace Platformer3d.Scriptable.Quests.Containers
+namespace Platformer.Scriptable.Quests.Containers
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Quest container")]
 	public class QuestContainer : ScriptableObject

@@ -1,8 +1,8 @@
-using Platformer3d.GameCore;
+using Platformer.GameCore;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.LevelEnvironment.Elements.Common
+namespace Platformer.LevelEnvironment.Elements.Common
 {
 	public class BaseLevelElement : MonoBehaviour
 	{

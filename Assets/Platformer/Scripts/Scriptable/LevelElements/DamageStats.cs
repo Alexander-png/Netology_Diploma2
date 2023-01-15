@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Platformer3d.Scriptable.LevelElements
+namespace Platformer.Scriptable.LevelElements
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Damage stats")]
 	public class DamageStats : ScriptableObject

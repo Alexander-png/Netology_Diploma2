@@ -1,10 +1,10 @@
-using Platformer3d.CharacterSystem.AI.Patroling;
-using Platformer3d.CharacterSystem.Base;
-using Platformer3d.Scriptable.Characters;
+using Platformer.CharacterSystem.AI.Patroling;
+using Platformer.CharacterSystem.Base;
+using Platformer.Scriptable.Characters;
 using System.Collections;
 using UnityEngine;
 
-namespace Platformer3d.CharacterSystem.AI.Enemies
+namespace Platformer.CharacterSystem.AI.Enemies
 {
 	public class RhinoKamikaze : PatrollingEnemy
     {

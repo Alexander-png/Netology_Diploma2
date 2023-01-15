@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Platformer3d.UI.MenuSystem.Items
+namespace Platformer.UI.MenuSystem.Items
 {
     public class MenuItem : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
     {

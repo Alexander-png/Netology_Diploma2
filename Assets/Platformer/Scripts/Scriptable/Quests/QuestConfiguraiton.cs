@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer3d.Scriptable.Quests
+namespace Platformer.Scriptable.Quests
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Quest configuraiton")]
 	public class QuestConfiguraiton : ScriptableObject

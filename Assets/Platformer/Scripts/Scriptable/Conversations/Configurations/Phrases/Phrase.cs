@@ -1,6 +1,6 @@
 using System;
 
-namespace Platformer3d.Scriptable.Conversations.Configurations.Phrases
+namespace Platformer.Scriptable.Conversations.Configurations.Phrases
 {
     public enum PhraseType
     {

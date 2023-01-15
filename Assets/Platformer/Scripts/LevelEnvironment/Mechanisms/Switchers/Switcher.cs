@@ -1,10 +1,10 @@
 using Newtonsoft.Json.Linq;
-using Platformer3d.GameCore;
-using Platformer3d.Interaction;
+using Platformer.GameCore;
+using Platformer.Interaction;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer3d.LevelEnvironment.Mechanisms.Switchers
+namespace Platformer.LevelEnvironment.Mechanisms.Switchers
 {
     public abstract class Switcher : MonoBehaviour, ISwitcher, ISaveable
 	{

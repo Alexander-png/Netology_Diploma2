@@ -1,8 +1,8 @@
-using Platformer3d.Scriptable.Quests;
+using Platformer.Scriptable.Quests;
 using System;
 using System.Collections.Generic;
 
-namespace Platformer3d.QuestSystem
+namespace Platformer.QuestSystem
 {
 	public class AddRemoveItemQuestStepData
     {
