@@ -8,7 +8,7 @@ namespace Platformer.UI.MenuSystem.Commands.MainMenu
         public override void Execute()
         {
             GameObserver.NewGameFlag = false;
-            GameObserver.SwitchScene(SceneTypes.Game);
+            GameObserver.SwitchScene(SceneTypes.Level1);
         }
 	}
 }

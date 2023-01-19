@@ -10,6 +10,8 @@ namespace Platformer.CharacterSystem.Movement.Base
 		private MovementStats _defaultMovementStats;
 		[SerializeField]
 		private Rigidbody _body;
+        [SerializeField]
+        private bool _movementEnabled = true;
 
         private MovementStatsInfo _movementStats;
         private Vector3 _currentCollisionNormal;
@@ -36,7 +38,11 @@ namespace Platformer.CharacterSystem.Movement.Base
         public bool OnGround { get; protected set; }
         public bool OnWall { get; protected set; }
         public bool InAir => _currentCollisionNormal == Vector3.zero;
-        public bool MovementEnabled { get; set; }
+        public bool MovementEnabled 
+        {
+            get => _movementEnabled;
+            set => _movementEnabled = value;
+        }
 
         public float MoveInput
         {

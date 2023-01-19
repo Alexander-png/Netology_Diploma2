@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageStats: {fileID: 11400000, guid: 5facc10f1323e4841ac8bab0d4034ce8, type: 2}
-  _owner: {fileID: 28018661801355740}
+  _owner: {fileID: 0}
 --- !u!1 &28018661801355739
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultMovementStats: {fileID: 11400000, guid: b261a1544daa54e4ea7a8505715a5de6, type: 2}
   _body: {fileID: 28018661801355742}
+  _movementEnabled: 1
 --- !u!114 &28018661801355740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 28018661801355739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf95fe1ced1ae5345ad34ec13a6d5f8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 23e110d8f6adb5540b34006020e98c1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 9988ad99ca21cd34999ac77ba338c0c2, type: 2}
@@ -253,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e18d4e4ad68bcb4bae2ad4928170720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _owner: {fileID: 28018661801355740}
+  _owner: {fileID: 0}
   _agressionTrigger: {fileID: 4237965182315201775}
 --- !u!1 &5934934168350671682
 GameObject:

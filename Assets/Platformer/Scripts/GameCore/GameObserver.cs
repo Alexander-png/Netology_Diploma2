@@ -6,7 +6,11 @@ namespace Platformer.GameCore
 	public enum SceneTypes : byte
     {
 		MainMenu = 0,
-		Game = 1,
+		Level1 = 1,
+		Level2 = 2,
+		Level3 = 3,
+		Level4 = 4,
+		Level5 = 5,
     }
 
 	public static class GameObserver
@@ -25,7 +29,11 @@ namespace Platformer.GameCore
 			_sceneTypes = new Dictionary<SceneTypes, string>()
 			{
 				{ SceneTypes.MainMenu, "MainMenu" },
-				{ SceneTypes.Game, "Game" },
+				{ SceneTypes.Level1, "Level1" },
+				{ SceneTypes.Level2, "Level2" },
+				{ SceneTypes.Level3, "Level3" },
+				{ SceneTypes.Level4, "Level4" },
+				{ SceneTypes.Level5, "Level5" },
 			};
         }
 
