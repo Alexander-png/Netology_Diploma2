@@ -31,7 +31,7 @@ namespace Platformer.CharacterSystem.Enemies
 
         protected bool _behaviourEnabled;
         protected bool _inIdle;
-        protected bool _attackingPlayer = false;
+        protected bool _pursuingPlayer = false;
 
         public event EventHandler Died;
 
@@ -100,7 +100,7 @@ namespace Platformer.CharacterSystem.Enemies
                 z = transform.position.z,
             },
             CurrentHealth = CurrentHealth,
-            AttackingPlayer = _attackingPlayer,
+            AttackingPlayer = _pursuingPlayer,
             InIdle = _inIdle,
         };
 
@@ -115,7 +115,7 @@ namespace Platformer.CharacterSystem.Enemies
             Side = dataToSet.Side;
             transform.position = dataToSet.GetPositionAsVector3();
             _currentHealth = dataToSet.CurrentHealth;
-            _attackingPlayer = dataToSet.AttackingPlayer;
+            _pursuingPlayer = dataToSet.AttackingPlayer;
             _inIdle = dataToSet.InIdle;
             
             return true;
@@ -127,10 +127,10 @@ namespace Platformer.CharacterSystem.Enemies
         public void OnPlayerNearby()
         {
             _inIdle = false;
-            _attackingPlayer = true;
+            _pursuingPlayer = true;
         }
 
         public void OnPlayerRanAway() =>
-            _attackingPlayer = false;
+            _pursuingPlayer = false;
     }
 }

@@ -1144,7 +1144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1836675779015504952, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.07
+      value: 9.74
       objectReference: {fileID: 0}
     - target: {fileID: 1836675779015504952, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1192,11 +1192,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
       propertyPath: _verticalRayOffset
-      value: 1.44
+      value: 0.84
       objectReference: {fileID: 0}
     - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
       propertyPath: _horizontalRayLength
-      value: 2.7
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

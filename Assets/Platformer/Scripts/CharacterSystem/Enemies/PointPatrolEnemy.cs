@@ -73,11 +73,11 @@ namespace Platformer.CharacterSystem.Enemies
             if (!_behaviourEnabled)
             {
                 MovementController.MoveInput = 0f;
-                _attackingPlayer = false;
+                _pursuingPlayer = false;
                 return;
             }
 
-            if (!_attackingPlayer)
+            if (!_pursuingPlayer)
             {
                 PatrolArea();
             }
@@ -151,8 +151,6 @@ namespace Platformer.CharacterSystem.Enemies
             yield return new WaitForSeconds(idleTime);
             _inIdle = false;
         }
-
-
 
         public override object GetData()
         {

@@ -1,9 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Platformer.CharacterSystem.Enemies
 {
     public class RaycastPatrolEnemy : Enemy
     {
+        private enum MovementDirection : byte
+        {
+            Left = 0,
+            Right = 1,
+        }
+
+        // TODO: move to config
         [SerializeField]
         private Vector3 _horizontalRayOrigin;
         [SerializeField]
@@ -13,39 +21,70 @@ namespace Platformer.CharacterSystem.Enemies
         [SerializeField]
         private float _verticalRayOffset;
 
+        private MovementDirection _direction;
+
         protected override void UpdateBehaviour()
         {
-            if (CheckObstacles())
+            if (CanMove())
             {
-                PatrolMove();
-                //if (_attackingPlayer)
-                //{
-                //    PursuitPlayer();
-                //}
-                //else
-                //{
-                //    PatrolMove();
-                //}
+                StartCoroutine(StopAndWait(_idleTime));
+                return;
+            }
+
+            //if (_pursuingPlayer)
+            //{
+            //    PursuitPlayer();
+            //}
+            //else
+            if (!_inIdle)
+            {
+                Patrol();
             }
         }
 
-        private bool CheckObstacles()
+        private bool CanMove()
         {
             Ray horizontalCensor = GetHorizontalRay();
             Ray verticalCensor = GetVerticalRay();
-            bool isWallInWay = Physics.Raycast(horizontalCensor, _horizontalRayLength);
-            bool isHollowOnWay = Physics.Raycast(verticalCensor, _verticalRayLength);
-            return isWallInWay || isHollowOnWay;
+            bool isWallOnWay = Physics.Raycast(horizontalCensor, _horizontalRayLength);
+            bool isHollowOnWay = !Physics.Raycast(verticalCensor, _verticalRayLength);
+            return isWallOnWay || isHollowOnWay;
         }
 
-        private void PatrolMove()
-        {            
-            
+        private void Patrol()
+        {
+            switch (_direction)
+            {
+                case MovementDirection.Left:
+                    MovementController.MoveInput = -1f;
+                    break;
+                case MovementDirection.Right:
+                    MovementController.MoveInput = 1f;
+                    break;
+            }
         }
 
         private void PursuitPlayer()
         {
 
+        }
+
+        private void ChangePatrolDirection() =>
+            _direction = _direction == MovementDirection.Left ? MovementDirection.Right : MovementDirection.Left;
+
+        private IEnumerator StopAndWait(float idleTime)
+        {
+            if (_inIdle)
+            {
+                yield break;
+            }
+            _inIdle = true;
+            MovementController.MoveInput = 0;
+            MovementController.Velocity = Vector3.zero;
+            yield return new WaitForSeconds(idleTime);
+            ChangePatrolDirection();
+            Patrol();
+            _inIdle = false;
         }
 
         private Ray GetHorizontalRay()

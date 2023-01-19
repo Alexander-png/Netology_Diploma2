@@ -13,8 +13,6 @@ namespace Platformer.CharacterSystem.Base
     {
         [SerializeField]
         private DefaultCharacterStats _stats;
-        [SerializeField]
-        protected Transform _visual;
 
         public event EventHandler Respawning;
 
