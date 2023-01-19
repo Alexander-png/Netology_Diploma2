@@ -1,3 +1,4 @@
+using Platformer.PlayerSystem;
 using System.Collections;
 using UnityEngine;
 
@@ -13,42 +14,76 @@ namespace Platformer.CharacterSystem.Enemies
 
         // TODO: move to config
         [SerializeField]
-        private Vector3 _horizontalRayOrigin;
+        private Vector3 _horizontalSensorOrigin;
         [SerializeField]
-        private float _horizontalRayLength;
+        private float _horizontalSensorLength;
         [SerializeField]
-        private float _verticalRayLength;
+        private float _verticalSensorLength;
         [SerializeField]
-        private float _verticalRayOffset;
+        private float _verticalSensorOffset;
 
+        [SerializeField]
+        private Vector3 _visiblityOrigin;
+        [SerializeField]
+        private float _frontVisibilityRange;
+        [SerializeField]
+        private float _behindVisibilityRange;
+
+        private bool _canMove;
         private MovementDirection _direction;
 
         protected override void UpdateBehaviour()
         {
-            if (CanMove())
+            // TODO: do all raycasts in fixed update
+            if (!CheckCanMove() && !_pursuingPlayer)
             {
                 StartCoroutine(StopAndWait(_idleTime));
                 return;
             }
 
-            //if (_pursuingPlayer)
-            //{
-            //    PursuitPlayer();
-            //}
-            //else
-            if (!_inIdle)
+            if (_pursuingPlayer)
+            {
+                PursuitPlayer();
+            }
+            else
             {
                 Patrol();
             }
         }
 
-        private bool CanMove()
+        protected override void FixedUpdateBehaviour()
         {
-            Ray horizontalCensor = GetHorizontalRay();
-            Ray verticalCensor = GetVerticalRay();
-            bool isWallOnWay = Physics.Raycast(horizontalCensor, _horizontalRayLength);
-            bool isHollowOnWay = !Physics.Raycast(verticalCensor, _verticalRayLength);
-            return isWallOnWay || isHollowOnWay;
+            CheckPlayerNearby();
+        }
+
+        private bool CheckCanMove()
+        {
+            Ray horizontalCensor = GetHorizontalCensorRay(_horizontalSensorOrigin);
+            Ray verticalCensor = GetVerticalCensorRay(_horizontalSensorOrigin);
+            bool wallOnWay = Physics.Raycast(horizontalCensor, _horizontalSensorLength);
+            bool HollowOnWay = Physics.Raycast(verticalCensor, _verticalSensorLength);
+            return !wallOnWay && HollowOnWay;
+        }
+
+        private void CheckPlayerNearby()
+        {
+            Ray frontVisual = GetHorizontalCensorRay(_visiblityOrigin);
+            Ray behindVisual = GetHorizontalCensorRay(_visiblityOrigin);
+
+            Physics.Raycast(frontVisual, out RaycastHit frontHit, _frontVisibilityRange);
+            Physics.Raycast(behindVisual.origin, -behindVisual.direction, out RaycastHit behindHit, _behindVisibilityRange);
+
+            bool seePlayer = frontHit.transform?.TryGetComponent<Player>(out _) == true || 
+                             behindHit.transform?.TryGetComponent<Player>(out _) == true;
+
+            if (seePlayer)
+            {
+                OnPlayerNearby();
+            }
+            else
+            {
+                OnPlayerRanAway();
+            }   
         }
 
         private void Patrol()
@@ -66,7 +101,16 @@ namespace Platformer.CharacterSystem.Enemies
 
         private void PursuitPlayer()
         {
-
+            Vector3 playerPosition = _player.transform.position;
+            Vector3 selfPosition = transform.position;
+            if (playerPosition.x > selfPosition.x)
+            {
+                MovementController.MoveInput = 1f;
+            }
+            else if (playerPosition.x < selfPosition.x)
+            {
+                MovementController.MoveInput = -1f;
+            }
         }
 
         private void ChangePatrolDirection() =>
@@ -82,24 +126,26 @@ namespace Platformer.CharacterSystem.Enemies
             MovementController.MoveInput = 0;
             MovementController.Velocity = Vector3.zero;
             yield return new WaitForSeconds(idleTime);
-            ChangePatrolDirection();
-            Patrol();
+            if (!_pursuingPlayer)
+            {
+                ChangePatrolDirection();
+                Patrol();
+            }
             _inIdle = false;
         }
 
-        private Ray GetHorizontalRay()
+        private Ray GetHorizontalCensorRay(Vector3 origin)
         {
-            Vector3 startPoint = transform.TransformPoint(_horizontalRayOrigin);
-            Vector3 endPoint = transform.rotation * new Vector3(_horizontalRayLength, 0, 0);
+            Vector3 startPoint = transform.TransformPoint(origin);
+            Vector3 endPoint = transform.rotation * new Vector3(_horizontalSensorLength, 0, 0);
             return new Ray(startPoint, endPoint);
         }
 
-        private Ray GetVerticalRay()
+        private Ray GetVerticalCensorRay(Vector3 origin)
         {
-            Vector3 origin = _horizontalRayOrigin;
-            origin.x = _verticalRayOffset;
+            origin.x = _verticalSensorOffset;
             Vector3 startPoint = transform.TransformPoint(origin);
-            Vector3 endPoint = transform.rotation * new Vector3(0, -_verticalRayLength, 0);
+            Vector3 endPoint = transform.rotation * new Vector3(0, -_verticalSensorLength, 0);
             return new Ray(startPoint, endPoint);
         }
 
@@ -108,10 +154,19 @@ namespace Platformer.CharacterSystem.Enemies
         {
             Gizmos.color = Color.yellow;
 
-            Ray horz = GetHorizontalRay();
-            Gizmos.DrawRay(horz.origin, horz.direction * _horizontalRayLength);
-            Ray vert = GetVerticalRay();
-            Gizmos.DrawRay(vert.origin, vert.direction * _verticalRayLength);
+            Ray horz = GetHorizontalCensorRay(_horizontalSensorOrigin);
+            Gizmos.DrawRay(horz.origin, horz.direction * _horizontalSensorLength);
+            Ray vert = GetVerticalCensorRay(_horizontalSensorOrigin);
+            Gizmos.DrawRay(vert.origin, vert.direction * _verticalSensorLength);
+
+            Gizmos.color = Color.magenta;
+
+            Ray frontVisibility = GetHorizontalCensorRay(_visiblityOrigin);
+            Gizmos.DrawRay(frontVisibility.origin, frontVisibility.direction * _frontVisibilityRange);
+
+            Gizmos.color = Color.cyan;
+            Ray behindVisibility = GetHorizontalCensorRay(_visiblityOrigin);
+            Gizmos.DrawRay(behindVisibility.origin, behindVisibility.direction * -_behindVisibilityRange);
         }
 #endif
     }

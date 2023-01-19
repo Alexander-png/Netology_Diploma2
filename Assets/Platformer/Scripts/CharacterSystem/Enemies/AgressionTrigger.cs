@@ -7,8 +7,6 @@ namespace Platformer.CharacterSystem.Enemies
 	{
         [SerializeField]
 		private Enemy _owner;
-        [SerializeField]
-        private BoxCollider _agressionTrigger;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -33,10 +31,12 @@ namespace Platformer.CharacterSystem.Enemies
             c.a = 0.3f;
             Gizmos.color = c;
 
-            if (_agressionTrigger != null)
+            BoxCollider collider = GetComponent<BoxCollider>();
+
+            if (collider != null)
             {
-                Vector3 rangeVisualSize = _agressionTrigger.size;
-                Gizmos.DrawCube(transform.position + _agressionTrigger.center, rangeVisualSize);
+                Vector3 rangeVisualSize = collider.size;
+                Gizmos.DrawCube(transform.position + collider.center, rangeVisualSize);
             }
         }
 #endif

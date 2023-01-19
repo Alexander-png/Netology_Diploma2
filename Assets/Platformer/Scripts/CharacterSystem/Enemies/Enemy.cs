@@ -58,6 +58,12 @@ namespace Platformer.CharacterSystem.Enemies
             UpdateBehaviour();
         }
 
+        protected override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            FixedUpdateBehaviour();
+        }
+
         protected override void SetDefaultParameters(DefaultCharacterStats stats)
         {
             base.SetDefaultParameters(stats);
@@ -65,7 +71,8 @@ namespace Platformer.CharacterSystem.Enemies
             _currentHealth = _maxHealth;
         }
 
-        protected abstract void UpdateBehaviour();
+        protected virtual void UpdateBehaviour() { }
+        protected virtual void FixedUpdateBehaviour() { }
 
         protected void InvokeDiedEvent() => 
             Died?.Invoke(this, EventArgs.Empty);
@@ -124,13 +131,13 @@ namespace Platformer.CharacterSystem.Enemies
         public virtual bool SetData(JObject data) => 
             SetData(data.ToObject<EnemyData>());
 
-        public void OnPlayerNearby()
+        public virtual void OnPlayerNearby()
         {
             _inIdle = false;
             _pursuingPlayer = true;
         }
 
-        public void OnPlayerRanAway() =>
+        public virtual void OnPlayerRanAway() =>
             _pursuingPlayer = false;
     }
 }

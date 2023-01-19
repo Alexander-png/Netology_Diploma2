@@ -107,19 +107,17 @@ namespace Platformer.GameCore
 
         private void OnEnable()
         {
-            //_cameraAligner.ShowAreaExecuted += OnAreaShowed;
             PauseStateChanged += OnPauseStateChanged;
         }
 
         private void OnDisable()
         {
             StopAllCoroutines();
-            //_cameraAligner.ShowAreaExecuted -= OnAreaShowed;
             PauseStateChanged -= OnPauseStateChanged;
         }
 
         public void RegisterSaveableObject(ISaveable saveableObject) =>
-            _saveSystem.RegisterSaveableObject(saveableObject);
+            _saveSystem?.RegisterSaveableObject(saveableObject);
 
         public bool CheckQuestCompleted(IPerformer interactionTarget, string questId) =>
             _questHandler.IsQuestCompleted(interactionTarget as IQuestGiver, questId);
