@@ -24,7 +24,6 @@ namespace Platformer.CharacterSystem.Enemies
             public PatrollingEnemyData(EnemyData enemyData)
             {
                 Name = enemyData.Name;
-                Side = enemyData.Side;
                 RawPosition = enemyData.RawPosition;
                 CurrentHealth = enemyData.CurrentHealth;
                 AttackingPlayer = enemyData.AttackingPlayer;
@@ -61,7 +60,7 @@ namespace Platformer.CharacterSystem.Enemies
             }
         }
 
-        protected override void SetDefaultParameters(DefaultCharacterStats stats)
+        protected override void SetDefaultParameters(CharacterStats stats)
         {
             base.SetDefaultParameters(stats);
             _maxHealth = stats.MaxHealth;
@@ -108,7 +107,7 @@ namespace Platformer.CharacterSystem.Enemies
             if (Vector3.SqrMagnitude(transform.position - _currentPoint.Position) <= _currentPoint.ArriveRadius)
             {
                 _currentPoint = _currentPoint.NextPoints[0];
-                StartCoroutine(IdleCoroutine(_idleTime));
+                StartCoroutine(IdleCoroutine(_behaviourConfig.IdleTime));
             }
         }
 
@@ -125,11 +124,11 @@ namespace Platformer.CharacterSystem.Enemies
                 MovementController.MoveInput = -1f;
             }
 
-            bool closeToPlayer = Mathf.Abs(playerPosition.x - selfPosition.x) <= _closeToPlayerDistance;
+            bool closeToPlayer = Mathf.Abs(playerPosition.x - selfPosition.x) <= _behaviourConfig.CloseToPlayerDistance;
 
             if (closeToPlayer)
             {
-                bool needToJump = playerPosition.y - selfPosition.y >= _playerHeightDiffToJump;
+                bool needToJump = playerPosition.y - selfPosition.y >= _behaviourConfig.PlayerHeightDiffToJump;
                 if (needToJump)
                 {
                     MovementController.JumpInput = 1f;

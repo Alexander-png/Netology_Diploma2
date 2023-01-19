@@ -14,15 +14,8 @@ namespace Platformer.CharacterSystem.Enemies
 		[Inject]
 		protected GameSystem _gameSystem;
 
-        // TODO: better move these fields to scriptable object
         [SerializeField]
-        protected float _idleTime;
-        [SerializeField]
-        protected float _attackRadius;
-        [SerializeField]
-        protected float _playerHeightDiffToJump;
-        [SerializeField]
-        protected float _closeToPlayerDistance;
+        protected EnemyBehaviourConfig _behaviourConfig;
         
         protected float _currentHealth;
         protected float _maxHealth;
@@ -64,7 +57,7 @@ namespace Platformer.CharacterSystem.Enemies
             FixedUpdateBehaviour();
         }
 
-        protected override void SetDefaultParameters(DefaultCharacterStats stats)
+        protected override void SetDefaultParameters(CharacterStats stats)
         {
             base.SetDefaultParameters(stats);
             _maxHealth = stats.MaxHealth;
@@ -99,7 +92,6 @@ namespace Platformer.CharacterSystem.Enemies
         public virtual object GetData() => new EnemyData()
         {
             Name = gameObject.name,
-            Side = Side,
             RawPosition = new CharacterData.Position3
             {
                 x = transform.position.x,
@@ -119,7 +111,6 @@ namespace Platformer.CharacterSystem.Enemies
                 return false;
             }
 
-            Side = dataToSet.Side;
             transform.position = dataToSet.GetPositionAsVector3();
             _currentHealth = dataToSet.CurrentHealth;
             _pursuingPlayer = dataToSet.AttackingPlayer;

@@ -1,5 +1,5 @@
 using Platformer.CharacterSystem.Base;
-using Platformer.Scriptable.LevelElements;
+using Platformer.Scriptable.LevelElements.Traps;
 using UnityEngine;
 
 namespace Platformer.Weapons

@@ -50,7 +50,7 @@ namespace Platformer.PlayerSystem
             StopAllCoroutines();
         }
 
-        protected override void SetDefaultParameters(DefaultCharacterStats stats)
+        protected override void SetDefaultParameters(CharacterStats stats)
         {
             base.SetDefaultParameters(stats);
             _maxHealth = stats.MaxHealth;
@@ -68,7 +68,6 @@ namespace Platformer.PlayerSystem
         public override CharacterDataContainer GetDataAsContainer() =>
             new PlayerDataContainer()
             {
-                Side = Side,
                 Name = Name,
                 Position = transform.position,
                 CurrentHealth = _currentHealth,
@@ -108,7 +107,6 @@ namespace Platformer.PlayerSystem
         public object GetData() => new CharacterData()
         {
             Name = gameObject.name,
-            Side = Side,
             RawPosition = new CharacterData.Position3
             {
                 x = transform.position.x,
@@ -126,7 +124,6 @@ namespace Platformer.PlayerSystem
                 return false;
             }
 
-            Side = dataToSet.Side;
             transform.position = dataToSet.GetPositionAsVector3();
             _currentHealth = dataToSet.CurrentHealth;
             return true;

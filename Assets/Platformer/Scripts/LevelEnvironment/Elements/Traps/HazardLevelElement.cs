@@ -1,6 +1,6 @@
 using Platformer.CharacterSystem.Base;
 using Platformer.LevelEnvironment.Elements.Common;
-using Platformer.Scriptable.LevelElements;
+using Platformer.Scriptable.LevelElements.Traps;
 using System.Collections.Generic;
 using UnityEngine;
 

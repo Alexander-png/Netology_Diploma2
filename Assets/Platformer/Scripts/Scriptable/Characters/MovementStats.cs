@@ -4,9 +4,6 @@ using UnityEngine;
 
 namespace Platformer.Scriptable.Characters
 {
-	/// <summary>
-	/// Use this to create default movement stats
-	/// </summary>
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Movement stats")]
 	public class MovementStats : ScriptableObject
 	{

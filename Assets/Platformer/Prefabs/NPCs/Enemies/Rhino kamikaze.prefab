@@ -157,12 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 9988ad99ca21cd34999ac77ba338c0c2, type: 2}
-  _visual: {fileID: 28018662800904352}
   _movementController: {fileID: 28018661801355743}
-  _idleTime: 3
-  _attackRadius: 1.45
-  _playerHeightDiffToJump: 2
-  _closeToPlayerDistance: 10
+  _behaviourConfig: {fileID: 11400000, guid: 14645c6a43a63dc4fa4be2535a11688f, type: 2}
   _patrolArea: {fileID: 0}
 --- !u!1 &28018662800904355
 GameObject:
@@ -255,7 +251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _owner: {fileID: 0}
-  _agressionTrigger: {fileID: 4237965182315201775}
 --- !u!1 &5934934168350671682
 GameObject:
   m_ObjectHideFlags: 0

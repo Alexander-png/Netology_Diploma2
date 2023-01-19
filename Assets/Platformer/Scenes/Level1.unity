@@ -1493,46 +1493,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DarkBeetleRaycast
       objectReference: {fileID: 0}
-    - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
-      propertyPath: _verticalRayLength
-      value: 6.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
-      propertyPath: _verticalRayOffset
-      value: 1.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
-      propertyPath: _visiblityOrigin.y
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
-      propertyPath: _horizontalRayLength
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
-      propertyPath: _rearVisibilityRange
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
-      propertyPath: _frontVisibilityRange
-      value: 9.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
-      propertyPath: _verticalSensorLength
-      value: 6.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
-      propertyPath: _verticalSensorOffset
-      value: 1.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
-      propertyPath: _behindVisibilityRange
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3923835951531144669, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
-      propertyPath: _horizontalSensorLength
-      value: 1.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}

@@ -1,8 +1,8 @@
 {
     "DisplayedInstallDialog": true,
-    "DefaultNamespace": "DefaultCompany.Netology_Diploma_2",
+    "DefaultNamespace": "Platformer",
     "IgnoreFolder": "Scripts",
-    "UseFolderNames": false,
+    "UseFolderNames": true,
     "LastFolderOnly": false,
-    "UsePlayerSettings": true
+    "UsePlayerSettings": false
 }

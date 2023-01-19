@@ -1,16 +1,13 @@
-using Platformer.CharacterSystem.Enums;
 using UnityEngine;
 
 namespace Platformer.Scriptable.Characters
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Character stats")]
-	public class DefaultCharacterStats : ScriptableObject
+	public class CharacterStats : ScriptableObject
 	{
 		// TODO: split this class by character types
 		[SerializeField]
 		private string _name;
-		[SerializeField]
-		private SideTypes _side;
 		[SerializeField]
 		private float _maxHealth;
 		[SerializeField]
@@ -23,7 +20,6 @@ namespace Platformer.Scriptable.Characters
 		private bool _interactable;
 		
 		public string Name => _name;
-		public SideTypes Side => _side;
 		public float MaxHealth => _maxHealth;
 		public float MaxMana => _maxMana;
 		public float DamageImmuneTime => _damageImmuneTime;

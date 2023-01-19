@@ -1468,14 +1468,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: e5da21a953c98c647916068d1b5ffba8, type: 2}
   _movementController: {fileID: 1836675779015504955}
+  _behaviourConfig: {fileID: 11400000, guid: 234f7423eda346449b6a987bc60c1cd5, type: 2}
   _idleTime: 3
   _attackRadius: 1.45
   _playerHeightDiffToJump: 2
   _closeToPlayerDistance: 10
-  _horizontalSensorOrigin: {x: 0, y: 0, z: 0}
-  _horizontalSensorLength: 0
-  _verticalSensorLength: 0
-  _verticalSensorOffset: 0
+  _detectorConfig: {fileID: 11400000, guid: 633f1ba65ff304b4ca72b90a73589b66, type: 2}
+  _viewFieldConfig: {fileID: 11400000, guid: cdb8f9ccba800504ebbecce2d9f516c4, type: 2}
 --- !u!1 &1836675779045180275
 GameObject:
   m_ObjectHideFlags: 0
