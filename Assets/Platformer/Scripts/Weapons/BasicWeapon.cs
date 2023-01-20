@@ -9,11 +9,11 @@ namespace Platformer.Weapons
         [SerializeField]
         protected DamageStats _damageStats;
         [SerializeField]
-        protected Character _owner;
+        protected Entity _owner;
 
         protected virtual void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out IDamagableCharacter target))
+            if (other.TryGetComponent(out IDamagable target))
             {
                 if (!target.Equals(_owner))
                 {

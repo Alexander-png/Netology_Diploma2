@@ -1,4 +1,3 @@
-using Newtonsoft.Json.Linq;
 using Platformer.GameCore;
 using Platformer.Interaction;
 using Platformer.QuestSystem;
@@ -6,7 +5,7 @@ using UnityEngine;
 
 namespace Platformer.CharacterSystem.NPC
 {
-	public class TalkableNPC : BaseNPC, ITalkable, IQuestGiver, IQuestTarget, ISaveable
+	public class TalkableNPC : BaseNPC, ITalkable, IQuestGiver, IQuestTarget
     {
         [SerializeField]
         private string _conversationId;
@@ -21,16 +20,6 @@ namespace Platformer.CharacterSystem.NPC
             set => _conversationId = value;
         }
 
-        protected class TalkableNPCData : SaveData
-        {
-            public string ConversationId;
-        }
-
-        protected virtual void Start()
-        {
-            GameSystem.RegisterSaveableObject(this);
-        }
-
         public void Talk()
         {
             GameSystem.ConversationHandler.StartConversation(_conversationId);
@@ -43,47 +32,6 @@ namespace Platformer.CharacterSystem.NPC
             {
                 Talk();
             }
-        }
-
-        protected virtual bool ValidateData(TalkableNPCData data)
-        {
-            if (data == null)
-            {
-                EditorExtentions.GameLogger.AddMessage($"Failed to cast data. Instance name: {gameObject.name}, data type: {data}", EditorExtentions.GameLogger.LogType.Error);
-                return false;
-            }
-            if (data.Name != gameObject.name)
-            {
-                EditorExtentions.GameLogger.AddMessage($"Attempted to set data from another game object. Instance name: {gameObject.name}, data name: {data.Name}", EditorExtentions.GameLogger.LogType.Error);
-                return false;
-            }
-            return true;
-        }
-
-        public virtual object GetData() => new TalkableNPCData() 
-        {
-            Name = gameObject.name, 
-            ConversationId = _conversationId 
-        };
-
-        public virtual bool SetData(object data)
-        {
-            TalkableNPCData dataToSet = data as TalkableNPCData;
-
-            if (!ValidateData(dataToSet))
-            {
-                return false;
-            }
-            Reset(dataToSet);
-            return true;
-        }
-
-        public virtual bool SetData(JObject data) => 
-            SetData(data.ToObject<TalkableNPCData>());
-
-        protected virtual void Reset(TalkableNPCData data)
-        {
-            _conversationId = data.ConversationId;
         }
     }
 }

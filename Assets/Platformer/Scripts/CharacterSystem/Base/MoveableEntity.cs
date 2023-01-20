@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Platformer.CharacterSystem.Base
 {
-	public abstract class MoveableCharacter : Character
+	public abstract class MoveableEntity : Entity
 	{
 		[SerializeField]
 		private CharacterMovement _movementController;

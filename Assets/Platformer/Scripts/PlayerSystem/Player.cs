@@ -1,21 +1,14 @@
-using Newtonsoft.Json.Linq;
 using Platformer.CharacterSystem.Base;
-using Platformer.CharacterSystem.DataContainers;
-using Platformer.GameCore;
 using Platformer.Scriptable.Characters;
 using Platformer.SkillSystem;
 using System;
 using System.Collections;
 using UnityEngine;
-using Zenject;
 
 namespace Platformer.PlayerSystem
 {
-    public class Player : MoveableCharacter, IDamagableCharacter, ISkillObservable, ISaveable
+    public class Player : MoveableEntity, IDamagable, ISkillObservable
     {
-        [Inject]
-        private GameSystem _gameSystem;
-
         [SerializeField]
         private Inventory _inventory;
         [SerializeField]
@@ -32,11 +25,6 @@ namespace Platformer.PlayerSystem
         public SkillObserver SkillObserver => _skillObserver;
 
         public event EventHandler Died;
-
-        protected override void Start()
-        {
-            _gameSystem.RegisterSaveableObject(this);
-        }
 
         protected override void OnEnable()
         {
@@ -57,21 +45,6 @@ namespace Platformer.PlayerSystem
             _currentHealth = _maxHealth;
             _damageImmuneTime = stats.DamageImmuneTime;
         }
-
-        public override void SetDataFromContainer(CharacterDataContainer data)
-        {
-            base.SetDataFromContainer(data);
-            PlayerDataContainer playerData = data as PlayerDataContainer;
-            _currentHealth = playerData.CurrentHealth;
-        }
-
-        public override CharacterDataContainer GetDataAsContainer() =>
-            new PlayerDataContainer()
-            {
-                Name = Name,
-                Position = transform.position,
-                CurrentHealth = _currentHealth,
-            };
 
         public void SetDamage(float damage, Vector3 pushVector, bool forced = false)
         {
@@ -103,33 +76,5 @@ namespace Platformer.PlayerSystem
             yield return new WaitForSeconds(time);
             _damageImmune = false;
         }
-
-        public object GetData() => new CharacterData()
-        {
-            Name = gameObject.name,
-            RawPosition = new CharacterData.Position3
-            {
-                x = transform.position.x,
-                y = transform.position.y,
-                z = transform.position.z,
-            },
-            CurrentHealth = CurrentHealth
-        };
-
-        public bool SetData(object data)
-        {
-            CharacterData dataToSet = data as CharacterData;
-            if (!ValidateData(dataToSet))
-            {
-                return false;
-            }
-
-            transform.position = dataToSet.GetPositionAsVector3();
-            _currentHealth = dataToSet.CurrentHealth;
-            return true;
-        }
-
-        public bool SetData(JObject data) => 
-            SetData(data.ToObject<CharacterData>());
     }
 }

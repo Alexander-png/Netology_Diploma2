@@ -7,12 +7,12 @@ namespace Platformer.Weapons
     {
         protected override void OnTriggerStay(Collider other)
         {
-            if (other.TryGetComponent(out IDamagableCharacter target))
+            if (other.TryGetComponent(out IDamagable target))
             {
                 if (!target.Equals(_owner))
                 {
                     Vector3 pushVector;
-                    if (_owner is MoveableCharacter moveable)
+                    if (_owner is MoveableEntity moveable)
                     {
                         pushVector = moveable.MovementController.Velocity.normalized;
                         pushVector.y = Mathf.Abs(pushVector.y) * _damageStats.PushForce / 2f;
@@ -23,7 +23,7 @@ namespace Platformer.Weapons
                     }
                     pushVector *= _damageStats.PushForce;
                     target.SetDamage(_damageStats.Damage, pushVector);
-                    (_owner as IDamagableCharacter).SetDamage(float.MaxValue, Vector3.zero, true);
+                    (_owner as IDamagable).SetDamage(float.MaxValue, Vector3.zero, true);
                 }
             }
         }

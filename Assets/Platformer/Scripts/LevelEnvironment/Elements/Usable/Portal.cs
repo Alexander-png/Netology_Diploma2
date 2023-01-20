@@ -16,7 +16,7 @@ namespace Platformer.LevelEnvironment.Elements.Usable
         {
             if (_pairedPortal != null)
             {
-                if (other.TryGetComponent(out Character character))
+                if (other.TryGetComponent(out Entity character))
                 {
                     other.transform.position = _pairedPortal.MovePoint;
                 }

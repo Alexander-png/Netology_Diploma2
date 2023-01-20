@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Platformer.CharacterSystem.AI.Patroling;
 using Platformer.CharacterSystem.Base;
 using Platformer.Scriptable.Characters;
@@ -8,28 +6,11 @@ using UnityEngine;
 
 namespace Platformer.CharacterSystem.Enemies
 {
-	public class PointPatrolEnemy : Enemy
+	public class PointPatrolEnemy : MoveableEnemy
 	{
         [SerializeField, Space(15)]
         protected Transform _patrolArea;
         protected PatrolPoint _currentPoint;
-
-        protected class PatrollingEnemyData : EnemyData
-        {
-            [JsonIgnore]
-            public PatrolPoint CurrentPoint;
-
-            public PatrollingEnemyData() { }
-
-            public PatrollingEnemyData(EnemyData enemyData)
-            {
-                Name = enemyData.Name;
-                RawPosition = enemyData.RawPosition;
-                CurrentHealth = enemyData.CurrentHealth;
-                AttackingPlayer = enemyData.AttackingPlayer;
-                InIdle = enemyData.InIdle;
-            }
-        }
 
         protected override void Start()
         {
@@ -49,10 +30,9 @@ namespace Platformer.CharacterSystem.Enemies
             }
         }
 
-
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.transform.TryGetComponent(out MoveableCharacter _))
+            if (collision.transform.TryGetComponent(out MoveableEntity _))
             {
                 Vector3 newVelocity = (-MovementController.Velocity + transform.up).normalized;
                 newVelocity *= MovementController.MaxJumpForce;
@@ -150,31 +130,5 @@ namespace Platformer.CharacterSystem.Enemies
             yield return new WaitForSeconds(idleTime);
             _inIdle = false;
         }
-
-        public override object GetData()
-        {
-            PatrollingEnemyData data = new PatrollingEnemyData(base.GetData() as EnemyData)
-            {
-                CurrentPoint = _currentPoint
-            };
-            return data;
-        }
-
-        public override bool SetData(object data)
-        {
-            PatrollingEnemyData dataToSet = data as PatrollingEnemyData;
-            if (!base.SetData(dataToSet))
-            {
-                return false;
-            }
-            if (dataToSet.CurrentPoint != null)
-            {
-                _currentPoint = dataToSet.CurrentPoint;
-            }
-            return true;
-        }
-
-        public override bool SetData(JObject data) => 
-            SetData(data.ToObject<PatrollingEnemyData>());
     }
 }

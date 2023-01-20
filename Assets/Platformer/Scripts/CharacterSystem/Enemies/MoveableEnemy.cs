@@ -1,4 +1,3 @@
-using Newtonsoft.Json.Linq;
 using Platformer.CharacterSystem.Base;
 using Platformer.GameCore;
 using Platformer.PlayerSystem;
@@ -9,7 +8,7 @@ using Zenject;
 
 namespace Platformer.CharacterSystem.Enemies
 {
-	public abstract class Enemy : MoveableCharacter, IDamagableCharacter, ISaveable
+	public abstract class MoveableEnemy : MoveableEntity, IDamagable
     {
 		[Inject]
 		protected GameSystem _gameSystem;
@@ -28,18 +27,10 @@ namespace Platformer.CharacterSystem.Enemies
 
         public event EventHandler Died;
 
-        protected class EnemyData : CharacterData
-        {
-            public bool AttackingPlayer;
-            public bool InIdle;
-        }
-
         public float CurrentHealth => _currentHealth;
 
         protected override void Start()
         {
-            _gameSystem.RegisterSaveableObject(this);
-
             _player = _gameSystem.GetPlayer();
             MovementController.MovementEnabled = true;
             SetBehaviourEnabled(true);
@@ -88,39 +79,6 @@ namespace Platformer.CharacterSystem.Enemies
 
         public void Heal(float value) =>
             _currentHealth = Mathf.Clamp(_currentHealth + value, 0, _maxHealth);
-
-        public virtual object GetData() => new EnemyData()
-        {
-            Name = gameObject.name,
-            RawPosition = new CharacterData.Position3
-            {
-                x = transform.position.x,
-                y = transform.position.y,
-                z = transform.position.z,
-            },
-            CurrentHealth = CurrentHealth,
-            AttackingPlayer = _pursuingPlayer,
-            InIdle = _inIdle,
-        };
-
-        public virtual bool SetData(object data)
-        {
-            EnemyData dataToSet = data as EnemyData;
-            if (!ValidateData(dataToSet))
-            {
-                return false;
-            }
-
-            transform.position = dataToSet.GetPositionAsVector3();
-            _currentHealth = dataToSet.CurrentHealth;
-            _pursuingPlayer = dataToSet.AttackingPlayer;
-            _inIdle = dataToSet.InIdle;
-            
-            return true;
-        }
-
-        public virtual bool SetData(JObject data) => 
-            SetData(data.ToObject<EnemyData>());
 
         public virtual void OnPlayerNearby()
         {

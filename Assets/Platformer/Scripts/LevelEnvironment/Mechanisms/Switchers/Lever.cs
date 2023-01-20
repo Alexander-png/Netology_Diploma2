@@ -71,14 +71,5 @@ namespace Platformer.LevelEnvironment.Mechanisms.Switchers
 			}
 			_switchAnimator.InitState(IsSwitchedOn);
         }
-
-        protected override void Reset(SwitcherData data)
-        {
-            base.Reset(data);
-			if (_switchAnimator != null)
-            {
-				_switchAnimator.InitState(IsSwitchedOn);
-			}
-		}
     }
 }

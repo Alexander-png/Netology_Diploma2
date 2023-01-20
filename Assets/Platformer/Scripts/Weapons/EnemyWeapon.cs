@@ -9,7 +9,7 @@ namespace Platformer.Weapons
 
         protected virtual void OnTriggerStay(Collider other)
         {
-            if (other.TryGetComponent(out IDamagableCharacter target))
+            if (other.TryGetComponent(out IDamagable target))
             {
                 if (!target.Equals(_owner))
                 {

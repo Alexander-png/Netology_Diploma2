@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Platformer.CharacterSystem.Enemies
 {
-    public class RaycastPatrolEnemy : Enemy
+    public class RaycastPatrolEnemy : MoveableEnemy
     {
         private enum MovementDirection : byte
         {

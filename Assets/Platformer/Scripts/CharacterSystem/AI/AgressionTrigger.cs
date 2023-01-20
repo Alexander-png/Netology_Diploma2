@@ -1,12 +1,13 @@
+using Platformer.CharacterSystem.Enemies;
 using Platformer.PlayerSystem;
 using UnityEngine;
 
-namespace Platformer.CharacterSystem.Enemies
+namespace Platformer.CharacterSystem.AI
 {
 	public class AgressionTrigger : MonoBehaviour
 	{
         [SerializeField]
-		private Enemy _owner;
+		private MoveableEnemy _owner;
 
         private void OnTriggerEnter(Collider other)
         {

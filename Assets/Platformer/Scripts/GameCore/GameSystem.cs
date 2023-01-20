@@ -14,8 +14,6 @@ using UnityEngine;
 // TODO: More player abilities
 // TODO: improve player moving, there are some bugs
 // TODO: non movement skills
-// TODO: think about saving game object id's instead of names
-// TODO: save quest state
 
 namespace Platformer.GameCore
 {
@@ -115,9 +113,6 @@ namespace Platformer.GameCore
             StopAllCoroutines();
             PauseStateChanged -= OnPauseStateChanged;
         }
-
-        public void RegisterSaveableObject(ISaveable saveableObject) =>
-            _saveSystem?.RegisterSaveableObject(saveableObject);
 
         public bool CheckQuestCompleted(IPerformer interactionTarget, string questId) =>
             _questHandler.IsQuestCompleted(interactionTarget as IQuestGiver, questId);

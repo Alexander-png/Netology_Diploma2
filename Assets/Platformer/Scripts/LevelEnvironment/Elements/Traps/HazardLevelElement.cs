@@ -29,7 +29,7 @@ namespace Platformer.Interactables.Elements.Traps
         // TODO: is bad solution or not?
         public bool DamageEnabled { get; protected set; } = true;
 
-        protected List<IDamagableCharacter> _touchingCharacters = new List<IDamagableCharacter>();
+        protected List<IDamagable> _touchingCharacters = new List<IDamagable>();
 
         private void OnEnable()
         {
@@ -48,7 +48,7 @@ namespace Platformer.Interactables.Elements.Traps
                 return;
             }
 
-            if (collision.gameObject.TryGetComponent(out IDamagableCharacter character))
+            if (collision.gameObject.TryGetComponent(out IDamagable character))
             {
                 _touchingCharacters.Add(character);
             }
@@ -77,7 +77,7 @@ namespace Platformer.Interactables.Elements.Traps
                 return;
             }
 
-            if (collision.gameObject.TryGetComponent(out IDamagableCharacter character))
+            if (collision.gameObject.TryGetComponent(out IDamagable character))
             {
                 _touchingCharacters.Remove(character);
             }

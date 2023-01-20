@@ -1,4 +1,3 @@
-using Newtonsoft.Json.Linq;
 using Platformer.LevelEnvironment.Mechanisms.Animations;
 using Platformer.LevelEnvironment.Switchers;
 using UnityEngine;
@@ -34,8 +33,6 @@ namespace Platformer.LevelEnvironment.Mechanisms.Doors
 
         private void Start()
         {
-			GameSystem.RegisterSaveableObject(this);
-
 			if (_animation == null)
 			{
 				EditorExtentions.GameLogger.AddMessage($"{gameObject.name}: animation not specified.", EditorExtentions.GameLogger.LogType.Warning);
@@ -43,26 +40,5 @@ namespace Platformer.LevelEnvironment.Mechanisms.Doors
 			}
 			_animation.InitState(_openedByDefault);
 		}
-
-		public override object GetData() => new GateData()
-		{
-			Name = gameObject.name,
-			IsOpened = IsOpened
-		};
-
-        public override bool SetData(object data)
-		{
-			GateData dataToSet = data as GateData;
-
-			if (!ValidateData(dataToSet))
-			{
-				return false;
-			}
-			_animation.InitState(dataToSet.IsOpened);
-			return true;
-		}
-
-		public override bool SetData(JObject data) => 
-			SetData(data.ToObject<GateData>());
     }
 }
