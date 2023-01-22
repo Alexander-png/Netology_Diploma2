@@ -1,4 +1,4 @@
-using Platformer.CharacterSystem.Interactors;
+using Platformer.PlayerSystem;
 using UnityEngine;
 
 namespace Platformer.Interaction

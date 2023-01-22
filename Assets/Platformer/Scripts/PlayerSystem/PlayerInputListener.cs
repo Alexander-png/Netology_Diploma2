@@ -1,6 +1,4 @@
-using Platformer.CharacterSystem.Interactors;
 using Platformer.CharacterSystem.Movement;
-using Platformer.Weapons;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,23 +9,34 @@ namespace Platformer.PlayerSystem
         [SerializeField]
         private PlayerMovement _playerMovement;
         [SerializeField]
-        private PlayerWeapon _playerWeapon;
+        private Attacker _attacker;
         [SerializeField]
         private Interactor _interactor;
 
+        public Vector2 MousePositionOnScreen { get; private set; }
+
         private void OnRun(InputValue input) =>
-            _playerMovement.OnRunPerformed(input);
+            _playerMovement.OnRun(input);
 
         private void OnDash(InputValue input) =>
-            _playerMovement.OnDashPerformed(input);
+            _playerMovement.OnDash(input);
 
         private void OnJump(InputValue input) =>
-            _playerMovement.OnJumpPerformed(input);
+            _playerMovement.OnJump(input);
 
         private void OnAttack(InputValue input) =>
-            _playerWeapon.OnAttackPerformed(input);
+            _attacker.OnAttack(input);
 
         private void OnInteract(InputValue input) => 
-            _interactor.OnInteractPerformed(input);
+            _interactor.OnInteract(input);
+
+        private void OnMousePosition(InputValue input)
+        {
+            Vector2 newMousePos = input.Get<Vector2>();
+            if (MousePositionOnScreen != newMousePos)
+            {
+                MousePositionOnScreen = newMousePos;
+            }
+        }
     }
 }

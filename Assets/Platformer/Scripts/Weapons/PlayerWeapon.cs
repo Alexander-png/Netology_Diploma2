@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Platformer.Weapons
 {
@@ -8,9 +8,9 @@ namespace Platformer.Weapons
         [SerializeField]
         private Transform _visual;
         [SerializeField]
-        private Collider _hitCollder;
-        [SerializeField]
         private Animator _animator;
+
+        public event EventHandler HitEnded;
 
         private void OnEnable() =>
             _owner.Respawning += OnPlayerRespawning;
@@ -18,32 +18,27 @@ namespace Platformer.Weapons
         private void OnDisable() =>
             _owner.Respawning -= OnPlayerRespawning;
 
-        private void Start()
-        {
-            ResetValues();
-        }
+        private void Start() => ResetValues();
 
-        public void OnAttackPerformed(InputValue input) =>
-            MakeHit();
-
-        private void MakeHit()
+        public void MakeHit()
         {
             _animator.SetFloat("Hit", 1);
             _visual.gameObject.SetActive(true);
-            _hitCollder.enabled = true;
         }
 
         private void ResetValues()
         {
             _animator.SetFloat("Hit", 0);
             _visual.gameObject.SetActive(false);
-            _hitCollder.enabled = false;
         }
 
-        public void OnHitEnd() =>
+        public void OnHitEnd()
+        {
+            HitEnded?.Invoke(this, EventArgs.Empty);
             ResetValues();
+        }
 
-        private void OnPlayerRespawning(object sender, System.EventArgs e)
+        private void OnPlayerRespawning(object sender, EventArgs e)
         {
             ResetAnimator();
             ResetValues();

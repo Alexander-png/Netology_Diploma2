@@ -1,12 +1,11 @@
 using Platformer.GameCore;
 using Platformer.Interaction;
-using Platformer.PlayerSystem;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-namespace Platformer.CharacterSystem.Interactors
+namespace Platformer.PlayerSystem
 {
     public class Interactor : MonoBehaviour
     {
@@ -43,7 +42,7 @@ namespace Platformer.CharacterSystem.Interactors
 
         public bool HandlingEnabled { get; set; } = true;
 
-        public void OnInteractPerformed(InputValue value)
+        public void OnInteract(InputValue value)
         {
             if (_canInteract && HandlingEnabled)
             {

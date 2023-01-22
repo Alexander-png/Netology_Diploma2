@@ -11,6 +11,8 @@ namespace Platformer.Weapons
         [SerializeField]
         protected Entity _owner;
 
+        public DamageStats Stats => _damageStats;
+
         protected virtual void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out IDamagable target))
