@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageStats: {fileID: 11400000, guid: 5cbff10d3dcc78d40b2b86264a6e2841, type: 2}
   _owner: {fileID: 916324846}
-  _visual: {fileID: 322361805}
+  _visual: {fileID: 2016536382}
   _animator: {fileID: 322361806}
 --- !u!65 &322361808
 BoxCollider:
