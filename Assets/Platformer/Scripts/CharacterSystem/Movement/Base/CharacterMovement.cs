@@ -19,8 +19,8 @@ namespace Platformer.CharacterSystem.Movement.Base
         private float _moveInput;
         private float _jumpInput;
         private float _dashInput;
-        public bool IsJumpPerformed { get; set; }
-        public bool IsDashPerformed { get; set; }
+        public bool IsJumping { get; set; }
+        public bool IsDashing { get; set; }
 
         protected int JumpsLeft { get; set; }
 
@@ -56,7 +56,7 @@ namespace Platformer.CharacterSystem.Movement.Base
             set
             {
                 _jumpInput = value;
-                IsJumpPerformed = JumpInput >= 0.01f;
+                IsJumping = JumpInput >= 0.01f;
             }
         }
 
@@ -66,7 +66,7 @@ namespace Platformer.CharacterSystem.Movement.Base
             set
             {
                 _dashInput = value;
-                IsDashPerformed = _dashInput >= 0.01f && CheckCanDash();
+                IsDashing = _dashInput >= 0.01f && CheckCanDash();
             }
         }
 

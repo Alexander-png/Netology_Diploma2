@@ -2,7 +2,6 @@ using Platformer.GameCore;
 using Platformer.Interaction;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Zenject;
 
 namespace Platformer.PlayerSystem
@@ -42,7 +41,7 @@ namespace Platformer.PlayerSystem
 
         public bool HandlingEnabled { get; set; } = true;
 
-        public void OnInteract(InputValue value)
+        public void OnInteractInput()
         {
             if (_canInteract && HandlingEnabled)
             {

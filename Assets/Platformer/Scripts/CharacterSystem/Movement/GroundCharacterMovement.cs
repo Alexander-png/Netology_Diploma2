@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer.CharacterSystem.Movement
 {
-	public class EnemyMovement : CharacterMovement
+	public class GroundCharacterMovement : CharacterMovement
 	{
         private bool _dashCharged = true;
         private bool _inDash;
@@ -30,18 +30,18 @@ namespace Platformer.CharacterSystem.Movement
         private void Move()
         {
             Vector2 velocity = Velocity;
-            if (!IsDashPerformed && !_inDash)
+            if (!IsDashing && !_inDash)
             {
                 velocity.x += Acceleration * MoveInput * Time.deltaTime;
                 velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
             }
             else
             {
-                if (IsDashPerformed && !_inDash && _dashCharged)
+                if (IsDashing && !_inDash && _dashCharged)
                 {
                     StartCoroutine(DashMove(DashDuration));
                     _dashDirection = Mathf.Sign(MoveInput);
-                    IsDashPerformed = false;
+                    IsDashing = false;
                 }
                 if (_inDash)
                 {
@@ -53,7 +53,7 @@ namespace Platformer.CharacterSystem.Movement
 
         private void Jump()
         {
-            if (CanJump && IsJumpPerformed)
+            if (CanJump && IsJumping)
             {
                 Vector2 velocity = Velocity;
 
@@ -73,7 +73,7 @@ namespace Platformer.CharacterSystem.Movement
                     JumpsLeft -= 1;
                 }
 
-                IsJumpPerformed = false;
+                IsJumping = false;
                 Velocity = velocity;
             }
         }

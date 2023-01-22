@@ -4,7 +4,6 @@ using Platformer.EditorExtentions;
 using Platformer.Weapons;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Platformer.PlayerSystem
 {
@@ -55,7 +54,7 @@ namespace Platformer.PlayerSystem
 
         private bool CanNotAttack() => _attacking || _reloadingAttack || _currentWeapon == null;
 
-        public void OnAttack(InputValue input)
+        public void OnAttackInput()
         {
             if (CanNotAttack())
             {

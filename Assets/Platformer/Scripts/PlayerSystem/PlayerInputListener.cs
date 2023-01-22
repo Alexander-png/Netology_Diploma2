@@ -16,19 +16,19 @@ namespace Platformer.PlayerSystem
         public Vector2 MousePositionOnScreen { get; private set; }
 
         private void OnRun(InputValue input) =>
-            _playerMovement.OnRun(input);
+            _playerMovement.OnRunInput(input.Get<float>());
 
         private void OnDash(InputValue input) =>
-            _playerMovement.OnDash(input);
+            _playerMovement.OnDashInput(input.Get<float>());
 
         private void OnJump(InputValue input) =>
-            _playerMovement.OnJump(input);
+            _playerMovement.OnJumpInput(input.Get<float>());
 
         private void OnAttack(InputValue input) =>
-            _attacker.OnAttack(input);
+            _attacker.OnAttackInput();
 
         private void OnInteract(InputValue input) => 
-            _interactor.OnInteract(input);
+            _interactor.OnInteractInput();
 
         private void OnMousePosition(InputValue input)
         {

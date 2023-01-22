@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Platformer.Weapons
 {
+    // TODO: rework enemy weapon logic like player weapon
 	public class BasicWeapon : MonoBehaviour
 	{
         [SerializeField]
