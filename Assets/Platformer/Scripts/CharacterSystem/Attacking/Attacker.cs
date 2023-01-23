@@ -5,21 +5,21 @@ using Platformer.Weapons;
 using System.Collections;
 using UnityEngine;
 
-namespace Platformer.PlayerSystem
+namespace Platformer.CharacterSystem.Attacking
 {
 	public class Attacker : MonoBehaviour
 	{
         [SerializeField]
         private Transform _ownerTransform;
         [SerializeField]
-        private PlayerWeapon _currentWeapon;
+        private Weapon _currentWeapon;
         [SerializeField]
         private BoxCollider _damageTrigger;
 
         private bool _attacking;
         private bool _reloadingAttack;
 
-        private PlayerWeapon CurrentWeapon
+        private Weapon CurrentWeapon
         {  
             get => _currentWeapon;
             set
@@ -54,25 +54,35 @@ namespace Platformer.PlayerSystem
 
         private bool CanNotAttack() => _attacking || _reloadingAttack || _currentWeapon == null;
 
-        public void OnAttackInput()
+        public virtual void OnAttackInput()
         {
             if (CanNotAttack())
             {
                 return;
             }
+            StartAttack();
+        }
+
+        protected virtual void StartAttack()
+        {
             _attacking = true;
             _currentWeapon.MakeHit();
             _damageTrigger.enabled = true;
         }
 
-        private void OnHitEnded(object sender, System.EventArgs e)
+        public virtual void EndAttack()
         {
             _attacking = false;
             _damageTrigger.enabled = false;
+        }
+
+        private void OnHitEnded(object sender, System.EventArgs e)
+        {
+            EndAttack();
             StartCoroutine(ReloadAttack());
         }
 
-        private IDamagable GetEnemyComponent(Collider other)
+        protected virtual IDamagable GetEnemyComponent(Collider other)
         {
             // My game architechture went bad and this showed here.
             // TODO: resolve this problem.

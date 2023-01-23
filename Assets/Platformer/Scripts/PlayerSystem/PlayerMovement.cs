@@ -1,4 +1,6 @@
-namespace Platformer.CharacterSystem.Movement
+using Platformer.CharacterSystem.Movement;
+
+namespace Platformer.PlayerSystem
 {
 	public class PlayerMovement : GroundCharacterMovement
     {

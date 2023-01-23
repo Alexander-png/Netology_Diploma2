@@ -3,14 +3,12 @@ using UnityEngine;
 
 namespace Platformer.Weapons
 {
-	public class PlayerWeapon : BasicWeapon
+	public class PlayerWeapon : Weapon
 	{
         [SerializeField]
         private Transform _visual;
         [SerializeField]
         private Animator _animator;
-
-        public event EventHandler HitEnded;
 
         private void OnEnable() =>
             _owner.Respawning += OnPlayerRespawning;
@@ -20,7 +18,7 @@ namespace Platformer.Weapons
 
         private void Start() => ResetValues();
 
-        public void MakeHit()
+        public override void MakeHit()
         {
             _animator.SetFloat("Hit", 1);
             _visual.gameObject.SetActive(true);
@@ -34,7 +32,7 @@ namespace Platformer.Weapons
 
         public void OnHitEnd()
         {
-            HitEnded?.Invoke(this, EventArgs.Empty);
+            InvokeHitEnded();
             ResetValues();
         }
 

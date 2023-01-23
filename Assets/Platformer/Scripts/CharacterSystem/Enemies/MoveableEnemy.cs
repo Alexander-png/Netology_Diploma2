@@ -1,3 +1,4 @@
+using Platformer.CharacterSystem.Attacking;
 using Platformer.CharacterSystem.Base;
 using Platformer.GameCore;
 using Platformer.PlayerSystem;
@@ -8,6 +9,7 @@ using Zenject;
 
 namespace Platformer.CharacterSystem.Enemies
 {
+    // TODO: fix enemy behaviour on pursuit player
 	public abstract class MoveableEnemy : MoveableEntity, IDamagable
     {
 		[Inject]
@@ -15,6 +17,8 @@ namespace Platformer.CharacterSystem.Enemies
 
         [SerializeField]
         protected EnemyBehaviourConfig _behaviourConfig;
+        [SerializeField]
+        private Attacker _attacker;
         
         protected float _currentHealth;
         protected float _maxHealth;
@@ -84,9 +88,13 @@ namespace Platformer.CharacterSystem.Enemies
         {
             _inIdle = false;
             _pursuingPlayer = true;
+            _attacker.OnAttackInput();
         }
 
-        public virtual void OnPlayerRanAway() =>
+        public virtual void OnPlayerRanAway()
+        {
             _pursuingPlayer = false;
+            _attacker.EndAttack();
+        }
     }
 }
