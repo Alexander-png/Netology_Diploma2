@@ -1,4 +1,5 @@
 using Platformer.CharacterSystem.Attacking;
+using Platformer.CharacterSystem.Movement.Base;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +8,7 @@ namespace Platformer.PlayerSystem
 	public class PlayerInputListener : MonoBehaviour
 	{
         [SerializeField]
-        private PlayerMovement _playerMovement;
+        private CharacterMovement _playerMovement;
         [SerializeField]
         private Attacker _attacker;
         [SerializeField]
@@ -16,13 +17,13 @@ namespace Platformer.PlayerSystem
         public Vector2 MousePositionOnScreen { get; private set; }
 
         private void OnRun(InputValue input) =>
-            _playerMovement.OnRunInput(input.Get<float>());
+            _playerMovement.SetRunInput(input.Get<float>());
 
         private void OnDash(InputValue input) =>
-            _playerMovement.OnDashInput(input.Get<float>());
+            _playerMovement.SetDashInput(input.Get<float>());
 
         private void OnJump(InputValue input) =>
-            _playerMovement.OnJumpInput(input.Get<float>());
+            _playerMovement.SetJumpInput(input.Get<float>());
 
         private void OnAttack(InputValue input) =>
             _attacker.OnAttackInput();

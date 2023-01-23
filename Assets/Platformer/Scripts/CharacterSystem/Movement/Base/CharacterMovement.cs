@@ -125,6 +125,15 @@ namespace Platformer.CharacterSystem.Movement.Base
             }
         }
 
+        public void SetRunInput(float input) =>
+            MoveInput = input;
+
+        public void SetDashInput(float input) =>
+            IsDashing = input >= 0.01f && CheckCanDash();
+
+        public void SetJumpInput(float input) =>
+            IsJumping = input >= 0.01f;
+
         private bool CheckCanDash()
         {
             if (MoveInput == 0)
