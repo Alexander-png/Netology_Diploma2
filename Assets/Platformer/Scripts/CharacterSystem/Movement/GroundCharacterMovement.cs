@@ -1,5 +1,4 @@
 using Platformer.CharacterSystem.Movement.Base;
-using Platformer.LevelEnvironment.Elements.Common;
 using System.Collections;
 using UnityEngine;
 
@@ -10,6 +9,17 @@ namespace Platformer.CharacterSystem.Movement
         private bool _dashCharged = true;
         private bool _inDash;
         private float _dashDirection;
+        private bool IsJumping { get; set; }
+
+        public override float VerticalInput
+        {
+            get => base.VerticalInput;
+            set
+            {
+                base.VerticalInput = value;
+                IsJumping = VerticalInput >= 0.01f;
+            }
+        }
 
         protected override void Awake()
         {
@@ -123,6 +133,9 @@ namespace Platformer.CharacterSystem.Movement
             base.RemoveStats(stats);
             ResetJumpCounter();
         }
+
+        public override void SetVerticalInput(float input) =>
+            IsJumping = input >= 0.01f;
 
         private IEnumerator DashMove(float time)
         {

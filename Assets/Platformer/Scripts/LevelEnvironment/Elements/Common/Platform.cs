@@ -7,8 +7,6 @@ namespace Platformer.LevelEnvironment.Elements.Common
 		[SerializeField]
 		private bool _climbable;
 
-		//public bool Climbable => _climbable;
-
         private void OnDrawGizmos()
         {
             Color c = Color.green;

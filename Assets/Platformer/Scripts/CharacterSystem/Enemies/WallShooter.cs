@@ -23,6 +23,7 @@ namespace Platformer.CharacterSystem.Enemies
 
         private void UpdateBehaviour()
         {
+            // TODO: rework to attacker
             if (CheckPlayerNearby())
             {
                 Shoot();

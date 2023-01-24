@@ -19,9 +19,8 @@ namespace Platformer.CharacterSystem.Movement.Base
         private float _horizontalInput;
         private float _verticalInput;
         private float _dashInput;
-        public bool IsJumping { get; set; }
+        public Rigidbody Body => _body;
         public bool IsDashing { get; set; }
-
         protected int JumpsLeft { get; set; }
 
         public bool CanJump => JumpsLeft > 0;
@@ -51,20 +50,16 @@ namespace Platformer.CharacterSystem.Movement.Base
             set => _movementEnabled = value;
         }
 
-        public float HorizontalInput
+        public virtual float HorizontalInput
         {
             get => _horizontalInput;
             set => _horizontalInput = value;
         }
 
-        public float VerticalInput
+        public virtual float VerticalInput
         {
             get => _verticalInput;
-            set
-            {
-                _verticalInput = value;
-                IsJumping = VerticalInput >= 0.01f;
-            }
+            set => _verticalInput = value;
         }
 
         public float DashInput
@@ -108,11 +103,11 @@ namespace Platformer.CharacterSystem.Movement.Base
             }
         }
 
-        public void SetHorizontalInput(float input) =>
+        public virtual void SetHorizontalInput(float input) =>
             HorizontalInput = input;
 
-        public void SetVerticalInput(float input) =>
-            IsJumping = input >= 0.01f;
+        public virtual void SetVerticalInput(float input) =>
+            VerticalInput = input;
 
         public void SetDashInput(float input) =>
             IsDashing = input >= 0.01f && CheckCanDash();
