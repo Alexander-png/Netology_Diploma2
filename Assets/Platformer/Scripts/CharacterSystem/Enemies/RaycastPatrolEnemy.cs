@@ -80,10 +80,10 @@ namespace Platformer.CharacterSystem.Enemies
             switch (_direction)
             {
                 case MovementDirection.Left:
-                    MovementController.MoveInput = -1f;
+                    MovementController.HorizontalInput = -1f;
                     break;
                 case MovementDirection.Right:
-                    MovementController.MoveInput = 1f;
+                    MovementController.HorizontalInput = 1f;
                     break;
             }
         }
@@ -94,11 +94,11 @@ namespace Platformer.CharacterSystem.Enemies
             Vector3 selfPosition = transform.position;
             if (playerPosition.x > selfPosition.x)
             {
-                MovementController.MoveInput = 1f;
+                MovementController.HorizontalInput = 1f;
             }
             else if (playerPosition.x < selfPosition.x)
             {
-                MovementController.MoveInput = -1f;
+                MovementController.HorizontalInput = -1f;
             }
         }
 
@@ -112,7 +112,7 @@ namespace Platformer.CharacterSystem.Enemies
                 yield break;
             }
             _inIdle = true;
-            MovementController.MoveInput = 0;
+            MovementController.HorizontalInput = 0;
             MovementController.Velocity = Vector3.zero;
             yield return new WaitForSeconds(idleTime);
             if (!_pursuingPlayer)

@@ -51,7 +51,7 @@ namespace Platformer.CharacterSystem.Enemies
         {
             if (!_behaviourEnabled)
             {
-                MovementController.MoveInput = 0f;
+                MovementController.HorizontalInput = 0f;
                 _pursuingPlayer = false;
                 return;
             }
@@ -70,7 +70,7 @@ namespace Platformer.CharacterSystem.Enemies
         {
             if (_inIdle)
             {
-                MovementController.MoveInput = 0f;
+                MovementController.HorizontalInput = 0f;
                 MovementController.Velocity = Vector3.zero;
                 return;
             }
@@ -82,7 +82,7 @@ namespace Platformer.CharacterSystem.Enemies
 
             var pointPos = _currentPoint.Position;
 
-            MovementController.MoveInput = pointPos.x > transform.position.x ? 1f : -1f;
+            MovementController.HorizontalInput = pointPos.x > transform.position.x ? 1f : -1f;
 
             if (Vector3.SqrMagnitude(transform.position - _currentPoint.Position) <= _currentPoint.ArriveRadius)
             {
@@ -97,11 +97,11 @@ namespace Platformer.CharacterSystem.Enemies
             Vector3 selfPosition = transform.position;
             if (playerPosition.x > selfPosition.x)
             {
-                MovementController.MoveInput = 1f;
+                MovementController.HorizontalInput = 1f;
             }
             else if (playerPosition.x < selfPosition.x)
             {
-                MovementController.MoveInput = -1f;
+                MovementController.HorizontalInput = -1f;
             }
 
             bool closeToPlayer = Mathf.Abs(playerPosition.x - selfPosition.x) <= _behaviourConfig.CloseToPlayerDistance;
@@ -111,16 +111,16 @@ namespace Platformer.CharacterSystem.Enemies
                 bool needToJump = playerPosition.y - selfPosition.y >= _behaviourConfig.PlayerHeightDiffToJump;
                 if (needToJump)
                 {
-                    MovementController.JumpInput = 1f;
+                    MovementController.VerticalInput = 1f;
                 }
                 else
                 {
-                    MovementController.JumpInput = 0f;
+                    MovementController.VerticalInput = 0f;
                 }
             }
             else
             {
-                MovementController.JumpInput = 0f;
+                MovementController.VerticalInput = 0f;
             }
         }
 

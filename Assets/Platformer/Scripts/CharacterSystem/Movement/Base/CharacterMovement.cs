@@ -16,8 +16,8 @@ namespace Platformer.CharacterSystem.Movement.Base
         private MovementStatsInfo _movementStats;
         private Vector3 _currentCollisionNormal;
 
-        private float _moveInput;
-        private float _jumpInput;
+        private float _horizontalInput;
+        private float _verticalInput;
         private float _dashInput;
         public bool IsJumping { get; set; }
         public bool IsDashing { get; set; }
@@ -29,34 +29,41 @@ namespace Platformer.CharacterSystem.Movement.Base
         public float MaxSpeed => _movementStats.MaxSpeed;
         public float JumpForce => _movementStats.GetJumpForce(JumpsLeft);
         public float MaxJumpForce => _movementStats.MaxJumpForce;
+        public int JumpCountInRow => _movementStats.JumpCountInRow;
         public float ClimbForce => _movementStats.ClimbForce;
-        public float WallClimbRepulsion => _movementStats.WallClimbRepulsion;
         public float DashForce => _movementStats.DashForce;
         public float DashDuration => _movementStats.DashDuration;
         public float DashRechargeTime => _movementStats.DashRechargeTime;
 
         public bool OnGround { get; protected set; }
-        public bool OnWall { get; protected set; }
+
+        public Vector3 CurrentCollisionNormal
+        {
+            get => _currentCollisionNormal;
+            set => _currentCollisionNormal = value;
+        }
+
         public bool InAir => _currentCollisionNormal == Vector3.zero;
+
         public bool MovementEnabled 
         {
             get => _movementEnabled;
             set => _movementEnabled = value;
         }
 
-        public float MoveInput
+        public float HorizontalInput
         {
-            get => _moveInput;
-            set => _moveInput = value;
+            get => _horizontalInput;
+            set => _horizontalInput = value;
         }
 
-        public float JumpInput
+        public float VerticalInput
         {
-            get => _jumpInput;
+            get => _verticalInput;
             set
             {
-                _jumpInput = value;
-                IsJumping = JumpInput >= 0.01f;
+                _verticalInput = value;
+                IsJumping = VerticalInput >= 0.01f;
             }
         }
 
@@ -80,7 +87,6 @@ namespace Platformer.CharacterSystem.Movement.Base
         {
             _movementStats = _defaultMovementStats.GetData();
             _currentCollisionNormal = Vector3.zero;
-            ResetJumpCounter();
         }
 
         protected virtual void OnDisable()
@@ -88,36 +94,13 @@ namespace Platformer.CharacterSystem.Movement.Base
             ResetState();
         }
 
-        private void OnCollisionEnter(Collision collision)
+        protected virtual void OnCollisionEnter(Collision collision) 
         {
-            if (collision.gameObject.TryGetComponent(out Platform plat))
-            {
-                var newNormal = collision.GetContact(0).normal;
-                
-                if (_currentCollisionNormal != Vector3.zero)
-                {
-                    if (newNormal.x != 0 && _currentCollisionNormal.y != 0)
-                    {
-                        OnWall = true;
-                        OnGround = false;
-                        _currentCollisionNormal = newNormal;
-                    }
-                }
-                else
-                {
-                    _currentCollisionNormal = newNormal;
-                    OnWall = plat.Climbable ? Mathf.Abs(_currentCollisionNormal.x) > 0.9 : false;
-                    OnGround = !OnWall;
-                }
-
-                if ((OnGround || OnWall) && plat.Climbable)
-                {
-                    ResetJumpCounter();
-                }
-            }
+            var newNormal = collision.GetContact(0).normal;
+            CurrentCollisionNormal = newNormal;
         }
 
-        private void OnCollisionExit(Collision collision)
+        protected virtual void OnCollisionExit(Collision collision)
         {
             if (collision.gameObject.TryGetComponent(out Platform _))
             {
@@ -125,44 +108,30 @@ namespace Platformer.CharacterSystem.Movement.Base
             }
         }
 
-        public void SetRunInput(float input) =>
-            MoveInput = input;
+        public void SetHorizontalInput(float input) =>
+            HorizontalInput = input;
+
+        public void SetVerticalInput(float input) =>
+            IsJumping = input >= 0.01f;
 
         public void SetDashInput(float input) =>
             IsDashing = input >= 0.01f && CheckCanDash();
 
-        public void SetJumpInput(float input) =>
-            IsJumping = input >= 0.01f;
-
         private bool CheckCanDash()
         {
-            if (MoveInput == 0)
+            if (HorizontalInput == 0)
             {
                 return false;
             }
             return DashForce != 0 && DashDuration != 0;
         }
 
-        public virtual void AddStats(MovementStatsInfo stats)
-        {
+        public virtual void AddStats(MovementStatsInfo stats) =>
             _movementStats += stats;
-            ResetJumpCounter();
-        }
 
-        public virtual void RemoveStats(MovementStatsInfo stats)
-        {
+        public virtual void RemoveStats(MovementStatsInfo stats) =>
             _movementStats -= stats;
-            ResetJumpCounter();
-        }
 
-        private void ResetJumpCounter()
-        {
-            JumpsLeft = _movementStats.JumpCountInRow;
-        }
-
-        protected virtual void ResetState()
-        {
-            ResetJumpCounter();
-        }
+        protected virtual void ResetState() { }
     }
 }

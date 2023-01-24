@@ -17,13 +17,13 @@ namespace Platformer.PlayerSystem
         public Vector2 MousePositionOnScreen { get; private set; }
 
         private void OnRun(InputValue input) =>
-            _playerMovement.SetRunInput(input.Get<float>());
+            _playerMovement.SetHorizontalInput(input.Get<float>());
 
         private void OnDash(InputValue input) =>
             _playerMovement.SetDashInput(input.Get<float>());
 
         private void OnJump(InputValue input) =>
-            _playerMovement.SetJumpInput(input.Get<float>());
+            _playerMovement.SetVerticalInput(input.Get<float>());
 
         private void OnAttack(InputValue input) =>
             _attacker.OnAttackInput();
