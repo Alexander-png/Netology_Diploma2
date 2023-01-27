@@ -9,11 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f4f1f95aa6a8fe4fab0b305ec610a41, type: 3}
-  m_Name: DarkBeetleBehaviour
+  m_Script: {fileID: 11500000, guid: 8e8357ef3112e4a4186f051ffb00c4f8, type: 3}
+  m_Name: ExplosiveWaspMovement
   m_EditorClassIdentifier: 
-  _idleTime: 3
-  _attackRadius: 1.45
-  _playerHeightDiffToJump: 2
-  _closeToPlayerDistance: 10
-  _argressionRadius: 0
+  _maxSpeed: 10
+  _acceleration: 10
+  _jumps: []
+  _jumpCountInRow: 0
+  _climbForce: 0
+  _wallClimbRepulsion: 0
+  _dashForce: 30
+  _dashDuration: 10
+  _dashRechargeTime: 0.1

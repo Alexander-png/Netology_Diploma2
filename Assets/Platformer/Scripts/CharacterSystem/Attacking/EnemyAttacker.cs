@@ -6,9 +6,9 @@ namespace Platformer.CharacterSystem.Attacking
 {
 	public class EnemyAttacker : Attacker
 	{
-        public override void OnAttackInput()
+        public override void StartAttack()
         {
-            StartAttack();
+            StartAttackInternal();
         }
 
         protected override IDamagable GetEnemyComponent(Collider other)
@@ -18,6 +18,25 @@ namespace Platformer.CharacterSystem.Attacking
                 return player;
             }
             return null;
+        }
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            var enemy = GetEnemyComponent(other);
+            if (enemy != null)
+            {
+                if (CurrentWeapon != null)
+                {
+                    enemy.SetDamage(CurrentWeapon.Stats.Damage, (_ownerTransform.position - transform.position) * CurrentWeapon.Stats.PushForce);
+                    if (CurrentWeapon.Stats.IsKamikazeAttack)
+                    {
+                        if (_ownerTransform.gameObject.TryGetComponent(out IDamagable damagable))
+                        {
+                            damagable.SetDamage(float.MaxValue, Vector3.zero, true);
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -12,6 +12,9 @@ namespace Platformer.Weapons
         [SerializeField]
         protected Entity _owner;
 
+        protected bool _chargingAttack;
+        protected Coroutine _chargeAttackCoroutine;
+
         public DamageStats Stats => _damageStats;
 
         public event EventHandler HitEnded;
@@ -20,5 +23,6 @@ namespace Platformer.Weapons
             HitEnded?.Invoke(this, EventArgs.Empty);
 
         public virtual void MakeHit() { }
+        public virtual void StopHit() { }
     }
 }

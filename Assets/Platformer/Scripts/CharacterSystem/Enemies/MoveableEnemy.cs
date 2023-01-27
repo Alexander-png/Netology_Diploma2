@@ -10,16 +10,16 @@ using Zenject;
 namespace Platformer.CharacterSystem.Enemies
 {
     // TODO: fix enemy behaviour on pursuit player
-	public abstract class MoveableEnemy : MoveableEntity, IDamagable
+    public abstract class MoveableEnemy : MoveableEntity, IDamagable
     {
-		[Inject]
-		protected GameSystem _gameSystem;
+        [Inject]
+        protected GameSystem _gameSystem;
 
         [SerializeField]
         protected EnemyBehaviourConfig _behaviourConfig;
         [SerializeField]
-        private Attacker _attacker;
-        
+        protected Attacker _attacker;
+
         protected float _currentHealth;
         protected float _maxHealth;
 
@@ -61,6 +61,7 @@ namespace Platformer.CharacterSystem.Enemies
 
         protected virtual void UpdateBehaviour() { }
         protected virtual void FixedUpdateBehaviour() { }
+        protected virtual void CheckPlayerNearby() { }
 
         protected void InvokeDiedEvent() => 
             Died?.Invoke(this, EventArgs.Empty);
@@ -86,13 +87,21 @@ namespace Platformer.CharacterSystem.Enemies
 
         public virtual void OnPlayerNearby()
         {
+            if (_pursuingPlayer)
+            {
+                return;
+            }
             _inIdle = false;
             _pursuingPlayer = true;
-            _attacker.OnAttackInput();
+            _attacker.StartAttack();
         }
 
         public virtual void OnPlayerRanAway()
         {
+            if (!_pursuingPlayer)
+            {
+                return;
+            }
             _pursuingPlayer = false;
             _attacker.EndAttack();
         }

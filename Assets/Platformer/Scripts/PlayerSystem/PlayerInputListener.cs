@@ -26,7 +26,7 @@ namespace Platformer.PlayerSystem
             _playerMovement.SetVerticalInput(input.Get<float>());
 
         private void OnAttack(InputValue input) =>
-            _attacker.OnAttackInput();
+            _attacker.StartAttack();
 
         private void OnInteract(InputValue input) => 
             _interactor.OnInteractInput();

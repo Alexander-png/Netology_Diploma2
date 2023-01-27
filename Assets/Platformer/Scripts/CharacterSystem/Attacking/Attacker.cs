@@ -10,16 +10,19 @@ namespace Platformer.CharacterSystem.Attacking
 	public class Attacker : MonoBehaviour
 	{
         [SerializeField]
-        private Transform _ownerTransform;
+        protected Transform _ownerTransform;
         [SerializeField]
         private Weapon _currentWeapon;
         [SerializeField]
-        private BoxCollider _damageTrigger;
+        private Collider _damageTrigger;
+
+        [SerializeField]
+        private float _attackReloadTime = 1f;
 
         private bool _attacking;
         private bool _reloadingAttack;
 
-        private Weapon CurrentWeapon
+        protected Weapon CurrentWeapon
         {  
             get => _currentWeapon;
             set
@@ -54,16 +57,16 @@ namespace Platformer.CharacterSystem.Attacking
 
         private bool CanNotAttack() => _attacking || _reloadingAttack || _currentWeapon == null;
 
-        public virtual void OnAttackInput()
+        public virtual void StartAttack()
         {
             if (CanNotAttack())
             {
                 return;
             }
-            StartAttack();
+            StartAttackInternal();
         }
 
-        protected virtual void StartAttack()
+        protected virtual void StartAttackInternal()
         {
             _attacking = true;
             _currentWeapon.MakeHit();
@@ -73,6 +76,7 @@ namespace Platformer.CharacterSystem.Attacking
         public virtual void EndAttack()
         {
             _attacking = false;
+            _currentWeapon?.StopHit();
             _damageTrigger.enabled = false;
         }
 
@@ -97,34 +101,41 @@ namespace Platformer.CharacterSystem.Attacking
             return null;
         }
 
-        private void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             var enemy = GetEnemyComponent(other);
             if (enemy != null)
             {
                 if (_currentWeapon != null)
                 {
-                    enemy.SetDamage(_currentWeapon.Stats.Damage, (_ownerTransform.position - transform.position) * _currentWeapon.Stats.PushForce);
+                    enemy.SetDamage(CurrentWeapon.Stats.Damage, (_ownerTransform.position - transform.position) * CurrentWeapon.Stats.PushForce);
                 }
             }
         }
 
+        public float GetAttackChargeTime() =>
+            CurrentWeapon.Stats.AttackChargeTime;
+
         private IEnumerator ReloadAttack()
         {
             _reloadingAttack = true;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(_attackReloadTime);
             _reloadingAttack = false;
         }
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            if (TryGetComponent(out BoxCollider collider))
+            Color c = Color.red;
+            c.a = 0.3f;
+            Gizmos.color = c;
+            if (TryGetComponent(out BoxCollider box))
             {
-                Color c = Color.red;
-                c.a = 0.3f;
-                Gizmos.color = c;
-                Gizmos.DrawCube(collider.bounds.center, collider.bounds.size);
+                Gizmos.DrawCube(box.bounds.center, box.bounds.size);
+            }
+            else if (TryGetComponent(out SphereCollider sphere))
+            {
+                Gizmos.DrawSphere(transform.position, sphere.radius);
             }
             else
             {

@@ -54,7 +54,7 @@ namespace Platformer.CharacterSystem.Enemies
             return !wallOnWay && HollowOnWay;
         }
 
-        private void CheckPlayerNearby()
+        protected override void CheckPlayerNearby()
         {
             Ray frontVisual = GetHorizontalCensorRay(_viewFieldConfig.ViewOrigin);
             Ray behindVisual = GetHorizontalCensorRay(_viewFieldConfig.ViewOrigin);

@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f4f1f95aa6a8fe4fab0b305ec610a41, type: 3}
-  m_Name: DarkBeetleBehaviour
+  m_Script: {fileID: 11500000, guid: c7d0c10d91004ea4380952b658d64ea4, type: 3}
+  m_Name: ExplosiveWaspStats
   m_EditorClassIdentifier: 
-  _idleTime: 3
-  _attackRadius: 1.45
-  _playerHeightDiffToJump: 2
-  _closeToPlayerDistance: 10
-  _argressionRadius: 0
+  _name: Wasplosive
+  _maxHealth: 1
+  _damageImmuneTime: 0
+  _immortal: 0
+  _interactable: 0
