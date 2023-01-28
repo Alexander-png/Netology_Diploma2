@@ -1,4 +1,5 @@
 using Platformer.CharacterSystem.AI.Patroling;
+using Platformer.PlayerSystem;
 using System.Collections;
 using UnityEngine;
 
@@ -95,7 +96,7 @@ namespace Platformer.CharacterSystem.Enemies
             Vector3 playerPosition = _player.transform.position;
             float distanceToPlayer = (playerPosition - transform.position).sqrMagnitude;
 
-            if (distanceToPlayer <= _behaviourConfig.ArgressionRadius)
+            if (distanceToPlayer <= _behaviourConfig.ArgressionRadius && CheckSeePlayer())
             {
                 OnPlayerNearby();
             }
@@ -119,6 +120,21 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 StopCoroutine(_waitCoroutine);
             }
+        }
+
+        private bool CheckSeePlayer()
+        {
+            Vector3 pos = transform.position;
+            Vector3 dir = (_player.transform.position - pos).normalized;
+            Ray ray = new Ray(transform.position, dir);
+            if (Physics.Raycast(ray, out RaycastHit hit, _behaviourConfig.ArgressionRadius))
+            {
+                if (hit.transform.gameObject.TryGetComponent(out Player _))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public override void OnPlayerRanAway()

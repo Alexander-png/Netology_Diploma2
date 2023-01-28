@@ -11,10 +11,6 @@ namespace Platformer.CharacterSystem.Movement
         private float _drag = 10f;
         private bool _inDash;
 
-        private float _dashDirectionX;
-        private float _dashDirectionY;
-
-
         private bool CanDash { get; set; }
 
         public override float DashInput

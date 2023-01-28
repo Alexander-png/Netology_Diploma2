@@ -28,13 +28,13 @@ namespace Platformer.CharacterSystem.Attacking
                 if (CurrentWeapon != null)
                 {
                     enemy.SetDamage(CurrentWeapon.Stats.Damage, (transform.position - other.transform.position) * CurrentWeapon.Stats.PushForce);
-                    if (CurrentWeapon.Stats.IsKamikazeAttack)
-                    {
-                        if (_ownerTransform.gameObject.TryGetComponent(out IDamagable damagable))
-                        {
-                            damagable.SetDamage(float.MaxValue, Vector3.zero, true);
-                        }
-                    }
+                }
+            }
+            if (CurrentWeapon.Stats.IsKamikazeAttack)
+            {
+                if (_ownerTransform.gameObject.TryGetComponent(out IDamagable damagable))
+                {
+                    damagable.SetDamage(float.MaxValue, Vector3.zero, true);
                 }
             }
         }
