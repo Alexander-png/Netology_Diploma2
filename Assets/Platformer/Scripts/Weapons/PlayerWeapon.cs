@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Platformer.Weapons
 {
-	public class PlayerWeapon : Weapon
+	public class PlayerWeapon : MeleeWeapon
 	{
         [SerializeField]
         private Transform _visual;

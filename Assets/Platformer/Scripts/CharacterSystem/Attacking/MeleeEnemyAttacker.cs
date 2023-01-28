@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer.CharacterSystem.Attacking
 {
-	public class EnemyAttacker : Attacker
+	public class MeleeEnemyAttacker : MeleeAttacker
 	{
         public override void StartAttack()
         {

@@ -1,6 +1,6 @@
 namespace Platformer.Weapons
 {
-	public class EnemyWeapon : Weapon
+	public class EnemyWeapon : MeleeWeapon
 	{
         
     }

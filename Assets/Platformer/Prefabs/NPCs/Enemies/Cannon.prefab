@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 3791373504146783885}
   - component: {fileID: 3791373504146783884}
   - component: {fileID: 3743583013655628596}
+  - component: {fileID: 837829653916119238}
+  - component: {fileID: 1229645046439349533}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -79,10 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: c4ab01009cfbb5247a98cecf304a15a7, type: 2}
-  _shootStats: {fileID: 11400000, guid: f408918bfeceeef4caefb9a406bc5c16, type: 2}
-  _grenadePrefab: {fileID: 4012557509197702428, guid: cdb9e415137f3564cbbf87e2cf6085af, type: 3}
-  _projectileSpawnPoint: {fileID: 3791373503239028181}
-  _projectilePool: {fileID: 0}
+  _attacker: {fileID: 837829653916119238}
 --- !u!65 &3743583013655628596
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -96,6 +95,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &837829653916119238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791373504146783886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5fe6981f95246c458b8788c3d56b3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ownerTransform: {fileID: 3791373504146783885}
+  _currentWeapon: {fileID: 1229645046439349533}
+--- !u!114 &1229645046439349533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791373504146783886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39c74f86bdc89e4ab5f9f34051ae7fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _owner: {fileID: 3791373504146783884}
+  _stats: {fileID: 11400000, guid: f408918bfeceeef4caefb9a406bc5c16, type: 2}
+  _projectilePrefab: {fileID: 4012557509197702418, guid: cdb9e415137f3564cbbf87e2cf6085af, type: 3}
+  _projectileSpawnPoint: {fileID: 3791373503239028181}
+  _projectilePool: {fileID: 0}
 --- !u!1 &3791373504785467826
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,7 +18,7 @@ namespace Platformer.CharacterSystem.Enemies
         [SerializeField]
         protected EnemyBehaviourConfig _behaviourConfig;
         [SerializeField]
-        protected Attacker _attacker;
+        protected MeleeAttacker _attacker;
 
         protected float _currentHealth;
         protected float _maxHealth;

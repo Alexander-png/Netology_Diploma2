@@ -10,7 +10,7 @@ namespace Platformer.PlayerSystem
         [SerializeField]
         private CharacterMovement _playerMovement;
         [SerializeField]
-        private Attacker _attacker;
+        private MeleeAttacker _attacker;
         [SerializeField]
         private Interactor _interactor;
 

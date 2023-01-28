@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Platformer.Projectiles
 {
-	public class Grenade : MonoBehaviour
+	public class Projectile : MonoBehaviour
 	{
 		[SerializeField]
 		private ExplosiveProjectileStats _stats;
@@ -18,7 +18,7 @@ namespace Platformer.Projectiles
             StartCoroutine(ExplosionCoroutine());
         }
 
-        private void Explosion()
+        private void Explose()
         {
             Destroy(gameObject);
         }
@@ -29,14 +29,14 @@ namespace Platformer.Projectiles
             {
                 StopAllCoroutines();
                 player.SetDamage(_stats.Damage, (player.transform.position - transform.position) * _stats.ImpactForce);
-                Explosion();
+                Explose();
             }
         }
 
         private IEnumerator ExplosionCoroutine()
         {
             yield return new WaitForSeconds(_stats.BlastTimeout);
-            Explosion();
+            Explose();
         }
 
 #if UNITY_EDITOR
@@ -57,7 +57,7 @@ namespace Platformer.Projectiles
             }
             else
             {
-                EditorExtentions.GameLogger.AddMessage("Please set _stats", EditorExtentions.GameLogger.LogType.Warning);
+                EditorExtentions.GameLogger.AddMessage("No stats setted", EditorExtentions.GameLogger.LogType.Warning);
             }   
         }
 #endif
