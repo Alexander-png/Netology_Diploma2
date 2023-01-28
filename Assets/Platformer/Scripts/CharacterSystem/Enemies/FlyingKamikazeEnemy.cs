@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Platformer.CharacterSystem.Enemies
 {
+    // todo: inherit this class from patrol enemy when point patrol mode will be implemented
 	public class FlyingKamikazeEnemy : MoveableEnemy
     {
         [SerializeField]

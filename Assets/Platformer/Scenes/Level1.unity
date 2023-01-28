@@ -2469,6 +2469,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 151304671}
     m_Modifications:
+    - target: {fileID: 1229645046439349533, guid: 32c1070e0e96f62449248aec87abbc37, type: 3}
+      propertyPath: _projectilePool
+      value: 
+      objectReference: {fileID: 361818967}
     - target: {fileID: 3791373504146783884, guid: 32c1070e0e96f62449248aec87abbc37, type: 3}
       propertyPath: _projectilePool
       value: 

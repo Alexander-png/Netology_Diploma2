@@ -1,25 +1,15 @@
 using Platformer.PlayerSystem;
 using Platformer.Scriptable.Characters.AIConfig;
-using System.Collections;
 using UnityEngine;
 
 namespace Platformer.CharacterSystem.Enemies
 {
-    public class RaycastPatrolEnemy : MoveableEnemy
+    public class RaycastPatrolMeleeEnemy : PatrolEnemy
     {
-        private enum MovementDirection : byte
-        {
-            Left = 0,
-            Right = 1,
-        }
-
         [SerializeField]
         private ObstacleDetectorConfig _detectorConfig;
         [SerializeField]
         private ViewFieldConfig _viewFieldConfig;
-
-        private MovementDirection _direction;
-        private Coroutine _waitCoroutine;
 
         protected override void UpdateBehaviour()
         {
@@ -75,19 +65,6 @@ namespace Platformer.CharacterSystem.Enemies
             }   
         }
 
-        private void Patrol()
-        {
-            switch (_direction)
-            {
-                case MovementDirection.Left:
-                    MovementController.HorizontalInput = -1f;
-                    break;
-                case MovementDirection.Right:
-                    MovementController.HorizontalInput = 1f;
-                    break;
-            }
-        }
-
         private void PursuitPlayer()
         {
             Vector3 playerPosition = _player.transform.position;
@@ -100,28 +77,6 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 MovementController.HorizontalInput = -1f;
             }
-        }
-
-        private void ChangePatrolDirection() =>
-            _direction = _direction == MovementDirection.Left ? MovementDirection.Right : MovementDirection.Left;
-
-        private IEnumerator StopAndWait(float idleTime)
-        {
-            if (_inIdle)
-            {
-                yield break;
-            }
-            _inIdle = true;
-            MovementController.HorizontalInput = 0;
-            MovementController.Velocity = Vector3.zero;
-            yield return new WaitForSeconds(idleTime);
-            if (!_pursuingPlayer)
-            {
-                ChangePatrolDirection();
-                Patrol();
-            }
-            _waitCoroutine = null;
-            _inIdle = false;
         }
 
         private Ray GetHorizontalCensorRay(Vector3 origin)
@@ -137,15 +92,6 @@ namespace Platformer.CharacterSystem.Enemies
             Vector3 startPoint = transform.TransformPoint(origin);
             Vector3 endPoint = transform.rotation * new Vector3(0, -1, 0);
             return new Ray(startPoint, endPoint);
-        }
-
-        public override void OnPlayerNearby()
-        {
-            base.OnPlayerNearby();
-            if (_waitCoroutine != null)
-            {
-                StopCoroutine(_waitCoroutine);
-            }
         }
 
 #if UNITY_EDITOR
