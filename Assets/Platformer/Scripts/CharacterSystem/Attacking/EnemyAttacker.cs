@@ -27,7 +27,7 @@ namespace Platformer.CharacterSystem.Attacking
             {
                 if (CurrentWeapon != null)
                 {
-                    enemy.SetDamage(CurrentWeapon.Stats.Damage, (_ownerTransform.position - transform.position) * CurrentWeapon.Stats.PushForce);
+                    enemy.SetDamage(CurrentWeapon.Stats.Damage, (transform.position - other.transform.position) * CurrentWeapon.Stats.PushForce);
                     if (CurrentWeapon.Stats.IsKamikazeAttack)
                     {
                         if (_ownerTransform.gameObject.TryGetComponent(out IDamagable damagable))

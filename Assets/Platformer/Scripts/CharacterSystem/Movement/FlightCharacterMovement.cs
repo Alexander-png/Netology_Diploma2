@@ -1,4 +1,5 @@
 using Platformer.CharacterSystem.Movement.Base;
+using System.Collections;
 using UnityEngine;
 
 namespace Platformer.CharacterSystem.Movement
@@ -8,6 +9,23 @@ namespace Platformer.CharacterSystem.Movement
         // TODO: move to config
         [SerializeField]
         private float _drag = 10f;
+        private bool _inDash;
+
+        private float _dashDirectionX;
+        private float _dashDirectionY;
+
+
+        private bool CanDash { get; set; }
+
+        public override float DashInput
+        {
+            get => base.DashInput;
+            set
+            {
+                base.DashInput = value;
+                CanDash = DashInput >= 0.01f && CheckCanDash();
+            }
+        }
 
         private void Start()
         {
@@ -25,25 +43,55 @@ namespace Platformer.CharacterSystem.Movement
         private void Move()
         {
             Vector2 velocity = Velocity;
-            if (Mathf.Abs(HorizontalInput) > 0.0001f)
+            if (!CanDash && !_inDash)
             {
-                velocity.x += Acceleration * HorizontalInput * Time.deltaTime;
-                velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
+                velocity.x = CalculateVelocity(velocity.x, HorizontalInput);
+                velocity.y = CalculateVelocity(velocity.y, VerticalInput);
             }
             else
             {
-                velocity.x = Mathf.SmoothStep(velocity.x, 0, _drag * Time.deltaTime);
+                if (CanDash && !_inDash)
+                {
+                    StartCoroutine(DashMove(DashDuration));
+                    CanDash = false;
+                }
+                if (_inDash)
+                {
+                    velocity.x = DashForce * HorizontalInput;
+                    velocity.y = DashForce * VerticalInput;
+                }
             }
-            if (Mathf.Abs(VerticalInput) > 0.0001f)
-            {
-                velocity.y += Acceleration * VerticalInput * Time.deltaTime;
-                velocity.y = Mathf.Clamp(velocity.y, -MaxSpeed, MaxSpeed);
-            }
-            else
-            {
-                velocity.y = Mathf.SmoothStep(velocity.y, 0, _drag * Time.deltaTime);
-            }   
             Velocity = velocity;
+        }
+
+        private float CalculateVelocity(float velocity, float input)
+        {
+            if (Mathf.Abs(input) > 0.0001f)
+            {
+                velocity += Acceleration * input * Time.deltaTime;
+                velocity = Mathf.Clamp(velocity, -MaxSpeed, MaxSpeed);
+            }
+            else
+            {
+                velocity = Mathf.SmoothStep(velocity, 0, _drag * Time.deltaTime);
+            }
+            return velocity;
+        }
+
+        private IEnumerator DashMove(float time)
+        {
+            _inDash = true;
+            yield return new WaitForSeconds(time);
+            _inDash = false;
+        }
+
+        private bool CheckCanDash()
+        {
+            if (HorizontalInput == 0f && VerticalInput != 0f)
+            {
+                return false;
+            }
+            return DashForce != 0 && DashDuration != 0;
         }
     }
 }

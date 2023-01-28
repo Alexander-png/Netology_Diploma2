@@ -108,7 +108,7 @@ namespace Platformer.CharacterSystem.Attacking
             {
                 if (_currentWeapon != null)
                 {
-                    enemy.SetDamage(CurrentWeapon.Stats.Damage, (_ownerTransform.position - transform.position) * CurrentWeapon.Stats.PushForce);
+                    enemy.SetDamage(CurrentWeapon.Stats.Damage, (transform.position - other.transform.position) * CurrentWeapon.Stats.PushForce);
                 }
             }
         }

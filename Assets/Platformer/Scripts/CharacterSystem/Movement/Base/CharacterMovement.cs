@@ -20,7 +20,6 @@ namespace Platformer.CharacterSystem.Movement.Base
         private float _verticalInput;
         private float _dashInput;
         public Rigidbody Body => _body;
-        public bool IsDashing { get; set; }
         protected int JumpsLeft { get; set; }
 
         public bool CanJump => JumpsLeft > 0;
@@ -39,7 +38,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         public Vector3 CurrentCollisionNormal
         {
             get => _currentCollisionNormal;
-            set => _currentCollisionNormal = value;
+            protected set => _currentCollisionNormal = value;
         }
 
         public bool InAir => _currentCollisionNormal == Vector3.zero;
@@ -62,14 +61,10 @@ namespace Platformer.CharacterSystem.Movement.Base
             set => _verticalInput = value;
         }
 
-        public float DashInput
+        public virtual float DashInput
         {
             get => _dashInput;
-            set
-            {
-                _dashInput = value;
-                IsDashing = _dashInput >= 0.01f && CheckCanDash();
-            }
+            set => _dashInput = value;
         }
 
         public virtual Vector3 Velocity
@@ -109,17 +104,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         public virtual void SetVerticalInput(float input) =>
             VerticalInput = input;
 
-        public void SetDashInput(float input) =>
-            IsDashing = input >= 0.01f && CheckCanDash();
-
-        private bool CheckCanDash()
-        {
-            if (HorizontalInput == 0)
-            {
-                return false;
-            }
-            return DashForce != 0 && DashDuration != 0;
-        }
+        public virtual void SetDashInput(float input) { }
 
         public virtual void AddStats(MovementStatsInfo stats) =>
             _movementStats += stats;

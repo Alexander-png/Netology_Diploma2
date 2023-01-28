@@ -18,6 +18,6 @@ MonoBehaviour:
   _jumpCountInRow: 0
   _climbForce: 0
   _wallClimbRepulsion: 0
-  _dashForce: 30
+  _dashForce: 10
   _dashDuration: 10
   _dashRechargeTime: 0.1

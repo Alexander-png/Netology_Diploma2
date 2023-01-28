@@ -18,17 +18,20 @@ namespace Platformer.CharacterSystem.Enemies
 
         protected override void FixedUpdateBehaviour()
         {
-            Patrol();
+            if (_attacking)
+            {
+                return;
+            }
 
-            //CheckPlayerNearby();
-            //if (_pursuingPlayer)
-            //{
-            //    AimPlayer();
-            //}
-            //else
-            //{
-            //    Patrol();
-            //}
+            CheckPlayerNearby();
+            if (_pursuingPlayer)
+            {
+                AimPlayer();
+            }
+            else
+            {
+                Patrol();
+            }
         }
 
         private void AimPlayer()
@@ -38,45 +41,17 @@ namespace Platformer.CharacterSystem.Enemies
                 _chargeAttackCoroutine = StartCoroutine(ChargeAttack());
             }
 
-            Vector3 selfPosition = transform.position;
-            Vector3 playerPosition = _player.transform.position;
-            
-
-
-
-            //float angle = Vector3.Angle(selfPosition, playerPosition);
-            //angle -= 90;
-            //Vector3 cross = Vector3.Cross(selfPosition, playerPosition);
-            //if (cross.z < 0)
-            //{
-            //    angle = -angle;
-            //}
-
-            //Vector3 resultRotation = new Vector3(0, 0, angle);
-            //if (playerPosition.x < selfPosition.x)
-            //{
-            //    resultRotation.y = 180;
-            //}
-            //else
-            //{
-            //    resultRotation.y = 0;
-            //}
-
-            //Debug.Log(angle);
-
-            //transform.rotation = Quaternion.Euler(resultRotation);
-
-            
-            // todo: aiming to player 
-
+            Vector3 selfPos = transform.position;
+            Vector3 playerPos = _player.transform.position;
+            float targetAngle = Mathf.Atan2(playerPos.y - selfPos.y, playerPos.x - selfPos.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, targetAngle));
         }
 
         private void Patrol()
         {
             if (_inIdle)
             {
-                MovementController.HorizontalInput = 0f;
-                MovementController.Velocity = Vector3.zero;
+                StopImmediate();
                 return;
             }
 
@@ -106,7 +81,13 @@ namespace Platformer.CharacterSystem.Enemies
         private void AttackPlayer()
         {
             _attacking = true;
-            // todo: dash to player
+
+            Vector3 pos = transform.position;
+            Vector3 dir = (_player.transform.position - pos).normalized;
+
+            MovementController.HorizontalInput = dir.x;
+            MovementController.VerticalInput = dir.y;
+            MovementController.DashInput = 1f;
         }
 
         protected override void CheckPlayerNearby()
@@ -131,6 +112,8 @@ namespace Platformer.CharacterSystem.Enemies
                 return;
             }
 
+            StopImmediate();
+
             base.OnPlayerNearby();
             if (_waitCoroutine != null)
             {
@@ -149,9 +132,15 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 StopCoroutine(_chargeAttackCoroutine);
             }
-            
             _chargeAttackCoroutine = null;
             _chargingAttack = false;
+        }
+
+        private void StopImmediate()
+        {
+            MovementController.HorizontalInput = 0f;
+            MovementController.VerticalInput = 0f;
+            MovementController.Velocity = Vector3.zero;
         }
 
         protected IEnumerator ChargeAttack()
@@ -160,6 +149,7 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 yield break;
             }
+            
             _chargingAttack = true;
             yield return new WaitForSeconds(_attacker.GetAttackChargeTime());
             AttackPlayer();
