@@ -53,7 +53,7 @@ namespace Platformer.CharacterSystem.Attacking
 
         private bool CanNotAttack() => _attacking || _reloadingAttack || _currentWeapon == null;
 
-        public virtual void StartAttack()
+        public override void StartAttack()
         {
             if (CanNotAttack())
             {
@@ -69,7 +69,7 @@ namespace Platformer.CharacterSystem.Attacking
             _damageTrigger.enabled = true;
         }
 
-        public virtual void EndAttack()
+        public override void EndAttack()
         {
             _attacking = false;
             _currentWeapon?.StopHit();
@@ -109,7 +109,7 @@ namespace Platformer.CharacterSystem.Attacking
             }
         }
 
-        public float GetAttackChargeTime() =>
+        public override float GetAttackChargeTime() =>
             CurrentWeapon.Stats.AttackChargeTime;
 
         private IEnumerator ReloadAttack()

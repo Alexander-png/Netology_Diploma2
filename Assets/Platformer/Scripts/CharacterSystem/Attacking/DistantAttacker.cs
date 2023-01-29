@@ -8,12 +8,18 @@ namespace Platformer.CharacterSystem.Attacking
 		[SerializeField]
 		protected DistantWeapon _currentWeapon;
 
-		public void Shoot() => _currentWeapon.Shoot();
-
 		public Vector3 GetProjectileSpawnPointPosition() =>
 			_currentWeapon.ProjectileSpawnPosition;
 
 		public float GetShootDistance() =>
 			_currentWeapon.ShootDistance;
-	}
+
+        public override void StartAttack() =>
+            _currentWeapon.Shoot();
+
+        public override void EndAttack()
+        {
+            
+        }
+    }
 }

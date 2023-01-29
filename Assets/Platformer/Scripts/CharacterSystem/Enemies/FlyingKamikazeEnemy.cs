@@ -11,12 +11,10 @@ namespace Platformer.CharacterSystem.Enemies
         [SerializeField]
         protected PatrolPoint _currentPoint;
 
-        private Coroutine _waitCoroutine;
+        //private Coroutine _waitCoroutine;
         private bool _chargingAttack;
         private bool _attacking;
         private Coroutine _chargeAttackCoroutine;
-
-        // todo: check is player in directly visible
 
         protected override void FixedUpdateBehaviour()
         {
@@ -53,7 +51,7 @@ namespace Platformer.CharacterSystem.Enemies
         {
             if (_inIdle)
             {
-                StopImmediate();
+                MovementController.StopImmediatly();
                 return;
             }
 
@@ -114,13 +112,13 @@ namespace Platformer.CharacterSystem.Enemies
                 return;
             }
 
-            StopImmediate();
+            MovementController.StopImmediatly();
 
             base.OnPlayerNearby();
-            if (_waitCoroutine != null)
-            {
-                StopCoroutine(_waitCoroutine);
-            }
+            //if (_waitCoroutine != null)
+            //{
+            //    StopCoroutine(_waitCoroutine);
+            //}
         }
 
         private bool CheckSeePlayer()
@@ -151,13 +149,6 @@ namespace Platformer.CharacterSystem.Enemies
             }
             _chargeAttackCoroutine = null;
             _chargingAttack = false;
-        }
-
-        private void StopImmediate()
-        {
-            MovementController.HorizontalInput = 0f;
-            MovementController.VerticalInput = 0f;
-            MovementController.Velocity = Vector3.zero;
         }
 
         protected IEnumerator ChargeAttack()

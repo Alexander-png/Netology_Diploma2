@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dfbd2f3d878fe24c89046590bbc0273, type: 3}
-  m_Name: GrenadeStats
+  m_Name: LavaSlimeProjectileStats
   m_EditorClassIdentifier: 
   _damage: 1.5
   _impactForce: 5

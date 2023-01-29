@@ -11,15 +11,15 @@ namespace Platformer.Scriptable.Characters
         private float _attackRadius;
         [SerializeField]
         private float _playerHeightDiffToJump;
-        //[SerializeField]
-        //private float _closeToPlayerDistance;
+        [SerializeField]
+        private float _closeToPlayerDistance;
         [SerializeField]
         private float _argressionRadius;
 
         public float IdleTime => _idleTime;
         public float AttackRadius => _attackRadius;
         public float PlayerHeightDiffToJump => _playerHeightDiffToJump;
-        public float CloseToPlayerDistance => 0;// _closeToPlayerDistance;
+        public float CloseToPlayerDistance => _closeToPlayerDistance;
         public float ArgressionRadius => _argressionRadius;
     }
 }

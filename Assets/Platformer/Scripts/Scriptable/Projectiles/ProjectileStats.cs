@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Platformer.Scriptable.Projectiles
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Projectile Stats")]
-	public class ExplosiveProjectileStats : ScriptableObject
+	public class ProjectileStats : ScriptableObject
 	{
 		[SerializeField]
 		private float _damage;

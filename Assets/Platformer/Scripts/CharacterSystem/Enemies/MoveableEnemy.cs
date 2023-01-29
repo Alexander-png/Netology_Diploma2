@@ -9,7 +9,6 @@ using Zenject;
 
 namespace Platformer.CharacterSystem.Enemies
 {
-    // TODO: fix enemy behaviour on pursuit player
     public abstract class MoveableEnemy : MoveableEntity, IDamagable
     {
         [Inject]
@@ -18,7 +17,7 @@ namespace Platformer.CharacterSystem.Enemies
         [SerializeField]
         protected EnemyBehaviourConfig _behaviourConfig;
         [SerializeField]
-        protected MeleeAttacker _attacker;
+        protected Attacker _attacker;
 
         protected float _currentHealth;
         protected float _maxHealth;

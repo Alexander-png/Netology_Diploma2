@@ -27,10 +27,10 @@ namespace Platformer.Weapons
 			{
 				return;
 			}
-			Rigidbody grenade = Instantiate(_projectilePrefab, _projectileSpawnPoint.position, _projectileSpawnPoint.rotation).GetComponent<Rigidbody>();
-			grenade.transform.parent = _projectilePool;
-			grenade.AddForce(grenade.transform.up * _stats.StartProjectileSpeed, ForceMode.Impulse);
 
+			var projectile = Instantiate(_projectilePrefab, _projectileSpawnPoint.position, _projectileSpawnPoint.rotation);
+			projectile.transform.parent = _projectilePool;
+			projectile.SetSpeed(_stats.StartProjectileSpeed);
 			StartCoroutine(ReloadCoroutine());
 		}
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5540220329735947137}
   - component: {fileID: 6654300716456180111}
   m_Layer: 0
-  m_Name: Grenade
+  m_Name: LavaSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

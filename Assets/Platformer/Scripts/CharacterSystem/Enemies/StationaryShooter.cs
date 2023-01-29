@@ -16,7 +16,7 @@ namespace Platformer.CharacterSystem.Enemies
         {
             if (CheckPlayerNearby())
             {
-                _attacker.Shoot();
+                _attacker.StartAttack();
             }
         }
 

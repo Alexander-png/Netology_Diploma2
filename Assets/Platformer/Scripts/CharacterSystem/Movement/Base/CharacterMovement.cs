@@ -98,6 +98,13 @@ namespace Platformer.CharacterSystem.Movement.Base
             }
         }
 
+        public virtual void StopImmediatly()
+        {
+            HorizontalInput = 0f;
+            VerticalInput = 0f;
+            Velocity = Vector3.zero;
+        }
+
         public virtual void SetHorizontalInput(float input) =>
             HorizontalInput = input;
 

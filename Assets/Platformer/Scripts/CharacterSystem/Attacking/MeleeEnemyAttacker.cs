@@ -32,10 +32,7 @@ namespace Platformer.CharacterSystem.Attacking
             }
             if (CurrentWeapon.Stats.IsKamikazeAttack)
             {
-                if (_ownerTransform.gameObject.TryGetComponent(out IDamagable damagable))
-                {
-                    damagable.SetDamage(float.MaxValue, Vector3.zero, true);
-                }
+                CurrentWeapon.SetDamageToOwner(float.MaxValue);
             }
         }
     }
