@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer.Interactables.Elements.Traps
 {
-	public class StoneStomperHandler : TrapHandler, ISwitcherTarget
+	public class StoneStomperHandler : TrapHandler, ISwitchTarget
 	{
         [SerializeField]
         private StomperTrigger[] _stomperTriggers;

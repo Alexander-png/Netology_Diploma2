@@ -10,11 +10,8 @@ namespace Platformer.Interaction
         private GameSystem _gameSystem;
 
         [SerializeField]
-        private string _actionId;
-        [SerializeField]
         private string _skillId;
 
-        public override string ActionId => ActionId;
         public override bool CanPerform => !_gameSystem.CheckSkillAdded(_skillId);
 
         public override void Perform() =>

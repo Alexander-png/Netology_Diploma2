@@ -16,8 +16,6 @@ namespace Platformer.Interaction
 
         private ITalkable _talkabkeNPC;
 
-        public override string ActionId => _targetNPC.ActionId;
-
         private void Start()
         {
             _interactionTarget = _talkabkeNPC = _targetNPC.GetComponent<ITalkable>();

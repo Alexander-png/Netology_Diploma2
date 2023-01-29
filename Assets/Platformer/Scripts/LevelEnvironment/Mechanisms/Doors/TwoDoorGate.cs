@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Platformer.LevelEnvironment.Mechanisms.Doors
 {
-	public class TwoDoorGate : Gate, ISwitcherTarget
+	public class TwoDoorGate : Gate, ISwitchTarget
 	{
 		[SerializeField]
 		private TwoDoorAnimation _animation;
@@ -28,8 +28,6 @@ namespace Platformer.LevelEnvironment.Mechanisms.Doors
 		}
 
         public float SwitchTime => _animation != null ? _animation.AnimationTime : 0f;
-
-        public Transform FocusPoint => CameraFocusPoint;
 
         private void Start()
         {

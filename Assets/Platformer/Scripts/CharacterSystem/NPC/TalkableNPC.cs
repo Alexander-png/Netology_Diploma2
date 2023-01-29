@@ -22,7 +22,7 @@ namespace Platformer.CharacterSystem.NPC
 
         public void Talk()
         {
-            GameSystem.ConversationHandler.StartConversation(_conversationId);
+            //GameSystem.ConversationHandler.StartConversation(_conversationId);
         }
 
         public void SetConversation(string id, bool hotReload = false)

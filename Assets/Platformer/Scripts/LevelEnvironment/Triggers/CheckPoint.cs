@@ -17,11 +17,13 @@ namespace Platformer.LevelEnvironment.Triggers
                 _gameSystem.PerformAutoSave();
             }
         }
-    
+
+#if UNITY_EDITOR    
         private void OnDrawGizmos()
         {
             Gizmos.color = new Color(0f, 0f, 1f, 0.6f);
             Gizmos.DrawCube(transform.position, new Vector3(1, 2, 1));
         }
+#endif
     }
 }

@@ -21,7 +21,7 @@ namespace Platformer.LevelEnvironment.Collectables
         {
             if (other.TryGetComponent(out Player _))
             {
-                _gameSystem.OnCollectalbeCollected(this);
+                _gameSystem.OnItemCollected(this);
                 gameObject.SetActive(false);
             }
         }

@@ -29,11 +29,11 @@ namespace Platformer.LevelEnvironment.Mechanisms.Animations
 
         public void SetOpened(bool opened)
         {
-            StartCoroutine(DoorOpen(_leftDoorAxis, Quaternion.Euler(-GetTargetRotation(opened)), opened));
-            StartCoroutine(DoorOpen(_rightDoorAxis, Quaternion.Euler(GetTargetRotation(opened)), opened));
+            StartCoroutine(DoorOpen(_leftDoorAxis, Quaternion.Euler(-GetTargetRotation(opened))));
+            StartCoroutine(DoorOpen(_rightDoorAxis, Quaternion.Euler(GetTargetRotation(opened))));
         }
 
-        private IEnumerator DoorOpen(Transform doorAxis, Quaternion targetRotation, bool value)
+        private IEnumerator DoorOpen(Transform doorAxis, Quaternion targetRotation)
         {
             Quaternion currentRotation = doorAxis.rotation;
             while (Vector3.Distance(currentRotation.eulerAngles, targetRotation.eulerAngles) > 0.01)

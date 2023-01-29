@@ -4,7 +4,6 @@ namespace Platformer.Interaction
 {
     public interface ISwitcher : IPerformer
     {
-        public string ActionId { get; }
         public bool CanPerform { get; }
         public bool IsSwitchedOn { get; set; }
     }
@@ -17,7 +16,6 @@ namespace Platformer.Interaction
         private ISwitcher _switcher;
 
         public override bool CanPerform => _switcher.CanPerform;
-        public override string ActionId => _switcher.ActionId;
 
         private void Start()
         {

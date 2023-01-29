@@ -1,15 +1,12 @@
 using Platformer.CharacterSystem.Base;
-using Platformer.ConversationSystem;
 using Platformer.EditorExtentions;
 using Platformer.Interaction;
 using Platformer.PlayerSystem;
-using Platformer.QuestSystem;
 using Platformer.Scriptable.Skills.Containers;
 using System;
 using System.Collections;
 using UnityEngine;
 
-// TODO: 2-3 kinds of enemies
 // TODO: find assets for all objects
 // TODO: More player abilities
 // TODO: improve player moving, there are some bugs
@@ -21,15 +18,8 @@ namespace Platformer.GameCore
     {
         [SerializeField]
         private bool _gamePaused;
-
         [SerializeField]
         private Player _playerCharacter;
-
-        [SerializeField, Space(15)]
-        private ConversationHandler _conversationHandler;
-
-        [SerializeField]
-        private QuestHandler _questHandler;
         [SerializeField]
         private SaveSystem _saveSystem;
 
@@ -62,8 +52,6 @@ namespace Platformer.GameCore
         public MovementSkillContainer PlayerMovementSkillContainer => _playerMovementSkillContainer;
 
         public bool CanCurrentTriggerPerformed => CurrentTrigger != null && CurrentTrigger.CanPerform;
-        public ConversationHandler ConversationHandler => _conversationHandler;
-        public QuestHandler QuestHandler => _questHandler;
         public SaveSystem SaveSystem => _saveSystem;
         public bool IsGameCompleted => _isGameCompleted;
 
@@ -114,9 +102,6 @@ namespace Platformer.GameCore
             PauseStateChanged -= OnPauseStateChanged;
         }
 
-        public bool CheckQuestCompleted(IPerformer interactionTarget, string questId) =>
-            _questHandler.IsQuestCompleted(interactionTarget as IQuestGiver, questId);
-
         public void InvokePlayerRespawned() =>
             PlayerRespawned?.Invoke(this, EventArgs.Empty);
 
@@ -139,7 +124,6 @@ namespace Platformer.GameCore
 
         public void ShowAreaUntilActionEnd(Transform position, Action action, float waitTime)
         {
-            // TODO: notify player about beginning of cutscene instead of manipulating him directly
             _playerCharacter.MovementController.Velocity = Vector3.zero;
             SetPlayerHandlingEnabled(false);
         }
@@ -148,28 +132,12 @@ namespace Platformer.GameCore
 
         public void PerformTrigger()
         {
-            if (_conversationHandler.InConversation)
-            {
-                _conversationHandler.ShowNextPhrase();
-            }
-            else
-            {
-                CurrentTrigger.Perform();
-                CurrentTriggerPerformed?.Invoke(this, EventArgs.Empty);
-            }
-        }            
-
-        public void StartQuest(string questId) =>
-            _questHandler.StartQuest(CurrentTrigger.InteractionTarget as IQuestGiver, questId, _playerCharacter.Inventory.Items);
-
-        public void EndQuest(string questId) =>
-            _questHandler.EndQuest(CurrentTrigger.InteractionTarget as IQuestGiver, questId);
-
-        public void OnCollectalbeCollected(IInventoryItem item)
-        {
-            _questHandler.OnItemAdded(item as IQuestTarget);
-            _playerCharacter.Inventory.AddItem(item.ItemId);
+            CurrentTrigger.Perform();
+            CurrentTriggerPerformed?.Invoke(this, EventArgs.Empty);
         }
+
+        public void OnItemCollected(IInventoryItem item) =>
+            _playerCharacter.Inventory.AddItem(item.ItemId);
 
         public void AddItemToPlayer(IInventoryItem item) =>
             _playerCharacter.Inventory.AddItem(item.ItemId);
@@ -201,7 +169,6 @@ namespace Platformer.GameCore
         private void FindPlayerOnScene()
         {
             _playerCharacter = FindObjectOfType<Player>();
-            _conversationHandler = GetComponent<ConversationHandler>();
             _saveSystem = GetComponent<SaveSystem>();
         }
 #endif

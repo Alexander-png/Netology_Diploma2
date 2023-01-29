@@ -1,18 +1,17 @@
 using Platformer.LevelEnvironment.Mechanisms.Animations;
 using Platformer.LevelEnvironment.Switchers;
-using System;
 using UnityEngine;
 
 namespace Platformer.LevelEnvironment.Mechanisms.Switchers
 {
-	public class Lever : Switcher
+	public class Lever : Switch
 	{
 		[SerializeField]
 		private GameObject _target;
 		[SerializeField]
 		private LeverSwitchAnimation _switchAnimator;
 
-		private ISwitcherTarget _switcher;
+		private ISwitchTarget _switchTarget;
 
 		public override bool IsSwitchedOn
 		{
@@ -31,17 +30,13 @@ namespace Platformer.LevelEnvironment.Mechanisms.Switchers
 
 				_isSwitchedOn = value;
 
-				if (_switchAnimator != null) _switchAnimator.Switch(value);
-				if (_switcher != null) 
+				if (_switchAnimator != null)
+                {
+					_switchAnimator.Switch(value);
+                }
+				if (_switchTarget != null) 
 				{
-					if (!ShowTargetBeforeSwitch)
-                    {
-						_switcher.IsSwitchedOn = value; 
-                    }
-					else
-                    {
-						GameSystem.ShowAreaUntilActionEnd(_switcher.FocusPoint, new Action(() => _switcher.IsSwitchedOn = value), _switcher.SwitchTime);
-                    }
+					_switchTarget.IsSwitchedOn = value;
 				} 
 			}
 		}
@@ -55,14 +50,14 @@ namespace Platformer.LevelEnvironment.Mechanisms.Switchers
                 return;
             }
 
-			_switcher = _target.GetComponent<ISwitcherTarget>();
-            if (_switcher == null)
+			_switchTarget = _target.GetComponent<ISwitchTarget>();
+            if (_switchTarget == null)
             {
                 EditorExtentions.GameLogger.AddMessage($"{gameObject.name}: the {_target.gameObject.name} does not contain ISwitcherTarget component.", EditorExtentions.GameLogger.LogType.Error);
 				return;
             }
 
-			_switcher.IsSwitchedOn = IsSwitchedOn;
+			_switchTarget.IsSwitchedOn = IsSwitchedOn;
 
 			if (_switchAnimator == null)
             {

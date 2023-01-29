@@ -17,7 +17,6 @@ namespace Platformer.Interaction
 
         protected IPerformer _interactionTarget;
 
-        public virtual string ActionId => string.Empty;
 		public virtual bool CanPerform { get; } = true;
 		public abstract void Perform();
 
