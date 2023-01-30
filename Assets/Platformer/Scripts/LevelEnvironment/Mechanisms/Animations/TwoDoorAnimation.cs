@@ -1,9 +1,10 @@
+using Platformer.Scripts.LevelEnvironment.Mechanisms.Animations;
 using System.Collections;
 using UnityEngine;
 
 namespace Platformer.LevelEnvironment.Mechanisms.Animations
 {
-    public class TwoDoorAnimation : MonoBehaviour
+    public class TwoDoorAnimation : SimpleAnimation
     {
         [SerializeField]
         private Transform _leftDoorAxis;
@@ -11,26 +12,23 @@ namespace Platformer.LevelEnvironment.Mechanisms.Animations
         private Transform _rightDoorAxis;
 
         [SerializeField]
-        private float _animationSpeed;
-
-        [SerializeField]
         private Vector3 _openDoorAxisRotation;
         [SerializeField]
         private Vector3 _closedDoorAxisRotation;
 
-        public float AnimationTime => 
-            Vector3.Distance(_closedDoorAxisRotation, _openDoorAxisRotation) / _animationSpeed;
+        public override float AnimationTime => 
+            Vector3.Distance(_closedDoorAxisRotation, _openDoorAxisRotation) / AnimationSpeed;
 
-        public void InitState(bool opened)
+        public override void InitState(bool value)
         {
-            _leftDoorAxis.rotation = Quaternion.Euler(-GetTargetRotation(opened));
-            _rightDoorAxis.rotation = Quaternion.Euler(GetTargetRotation(opened));
+            _leftDoorAxis.rotation = Quaternion.Euler(-GetTargetRotation(value));
+            _rightDoorAxis.rotation = Quaternion.Euler(GetTargetRotation(value));
         }
 
-        public void SetOpened(bool opened)
+        public override void SetSwitched(bool value)
         {
-            StartCoroutine(DoorOpen(_leftDoorAxis, Quaternion.Euler(-GetTargetRotation(opened))));
-            StartCoroutine(DoorOpen(_rightDoorAxis, Quaternion.Euler(GetTargetRotation(opened))));
+            StartCoroutine(DoorOpen(_leftDoorAxis, Quaternion.Euler(-GetTargetRotation(value))));
+            StartCoroutine(DoorOpen(_rightDoorAxis, Quaternion.Euler(GetTargetRotation(value))));
         }
 
         private IEnumerator DoorOpen(Transform doorAxis, Quaternion targetRotation)
@@ -39,7 +37,7 @@ namespace Platformer.LevelEnvironment.Mechanisms.Animations
             while (Vector3.Distance(currentRotation.eulerAngles, targetRotation.eulerAngles) > 0.01)
             {
                 yield return null;
-                currentRotation = Quaternion.RotateTowards(currentRotation, targetRotation, _animationSpeed * Time.deltaTime);
+                currentRotation = Quaternion.RotateTowards(currentRotation, targetRotation, AnimationSpeed * Time.deltaTime);
                 doorAxis.rotation = currentRotation;
             }
             doorAxis.rotation = targetRotation;

@@ -31,6 +31,8 @@ namespace Platformer.Interactables.Elements.Traps
 
         public Transform FocusPoint => transform;
 
+        public void InitState(bool swithcedOn) => IsSwitchedOn = swithcedOn;
+
 #if UNITY_EDITOR
         [ContextMenu("Find stomper triggers")]
         private void FindTriggers()

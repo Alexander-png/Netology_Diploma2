@@ -1,29 +1,26 @@
+using Platformer.Scripts.LevelEnvironment.Mechanisms.Animations;
 using System.Collections;
 using UnityEngine;
 
 namespace Platformer.LevelEnvironment.Mechanisms.Animations
 {
-    public class LeverSwitchAnimation : MonoBehaviour
+    public class LeverSwitchAnimation : SimpleAnimation
     {
         [SerializeField]
         private Transform _rodAxis;
-
-        [SerializeField]
-        private float _animationSpeed;
         [SerializeField]
         private Vector3 _switchedOnAxisRotation;
         [SerializeField]
         private Vector3 _switchedOffAxisRotation;
 
-        public void Switch(bool value)
-        {
-            StartCoroutine(LeverSwitch(value, _animationSpeed));
-        }
+        public override float AnimationTime =>
+            Vector3.Distance(_switchedOnAxisRotation, _switchedOffAxisRotation) / AnimationSpeed;
 
-        public void InitState(bool isSwitchedOn)
-        {
-            _rodAxis.rotation = Quaternion.Euler(GetTargetRotation(isSwitchedOn));
-        }
+        public override void InitState(bool value) =>
+            _rodAxis.rotation = Quaternion.Euler(GetTargetRotation(value));
+
+        public override void SetSwitched(bool value) =>
+            StartCoroutine(LeverSwitch(value, AnimationSpeed));
 
         private IEnumerator LeverSwitch(bool value, float speed)
         {

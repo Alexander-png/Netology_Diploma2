@@ -1,5 +1,5 @@
-using Platformer.LevelEnvironment.Mechanisms.Animations;
 using Platformer.LevelEnvironment.Switchers;
+using Platformer.Scripts.LevelEnvironment.Mechanisms.Animations;
 using UnityEngine;
 
 namespace Platformer.LevelEnvironment.Mechanisms.Switchers
@@ -9,7 +9,7 @@ namespace Platformer.LevelEnvironment.Mechanisms.Switchers
 		[SerializeField]
 		private GameObject _target;
 		[SerializeField]
-		private LeverSwitchAnimation _switchAnimator;
+		private SimpleAnimation _switchAnimator;
 
 		private ISwitchTarget _switchTarget;
 
@@ -32,7 +32,7 @@ namespace Platformer.LevelEnvironment.Mechanisms.Switchers
 
 				if (_switchAnimator != null)
                 {
-					_switchAnimator.Switch(value);
+					_switchAnimator.SetSwitched(value);
                 }
 				if (_switchTarget != null) 
 				{
@@ -57,7 +57,8 @@ namespace Platformer.LevelEnvironment.Mechanisms.Switchers
 				return;
             }
 
-			_switchTarget.IsSwitchedOn = IsSwitchedOn;
+			_switchTarget.InitState(IsSwitchedOn);
+			//_switchTarget.IsSwitchedOn = IsSwitchedOn;
 
 			if (_switchAnimator == null)
             {

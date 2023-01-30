@@ -1,33 +1,29 @@
-using Platformer.LevelEnvironment.Mechanisms.Animations;
-using Platformer.LevelEnvironment.Switchers;
+using Platformer.Scripts.LevelEnvironment.Mechanisms.Animations;
 using UnityEngine;
 
 namespace Platformer.LevelEnvironment.Mechanisms.Doors
 {
-	public class TwoDoorGate : Gate, ISwitchTarget
+	public class TwoDoorGate : Gate
 	{
 		[SerializeField]
-		private TwoDoorAnimation _animation;
+		private SimpleAnimation _animation;
 
-		private bool _isOpened;
+		private bool _isSwitchedOn;
 
-        public override bool IsOpened
+        public override bool IsSwitchedOn 
 		{
-			get => _isOpened; 
+			get => _isSwitchedOn;
 			set
 			{
-				_isOpened = value;
-				if (_animation != null) _animation.SetOpened(value);
+				_isSwitchedOn = value;
+				if (_animation != null) _animation.SetSwitched(value);
 			}
 		}
 
-        public bool IsSwitchedOn 
-		{
-			get => IsOpened; 
-			set => IsOpened = value;
-		}
+        public override float SwitchTime => _animation != null ? _animation.AnimationTime : 0f;
 
-        public float SwitchTime => _animation != null ? _animation.AnimationTime : 0f;
+        public override void InitState(bool swithcedOn) =>
+			_animation?.InitState(_switchedByDefault);
 
         private void Start()
         {
@@ -36,7 +32,7 @@ namespace Platformer.LevelEnvironment.Mechanisms.Doors
 				EditorExtentions.GameLogger.AddMessage($"{gameObject.name}: animation not specified.", EditorExtentions.GameLogger.LogType.Warning);
 				return;
 			}
-			_animation.InitState(_openedByDefault);
+			_animation.InitState(_switchedByDefault);
 		}
     }
 }
