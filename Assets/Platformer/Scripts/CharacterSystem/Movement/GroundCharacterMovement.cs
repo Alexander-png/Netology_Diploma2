@@ -12,6 +12,13 @@ namespace Platformer.CharacterSystem.Movement
         private bool IsJumping { get; set; }
         private bool CanDash { get; set; }
 
+        private int JumpsLeft { get; set; }
+
+        public bool CanJump => JumpsLeft > 0;
+        public float JumpForce => MovementStats.GetJumpForce(JumpsLeft);
+        public float MaxJumpForce => MovementStats.MaxJumpForce;
+        public int JumpCountInRow => MovementStats.JumpCountInRow;
+
         public override float VerticalInput
         {
             get => base.VerticalInput;
@@ -56,30 +63,11 @@ namespace Platformer.CharacterSystem.Movement
             {
                 ResetJumpCounter();
             }
+        }
 
-            //if (collision.gameObject.TryGetComponent(out Platform plat))
-            //{
-            //    if (CurrentCollisionNormal != Vector3.zero)
-            //    {
-            //        if (newNormal.x != 0 && CurrentCollisionNormal.y != 0)
-            //        {
-            //            OnWall = true;
-            //            OnGround = false;
-            //            CurrentCollisionNormal = newNormal;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        CurrentCollisionNormal = newNormal;
-            //        OnWall = plat.Climbable ? Mathf.Abs(CurrentCollisionNormal.x) > 0.9 : false;
-            //        OnGround = !OnWall;
-            //    }
-
-            //    if ((OnGround || OnWall) && plat.Climbable)
-            //    {
-            //        ResetJumpCounter();
-            //    }
-            //}
+        protected override void OnCollisionExit(Collision collision)
+        {
+            base.OnCollisionExit(collision);
         }
 
         protected override void ResetState()

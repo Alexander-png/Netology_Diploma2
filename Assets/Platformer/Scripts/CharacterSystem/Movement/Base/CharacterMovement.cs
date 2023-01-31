@@ -1,5 +1,6 @@
 using Platformer.LevelEnvironment.Elements.Common;
 using Platformer.Scriptable.Characters;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.CharacterSystem.Movement.Base
@@ -13,35 +14,25 @@ namespace Platformer.CharacterSystem.Movement.Base
         [SerializeField]
         private bool _movementEnabled = true;
 
-        private MovementStatsInfo _movementStats;
-        private Vector3 _currentCollisionNormal;
+        protected MovementStatsInfo MovementStats { get; private set; }
 
         private float _horizontalInput;
         private float _verticalInput;
         private float _dashInput;
-        public Rigidbody Body => _body;
-        protected int JumpsLeft { get; set; }
 
-        public bool CanJump => JumpsLeft > 0;
-        public float Acceleration => _movementStats.Acceleration;
-        public float MaxSpeed => _movementStats.MaxSpeed;
-        public float JumpForce => _movementStats.GetJumpForce(JumpsLeft);
-        public float MaxJumpForce => _movementStats.MaxJumpForce;
-        public int JumpCountInRow => _movementStats.JumpCountInRow;
-        public float ClimbForce => _movementStats.ClimbForce;
-        public float DashForce => _movementStats.DashForce;
-        public float DashDuration => _movementStats.DashDuration;
-        public float DashRechargeTime => _movementStats.DashRechargeTime;
+        protected List<GameObject> _currentCollisions;
+
+        public Rigidbody Body => _body;
+        
+        public float Acceleration => MovementStats.Acceleration;
+        public float MaxSpeed => MovementStats.MaxSpeed;
+        public float DashForce => MovementStats.DashForce;
+        public float DashDuration => MovementStats.DashDuration;
+        public float DashRechargeTime => MovementStats.DashRechargeTime;
 
         public bool OnGround { get; protected set; }
 
-        public Vector3 CurrentCollisionNormal
-        {
-            get => _currentCollisionNormal;
-            protected set => _currentCollisionNormal = value;
-        }
-
-        public bool InAir => _currentCollisionNormal == Vector3.zero;
+        public bool InAir => _currentCollisions.Count == 0;
 
         public bool MovementEnabled 
         {
@@ -75,8 +66,8 @@ namespace Platformer.CharacterSystem.Movement.Base
 
         protected virtual void Awake()
         {
-            _movementStats = _defaultMovementStats.GetData();
-            _currentCollisionNormal = Vector3.zero;
+            _currentCollisions = new List<GameObject>();
+            MovementStats = _defaultMovementStats.GetData();
         }
 
         protected virtual void OnDisable()
@@ -86,15 +77,17 @@ namespace Platformer.CharacterSystem.Movement.Base
 
         protected virtual void OnCollisionEnter(Collision collision) 
         {
-            var newNormal = collision.GetContact(0).normal;
-            CurrentCollisionNormal = newNormal;
+            if (collision.gameObject.TryGetComponent(out Platform _))
+            {
+                _currentCollisions.Add(collision.gameObject);
+            }
         }
 
         protected virtual void OnCollisionExit(Collision collision)
         {
             if (collision.gameObject.TryGetComponent(out Platform _))
             {
-                _currentCollisionNormal = Vector3.zero;
+                _currentCollisions.Remove(collision.gameObject);
             }
         }
 
@@ -114,10 +107,10 @@ namespace Platformer.CharacterSystem.Movement.Base
         public virtual void SetDashInput(float input) { }
 
         public virtual void AddStats(MovementStatsInfo stats) =>
-            _movementStats += stats;
+            MovementStats += stats;
 
         public virtual void RemoveStats(MovementStatsInfo stats) =>
-            _movementStats -= stats;
+            MovementStats -= stats;
 
         protected virtual void ResetState() { }
     }
