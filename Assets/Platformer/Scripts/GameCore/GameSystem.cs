@@ -27,7 +27,7 @@ namespace Platformer.GameCore
         private MovementSkillContainer _playerMovementSkillContainer;
 
         private bool _isGameCompleted;
-        private InteractionTrigger _currentTrigger;
+        private InteractableTrigger _currentInteractable;
 
         public bool GamePaused
         {
@@ -39,19 +39,28 @@ namespace Platformer.GameCore
             }
         }
 
-        public InteractionTrigger CurrentTrigger
+        // Placed here just for notifying game UI about interactions
+        public InteractableTrigger CurrentTrigger
         {
-            get => _currentTrigger;
-            private set
+            get => _currentInteractable;
+            set
             {
-                _currentTrigger = value;
+                if (_currentInteractable != null)
+                {
+                    _currentInteractable.Interacted -= CurrentTriggerInteracted;
+                }
+                _currentInteractable = value;
+                if (_currentInteractable != null)
+                {
+                    _currentInteractable.Interacted += CurrentTriggerInteracted;
+                }
                 CurrentTriggerChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
         public MovementSkillContainer PlayerMovementSkillContainer => _playerMovementSkillContainer;
 
-        public bool CanCurrentTriggerPerformed => CurrentTrigger != null && CurrentTrigger.CanPerform;
+        public bool CanCurrentTriggerPerformed => CurrentTrigger != null && CurrentTrigger.CanInteract;
         public SaveSystem SaveSystem => _saveSystem;
         public bool IsGameCompleted => _isGameCompleted;
 
@@ -61,7 +70,7 @@ namespace Platformer.GameCore
         public event EventHandler<bool> ConversationUIEnabledChanged;
         public event EventHandler<string> ConversationPhraseChanged;
         public event EventHandler CurrentTriggerChanged;
-        public event EventHandler CurrentTriggerPerformed;
+        public event EventHandler CurrentTriggerInteracted;
         public event EventHandler GameCompleted;
 
 
@@ -121,20 +130,6 @@ namespace Platformer.GameCore
 
         public void PerformAutoSave() =>
             _saveSystem.PerformSave();
-
-        public void ShowAreaUntilActionEnd(Transform position, Action action, float waitTime)
-        {
-            _playerCharacter.MovementController.Velocity = Vector3.zero;
-            SetPlayerHandlingEnabled(false);
-        }
-
-        public void SetCurrentTrigger(InteractionTrigger trigger) => CurrentTrigger = trigger;
-
-        public void PerformTrigger()
-        {
-            CurrentTrigger.Perform();
-            CurrentTriggerPerformed?.Invoke(this, EventArgs.Empty);
-        }
 
         public void OnItemCollected(IInventoryItem item) =>
             _playerCharacter.Inventory.AddItem(item.ItemId);

@@ -9,7 +9,7 @@ namespace Platformer.Interaction
         public void SetConversation(string id, bool reload);
     }
 
-    public class TalkNPCTrigger : InteractionTrigger
+    public class TalkNPCTrigger : InteractableTrigger
     {
         [SerializeField]
         private BaseNPC _targetNPC;
@@ -18,12 +18,13 @@ namespace Platformer.Interaction
 
         private void Start()
         {
-            _interactionTarget = _talkabkeNPC = _targetNPC.GetComponent<ITalkable>();
+            _talkabkeNPC = _targetNPC.GetComponent<ITalkable>();
         }
 
-        public override void Perform()
+        public override void Interact()
         {
             _talkabkeNPC.Talk();
+            InvokeInteracted();
         }
     }
 }

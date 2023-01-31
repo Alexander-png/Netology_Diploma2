@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Platformer.Interaction
 {
-    public class GetSkillTrigger : InteractionTrigger
+    public class GetSkillTrigger : InteractableTrigger
     {
         [Inject]
         private GameSystem _gameSystem;
@@ -12,10 +12,13 @@ namespace Platformer.Interaction
         [SerializeField]
         private string _skillId;
 
-        public override bool CanPerform => !_gameSystem.CheckSkillAdded(_skillId);
+        public override bool CanInteract => !_gameSystem.CheckSkillAdded(_skillId);
 
-        public override void Perform() =>
+        public override void Interact()
+        {
             _gameSystem.AddSkillToPlayer(_skillId);
+            InvokeInteracted();
+        }
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()

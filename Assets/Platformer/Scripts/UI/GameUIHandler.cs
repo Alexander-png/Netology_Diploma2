@@ -45,7 +45,7 @@ namespace Platformer.UI
             _gameSystem.ConversationUIEnabledChanged += OnConversationUIEnabledChanged;
             _gameSystem.ConversationPhraseChanged += OnConversationPhraseChanged;
             _gameSystem.CurrentTriggerChanged += OnCurrentInteractionTriggerChanged;
-            _gameSystem.CurrentTriggerPerformed += OnCurrentTriggerPerformed;
+            _gameSystem.CurrentTriggerInteracted += OnCurrentTriggerPerformed;
             _gameSystem.GameCompleted += OnGameCompleted;
 		}
 
@@ -55,7 +55,7 @@ namespace Platformer.UI
 			_gameSystem.ConversationUIEnabledChanged -= OnConversationUIEnabledChanged;
 			_gameSystem.ConversationPhraseChanged -= OnConversationPhraseChanged;
 			_gameSystem.CurrentTriggerChanged -= OnCurrentInteractionTriggerChanged;
-			_gameSystem.CurrentTriggerPerformed -= OnCurrentTriggerPerformed;
+			_gameSystem.CurrentTriggerInteracted -= OnCurrentTriggerPerformed;
 			_gameSystem.GameCompleted -= OnGameCompleted;
 		}
 

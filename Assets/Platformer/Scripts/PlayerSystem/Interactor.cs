@@ -14,21 +14,19 @@ namespace Platformer.PlayerSystem
         private bool _canInteract;
         private Player _player;
 
-        protected virtual void Start()
-        {
+        protected virtual void Start() =>
             _player = _gameSystem.GetPlayer();
-        }
 
-        public InteractionTrigger CurrentTrigger
+        public InteractableTrigger CurrentTrigger
         {
             get => _gameSystem.CurrentTrigger;
             set
             {
-                _gameSystem.SetCurrentTrigger(value);
-                if (value != null && value.CanPerform)
+                _gameSystem.CurrentTrigger = value;
+                if (value != null && value.CanInteract)
                 {
                     StopAllCoroutines();
-                    StartCoroutine(ShowTooltipDelay(value.InteractionDelay));
+                    //StartCoroutine(ShowTooltipDelay(value.InteractionDelay));
                 }
 
                 if (value == null)
@@ -49,7 +47,7 @@ namespace Platformer.PlayerSystem
                 {
                     _player.MovementController.Velocity = Vector3.zero;
                 }
-                _gameSystem.PerformTrigger();
+                CurrentTrigger.Interact();
             }
         }
 

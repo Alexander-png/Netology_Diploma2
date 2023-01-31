@@ -8,21 +8,24 @@ namespace Platformer.Interaction
         public bool IsSwitchedOn { get; set; }
     }
 
-	public class SwitchTrigger : InteractionTrigger
+	public class SwitchTrigger : InteractableTrigger
     {
 		[SerializeField]
 		private GameObject _targetSwitcher;
 
         private ISwitcher _switcher;
 
-        public override bool CanPerform => _switcher.CanPerform;
+        public override bool CanInteract => _switcher.CanPerform;
 
         private void Start()
         {
-            _interactionTarget = _switcher = _targetSwitcher.GetComponent<ISwitcher>();
+            _switcher = _targetSwitcher.GetComponent<ISwitcher>();
         }
 
-        public override void Perform() =>
+        public override void Interact()
+        {
             _switcher.IsSwitchedOn = !_switcher.IsSwitchedOn;
+            InvokeInteracted();
+        }
     }
 }
