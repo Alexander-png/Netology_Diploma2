@@ -9,13 +9,14 @@ namespace Platformer.CharacterSystem.Movement
         private bool _dashCharged = true;
         private bool _inDash;
         private float _dashDirection;
+        private bool _jumpedFromGround;
+        private int _jumpsLeft;
+
         private bool IsJumping { get; set; }
         private bool CanDash { get; set; }
 
-        private int JumpsLeft { get; set; }
-
-        public bool CanJump => JumpsLeft > 0;
-        public float JumpForce => MovementStats.GetJumpForce(JumpsLeft);
+        public bool CanJump => _jumpsLeft > 0;
+        public float JumpForce => MovementStats.GetJumpForce(_jumpsLeft);
         public float MaxJumpForce => MovementStats.MaxJumpForce;
         public int JumpCountInRow => MovementStats.JumpCountInRow;
 
@@ -42,7 +43,7 @@ namespace Platformer.CharacterSystem.Movement
         protected override void Awake()
         {
             base.Awake();
-            ResetJumpCounter();
+            ResetJumpState();
         }
 
         private void FixedUpdate()
@@ -61,20 +62,26 @@ namespace Platformer.CharacterSystem.Movement
             OnGround = !InAir;
             if (OnGround)
             {
-                ResetJumpCounter();
+                ResetJumpState();
             }
         }
 
         protected override void OnCollisionExit(Collision collision)
         {
             base.OnCollisionExit(collision);
+            if (InAir && !_jumpedFromGround)
+            {
+                _jumpsLeft -= 1;
+            }
         }
 
         protected override void ResetState()
         {
-            HorizontalInput = 0;
+            base.ResetState();
             _inDash = false;
             _dashCharged = true;
+            _jumpedFromGround = false;
+            ResetJumpState();
             StopAllCoroutines();
         }
 
@@ -107,34 +114,39 @@ namespace Platformer.CharacterSystem.Movement
             if (CanJump && IsJumping)
             {
                 Vector2 velocity = Velocity;
-
-                if (OnGround || InAir)
+                if (!InAir)
                 {
-                    if (velocity.y < 0)
-                    {
-                        velocity.y = 0;
-                    }
-                    velocity.y = Mathf.Clamp(velocity.y + JumpForce, 0, MaxJumpForce);
-                    JumpsLeft -= 1;
+                    _jumpedFromGround = true;
                 }
+                
+                if (velocity.y < 0)
+                {
+                    velocity.y = 0;
+                }
+                velocity.y = Mathf.Clamp(velocity.y + JumpForce, 0, MaxJumpForce);
+                _jumpsLeft -= 1;
+
                 IsJumping = false;
                 Velocity = velocity;
             }
         }
 
-        private void ResetJumpCounter() =>
-            JumpsLeft = JumpCountInRow;
+        private void ResetJumpState()
+        {
+            _jumpsLeft = JumpCountInRow;
+            _jumpedFromGround = false;
+        }
 
         public override void AddStats(MovementStatsInfo stats)
         {
             base.AddStats(stats);
-            ResetJumpCounter();
+            ResetJumpState();
         }
 
         public override void RemoveStats(MovementStatsInfo stats)
         {
             base.RemoveStats(stats);
-            ResetJumpCounter();
+            ResetJumpState();
         }
 
         public override void SetVerticalInput(float input) =>

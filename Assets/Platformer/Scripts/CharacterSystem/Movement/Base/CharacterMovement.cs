@@ -112,6 +112,11 @@ namespace Platformer.CharacterSystem.Movement.Base
         public virtual void RemoveStats(MovementStatsInfo stats) =>
             MovementStats -= stats;
 
-        protected virtual void ResetState() { }
+        protected virtual void ResetState() 
+        {
+            HorizontalInput = 0f;
+            VerticalInput = 0f;
+            StopAllCoroutines();
+        }
     }
 }

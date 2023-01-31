@@ -74,6 +74,12 @@ namespace Platformer.CharacterSystem.Movement
             return velocity;
         }
 
+        protected override void ResetState()
+        {
+            base.ResetState();
+            _inDash = false;
+        }
+
         private IEnumerator DashMove(float time)
         {
             _inDash = true;
