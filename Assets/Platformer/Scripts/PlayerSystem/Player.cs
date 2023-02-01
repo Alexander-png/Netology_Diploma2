@@ -9,7 +9,6 @@ namespace Platformer.PlayerSystem
 {
     public class Player : MoveableEntity, IDamagable, ISkillObservable
     {
-        // TODO: reduce serialized field count
         [SerializeField]
         private Inventory _inventory;
         [SerializeField]
@@ -75,21 +74,9 @@ namespace Platformer.PlayerSystem
 
         protected override void UpdateRotation()
         {
-            Vector3 relativeMousePos = GetMousePosition() - transform.position;
+            Vector3 relativeMousePos = _playerInputListener.GetMousePositionInWorld() - transform.position;
             float rotation = relativeMousePos.x > 0 ? 0 : 180;
             transform.rotation = Quaternion.Euler(new Vector3(0, rotation, 0));
-        }
-
-        private Vector3 GetMousePosition()
-        {
-            // tooked form here: https://forum.unity.com/threads/mouse-to-world-position-using-perspective-camera-when-there-is-nothing-to-hit.1199350/
-            Plane plane = new Plane(Vector3.back, Vector3.zero);
-            Ray ray = Camera.main.ScreenPointToRay(_playerInputListener.MousePositionOnScreen);
-            if (plane.Raycast(ray, out float enter))
-            {
-                return ray.GetPoint(enter);
-            }
-            return Vector3.zero;
         }
 
         private IEnumerator DamageImmuneCoroutine(float time)

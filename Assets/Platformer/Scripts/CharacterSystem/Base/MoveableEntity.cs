@@ -5,7 +5,9 @@ namespace Platformer.CharacterSystem.Base
 {
 	public abstract class MoveableEntity : Entity
 	{
-		[SerializeField]
+        // TODO: reduce serialized field count
+
+        [SerializeField]
 		private CharacterMovement _movementController;
 
         private bool _handlingEnabled;

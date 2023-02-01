@@ -1,6 +1,5 @@
 using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Enemies;
-using Platformer.EditorExtentions;
 using Platformer.Weapons;
 using System.Collections;
 using UnityEngine;
@@ -120,7 +119,7 @@ namespace Platformer.CharacterSystem.Attacking
         }
 
 #if UNITY_EDITOR
-        private void OnDrawGizmos()
+        protected virtual void OnDrawGizmos()
         {
             Color c = Color.red;
             c.a = 0.3f;
@@ -132,10 +131,6 @@ namespace Platformer.CharacterSystem.Attacking
             else if (TryGetComponent(out SphereCollider sphere))
             {
                 Gizmos.DrawSphere(transform.position, sphere.radius);
-            }
-            else
-            {
-                GameLogger.AddMessage("No hit zone found", GameLogger.LogType.Error);
             }
         }
 #endif

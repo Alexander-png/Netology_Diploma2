@@ -14,7 +14,7 @@ namespace Platformer.PlayerSystem
         [SerializeField]
         private Interactor _interactor;
 
-        public Vector2 MousePositionOnScreen { get; private set; }
+        private Vector2 _mousePositionOnScreen;
 
         private void OnRun(InputValue input) =>
             _playerMovement.SetHorizontalInput(input.Get<float>());
@@ -34,10 +34,22 @@ namespace Platformer.PlayerSystem
         private void OnMousePosition(InputValue input)
         {
             Vector2 newMousePos = input.Get<Vector2>();
-            if (MousePositionOnScreen != newMousePos)
+            if (_mousePositionOnScreen != newMousePos)
             {
-                MousePositionOnScreen = newMousePos;
+                _mousePositionOnScreen = newMousePos;
             }
+        }
+
+        public Vector3 GetMousePositionInWorld()
+        {
+            // tooked form here: https://forum.unity.com/threads/mouse-to-world-position-using-perspective-camera-when-there-is-nothing-to-hit.1199350/
+            Plane plane = new Plane(Vector3.back, Vector3.zero);
+            Ray ray = Camera.main.ScreenPointToRay(_mousePositionOnScreen);
+            if (plane.Raycast(ray, out float enter))
+            {
+                return ray.GetPoint(enter);
+            }
+            return Vector3.zero;
         }
     }
 }
