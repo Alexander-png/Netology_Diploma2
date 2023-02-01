@@ -7,13 +7,15 @@ namespace Platformer.CharacterSystem.Movement
 	public class GroundCharacterMovement : CharacterMovement
 	{
         private bool _dashCharged = true;
+        private bool _chargingDash = false;
         private bool _inDash;
         private float _dashDirection;
+
         private bool _jumpedFromGround;
         private int _jumpsLeft;
 
         private bool IsJumping { get; set; }
-        private bool CanDash { get; set; }
+        private bool DashPressed { get; set; }
 
         public bool CanJump => _jumpsLeft > 0;
         public float JumpForce => MovementStats.GetJumpForce(_jumpsLeft);
@@ -36,7 +38,7 @@ namespace Platformer.CharacterSystem.Movement
             set
             {
                 base.DashInput = value;
-                CanDash = DashInput >= 0.01f && CheckCanDash();
+                DashPressed = DashInput >= 0.01f && CheckCanDash();
             }
         }
 
@@ -51,6 +53,7 @@ namespace Platformer.CharacterSystem.Movement
             if (MovementEnabled)
             {
                 Move();
+                Dash();
                 Jump();
             }
         }
@@ -80,6 +83,7 @@ namespace Platformer.CharacterSystem.Movement
             base.ResetState();
             _inDash = false;
             _dashCharged = true;
+            _chargingDash = false;
             _jumpedFromGround = false;
             ResetJumpState();
             StopAllCoroutines();
@@ -88,23 +92,34 @@ namespace Platformer.CharacterSystem.Movement
         private void Move()
         {
             Vector2 velocity = Velocity;
-            if (!CanDash && !_inDash)
+            if (!DashPressed && !_inDash)
             {
                 velocity.x += Acceleration * HorizontalInput * Time.deltaTime;
                 velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
             }
-            else
+            Velocity = velocity;
+        }
+
+        private void Dash()
+        {
+            if (!InAir && !_dashCharged && !_chargingDash)
             {
-                if (CanDash && !_inDash && _dashCharged)
-                {
-                    StartCoroutine(DashMove(DashDuration));
-                    _dashDirection = Mathf.Sign(HorizontalInput);
-                    CanDash = false;
-                }
-                if (_inDash)
-                {
-                    velocity.x = DashForce * _dashDirection;
-                }
+                StartCoroutine(RechargeDash(DashRechargeTime));
+                return;
+            }
+
+            Vector2 velocity = Velocity;
+
+            if (DashPressed && !_inDash && _dashCharged)
+            {
+                _dashCharged = false;
+                StartCoroutine(DashMove(DashDuration));
+                _dashDirection = Mathf.Sign(HorizontalInput);
+                DashPressed = false;
+            }
+            if (_inDash)
+            {
+                velocity.x = DashForce * _dashDirection;
             }
             Velocity = velocity;
         }
@@ -125,6 +140,11 @@ namespace Platformer.CharacterSystem.Movement
                 }
                 velocity.y = Mathf.Clamp(velocity.y + JumpForce, 0, MaxJumpForce);
                 _jumpsLeft -= 1;
+
+                if (InAir)
+                {
+                    StartCoroutine(RechargeDash(DashRechargeTime));
+                }
 
                 IsJumping = false;
                 Velocity = velocity;
@@ -153,7 +173,7 @@ namespace Platformer.CharacterSystem.Movement
             IsJumping = input >= 0.01f;
 
         public override void SetDashInput(float input) =>
-            CanDash = input >= 0.01f && CheckCanDash();
+            DashPressed = input >= 0.01f && CheckCanDash();
 
         private bool CheckCanDash()
         {
@@ -169,14 +189,19 @@ namespace Platformer.CharacterSystem.Movement
             _inDash = true;
             yield return new WaitForSeconds(time);
             _inDash = false;
-            StartCoroutine(RechargeDash(DashRechargeTime));
         }
 
         private IEnumerator RechargeDash(float time)
         {
-            _dashCharged = false;
+            if (_dashCharged || _chargingDash)
+            {
+                yield break;
+            }
+
+            _chargingDash = true;
             yield return new WaitForSeconds(time);
             _dashCharged = true;
+            _chargingDash = false;
         }
     }
 }
