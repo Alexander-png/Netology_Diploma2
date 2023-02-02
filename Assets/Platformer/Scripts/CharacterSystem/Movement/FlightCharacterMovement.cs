@@ -11,7 +11,7 @@ namespace Platformer.CharacterSystem.Movement
         private float _drag = 10f;
         private bool _inDash;
 
-        private bool CanDash { get; set; }
+        private bool DashPressed { get; set; }
 
         public override float DashInput
         {
@@ -19,7 +19,7 @@ namespace Platformer.CharacterSystem.Movement
             set
             {
                 base.DashInput = value;
-                CanDash = DashInput >= 0.01f && CheckCanDash();
+                DashPressed = DashInput >= 0.01f && CheckCanDash();
             }
         }
 
@@ -33,32 +33,52 @@ namespace Platformer.CharacterSystem.Movement
             if (MovementEnabled)
             {
                 Move();
+                Dash();
             }
         }
 
         private void Move()
         {
             Vector2 velocity = Velocity;
-            if (!CanDash && !_inDash)
+            if (!DashPressed && !_inDash)
             {
                 velocity.x = CalculateVelocity(velocity.x, HorizontalInput);
                 velocity.y = CalculateVelocity(velocity.y, VerticalInput);
             }
-            else
+            //else
+            //{
+            //    if (DashPressed && !_inDash)
+            //    {
+            //        StartCoroutine(DashMove(DashDuration));
+            //        DashPressed = false;
+            //    }
+            //    if (_inDash)
+            //    {
+            //        velocity.x = DashForce * HorizontalInput;
+            //        velocity.y = DashForce * VerticalInput;
+            //    }
+            //}
+            Velocity = velocity;
+        }
+
+        private void Dash()
+        {
+            Vector2 velocity = Velocity;
+
+            if (DashPressed && !_inDash)
             {
-                if (CanDash && !_inDash)
-                {
-                    StartCoroutine(DashMove(DashDuration));
-                    CanDash = false;
-                }
-                if (_inDash)
-                {
-                    velocity.x = DashForce * HorizontalInput;
-                    velocity.y = DashForce * VerticalInput;
-                }
+                StartCoroutine(DashMove(DashDuration));
+                DashPressed = false;
+            }
+            if (_inDash)
+            {
+                velocity = CalclulateDashDirection() * DashForce;
             }
             Velocity = velocity;
         }
+
+        protected override Vector2 CalclulateDashDirection() =>
+            new Vector2(HorizontalInput, VerticalInput);
 
         private float CalculateVelocity(float velocity, float input)
         {

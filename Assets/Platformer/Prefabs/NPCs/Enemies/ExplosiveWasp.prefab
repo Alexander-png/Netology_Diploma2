@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1792561557146394544}
   - component: {fileID: 1792561557146394545}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2699cbde9e06ee147a3a5509cb94e5d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageStats: {fileID: 11400000, guid: d429f8c99c3a58d48828c3c512b49064, type: 2}
   _owner: {fileID: 1792561558398356759}
+  _damageStats: {fileID: 11400000, guid: d429f8c99c3a58d48828c3c512b49064, type: 2}
 --- !u!1 &1792561557646517379
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1792561557646517376}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1792561557684626525}
   - component: {fileID: 1792561557684626522}
   - component: {fileID: 1792561557684626524}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Attacker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9cbf2acd95aa248ac002953f3e292a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ownerTransform: {fileID: 1792561558398356744}
   _currentWeapon: {fileID: 1792561557146394545}
   _damageTrigger: {fileID: 1792561557684626524}
   _attackReloadTime: 1
@@ -149,11 +148,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1792561558398356744}
-  - component: {fileID: 1792561558398356745}
   - component: {fileID: 1792561558398356758}
+  - component: {fileID: 1792561558398356745}
   - component: {fileID: 1792561558398356756}
   - component: {fileID: 1792561558398356759}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ExplosiveWasp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,21 +175,8 @@ Transform:
   - {fileID: 1792561557684626525}
   - {fileID: 1792561557146394544}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1792561558398356745
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792561558398356747}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1792561558398356758
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -207,6 +193,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!65 &1792561558398356745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792561558398356747}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1792561558398356756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,9 +291,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6680061152779453644, guid: b9bd3197acfbe3942af9bf9d81ac42ac, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -552673511735639902, guid: b9bd3197acfbe3942af9bf9d81ac42ac, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 763469596092850419, guid: b9bd3197acfbe3942af9bf9d81ac42ac, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b9bd3197acfbe3942af9bf9d81ac42ac, type: 3}
       propertyPath: m_Name
       value: Wasp
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b9bd3197acfbe3942af9bf9d81ac42ac, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874762653263651493, guid: b9bd3197acfbe3942af9bf9d81ac42ac, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -8,7 +8,7 @@ namespace Platformer.CharacterSystem.Movement
 	{
         private bool _dashCharged = true;
         private bool _chargingDash = false;
-        private bool _inDash;
+        protected bool _inDash;
         private float _dashDirection;
 
         private bool _jumpedFromGround;
@@ -119,10 +119,13 @@ namespace Platformer.CharacterSystem.Movement
             }
             if (_inDash)
             {
-                velocity.x = DashForce * _dashDirection;
+                velocity = CalclulateDashDirection() * DashForce;
             }
             Velocity = velocity;
         }
+
+        protected override Vector2 CalclulateDashDirection() =>
+            new Vector2(_dashDirection, 0f);
 
         private void Jump()
         {
@@ -184,10 +187,16 @@ namespace Platformer.CharacterSystem.Movement
             return DashForce != 0 && DashDuration != 0;
         }
 
+        protected virtual void OnDashStarted() { }
+
+        protected virtual void OnDashEnded() { }
+
         private IEnumerator DashMove(float time)
         {
             _inDash = true;
+            OnDashStarted();
             yield return new WaitForSeconds(time);
+            OnDashEnded();
             _inDash = false;
         }
 

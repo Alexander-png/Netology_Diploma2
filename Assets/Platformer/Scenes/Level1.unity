@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 322361805}
   - component: {fileID: 322361807}
   - component: {fileID: 322361806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpiritSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 694657646}
   - component: {fileID: 694657648}
   - component: {fileID: 694657649}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Attacker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,7 +1004,7 @@ GameObject:
   - component: {fileID: 709728025}
   - component: {fileID: 709728024}
   - component: {fileID: 709728023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,7 +1153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800067266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.52, y: 17.233835, z: -12}
+  m_LocalPosition: {x: 40.2, y: 1.2038347, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 916324842}
   - component: {fileID: 916324852}
   - component: {fileID: 916324853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1373,7 +1373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916324841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.52, y: 14.13, z: 0}
+  m_LocalPosition: {x: 40.2, y: -1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1408,12 +1408,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 916324841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fc5c9910da6e9d418edb009303ea849, type: 3}
+  m_Script: {fileID: 11500000, guid: b97842fa7773e434f9dc7e56ae539f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultMovementStats: {fileID: 11400000, guid: c76b85df234256243b62382f6224c5f4, type: 2}
   _body: {fileID: 916324849}
   _movementEnabled: 1
+  _inputListener: {fileID: 916324847}
 --- !u!1 &927555389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,7 +1608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.52, y: 17.233835, z: -12}
+  m_LocalPosition: {x: 40.2, y: 1.2038347, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1772,7 +1773,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971817942}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.37, y: 2.06, z: -10.063778}
+  m_LocalPosition: {x: 58.11, y: 2.06, z: -10.063778}
   m_LocalScale: {x: 2.49, y: 8.72, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2033,6 +2034,10 @@ PrefabInstance:
     - target: {fileID: 8490961693052317815, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
       propertyPath: m_Name
       value: SpiritSword
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490961693052317815, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -2552,7 +2557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1757313410}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2603,8 +2608,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826520604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.94, y: -1.75, z: -10.063778}
-  m_LocalScale: {x: 20.3, y: 1, z: 1}
+  m_LocalPosition: {x: 29.44, y: -1.75, z: -10.063778}
+  m_LocalScale: {x: 55.05, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 454243144}
@@ -2912,7 +2917,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2016536382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}

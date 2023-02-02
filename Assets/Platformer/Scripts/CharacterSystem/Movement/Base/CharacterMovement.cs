@@ -91,6 +91,9 @@ namespace Platformer.CharacterSystem.Movement.Base
             }
         }
 
+        protected virtual Vector2 CalclulateDashDirection() =>
+            Vector2.zero;
+
         public virtual void StopImmediatly()
         {
             HorizontalInput = 0f;
