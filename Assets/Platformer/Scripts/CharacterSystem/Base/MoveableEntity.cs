@@ -5,10 +5,7 @@ namespace Platformer.CharacterSystem.Base
 {
 	public abstract class MoveableEntity : Entity
 	{
-        // TODO: reduce serialized field count
-        [SerializeField]
 		private CharacterMovement _movementController;
-
         private bool _handlingEnabled;
 
         public CharacterMovement MovementController => _movementController;
@@ -21,6 +18,12 @@ namespace Platformer.CharacterSystem.Base
                 _handlingEnabled = value;
                 _movementController.MovementEnabled = _handlingEnabled;
             }
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            _movementController = gameObject.GetComponent<CharacterMovement>();
         }
 
         protected override void Update()

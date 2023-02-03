@@ -8,14 +8,12 @@ namespace Platformer.CharacterSystem.Attacking
 {
 	public class MeleeAttacker : Attacker
 	{
-        [SerializeField]
-        protected MeleeWeapon _currentWeapon;
-        [SerializeField]
-        private Collider _damageTrigger;
-
         // todo: move to configuraion
         [SerializeField]
         private float _attackReloadTime = 1f;
+
+        protected MeleeWeapon _currentWeapon;
+        private Collider _damageTrigger;
 
         private bool _attacking;
         private bool _reloadingAttack;
@@ -37,11 +35,11 @@ namespace Platformer.CharacterSystem.Attacking
             }
         }
 
-        private void Start()
+        protected virtual void Start()
         {
+            CurrentWeapon = GetComponentInChildren<MeleeWeapon>();
+            _damageTrigger = GetComponent<Collider>();
             _damageTrigger.enabled = false;
-            // Refreshing event subscription
-            CurrentWeapon = CurrentWeapon;
         }
 
         private void OnDisable() =>

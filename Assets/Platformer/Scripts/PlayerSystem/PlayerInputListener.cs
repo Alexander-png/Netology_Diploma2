@@ -7,14 +7,17 @@ namespace Platformer.PlayerSystem
 {
 	public class PlayerInputListener : MonoBehaviour
 	{
-        [SerializeField]
-        private CharacterMovement _playerMovement;
-        [SerializeField]
+        private CharacterMovement _playerMovement;        
         private MeleeAttacker _attacker;
-        [SerializeField]
         private Interactor _interactor;
-
         private Vector2 _mousePositionOnScreen;
+
+        private void Start()
+        {
+            _playerMovement = gameObject.GetComponentInChildren<CharacterMovement>();
+            _attacker = gameObject.GetComponentInChildren<MeleeAttacker>();
+            _interactor = gameObject.GetComponent<Interactor>();
+        }
 
         private void OnRun(InputValue input) =>
             _playerMovement.SetHorizontalInput(input.Get<float>());

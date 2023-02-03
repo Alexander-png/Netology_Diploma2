@@ -23,8 +23,9 @@ namespace Platformer.CharacterSystem.Movement
             }
         }
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             Body.useGravity = false;
         }
 

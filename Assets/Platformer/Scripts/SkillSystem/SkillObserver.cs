@@ -14,14 +14,17 @@ namespace Platformer.SkillSystem
         private GameSystem _gameSystem;
 
         [SerializeField]
-        private CharacterMovement _movementController;
-        [SerializeField]
-        private Entity _character;
-
-        [SerializeField]
         private bool _distinctSkillsOnly = true;
 
+        private CharacterMovement _movementController;        
+        private Entity _character;
         private List<Skill> _appliedSkills = new List<Skill>();
+
+        private void Start()
+        {
+            _movementController = gameObject.GetComponent<CharacterMovement>();
+            _character = gameObject.GetComponent<Entity>();
+        }
 
         private Skill FindSkill(string id) => _appliedSkills.Find(s => s.SkillId == id);
 

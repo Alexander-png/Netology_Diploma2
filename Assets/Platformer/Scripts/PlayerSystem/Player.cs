@@ -9,11 +9,8 @@ namespace Platformer.PlayerSystem
 {
     public class Player : MoveableEntity, IDamagable, ISkillObservable
     {
-        [SerializeField]
-        private Inventory _inventory;
-        [SerializeField]
-        private SkillObserver _skillObserver;
-        [SerializeField]
+        private Inventory _inventory;     
+        private SkillObserver _skillObserver;     
         private PlayerInputListener _playerInputListener;
 
         private bool _damageImmune = false;
@@ -27,6 +24,14 @@ namespace Platformer.PlayerSystem
         public SkillObserver SkillObserver => _skillObserver;
 
         public event EventHandler Died;
+
+        protected override void Start()
+        {
+            base.Start();
+            _inventory = gameObject.GetComponent<Inventory>();
+            _skillObserver = gameObject.GetComponent<SkillObserver>();
+            _playerInputListener = gameObject.GetComponent<PlayerInputListener>();
+        }
 
         protected override void OnEnable()
         {

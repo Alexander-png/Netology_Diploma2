@@ -1,3 +1,4 @@
+using Platformer.EditorExtentions;
 using Platformer.Weapons;
 using UnityEngine;
 
@@ -5,10 +6,24 @@ namespace Platformer.CharacterSystem.Attacking
 {
 	public class DistantAttacker : Attacker
 	{
-		[SerializeField]
+        [SerializeField, ReadOnly]
 		protected DistantWeapon _currentWeapon;
 
-		public Vector3 GetProjectileSpawnPointPosition() =>
+        private void OnValidate() =>
+            FindWeapon();
+
+        private void Start() =>
+            FindWeapon();
+
+        private void FindWeapon()
+        {
+            if (_currentWeapon == null)
+            {
+                _currentWeapon = GetComponentInChildren<DistantWeapon>();
+            }
+        }
+
+        public Vector3 GetProjectileSpawnPointPosition() =>
 			_currentWeapon.ProjectileSpawnPosition;
 
 		public float GetShootDistance() =>
@@ -17,9 +32,6 @@ namespace Platformer.CharacterSystem.Attacking
         public override void StartAttack() =>
             _currentWeapon.Shoot();
 
-        public override void EndAttack()
-        {
-            
-        }
+        public override void EndAttack() { }
     }
 }

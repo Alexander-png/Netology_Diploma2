@@ -9,11 +9,10 @@ namespace Platformer.CharacterSystem.Movement.Base
 	{
 		[SerializeField]
 		private MovementStats _defaultMovementStats;
-		[SerializeField]
-		private Rigidbody _body;
         [SerializeField]
         private bool _movementEnabled = true;
 
+		private Rigidbody _body;
         protected MovementStatsInfo MovementStats { get; private set; }
 
         private float _horizontalInput;
@@ -69,6 +68,9 @@ namespace Platformer.CharacterSystem.Movement.Base
             _currentCollisions = new List<GameObject>();
             MovementStats = _defaultMovementStats.GetData();
         }
+
+        protected virtual void Start() =>
+            _body = gameObject.GetComponent<Rigidbody>();
 
         protected virtual void OnDisable()
         {

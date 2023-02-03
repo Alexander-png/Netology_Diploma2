@@ -5,8 +5,13 @@ namespace Platformer.PlayerSystem
 {
 	public class PlayerGroundMovement : GroundCharacterMovement
 	{
-		[SerializeField]
 		private PlayerInputListener _inputListener;
+
+        protected override void Start()
+        {
+            base.Start();
+            _inputListener = gameObject.GetComponent<PlayerInputListener>();
+        }
 
         protected override Vector2 CalclulateDashDirection()
         {

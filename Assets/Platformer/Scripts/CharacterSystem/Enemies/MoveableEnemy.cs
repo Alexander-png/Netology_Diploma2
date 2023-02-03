@@ -16,12 +16,10 @@ namespace Platformer.CharacterSystem.Enemies
 
         [SerializeField]
         protected EnemyBehaviourConfig _behaviourConfig;
-        [SerializeField]
+        
         protected Attacker _attacker;
-
         protected float _currentHealth;
         protected float _maxHealth;
-
         protected Player _player;
 
         protected bool _behaviourEnabled;
@@ -34,6 +32,9 @@ namespace Platformer.CharacterSystem.Enemies
 
         protected override void Start()
         {
+            base.Start();
+            _attacker = gameObject.GetComponentInChildren<Attacker>();
+
             _player = _gameSystem.GetPlayer();
             MovementController.MovementEnabled = true;
             SetBehaviourEnabled(true);

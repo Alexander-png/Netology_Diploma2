@@ -1,3 +1,4 @@
+using Platformer.GameCore.Helpers;
 using System;
 using UnityEngine;
 
@@ -5,9 +6,7 @@ namespace Platformer.Weapons
 {
 	public class PlayerWeapon : MeleeWeapon
 	{
-        [SerializeField]
         private Transform _visual;
-        [SerializeField]
         private Animator _animator;
 
         private void OnEnable() =>
@@ -16,7 +15,18 @@ namespace Platformer.Weapons
         private void OnDisable() =>
             _owner.Respawning -= OnPlayerRespawning;
 
-        private void Start() => ResetValues();
+        private void Awake()
+        {
+            FindOwner();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            _visual = GetComponentInChildren<Visual>().transform;
+            _animator = GetComponent<Animator>();
+            ResetValues();
+        }
 
         public override void MakeHit()
         {

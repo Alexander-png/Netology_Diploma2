@@ -6,8 +6,12 @@ namespace Platformer.CharacterSystem.Enemies
 {
 	public class StationaryShooter : StationaryEnemy
 	{
-        [SerializeField]
         private DistantAttacker _attacker;
+
+        protected override void Start()
+        {
+            _attacker = GetComponentInChildren<DistantAttacker>();
+        }
 
         protected override void FixedUpdate() =>
             UpdateBehaviour();

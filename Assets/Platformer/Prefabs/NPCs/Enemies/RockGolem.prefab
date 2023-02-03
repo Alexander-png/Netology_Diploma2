@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2762582658485868268}
+  - component: {fileID: 2427035315578295197}
   m_Layer: 7
   m_Name: ProjectileSpawnPoint
   m_TagString: Untagged
@@ -28,9 +29,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2762582660237079674}
+  m_Father: {fileID: 2762582659818249405}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+--- !u!114 &2427035315578295197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762582658485868271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7efa3076198adf469ab4a3e2c1f3f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2762582658873875165
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +72,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2762582659818249405}
   m_Father: {fileID: 2762582660237079674}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -100,12 +114,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2762582659818249404}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2762582660237079674}
+  m_Children:
+  - {fileID: 2762582658485868268}
+  m_Father: {fileID: 2762582658873875162}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2762582659818249402
@@ -120,11 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39c74f86bdc89e4ab5f9f34051ae7fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _owner: {fileID: 2762582660237079672}
   _stats: {fileID: 11400000, guid: b83e3b7e9c8e5084897d311767170e0a, type: 2}
   _projectilePrefab: {fileID: 5215715450827365242, guid: d23c2798bf65489498087154a9870b32, type: 3}
   _projectileSpawnPoint: {fileID: 2762582658485868268}
-  _projectilePool: {fileID: 0}
 --- !u!1 &2762582660206627743
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2762582660206627740}
+  - component: {fileID: 7374921075697721125}
   m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
@@ -157,6 +171,18 @@ Transform:
   m_Father: {fileID: 2762582660237079674}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7374921075697721125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762582660206627743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828977adc60ad7a4494a16262075a761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2762582660237079677
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,11 +216,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2762582660206627740}
-  - {fileID: 2762582659818249405}
-  - {fileID: 2762582658485868268}
   - {fileID: 2762582658873875162}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2762582660237079673
 Rigidbody:
@@ -239,9 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: af967fe1b0ebf6f478bf76c9ac06f9d4, type: 2}
-  _movementController: {fileID: 2762582660237079675}
   _behaviourConfig: {fileID: 11400000, guid: cafb83a481a7f4144b7faa1606a99941, type: 2}
-  _attacker: {fileID: 2762582658873875163}
   _detectorConfig: {fileID: 11400000, guid: 79eb1cd2fd3805b489b160e7a41b626a, type: 2}
   _viewFieldConfig: {fileID: 11400000, guid: 2f2e28f011379734d8857025b940b2b0, type: 2}
 --- !u!114 &2762582660237079675
@@ -257,7 +279,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultMovementStats: {fileID: 11400000, guid: 919a8b0da0d89e449b754fc9d257b605, type: 2}
-  _body: {fileID: 2762582660237079673}
   _movementEnabled: 1
 --- !u!1001 &2762582658426128291
 PrefabInstance:
