@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Platformer.Scriptable.LevelElements.Traps
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Damage stats")]
-	public class DamageStats : ScriptableObject
+	public class TrapDamageStats : ScriptableObject
 	{
 		[SerializeField]
 		private float _damage;

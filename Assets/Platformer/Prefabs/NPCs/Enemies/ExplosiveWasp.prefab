@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageStats: {fileID: 11400000, guid: d429f8c99c3a58d48828c3c512b49064, type: 2}
+  _stats: {fileID: 11400000, guid: 3dce1a326afe81347a64f7cf9c83439f, type: 2}
 --- !u!1 &1792561557646517379
 GameObject:
   m_ObjectHideFlags: 0

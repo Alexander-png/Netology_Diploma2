@@ -8,10 +8,6 @@ namespace Platformer.CharacterSystem.Attacking
 {
 	public class MeleeAttacker : Attacker
 	{
-        // todo: move to configuraion
-        [SerializeField]
-        private float _attackReloadTime = 1f;
-
         protected MeleeWeapon _currentWeapon;
         private Collider _damageTrigger;
 
@@ -107,12 +103,12 @@ namespace Platformer.CharacterSystem.Attacking
         }
 
         public override float GetAttackChargeTime() =>
-            CurrentWeapon.Stats.AttackChargeTime;
+            CurrentWeapon.Stats.StrengthAttackChargeTime;
 
         private IEnumerator ReloadAttack()
         {
             _reloadingAttack = true;
-            yield return new WaitForSeconds(_attackReloadTime);
+            yield return new WaitForSeconds(CurrentWeapon.Stats.ReloadTime);
             _reloadingAttack = false;
         }
 

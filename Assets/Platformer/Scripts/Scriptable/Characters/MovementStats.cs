@@ -12,6 +12,8 @@ namespace Platformer.Scriptable.Characters
 		[SerializeField]
 		private float _acceleration;
 		[SerializeField]
+		private float _inAirDrag;
+		[SerializeField]
 		private float[] _jumps;
 		[SerializeField]
 		private int _jumpCountInRow;
@@ -30,6 +32,7 @@ namespace Platformer.Scriptable.Characters
 		{
 			MaxSpeed = _maxSpeed,
 			Acceleration = _acceleration,
+			InAirDrag = _inAirDrag,
 			Jumps = new List<float>(_jumps), // need for jumps initialization
 			JumpCountInRow = _jumpCountInRow,
 			ClimbForce = _climbForce,

@@ -1,4 +1,5 @@
 using Platformer.Scriptable.LevelElements.Traps;
+using Platformer.Scriptable.WeaponStats;
 using System;
 using UnityEngine;
 
@@ -7,12 +8,12 @@ namespace Platformer.Weapons
 	public class MeleeWeapon : Weapon
 	{
         [SerializeField]
-        protected DamageStats _damageStats;
+        protected WeaponStats _stats;
         
         protected bool _chargingAttack;
         protected Coroutine _chargeAttackCoroutine;
 
-        public DamageStats Stats => _damageStats;
+        public WeaponStats Stats => _stats;
 
         public event EventHandler HitEnded;
 

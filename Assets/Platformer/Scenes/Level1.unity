@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d8e59b7df5ea14eb0c72663914ea30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageStats: {fileID: 11400000, guid: 5cbff10d3dcc78d40b2b86264a6e2841, type: 2}
+  _stats: {fileID: 11400000, guid: af5db329db212b549803c05853d9c73e, type: 2}
 --- !u!1 &361818966
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,8 +890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3897ba4adbf9049af5e8ed06b1bcd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackReloadTime: 1
-  _attackRadius: 1.75
 --- !u!135 &694657649
 SphereCollider:
   m_ObjectHideFlags: 0

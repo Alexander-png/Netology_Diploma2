@@ -6,9 +6,6 @@ namespace Platformer.CharacterSystem.Movement
 {
 	public class FlightCharacterMovement : CharacterMovement
 	{
-        // TODO: move to config
-        [SerializeField]
-        private float _drag = 10f;
         private bool _inDash;
 
         private bool DashPressed { get; set; }
@@ -90,7 +87,7 @@ namespace Platformer.CharacterSystem.Movement
             }
             else
             {
-                velocity = Mathf.SmoothStep(velocity, 0, _drag * Time.deltaTime);
+                velocity = Mathf.SmoothStep(velocity, 0, InAirDrag * Time.deltaTime);
             }
             return velocity;
         }

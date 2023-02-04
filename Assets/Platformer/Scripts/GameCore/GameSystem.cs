@@ -8,9 +8,6 @@ using System.Collections;
 using UnityEngine;
 
 // TODO: find assets for all objects
-// TODO: More player abilities
-// TODO: improve player moving, there are some bugs
-// TODO: non movement skills
 
 namespace Platformer.GameCore
 {

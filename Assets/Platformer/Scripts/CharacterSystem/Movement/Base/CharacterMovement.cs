@@ -25,6 +25,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         
         public float Acceleration => MovementStats.Acceleration;
         public float MaxSpeed => MovementStats.MaxSpeed;
+        public float InAirDrag => MovementStats.InAirDrag;
         public float DashForce => MovementStats.DashForce;
         public float DashDuration => MovementStats.DashDuration;
         public float DashRechargeTime => MovementStats.DashRechargeTime;

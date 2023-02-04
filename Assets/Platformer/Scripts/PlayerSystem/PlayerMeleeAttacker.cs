@@ -6,10 +6,6 @@ namespace Platformer.PlayerSystem
 {
 	public class PlayerMeleeAttacker : MeleeAttacker
 	{
-        // todo: move to config
-        [SerializeField]
-        private float _attackRadius;
-
         private PlayerInputListener _inputListener;
 
         protected override void Start()
@@ -27,7 +23,7 @@ namespace Platformer.PlayerSystem
             Vector3 mousePosition = _inputListener.GetMousePositionInWorld();
             Vector3 relativePosition = mousePosition - transform.parent.position;
             Ray ray = new Ray(transform.parent.position, relativePosition);
-            transform.position = ray.GetPoint(_attackRadius);
+            transform.position = ray.GetPoint(CurrentWeapon.Stats.AttackRadius);
         }
     }
 }

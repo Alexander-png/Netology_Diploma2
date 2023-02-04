@@ -12,6 +12,7 @@ namespace Platformer.CharacterSystem.Movement.Base
     {
         public float Acceleration;
         public float MaxSpeed;
+        public float InAirDrag;
         public List<float> Jumps;
         public int JumpCountInRow;
         public float ClimbForce;
@@ -39,12 +40,12 @@ namespace Platformer.CharacterSystem.Movement.Base
             //return Jumps[JumpCountInRow - jumpsLeft];
         }
 
-
         public static MovementStatsInfo operator +(MovementStatsInfo first, MovementStatsInfo second)
         {
             var result = new MovementStatsInfo();
             result.Acceleration = first.Acceleration + second.Acceleration;
             result.MaxSpeed = first.MaxSpeed + second.MaxSpeed;
+            result.InAirDrag = first.InAirDrag + second.InAirDrag;
             result.JumpCountInRow = first.JumpCountInRow + second.JumpCountInRow;
             result.Jumps = new List<float>(first.Jumps);
             result.ClimbForce = first.ClimbForce + second.ClimbForce;
@@ -60,6 +61,7 @@ namespace Platformer.CharacterSystem.Movement.Base
             var result = new MovementStatsInfo();
             result.Acceleration = first.Acceleration - second.Acceleration;
             result.MaxSpeed = first.MaxSpeed - second.MaxSpeed;
+            result.InAirDrag = first.InAirDrag - second.InAirDrag;
             result.JumpCountInRow = first.JumpCountInRow - second.JumpCountInRow;
             if (result.JumpCountInRow < 0)
             {

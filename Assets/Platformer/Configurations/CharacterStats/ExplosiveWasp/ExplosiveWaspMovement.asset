@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxSpeed: 10
   _acceleration: 10
+  _inAirDrag: 10
   _jumps: []
   _jumpCountInRow: 0
   _climbForce: 0
