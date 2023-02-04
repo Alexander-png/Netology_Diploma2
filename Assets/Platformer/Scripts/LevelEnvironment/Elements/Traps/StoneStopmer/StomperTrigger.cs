@@ -1,7 +1,6 @@
-using Platformer.Interactables.Elements.Traps;
 using UnityEngine;
 
-namespace Platformer.LevelEnvironment.Triggers
+namespace Platformer.LevelEnvironment.Elements.Traps.StoneStomper
 {
     public class StomperTrigger : MonoBehaviour
     {

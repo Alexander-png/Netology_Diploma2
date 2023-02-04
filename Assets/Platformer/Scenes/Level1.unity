@@ -892,7 +892,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackReloadTime: 1
   _attackRadius: 1.75
-  _inputListener: {fileID: 916324847}
 --- !u!135 &694657649
 SphereCollider:
   m_ObjectHideFlags: 0

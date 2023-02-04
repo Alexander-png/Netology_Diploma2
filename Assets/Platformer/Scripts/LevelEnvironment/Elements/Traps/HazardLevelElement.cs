@@ -4,7 +4,7 @@ using Platformer.Scriptable.LevelElements.Traps;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer.Interactables.Elements.Traps
+namespace Platformer.LevelEnvironment.Elements.Traps
 {
 	public class HazardLevelElement : Platform
 	{

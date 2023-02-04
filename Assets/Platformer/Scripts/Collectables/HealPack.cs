@@ -1,7 +1,7 @@
 using Platformer.Scriptable.Collectables;
 using UnityEngine;
 
-namespace Platformer.LevelEnvironment.Collectables
+namespace Platformer.Collectables
 {
 	public class HealPack : CollectableItem
 	{

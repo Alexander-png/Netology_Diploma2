@@ -1,8 +1,9 @@
+using Platformer.Interactables.Elements.Traps;
 using Platformer.LevelEnvironment.Elements.Common;
 using System.Collections;
 using UnityEngine;
 
-namespace Platformer.Interactables.Elements.Traps
+namespace Platformer.LevelEnvironment.Elements.Traps.StoneStomper
 {
     public class StomperTrap : HazardLevelElement
     {

@@ -5,7 +5,7 @@ using Platformer.QuestSystem;
 using UnityEngine;
 using Zenject;
 
-namespace Platformer.LevelEnvironment.Collectables
+namespace Platformer.Collectables
 {
     public class CollectableItem : InteractableTrigger, IInventoryItem, IQuestTarget
     {

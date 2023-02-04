@@ -1,4 +1,4 @@
-namespace Platformer.Interactables.Elements.Traps
+namespace Platformer.LevelEnvironment.Elements.Traps
 {
 	public class FatalHazard : HazardLevelElement
     {
