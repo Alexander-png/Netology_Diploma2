@@ -1,29 +1,149 @@
 using Platformer.CharacterSystem.Attacking;
+using Platformer.CharacterSystem.Movement.Base;
+using Platformer.EditorExtentions;
 using Platformer.Weapons;
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Platformer.PlayerSystem
 {
 	public class PlayerMeleeAttacker : MeleeAttacker
 	{
+        private CharacterMovement _playerMovement;
+
+        private float _currentDamage;
+        private SphereCollider _sphereDamageTrigger;
+        private float _defaultTriggerRadius;
+        private float _currentTriggerRadius;
+        private float _currentAttackRadius;
+
+        private Coroutine _chargeAttackCoroutine;
+
         private PlayerInputListener _inputListener;
 
         protected override void Start()
         {
             base.Start();
+
+            _playerMovement = transform.parent.GetComponent<CharacterMovement>();
             _inputListener = transform.parent.GetComponentInChildren<PlayerInputListener>();
             CurrentWeapon = transform.parent.GetComponentInChildren<MeleeWeapon>();
+
+            _sphereDamageTrigger = _damageTrigger as SphereCollider;
+            if (_sphereDamageTrigger == null)
+            {
+                GameLogger.AddMessage($"{nameof(PlayerMeleeAttacker)} now supports only {nameof(SphereCollider)} as damage trigger for resizing on strong attack. The resizing will not work now.", GameLogger.LogType.Warning);
+                return;
+            }
+            _defaultTriggerRadius = _sphereDamageTrigger.radius;
+            ResetCurrentAttackStats();
+        }
+
+        protected override void OnTriggerEnter(Collider other)
+        {
+            var enemy = GetEnemyComponent(other);
+            if (enemy != null)
+            {
+                if (CurrentWeapon != null)
+                {
+                    enemy.SetDamage(_currentDamage, (transform.position - other.transform.position) * CurrentWeapon.Stats.PushForce);
+                }
+            }
         }
 
         private void Update() =>
             UpdateHitColliderPosition();
+
+        public override void OnAttackPressed()
+        {
+            ResetCurrentAttackStats();
+            if (CanNotAttack())
+            {
+                return;
+            }
+        }
+
+        public override void OnStrongAttackInput()
+        {
+            if (CanNotAttack())
+            {
+                return;
+            }
+            _chargeAttackCoroutine = StartCoroutine(ChargeAttack());
+        }
+
+        public override void OnAttackReleased()
+        {
+            if (CanNotAttack())
+            {
+                return;
+            }
+
+            if (_chargeAttackCoroutine != null)
+            {
+                StopCoroutine(_chargeAttackCoroutine);
+                _chargeAttackCoroutine = null;
+            }
+            SetDamageTriggerRadius(_currentTriggerRadius);
+            StartAttackInternal();
+        }
+
+        protected override void OnHitEnded(object sender, EventArgs e)
+        {
+            _attacking = false;
+            CurrentWeapon?.StopHit();
+            _damageTrigger.enabled = false;
+            _playerMovement.MovementEnabled = true;
+            StartCoroutine(ReloadAttack());
+            ResetCurrentAttackStats();
+        }
 
         private void UpdateHitColliderPosition()
         {
             Vector3 mousePosition = _inputListener.GetMousePositionInWorld();
             Vector3 relativePosition = mousePosition - transform.parent.position;
             Ray ray = new Ray(transform.parent.position, relativePosition);
-            transform.position = ray.GetPoint(CurrentWeapon.Stats.AttackRadius);
+            transform.position = ray.GetPoint(_currentAttackRadius);
+        }
+
+        private void SetDamageTriggerRadius(float radius)
+        {
+            if (_sphereDamageTrigger != null)
+            {
+                _sphereDamageTrigger.radius = radius;
+            }
+        }
+
+        private void ResetCurrentAttackStats()
+        {
+            _currentTriggerRadius = _defaultTriggerRadius;
+            _currentAttackRadius = CurrentWeapon.Stats.AttackRadius;
+            SetDamageTriggerRadius(_defaultTriggerRadius);
+        }
+
+        private IEnumerator ChargeAttack()
+        {
+            _playerMovement.MovementEnabled = false;
+            float timeLeft = CurrentWeapon.Stats.StrongAttackChargeTime;
+
+            float damageIncreaseStep = 
+                _currentDamage * CurrentWeapon.Stats.StrongAttackDamageMultipler * 0.01f;
+
+            float triggerRadiusIncreaseStep =
+                _currentTriggerRadius * CurrentWeapon.Stats.StrongAttackRadiusMultipler * 0.01f;
+
+            float attackRadiusIncreaseStep =
+                _currentAttackRadius * CurrentWeapon.Stats.StrongAttackRadiusMultipler * 0.01f;
+
+            while (timeLeft >= 0)
+            {
+                yield return null;
+                timeLeft -= Time.deltaTime;
+                _currentDamage += damageIncreaseStep;
+                _currentTriggerRadius += triggerRadiusIncreaseStep;
+                _currentAttackRadius += attackRadiusIncreaseStep;
+            }
         }
     }
 }

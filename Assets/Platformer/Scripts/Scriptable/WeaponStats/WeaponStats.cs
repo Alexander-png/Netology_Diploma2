@@ -12,11 +12,13 @@ namespace Platformer.Scriptable.WeaponStats
 		[SerializeField]
 		private float _reloadTime;
 		[SerializeField]
-		private bool _hasStrengthAttack;
+		private bool _hasStrongAttack;
 		[SerializeField]
-		private float _strengthAttackChargeTime;
+		private float _strongAttackChargeTime;
 		[SerializeField]
-		private float _strengthAttackDamageMultipler;
+		private float _strongAttackDamageMultipler;
+		[SerializeField]
+		private float _strongAttackRadiusMultipler;
 		[SerializeField]
 		private float _pushForce;
 		[SerializeField]
@@ -25,9 +27,10 @@ namespace Platformer.Scriptable.WeaponStats
 		public float Damage => _damage;
 		public float AttackRadius => _attackRadius;
 		public float ReloadTime => _reloadTime;
-		public bool HasStrengthAttack => _hasStrengthAttack;
-		public float StrengthAttackChargeTime => _strengthAttackChargeTime;
-		public float StrengthAttackDamageMultipler => _strengthAttackDamageMultipler;
+		public bool HasStrongAttack => _hasStrongAttack;
+		public float StrongAttackChargeTime => _strongAttackChargeTime;
+		public float StrongAttackDamageMultipler => _strongAttackDamageMultipler;
+		public float StrongAttackRadiusMultipler => _strongAttackRadiusMultipler;
 		public float PushForce => _pushForce;
 		public bool IsKamikazeAttack => _isKamikazeAttack;
 	}

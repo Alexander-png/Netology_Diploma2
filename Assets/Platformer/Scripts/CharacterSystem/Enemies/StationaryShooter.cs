@@ -29,7 +29,7 @@ namespace Platformer.CharacterSystem.Enemies
         {
             if (CheckPlayerNearby())
             {
-                _attacker.StartAttack();
+                _attacker.OnAttackPressed();
             }
         }
 

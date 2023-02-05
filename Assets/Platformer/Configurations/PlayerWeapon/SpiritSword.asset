@@ -15,8 +15,9 @@ MonoBehaviour:
   _damage: 4
   _attackRadius: 1.75
   _reloadTime: 0.5
-  _hasStrengthAttack: 1
-  _strengthAttackChargeTime: 1.5
-  _strengthAttackDamageMultipler: 1.6
+  _hasStrongAttack: 0
+  _strongAttackChargeTime: 1.5
+  _strongAttackDamageMultipler: 1.6
+  _strongAttackRadiusMultipler: 1.6
   _pushForce: 10
   _isKamikazeAttack: 0

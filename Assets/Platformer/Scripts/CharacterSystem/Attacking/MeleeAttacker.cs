@@ -8,10 +8,10 @@ namespace Platformer.CharacterSystem.Attacking
 {
 	public class MeleeAttacker : Attacker
 	{
-        protected MeleeWeapon _currentWeapon;
-        private Collider _damageTrigger;
+        private MeleeWeapon _currentWeapon;
+        protected Collider _damageTrigger;
 
-        private bool _attacking;
+        protected bool _attacking;
         private bool _reloadingAttack;
 
         protected MeleeWeapon CurrentWeapon
@@ -44,9 +44,9 @@ namespace Platformer.CharacterSystem.Attacking
         private void OnDestroy() =>
             CurrentWeapon = null;
 
-        private bool CanNotAttack() => _attacking || _reloadingAttack || _currentWeapon == null;
+        protected virtual bool CanNotAttack() => _attacking || _reloadingAttack || _currentWeapon == null;
 
-        public override void StartAttack()
+        public override void OnAttackPressed()
         {
             if (CanNotAttack())
             {
@@ -55,6 +55,8 @@ namespace Platformer.CharacterSystem.Attacking
             StartAttackInternal();
         }
 
+        public override void OnStrongAttackInput() { }
+
         protected virtual void StartAttackInternal()
         {
             _attacking = true;
@@ -62,16 +64,16 @@ namespace Platformer.CharacterSystem.Attacking
             _damageTrigger.enabled = true;
         }
 
-        public override void EndAttack()
+        public override void OnAttackReleased()
         {
             _attacking = false;
             _currentWeapon?.StopHit();
             _damageTrigger.enabled = false;
         }
 
-        private void OnHitEnded(object sender, System.EventArgs e)
+        protected virtual void OnHitEnded(object sender, System.EventArgs e)
         {
-            EndAttack();
+            OnAttackReleased();
             StartCoroutine(ReloadAttack());
         }
 
@@ -103,9 +105,9 @@ namespace Platformer.CharacterSystem.Attacking
         }
 
         public override float GetAttackChargeTime() =>
-            CurrentWeapon.Stats.StrengthAttackChargeTime;
+            CurrentWeapon.Stats.StrongAttackChargeTime;
 
-        private IEnumerator ReloadAttack()
+        protected IEnumerator ReloadAttack()
         {
             _reloadingAttack = true;
             yield return new WaitForSeconds(CurrentWeapon.Stats.ReloadTime);

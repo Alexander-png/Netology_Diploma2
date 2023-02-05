@@ -93,7 +93,7 @@ namespace Platformer.CharacterSystem.Enemies
             }
             _inIdle = false;
             _pursuingPlayer = true;
-            _attacker.StartAttack();
+            _attacker.OnAttackPressed();
         }
 
         public virtual void OnPlayerRanAway()
@@ -103,7 +103,7 @@ namespace Platformer.CharacterSystem.Enemies
                 return;
             }
             _pursuingPlayer = false;
-            _attacker.EndAttack();
+            _attacker.OnAttackReleased();
         }
     }
 }

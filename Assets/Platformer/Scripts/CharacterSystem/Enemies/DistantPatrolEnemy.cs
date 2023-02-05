@@ -72,7 +72,7 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 MovementController.StopImmediatly();
                 RotateToPlayer();
-                _attacker.StartAttack();
+                _attacker.OnAttackPressed();
             }
         }
 

@@ -1,5 +1,6 @@
 using Platformer.CharacterSystem.Attacking;
 using Platformer.CharacterSystem.Movement.Base;
+using Platformer.EditorExtentions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,8 +29,22 @@ namespace Platformer.PlayerSystem
         private void OnJump(InputValue input) =>
             _playerMovement.SetVerticalInput(input.Get<float>());
 
-        private void OnAttack(InputValue input) =>
-            _attacker.StartAttack();
+        private void OnAttack(InputValue input)
+        {
+            float value = input.Get<float>();
+            if (value > 0)
+            {
+                _attacker.OnAttackPressed();
+            }
+            else
+            {
+                _attacker.OnAttackReleased();
+            }
+        }
+
+        private void OnStrongAttack(InputValue input) =>
+            _attacker.OnStrongAttackInput();
+            //GameLogger.AddMessage("Strong attack");
 
         private void OnInteract(InputValue input) => 
             _interactor.OnInteractInput();

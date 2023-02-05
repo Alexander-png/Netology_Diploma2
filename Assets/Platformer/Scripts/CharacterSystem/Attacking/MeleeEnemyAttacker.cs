@@ -6,7 +6,7 @@ namespace Platformer.CharacterSystem.Attacking
 {
 	public class MeleeEnemyAttacker : MeleeAttacker
 	{
-        public override void StartAttack()
+        public override void OnAttackPressed()
         {
             StartAttackInternal();
         }
