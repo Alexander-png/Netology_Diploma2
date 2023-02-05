@@ -20,6 +20,8 @@ namespace Platformer.UI.MenuSystem
         [SerializeField]
         private MenuCommandDictionary _commandBindings;
 
+        private MenuComponent _previousMenu;
+
         private int _selectionIndex = 0;
 
         protected MenuItem[] MenuItems
@@ -42,13 +44,14 @@ namespace Platformer.UI.MenuSystem
         private void Initialize()
         {
             FindAndSortMenuItems();
+
             if (_items?.Length != 0)
             {
                 try
                 {
                     MenuItem selectedMarker = _items.First(i => i.IsSelected);
                     _selectionIndex = Array.IndexOf(_items, selectedMarker);
-                    foreach(MenuItem item in _items)
+                    foreach (MenuItem item in _items)
                     {
                         item.SetParent(this);
                     }
@@ -57,6 +60,11 @@ namespace Platformer.UI.MenuSystem
                 {
                     GameLogger.AddMessage(exc.Message, GameLogger.LogType.Error);
                 }
+            }
+
+            foreach (var binding in _commandBindings)
+            {
+                binding.Value.SetAssociatedMenu(this);
             }
         }
 
@@ -109,6 +117,24 @@ namespace Platformer.UI.MenuSystem
 
         public void OnItemPointerClicked() => 
             OnPerform(null);
+
+        public void Enter(MenuComponent previousMenu)
+        {
+            _previousMenu = previousMenu;
+            _previousMenu.gameObject.SetActive(false);
+            gameObject.SetActive(true);
+        }
+
+        public void Exit()
+        {
+            if (_previousMenu == null)
+            {
+                return;
+            }
+            _previousMenu.gameObject.SetActive(true);
+            _previousMenu = null;
+            gameObject.SetActive(false);
+        }
 
 #if UNITY_EDITOR
         [ContextMenu("Find menu items")]

@@ -28,7 +28,7 @@ namespace Platformer.GameCore
         {
 			_sceneTypes = new Dictionary<SceneTypes, string>()
 			{
-				{ SceneTypes.MainMenu, "MainMenu" },
+				{ SceneTypes.MainMenu, "MenuScene" },
 				{ SceneTypes.Level1, "Level1" },
 				{ SceneTypes.Level2, "Level2" },
 				{ SceneTypes.Level3, "Level3" },

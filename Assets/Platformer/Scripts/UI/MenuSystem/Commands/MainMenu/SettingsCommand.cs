@@ -7,6 +7,8 @@ namespace Platformer.UI.MenuSystem.Commands.MainMenu
         public override void Execute()
         {
             EditorExtentions.GameLogger.AddMessage("Todo: settings");
+            // Something like this:
+            //SettingMenu.Enter(AssociatedMenu);
         }
-	}
+    }
 }
