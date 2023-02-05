@@ -15,7 +15,7 @@ namespace Platformer.UI
 		[SerializeField, Space(15f)]
 		private RectTransform _menuBackground;
 		[SerializeField]
-		private RectTransform _healthBar;
+		private RectTransform _statsBar;
 		[SerializeField]
 		private RectTransform _interactionTooltip;
 		[SerializeField]
@@ -23,7 +23,7 @@ namespace Platformer.UI
 		[SerializeField]
 		private ConversationWidget _conversationWidget;
 		[SerializeField]
-		private GameEndMessage _gameEndMessage;
+		private LevelCompleteMessage _levelCompleteMenu;
 
 		private bool _onConversation;
 
@@ -66,7 +66,7 @@ namespace Platformer.UI
         {
 			_menuBackground.gameObject.SetActive(value);
 			_pauseMenu.gameObject.SetActive(value);
-			_healthBar.gameObject.SetActive(!value);
+			_statsBar.gameObject.SetActive(!value);
 			_interactionTooltip.gameObject.SetActive(!value && _gameSystem.CanCurrentTriggerPerformed);
 		}
 
@@ -80,14 +80,14 @@ namespace Platformer.UI
         {
 			_onConversation = enabled;
 			_conversationWidget.gameObject.SetActive(_onConversation);
-			_healthBar.gameObject.SetActive(!_onConversation);
+			_statsBar.gameObject.SetActive(!_onConversation);
 			_interactionTooltip.gameObject.SetActive(_gameSystem.CanCurrentTriggerPerformed);
         }
 
 		private void OnGameCompleted(object sender, EventArgs e)
 		{
 			_menuBackground.gameObject.SetActive(_gameSystem.IsGameCompleted);
-			_gameEndMessage.gameObject.SetActive(_gameSystem.IsGameCompleted);
+			_levelCompleteMenu.gameObject.SetActive(_gameSystem.IsGameCompleted);
 		}
 
 		private void OnCurrentInteractionTriggerChanged(object sender, EventArgs e) =>

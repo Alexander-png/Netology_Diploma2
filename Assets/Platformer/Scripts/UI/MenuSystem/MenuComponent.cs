@@ -60,8 +60,6 @@ namespace Platformer.UI.MenuSystem
             }
         }
 
-        
-
         private void FindAndSortMenuItems()
         {
             try
@@ -106,13 +104,11 @@ namespace Platformer.UI.MenuSystem
             _items[_selectionIndex].IsSelected = true;
         }
 
-        public void OnPerform(InputValue value)
-        {
+        public void OnPerform(InputValue value) =>
             _commandBindings[_items[_selectionIndex].CommandId].Execute();
-        }
 
-        public void OnItemPointerClicked()
-            => OnPerform(null);
+        public void OnItemPointerClicked() => 
+            OnPerform(null);
 
 #if UNITY_EDITOR
         [ContextMenu("Find menu items")]
