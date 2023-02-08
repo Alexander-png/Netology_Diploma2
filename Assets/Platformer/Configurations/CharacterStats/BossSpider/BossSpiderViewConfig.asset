@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d0c10d91004ea4380952b658d64ea4, type: 3}
-  m_Name: RhinoKamikazeStats
+  m_Script: {fileID: 11500000, guid: ad5198011e0a0384fbd531a2e6f5d6cd, type: 3}
+  m_Name: BossSpiderViewConfig
   m_EditorClassIdentifier: 
-  _name: enemy_RhinoKamikaze
-  _side: 1
-  _maxHealth: 25
-  _maxMana: 0
-  _damageImmuneTime: 0
-  _immortal: 0
-  _interactable: 0
+  _viewOrigin: {x: 0, y: 0.33, z: 0}
+  _frontViewRange: 20
+  _behindViewRange: 20

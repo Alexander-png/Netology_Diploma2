@@ -22,10 +22,11 @@ namespace Platformer.Weapons
 			_owner = GetComponentInParent<Entity>();
 			if (_owner == null)
 			{
-				EditorExtentions.GameLogger.AddMessage($"Owner not found, game object name: {gameObject.name}", EditorExtentions.GameLogger.LogType.Fatal);
+				EditorExtentions.GameLogger.AddMessage($"Owner not found, game object name: {gameObject.name}", EditorExtentions.GameLogger.LogType.Error);
 			}
 		}
 
-        protected virtual void Start() { FindOwner(); }
+        protected virtual void Start() => 
+			FindOwner();
     }
 }

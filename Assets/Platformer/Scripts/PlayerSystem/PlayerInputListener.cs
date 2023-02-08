@@ -34,7 +34,7 @@ namespace Platformer.PlayerSystem
             float value = input.Get<float>();
             if (value > 0)
             {
-                _attacker.OnAttackPressed();
+                _attacker.OnMainAttackPressed();
             }
             else
             {
@@ -43,7 +43,7 @@ namespace Platformer.PlayerSystem
         }
 
         private void OnStrongAttack(InputValue input) =>
-            _attacker.OnStrongAttackInput();
+            _attacker.OnStrongAttackPressed();
             //GameLogger.AddMessage("Strong attack");
 
         private void OnInteract(InputValue input) => 

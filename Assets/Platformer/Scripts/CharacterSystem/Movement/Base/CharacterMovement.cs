@@ -18,6 +18,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         private float _horizontalInput;
         private float _verticalInput;
         private float _dashInput;
+        private Animator _entityAnimator;
 
         protected List<GameObject> _currentCollisions;
 
@@ -31,6 +32,9 @@ namespace Platformer.CharacterSystem.Movement.Base
         public float DashRechargeTime => MovementStats.DashRechargeTime;
 
         public bool OnGround { get; protected set; }
+
+        public void SetAnimator(Animator entityAnimator) =>
+            _entityAnimator = entityAnimator;
 
         public bool InAir => _currentCollisions.Count == 0;
 
@@ -117,6 +121,14 @@ namespace Platformer.CharacterSystem.Movement.Base
 
         public virtual void RemoveStats(MovementStatsInfo stats) =>
             MovementStats -= stats;
+
+        public void SetAnimatorState(string name, float value)
+        {
+            if (_entityAnimator != null)
+            {
+                _entityAnimator.SetFloat(name, value);
+            }
+        }
 
         protected virtual void ResetState() 
         {

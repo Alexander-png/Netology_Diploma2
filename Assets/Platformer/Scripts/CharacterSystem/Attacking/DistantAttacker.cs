@@ -29,11 +29,7 @@ namespace Platformer.CharacterSystem.Attacking
 		public float GetShootDistance() =>
 			_currentWeapon.ShootDistance;
 
-        public override void OnAttackPressed() =>
+        public override void OnMainAttackPressed() =>
             _currentWeapon.Shoot();
-
-        public override void OnStrongAttackInput() { }
-
-        public override void OnAttackReleased() { }
     }
 }

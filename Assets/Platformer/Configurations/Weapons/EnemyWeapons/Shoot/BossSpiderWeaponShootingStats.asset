@@ -9,16 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8357ef3112e4a4186f051ffb00c4f8, type: 3}
-  m_Name: RhinoKamikazeMovementStats
+  m_Script: {fileID: 11500000, guid: da5070f7a6ee27948b701841f0500d0f, type: 3}
+  m_Name: BossSpiderWeaponShootingStats
   m_EditorClassIdentifier: 
-  _maxSpeed: 20
-  _acceleration: 15
-  _jumps:
-  - 7
-  _jumpCountInRow: 1
-  _climbForce: 5
-  _wallClimbRepulsion: 3
-  _dashForce: 25
-  _dashDuration: 0.3
-  _dashRechargeTime: 0.1
+  _reloadTime: 3
+  _shootDistance: 10
+  _startProjectileSpeed: 3

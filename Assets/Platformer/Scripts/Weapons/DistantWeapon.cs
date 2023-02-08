@@ -14,9 +14,14 @@ namespace Platformer.Weapons
 		[SerializeField]
 		private Projectile _projectilePrefab;
         [SerializeField, ReadOnly]
-		private Transform _projectileSpawnPoint;
-		private Transform _projectilePool;
-		public Vector3 ProjectileSpawnPosition => _projectileSpawnPoint.localPosition;
+		private ProjectileSpawnPoint _projectileSpawnPoint;
+
+		private ProjectilePool _projectilePool;
+
+		private Transform ProjectilePoolTransform => _projectilePool.transform;
+		private Transform ProjectileSpawnPointTransform => _projectileSpawnPoint.transform;
+		public Vector3 ProjectileSpawnPosition => ProjectileSpawnPointTransform.localPosition;
+
 		public float ShootDistance => _stats.ShootDistance;
 
 		private bool _reloading;
@@ -24,10 +29,10 @@ namespace Platformer.Weapons
         protected override void Start()
         {
 			base.Start();
-			_projectilePool = FindObjectOfType<ProjectilePool>().transform;
+			_projectilePool = FindObjectOfType<ProjectilePool>();
 			if (_projectileSpawnPoint == null)
             {
-				_projectileSpawnPoint = GetComponentInChildren<ProjectileSpawnPoint>().transform;
+				_projectileSpawnPoint = GetComponentInChildren<ProjectileSpawnPoint>();
             }
 		}
 
@@ -38,8 +43,8 @@ namespace Platformer.Weapons
 				return;
 			}
 
-			var projectile = Instantiate(_projectilePrefab, _projectileSpawnPoint.position, _projectileSpawnPoint.rotation);
-			projectile.transform.parent = _projectilePool;
+			var projectile = Instantiate(_projectilePrefab, ProjectileSpawnPointTransform.position, ProjectileSpawnPointTransform.rotation);
+			projectile.transform.parent = ProjectilePoolTransform;
 			projectile.SetSpeed(_stats.StartProjectileSpeed);
 			StartCoroutine(ReloadCoroutine());
 		}
@@ -54,7 +59,7 @@ namespace Platformer.Weapons
 #if UNITY_EDITOR
         private void OnValidate()
         {
-			_projectileSpawnPoint = GetComponentInChildren<ProjectileSpawnPoint>().transform;
+			_projectileSpawnPoint = GetComponentInChildren<ProjectileSpawnPoint>();
 		}
 #endif
     }

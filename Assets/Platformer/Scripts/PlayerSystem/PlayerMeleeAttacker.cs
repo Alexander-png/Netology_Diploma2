@@ -33,7 +33,7 @@ namespace Platformer.PlayerSystem
             _sphereDamageTrigger = _damageTrigger as SphereCollider;
             if (_sphereDamageTrigger == null)
             {
-                GameLogger.AddMessage($"{nameof(PlayerMeleeAttacker)} now supports only {nameof(SphereCollider)} as damage trigger for resizing on strong attack. The resizing will not work now.", GameLogger.LogType.Warning);
+                GameLogger.AddMessage($"{nameof(PlayerMeleeAttacker)} now supports only {nameof(SphereCollider)} as damage trigger for resizing on strong attack. The resizing will not work for now.", GameLogger.LogType.Warning);
                 return;
             }
             _defaultTriggerRadius = _sphereDamageTrigger.radius;
@@ -55,31 +55,22 @@ namespace Platformer.PlayerSystem
         private void Update() =>
             UpdateHitColliderPosition();
 
-        public override void OnAttackPressed()
+        public override void OnMainAttackPressed()
         {
-            ResetCurrentAttackStats();
-            if (CanNotAttack())
+            if (CurrentWeapon?.CanNotAttack() == false)
             {
                 return;
             }
+            ResetCurrentAttackStats();
         }
 
-        public override void OnStrongAttackInput()
+        public override void OnStrongAttackPressed()
         {
-            if (CanNotAttack())
-            {
-                return;
-            }
             _chargeAttackCoroutine = StartCoroutine(ChargeAttack());
         }
 
         public override void OnAttackReleased()
         {
-            if (CanNotAttack())
-            {
-                return;
-            }
-
             if (_chargeAttackCoroutine != null)
             {
                 StopCoroutine(_chargeAttackCoroutine);
@@ -91,11 +82,9 @@ namespace Platformer.PlayerSystem
 
         protected override void OnHitEnded(object sender, EventArgs e)
         {
-            _attacking = false;
             CurrentWeapon?.StopHit();
             _damageTrigger.enabled = false;
             _playerMovement.MovementEnabled = true;
-            StartCoroutine(ReloadAttack());
             ResetCurrentAttackStats();
         }
 

@@ -1,7 +1,6 @@
 using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Enemies;
 using Platformer.Weapons;
-using System.Collections;
 using UnityEngine;
 
 namespace Platformer.CharacterSystem.Attacking
@@ -10,9 +9,6 @@ namespace Platformer.CharacterSystem.Attacking
 	{
         private MeleeWeapon _currentWeapon;
         protected Collider _damageTrigger;
-
-        protected bool _attacking;
-        private bool _reloadingAttack;
 
         protected MeleeWeapon CurrentWeapon
         {  
@@ -44,29 +40,21 @@ namespace Platformer.CharacterSystem.Attacking
         private void OnDestroy() =>
             CurrentWeapon = null;
 
-        protected virtual bool CanNotAttack() => _attacking || _reloadingAttack || _currentWeapon == null;
-
-        public override void OnAttackPressed()
+        public override void OnMainAttackPressed()
         {
-            if (CanNotAttack())
-            {
-                return;
-            }
             StartAttackInternal();
         }
 
-        public override void OnStrongAttackInput() { }
+        public override void OnStrongAttackPressed() { }
 
         protected virtual void StartAttackInternal()
         {
-            _attacking = true;
             _currentWeapon?.MakeHit();
             _damageTrigger.enabled = true;
         }
 
         public override void OnAttackReleased()
         {
-            _attacking = false;
             _currentWeapon?.StopHit();
             _damageTrigger.enabled = false;
         }
@@ -74,7 +62,6 @@ namespace Platformer.CharacterSystem.Attacking
         protected virtual void OnHitEnded(object sender, System.EventArgs e)
         {
             OnAttackReleased();
-            StartCoroutine(ReloadAttack());
         }
 
         protected virtual IDamagable GetEnemyComponent(Collider other)
@@ -106,13 +93,6 @@ namespace Platformer.CharacterSystem.Attacking
 
         public override float GetAttackChargeTime() =>
             CurrentWeapon.Stats.StrongAttackChargeTime;
-
-        protected IEnumerator ReloadAttack()
-        {
-            _reloadingAttack = true;
-            yield return new WaitForSeconds(CurrentWeapon.Stats.ReloadTime);
-            _reloadingAttack = false;
-        }
 
 #if UNITY_EDITOR
         protected virtual void OnDrawGizmos()

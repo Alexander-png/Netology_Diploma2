@@ -1,4 +1,5 @@
 using Platformer.EditorExtentions;
+using Platformer.GameCore.Helpers;
 using Platformer.Scriptable.Characters;
 using System;
 using UnityEngine;
@@ -10,9 +11,12 @@ namespace Platformer.CharacterSystem.Base
         [SerializeField]
         private CharacterStats _stats;
 
+        private Animator _entityAnimator;
+
         public event EventHandler Respawning;
 
         public string Name { get; protected set; }
+        public Animator EntityAnimator => _entityAnimator;
 
         protected virtual void Awake() 
         {
@@ -25,7 +29,14 @@ namespace Platformer.CharacterSystem.Base
 
         protected virtual void OnEnable() { }
         protected virtual void OnDisable() { }
-        protected virtual void Start() { }
+        protected virtual void Start()
+        {
+            Visual visual = GetComponentInChildren<Visual>();
+            if (visual != null)
+            {
+                _entityAnimator = visual.transform.GetComponent<Animator>();
+            }
+        }
         protected virtual void Update() { }
         protected virtual void FixedUpdate() { }
 
@@ -34,6 +45,14 @@ namespace Platformer.CharacterSystem.Base
             Name = stats.Name;
         }
 
-        public virtual void NotifyRespawn() => Respawning?.Invoke(this, EventArgs.Empty); 
+        public virtual void NotifyRespawn() => Respawning?.Invoke(this, EventArgs.Empty);
+
+        public void SetAnimatorState(string name, float value)
+        {
+            if (_entityAnimator != null)
+            {
+                _entityAnimator.SetFloat(name, value);
+            }
+        }
     }
 }

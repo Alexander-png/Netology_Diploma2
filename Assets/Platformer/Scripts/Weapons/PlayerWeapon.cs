@@ -9,11 +9,17 @@ namespace Platformer.Weapons
         private Transform _visual;
         private Animator _animator;
 
-        private void OnEnable() =>
+        protected override void OnEnable()
+        {
+            base.OnEnable();
             _owner.Respawning += OnPlayerRespawning;
+        }
 
-        private void OnDisable() =>
+        protected override void OnDisable()
+        {
+            base.OnDisable();
             _owner.Respawning -= OnPlayerRespawning;
+        }
 
         private void Awake()
         {
@@ -30,6 +36,10 @@ namespace Platformer.Weapons
 
         public override void MakeHit()
         {
+            if (CanNotAttack())
+            {
+                return;
+            }
             _animator.SetFloat("Hit", 1);
             _visual.gameObject.SetActive(true);
         }
@@ -42,7 +52,9 @@ namespace Platformer.Weapons
 
         public void OnHitEnd()
         {
+            _attacking = false;
             InvokeHitEnded();
+            StartCoroutine(ReloadAttack());
             ResetValues();
         }
 

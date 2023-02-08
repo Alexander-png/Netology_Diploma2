@@ -10,8 +10,11 @@ namespace Platformer.CharacterSystem.Enemies
         [SerializeField, ReadOnly]
         private DistantAttacker _attacker;
 
-        protected override void Start() =>
+        protected override void Start()
+        {
+            base.Start();
             FindAttacker();
+        }
 
         private void FindAttacker()
         {
@@ -29,7 +32,7 @@ namespace Platformer.CharacterSystem.Enemies
         {
             if (CheckPlayerNearby())
             {
-                _attacker.OnAttackPressed();
+                _attacker.OnMainAttackPressed();
             }
         }
 

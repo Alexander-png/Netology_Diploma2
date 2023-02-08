@@ -37,6 +37,7 @@ namespace Platformer.CharacterSystem.Enemies
 
             _player = _gameSystem.GetPlayer();
             MovementController.MovementEnabled = true;
+            MovementController.SetAnimator(EntityAnimator);
             SetBehaviourEnabled(true);
         }
 
@@ -93,7 +94,7 @@ namespace Platformer.CharacterSystem.Enemies
             }
             _inIdle = false;
             _pursuingPlayer = true;
-            _attacker.OnAttackPressed();
+            _attacker.OnMainAttackPressed();
         }
 
         public virtual void OnPlayerRanAway()
