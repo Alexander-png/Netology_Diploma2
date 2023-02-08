@@ -7,11 +7,12 @@ namespace Platformer.CharacterSystem.Enemies
 {
     public abstract class StationaryEnemy : Entity, IDamagable
     {
+        protected const int PlayerLayer = 1 << 6;
+
         protected float _currentHealth;
         protected float _maxHealth;
 
         public float CurrentHealth => _currentHealth;
-
         public event EventHandler Died;
 
         protected override void SetDefaultParameters(CharacterStats stats)

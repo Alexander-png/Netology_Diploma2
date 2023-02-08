@@ -45,6 +45,9 @@ namespace Platformer.CharacterSystem.Attacking
             StartAttackInternal();
         }
 
+        public override void OnSecondAttackPressed() =>
+            CurrentWeapon.MakeAlternativeHit();
+
         public override void OnStrongAttackPressed() { }
 
         protected virtual void StartAttackInternal()

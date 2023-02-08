@@ -1,6 +1,5 @@
 using Platformer.CharacterSystem.Attacking;
 using Platformer.EditorExtentions;
-using Platformer.PlayerSystem;
 using UnityEngine;
 
 namespace Platformer.CharacterSystem.Enemies
@@ -39,10 +38,8 @@ namespace Platformer.CharacterSystem.Enemies
         private bool CheckPlayerNearby()
         {
             Ray visual = GetViewRay();
-
             // TODO: get view distance from something else but not from weapon
-            Physics.Raycast(visual, out RaycastHit hit, _attacker.GetShootDistance());
-            return hit.transform?.TryGetComponent<Player>(out _) == true;
+            return Physics.Raycast(visual, _attacker.GetShootDistance(), PlayerLayer);
         }
 
         private Ray GetCensorRay(Vector3 origin)

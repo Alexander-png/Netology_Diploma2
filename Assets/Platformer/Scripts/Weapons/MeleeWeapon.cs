@@ -34,7 +34,7 @@ namespace Platformer.Weapons
             HitEnded -= OnHitEnded;
 
         protected virtual void OnHitEnded(object sender, EventArgs e) =>
-            StartCoroutine(ReloadAttack());
+            StartCoroutine(ReloadMainAttack());
 
         protected virtual void InvokeHitEnded() => 
             HitEnded?.Invoke(this, EventArgs.Empty);
@@ -55,7 +55,7 @@ namespace Platformer.Weapons
 
         }
 
-        protected IEnumerator ReloadAttack()
+        protected IEnumerator ReloadMainAttack()
         {
             _reloadingAttack = true;
             yield return new WaitForSeconds(Stats.ReloadTime);

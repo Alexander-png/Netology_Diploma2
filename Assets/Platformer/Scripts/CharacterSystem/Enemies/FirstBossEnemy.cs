@@ -1,4 +1,3 @@
-using Platformer.PlayerSystem;
 using Platformer.Scriptable.Characters.AIConfig;
 using UnityEngine;
 
@@ -37,11 +36,10 @@ namespace Platformer.CharacterSystem.Enemies
         {
             Ray visualRay = GetHorizontalCensorRay(_viewFieldConfig.ViewOrigin);
 
-            Physics.Raycast(visualRay, out RaycastHit frontHit, _viewFieldConfig.FrontViewRange);
-            Physics.Raycast(visualRay.origin, -visualRay.direction, out RaycastHit behindHit, _viewFieldConfig.BehindViewRange);
+            Physics.Raycast(visualRay, out RaycastHit frontHit, _viewFieldConfig.FrontViewRange, PlayerLayer);
+            Physics.Raycast(visualRay.origin, -visualRay.direction, out RaycastHit behindHit, _viewFieldConfig.BehindViewRange, PlayerLayer);
 
-            bool seePlayer = frontHit.transform?.TryGetComponent(out Player _) == true ||
-                             behindHit.transform?.TryGetComponent(out Player _) == true;
+            bool seePlayer = frontHit.transform != null || behindHit.transform != null;
 
             if (seePlayer)
             {
@@ -51,6 +49,12 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 OnPlayerRanAway();
             }   
+        }
+
+        public override void OnPlayerNearby()
+        {
+            base.OnPlayerNearby();
+            _attacker.OnSecondAttackPressed();
         }
 
         private void PursuitPlayer()

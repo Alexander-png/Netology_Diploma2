@@ -48,10 +48,10 @@ namespace Platformer.Weapons
                 projectile.transform.parent = ProjectilePoolTransform;
                 projectile.SetSpeed(_shootingStats.StartProjectileSpeed);
             }
-            StartCoroutine(ReloadCoroutine());
+            StartCoroutine(ReloadShooterCoroutine());
         }
 
-        private IEnumerator ReloadCoroutine()
+        private IEnumerator ReloadShooterCoroutine()
         {
             _reloadingShoot = true;
             yield return new WaitForSeconds(_shootingStats.ReloadTime);

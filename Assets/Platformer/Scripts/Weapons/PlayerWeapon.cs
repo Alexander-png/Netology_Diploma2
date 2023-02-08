@@ -54,7 +54,7 @@ namespace Platformer.Weapons
         {
             _attacking = false;
             InvokeHitEnded();
-            StartCoroutine(ReloadAttack());
+            StartCoroutine(ReloadMainAttack());
             ResetValues();
         }
 

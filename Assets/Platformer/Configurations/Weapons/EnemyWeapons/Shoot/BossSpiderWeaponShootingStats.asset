@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _reloadTime: 3
   _shootDistance: 10
-  _startProjectileSpeed: 3
+  _startProjectileSpeed: 10.02

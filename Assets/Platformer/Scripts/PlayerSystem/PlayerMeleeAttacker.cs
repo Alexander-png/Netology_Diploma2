@@ -57,7 +57,7 @@ namespace Platformer.PlayerSystem
 
         public override void OnMainAttackPressed()
         {
-            if (CurrentWeapon?.CanNotAttack() == false)
+            if (CurrentWeapon?.CanNotAttack() == true)
             {
                 return;
             }
@@ -106,6 +106,7 @@ namespace Platformer.PlayerSystem
 
         private void ResetCurrentAttackStats()
         {
+            _currentDamage = CurrentWeapon.Stats.Damage;
             _currentTriggerRadius = _defaultTriggerRadius;
             _currentAttackRadius = CurrentWeapon.Stats.AttackRadius;
             SetDamageTriggerRadius(_defaultTriggerRadius);

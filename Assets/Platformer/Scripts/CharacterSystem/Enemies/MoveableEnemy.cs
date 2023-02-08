@@ -16,7 +16,9 @@ namespace Platformer.CharacterSystem.Enemies
 
         [SerializeField]
         protected EnemyBehaviourConfig _behaviourConfig;
-        
+
+        protected const int PlayerLayer = 1 << 6;
+
         protected Attacker _attacker;
         protected float _currentHealth;
         protected float _maxHealth;
