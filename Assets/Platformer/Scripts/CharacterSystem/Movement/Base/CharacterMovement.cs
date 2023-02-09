@@ -32,6 +32,8 @@ namespace Platformer.CharacterSystem.Movement.Base
         public float DashRechargeTime => MovementStats.DashRechargeTime;
 
         public bool OnGround { get; protected set; }
+        public bool IsJumping { get; protected set; }
+        public bool IsDashing { get; protected set; }
 
         public void SetAnimator(Animator entityAnimator) =>
             _entityAnimator = entityAnimator;
@@ -114,7 +116,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         public virtual void SetVerticalInput(float input) =>
             VerticalInput = input;
 
-        public virtual void SetDashInput(float input) { }
+        public virtual void TriggerDash(float input) { }
 
         public virtual void AddStats(MovementStatsInfo stats) =>
             MovementStats += stats;

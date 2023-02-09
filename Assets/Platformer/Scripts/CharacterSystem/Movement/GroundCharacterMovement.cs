@@ -8,15 +8,13 @@ namespace Platformer.CharacterSystem.Movement
 	{
         private bool _dashCharged = true;
         private bool _chargingDash = false;
-        protected bool _inDash;
         private float _dashDirection;
 
         private bool _jumpedFromGround;
         private int _jumpsLeft;
 
-        private bool IsJumping { get; set; }
         private bool DashPressed { get; set; }
-
+        
         public bool CanJump => _jumpsLeft > 0;
         public float JumpForce => MovementStats.GetJumpForce(_jumpsLeft);
         public float MaxJumpForce => MovementStats.MaxJumpForce;
@@ -81,7 +79,7 @@ namespace Platformer.CharacterSystem.Movement
         protected override void ResetState()
         {
             base.ResetState();
-            _inDash = false;
+            IsDashing = false;
             _dashCharged = true;
             _chargingDash = false;
             _jumpedFromGround = false;
@@ -92,7 +90,7 @@ namespace Platformer.CharacterSystem.Movement
         private void Move()
         {
             Vector2 velocity = Velocity;
-            if (!DashPressed && !_inDash)
+            if (!DashPressed && !IsDashing)
             {
                 velocity.x += Acceleration * HorizontalInput * Time.deltaTime;
                 velocity.x = Mathf.Clamp(velocity.x, -MaxSpeed, MaxSpeed);
@@ -110,14 +108,14 @@ namespace Platformer.CharacterSystem.Movement
 
             Vector2 velocity = Velocity;
 
-            if (DashPressed && !_inDash && _dashCharged)
+            if (DashPressed && !IsDashing && _dashCharged)
             {
                 _dashCharged = false;
                 StartCoroutine(DashMove(DashDuration));
                 _dashDirection = Mathf.Sign(HorizontalInput);
                 DashPressed = false;
             }
-            if (_inDash)
+            if (IsDashing)
             {
                 velocity = CalclulateDashDirection() * DashForce;
             }
@@ -175,7 +173,7 @@ namespace Platformer.CharacterSystem.Movement
         public override void SetVerticalInput(float input) =>
             IsJumping = input >= 0.01f;
 
-        public override void SetDashInput(float input) =>
+        public override void TriggerDash(float input) =>
             DashPressed = input >= 0.01f && CheckCanDash();
 
         private bool CheckCanDash()
@@ -193,11 +191,11 @@ namespace Platformer.CharacterSystem.Movement
 
         private IEnumerator DashMove(float time)
         {
-            _inDash = true;
+            IsDashing = true;
             OnDashStarted();
             yield return new WaitForSeconds(time);
             OnDashEnded();
-            _inDash = false;
+            IsDashing = false;
         }
 
         private IEnumerator RechargeDash(float time)

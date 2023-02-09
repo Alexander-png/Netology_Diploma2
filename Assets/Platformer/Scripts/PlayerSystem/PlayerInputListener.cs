@@ -24,7 +24,7 @@ namespace Platformer.PlayerSystem
             _playerMovement.SetHorizontalInput(input.Get<float>());
 
         private void OnDash(InputValue input) =>
-            _playerMovement.SetDashInput(input.Get<float>());
+            _playerMovement.TriggerDash(input.Get<float>());
 
         private void OnJump(InputValue input) =>
             _playerMovement.SetVerticalInput(input.Get<float>());
@@ -44,7 +44,6 @@ namespace Platformer.PlayerSystem
 
         private void OnStrongAttack(InputValue input) =>
             _attacker.OnStrongAttackPressed();
-            //GameLogger.AddMessage("Strong attack");
 
         private void OnInteract(InputValue input) => 
             _interactor.OnInteractInput();

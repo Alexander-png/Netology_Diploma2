@@ -20,3 +20,4 @@ MonoBehaviour:
   _dashUsageReloadTime: 10
   _dashCountWithoutReload: 3
   _dashChargeTime: 2
+  _dashCooldownTime: 1.5

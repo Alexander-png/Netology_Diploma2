@@ -21,6 +21,8 @@ namespace Platformer.Scriptable.Characters
         private int _dashCountWithoutReload;
         [SerializeField]
         private float _dashChargeTime;
+        [SerializeField]
+        private float _dashCooldownTime;
 
         public float IdleTime => _idleTime;
         public float AttackRadius => _attackRadius;
@@ -30,5 +32,6 @@ namespace Platformer.Scriptable.Characters
         public float DashUsageReloadTime => _dashUsageReloadTime;
         public int DashCountWithoutReload => _dashCountWithoutReload;
         public float DashChargeTime => _dashChargeTime;
+        public float DashCooldownTime => _dashCooldownTime;
     }
 }
