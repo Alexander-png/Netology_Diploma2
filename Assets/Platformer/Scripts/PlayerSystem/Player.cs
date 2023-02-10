@@ -19,6 +19,7 @@ namespace Platformer.PlayerSystem
         private float _maxHealth;
 
         public float CurrentHealth => _currentHealth;
+        public float MaxHealth => _maxHealth;
 
         public Inventory Inventory => _inventory;
         public SkillObserver SkillObserver => _skillObserver;

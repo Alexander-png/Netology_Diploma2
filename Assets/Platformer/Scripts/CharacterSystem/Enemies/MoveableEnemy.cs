@@ -31,6 +31,7 @@ namespace Platformer.CharacterSystem.Enemies
         public event EventHandler Died;
 
         public float CurrentHealth => _currentHealth;
+        public float MaxHealth => _maxHealth;
 
         protected override void Start()
         {

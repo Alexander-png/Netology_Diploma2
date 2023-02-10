@@ -13,6 +13,7 @@ namespace Platformer.CharacterSystem.Enemies
         protected float _maxHealth;
 
         public float CurrentHealth => _currentHealth;
+        public float MaxHealth => _maxHealth;
         public event EventHandler Died;
 
         protected override void SetDefaultParameters(CharacterStats stats)

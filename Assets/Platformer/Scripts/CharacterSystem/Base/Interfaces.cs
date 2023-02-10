@@ -11,6 +11,7 @@ namespace Platformer.CharacterSystem.Base
 
 	public interface IDamagable
     {
+		public float MaxHealth { get; }
         public float CurrentHealth { get; }
 		public void SetDamage(float damage, Vector3 pushVector, bool forced = false);
 		public void Heal(float value);
