@@ -78,7 +78,6 @@ namespace Platformer.GameCore
 
         private void Start()
         {
-            SetPlayerHandlingEnabled(true);
             GamePaused = GamePaused;
             StartCoroutine(LoadedNotifier());
         }

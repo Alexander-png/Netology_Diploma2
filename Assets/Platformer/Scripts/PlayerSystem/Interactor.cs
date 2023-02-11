@@ -26,6 +26,7 @@ namespace Platformer.PlayerSystem
                 if (value != null && value.CanInteract)
                 {
                     StopAllCoroutines();
+                    _canInteract = true;
                     //StartCoroutine(ShowTooltipDelay(value.InteractionDelay));
                 }
 
