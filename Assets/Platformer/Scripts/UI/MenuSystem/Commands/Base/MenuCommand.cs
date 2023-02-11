@@ -10,13 +10,13 @@ namespace Platformer.UI.MenuSystem.Commands.Base
 		[Inject]
 		protected GameSystem _gameSystem;
 
-        private MenuComponent _associatedMenu;
+        private MenuComponent _parentMenu;
 
-		protected MenuComponent AssociatedMenu => _associatedMenu;
+		protected MenuComponent ParentMenu => _parentMenu;
 
-		public virtual void SetAssociatedMenu(MenuComponent menu) =>
-			_associatedMenu = menu;
+		public virtual void SetParentMenu(MenuComponent menu) =>
+			_parentMenu = menu;
 
-		public virtual void Execute() { }
+		public virtual void Execute(object data) { }
 	}
 }

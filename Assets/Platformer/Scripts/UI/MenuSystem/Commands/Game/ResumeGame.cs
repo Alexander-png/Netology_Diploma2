@@ -4,7 +4,7 @@ namespace Platformer.UI.MenuSystem.Commands.Game
 {
 	public class ResumeGame : MenuCommand
 	{
-        public override void Execute()
+        public override void Execute(object data)
         {
             _gameSystem.GamePaused = false;
         }

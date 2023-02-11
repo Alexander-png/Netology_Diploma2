@@ -5,7 +5,7 @@ namespace Platformer.UI.MenuSystem.Commands.Game
 {
 	public class NextLevel : MenuCommand
 	{
-        public override void Execute()
+        public override void Execute(object data)
         {
             GameLogger.AddMessage("TODO: next level");
         }

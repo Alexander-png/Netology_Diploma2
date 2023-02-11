@@ -64,7 +64,7 @@ namespace Platformer.UI.MenuSystem
 
             foreach (var binding in _commandBindings)
             {
-                binding.Value.SetAssociatedMenu(this);
+                binding.Value.SetParentMenu(this);
             }
         }
 
@@ -113,7 +113,7 @@ namespace Platformer.UI.MenuSystem
         }
 
         public void OnPerform(InputValue value) =>
-            _commandBindings[_items[_selectionIndex].CommandId].Execute();
+            _commandBindings[_items[_selectionIndex].CommandId].Execute(_items[_selectionIndex].Data);
 
         public void OnItemPointerClicked() => 
             OnPerform(null);
@@ -129,6 +129,7 @@ namespace Platformer.UI.MenuSystem
         {
             if (_previousMenu == null)
             {
+                GameLogger.AddMessage("No previous menu specified. Can not exit.", GameLogger.LogType.Error);
                 return;
             }
             _previousMenu.gameObject.SetActive(true);

@@ -5,7 +5,7 @@ namespace Platformer.UI.MenuSystem.Commands.MainMenu
 {
 	public class LoadGame : MenuCommand
 	{
-        public override void Execute()
+        public override void Execute(object data)
         {
             GameObserver.NewGameFlag = false;
             GameObserver.SwitchScene(SceneTypes.Level1);

@@ -17,8 +17,6 @@ namespace Platformer.GameCore
         private bool _gamePaused;
         [SerializeField]
         private Player _playerCharacter;
-        [SerializeField]
-        private SaveSystem _saveSystem;
 
         [SerializeField, Space(15)]
         private MovementSkillContainer _playerMovementSkillContainer;
@@ -58,7 +56,6 @@ namespace Platformer.GameCore
         public MovementSkillContainer PlayerMovementSkillContainer => _playerMovementSkillContainer;
 
         public bool CanCurrentTriggerPerformed => CurrentTrigger != null && CurrentTrigger.CanInteract;
-        public SaveSystem SaveSystem => _saveSystem;
         public bool IsGameCompleted => _isGameCompleted;
 
         public event EventHandler PlayerRespawned;
@@ -125,9 +122,6 @@ namespace Platformer.GameCore
         public bool CheckSkillAdded(string skillId) =>
             (_playerCharacter as ISkillObservable).SkillObserver.CheckSkillAdded(skillId);
 
-        public void PerformAutoSave() =>
-            _saveSystem.PerformSave();
-
         public void OnItemCollected(IInventoryItem item) =>
             _playerCharacter.Inventory.AddItem(item.ItemId);
 
@@ -161,7 +155,6 @@ namespace Platformer.GameCore
         private void FindPlayerOnScene()
         {
             _playerCharacter = FindObjectOfType<Player>();
-            _saveSystem = GetComponent<SaveSystem>();
         }
 #endif
     }

@@ -28,8 +28,9 @@ namespace Platformer.UI.MenuSystem.Items
 
         public string CommandId => _commandId;
         public int SelectionIndex => _selectionIndex;
+        public virtual object Data => null;
 
-        private void Start()
+        protected virtual void Start()
         {
             // Reassign for refreshing selection
             if (_isSelected)
@@ -38,10 +39,8 @@ namespace Platformer.UI.MenuSystem.Items
             }
         }
 
-        private void OnSelectedChanged(bool value)
-        {
+        private void OnSelectedChanged(bool value) =>
             _selectionMarker.gameObject.SetActive(value);
-        }
 
         public void SetParent(MenuComponent parent) =>
             _parent = parent;

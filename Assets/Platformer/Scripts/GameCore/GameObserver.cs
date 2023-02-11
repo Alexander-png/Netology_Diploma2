@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 namespace Platformer.GameCore
@@ -39,5 +40,21 @@ namespace Platformer.GameCore
 
 		public static void SwitchScene(SceneTypes sceneType) =>
 			SceneManager.LoadScene(_sceneTypes[sceneType]);
+
+		public static void SwitchScene(string sceneName) =>
+			SceneManager.LoadScene(sceneName);
+
+		public static List<string> GetLevelNames()
+        {
+			var list = _sceneTypes.Values.ToList();
+			list.RemoveAll(x => !x.Contains("Level"));
+			return list;
+        }
+
+		public static bool CheckLevelExists(string sceneName)
+        {
+			var list = GetLevelNames();
+			return list.Find(x => x == sceneName) != null;
+        }
 	}
 }

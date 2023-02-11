@@ -12,10 +12,10 @@ namespace Platformer.LevelEnvironment.Triggers
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.TryGetComponent(out Player _))
-            {
-                _gameSystem.PerformAutoSave();
-            }
+            //if (other.gameObject.TryGetComponent(out Player _))
+            //{
+            //    _gameSystem.PerformAutoSave();
+            //}
         }
 
 #if UNITY_EDITOR    
