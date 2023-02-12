@@ -27,25 +27,20 @@ namespace Platformer.LevelEnvironment.Mechanisms.Animations
 
         public override void SetSwitched(bool value)
         {
-            StartCoroutine(DoorOpen(_leftDoorAxis, -GetTargetRotation(value)));
-            StartCoroutine(DoorOpen(_rightDoorAxis, GetTargetRotation(value)));
+            StartCoroutine(DoorOpen(_leftDoorAxis, Quaternion.Euler(-GetTargetRotation(value))));
+            StartCoroutine(DoorOpen(_rightDoorAxis, Quaternion.Euler(GetTargetRotation(value))));
         }
 
-        private IEnumerator DoorOpen(Transform doorAxis, Vector3 targetRotation)
+        private IEnumerator DoorOpen(Transform doorAxis, Quaternion targetRotation)
         {
-            Vector3 currentRotation = doorAxis.rotation.eulerAngles;
-
-            while (Vector3.Distance(currentRotation, targetRotation) > 0.01)
+            Quaternion currentRotation = doorAxis.localRotation;
+            while (Vector3.Distance(currentRotation.eulerAngles, targetRotation.eulerAngles) > 0.01)
             {
                 yield return null;
-                currentRotation.y += AnimationSpeed * Time.deltaTime;
-                //currentRotation.y += 
-                doorAxis.localRotation = Quaternion.Euler(currentRotation);
-
-                //currentRotation = Quaternion.RotateTowards(currentRotation, targetRotation, AnimationSpeed * Time.deltaTime);
-                //doorAxis.localRotation = currentRotation;
+                currentRotation = Quaternion.RotateTowards(currentRotation, targetRotation, AnimationSpeed * Time.deltaTime);
+                doorAxis.localRotation = currentRotation;
             }
-            doorAxis.localRotation = Quaternion.Euler(targetRotation);
+            doorAxis.localRotation = targetRotation;
         }
 
         private Vector3 GetTargetRotation(bool value) =>
