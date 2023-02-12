@@ -15,8 +15,12 @@ namespace Platformer.UI
 
 		private Player _player;
 
-		private void Start()
+		private void Start() =>
+            _gameSystem.GameLoaded += OnGameLoaded;
+
+        private void OnGameLoaded(object sender, System.EventArgs e)
         {
+            _gameSystem.GameLoaded -= OnGameLoaded;
             _player = _gameSystem.GetPlayer();
         }
 
@@ -27,7 +31,10 @@ namespace Platformer.UI
 
         private void UpdateText()
         {
-            _text.text = $"x:{_player.CurrentHealth}";
+            if (_player != null)
+            {
+                _text.text = $"x:{_player.CurrentHealth}";
+            }
         }
     }
 }

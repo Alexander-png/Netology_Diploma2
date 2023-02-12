@@ -21,26 +21,31 @@ namespace Platformer.LevelEnvironment.Mechanisms.Animations
 
         public override void InitState(bool value)
         {
-            _leftDoorAxis.rotation = Quaternion.Euler(-GetTargetRotation(value));
-            _rightDoorAxis.rotation = Quaternion.Euler(GetTargetRotation(value));
+            _leftDoorAxis.localRotation = Quaternion.Euler(-GetTargetRotation(value));
+            _rightDoorAxis.localRotation = Quaternion.Euler(GetTargetRotation(value));
         }
 
         public override void SetSwitched(bool value)
         {
-            StartCoroutine(DoorOpen(_leftDoorAxis, Quaternion.Euler(-GetTargetRotation(value))));
-            StartCoroutine(DoorOpen(_rightDoorAxis, Quaternion.Euler(GetTargetRotation(value))));
+            StartCoroutine(DoorOpen(_leftDoorAxis, -GetTargetRotation(value)));
+            StartCoroutine(DoorOpen(_rightDoorAxis, GetTargetRotation(value)));
         }
 
-        private IEnumerator DoorOpen(Transform doorAxis, Quaternion targetRotation)
+        private IEnumerator DoorOpen(Transform doorAxis, Vector3 targetRotation)
         {
-            Quaternion currentRotation = doorAxis.rotation;
-            while (Vector3.Distance(currentRotation.eulerAngles, targetRotation.eulerAngles) > 0.01)
+            Vector3 currentRotation = doorAxis.rotation.eulerAngles;
+
+            while (Vector3.Distance(currentRotation, targetRotation) > 0.01)
             {
                 yield return null;
-                currentRotation = Quaternion.RotateTowards(currentRotation, targetRotation, AnimationSpeed * Time.deltaTime);
-                doorAxis.rotation = currentRotation;
+                currentRotation.y += AnimationSpeed * Time.deltaTime;
+                //currentRotation.y += 
+                doorAxis.localRotation = Quaternion.Euler(currentRotation);
+
+                //currentRotation = Quaternion.RotateTowards(currentRotation, targetRotation, AnimationSpeed * Time.deltaTime);
+                //doorAxis.localRotation = currentRotation;
             }
-            doorAxis.rotation = targetRotation;
+            doorAxis.localRotation = Quaternion.Euler(targetRotation);
         }
 
         private Vector3 GetTargetRotation(bool value) =>

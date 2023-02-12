@@ -15,12 +15,11 @@ namespace Platformer.GameCore
     {
         [SerializeField]
         private bool _gamePaused;
-        [SerializeField]
-        private Player _playerCharacter;
 
         [SerializeField, Space(15)]
         private MovementSkillContainer _playerMovementSkillContainer;
 
+        private Player _playerCharacter;
         private bool _isLevelCompleted;
         private float _levelTime;
         private InteractableTrigger _currentInteractable;
