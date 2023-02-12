@@ -88,6 +88,7 @@ namespace Platformer.UI
 		{
 			_menuBackground.gameObject.SetActive(_gameSystem.IsGameCompleted);
 			_levelCompleteMenu.gameObject.SetActive(_gameSystem.IsGameCompleted);
+			_levelCompleteMenu.UpdateDisplayedTime(_gameSystem.LevelTime);
 		}
 
 		private void OnCurrentInteractionTriggerChanged(object sender, EventArgs e) =>

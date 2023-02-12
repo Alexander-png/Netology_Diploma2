@@ -11,15 +11,9 @@ namespace Platformer.Scriptable.LevelElements.Traps
 		private float _pushForce;
 		[SerializeField]
 		private bool _isFatalDamage;
-		[SerializeField]
-		private bool _isKamikazeAttack;
-		[SerializeField]
-		private float _attackChargeTime;
 
 		public float Damage => IsFatalDamage ? float.MaxValue : _damage;
 		public float PushForce => _pushForce;
 		public bool IsFatalDamage => _isFatalDamage;
-		public bool IsKamikazeAttack => _isKamikazeAttack;
-		public float AttackChargeTime => _attackChargeTime;
 	}
 }

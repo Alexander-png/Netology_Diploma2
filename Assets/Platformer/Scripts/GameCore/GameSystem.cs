@@ -21,7 +21,8 @@ namespace Platformer.GameCore
         [SerializeField, Space(15)]
         private MovementSkillContainer _playerMovementSkillContainer;
 
-        private bool _isGameCompleted;
+        private bool _isLevelCompleted;
+        private float _levelTime;
         private InteractableTrigger _currentInteractable;
 
         public bool GamePaused
@@ -56,7 +57,8 @@ namespace Platformer.GameCore
         public MovementSkillContainer PlayerMovementSkillContainer => _playerMovementSkillContainer;
 
         public bool CanCurrentTriggerPerformed => CurrentTrigger != null && CurrentTrigger.CanInteract;
-        public bool IsGameCompleted => _isGameCompleted;
+        public bool IsGameCompleted => _isLevelCompleted;
+        public TimeSpan LevelTime => TimeSpan.FromSeconds(_levelTime);
 
         public event EventHandler PlayerRespawned;
         public event EventHandler<bool> PauseStateChanged;
@@ -67,17 +69,14 @@ namespace Platformer.GameCore
         public event EventHandler CurrentTriggerInteracted;
         public event EventHandler GameCompleted;
 
-
-        private void Awake()
-        {
-            if (_playerCharacter == null)
-            {
-                GameLogger.AddMessage($"{nameof(GameSystem)}: no player character assigned!", GameLogger.LogType.Fatal);
-            }
-        }
-
         private void Start()
         {
+            _playerCharacter = FindObjectOfType<Player>();
+            if (_playerCharacter == null)
+            {
+                GameLogger.AddMessage("No player found!", GameLogger.LogType.Fatal);
+            }
+
             GamePaused = GamePaused;
             StartCoroutine(LoadedNotifier());
         }
@@ -103,6 +102,9 @@ namespace Platformer.GameCore
             StopAllCoroutines();
             PauseStateChanged -= OnPauseStateChanged;
         }
+
+        private void Update() =>
+            _levelTime += Time.deltaTime;
 
         public void InvokePlayerRespawned() =>
             PlayerRespawned?.Invoke(this, EventArgs.Empty);
@@ -139,10 +141,11 @@ namespace Platformer.GameCore
         public void ShowConversationPhrase(string phraseId) =>
             ConversationPhraseChanged?.Invoke(this, phraseId);
 
-        public void NotifyGameCompleted()
+        public void OnLevelCompleted(string levelName)
         {
-            _isGameCompleted = true;
+            _isLevelCompleted = true;
             SetPlayerHandlingEnabled(false);
+            SaveSystem.OnLevelCompleted(levelName, _levelTime);
             _playerCharacter.MovementController.Velocity = Vector3.zero;
             GameCompleted?.Invoke(this, EventArgs.Empty);
         }

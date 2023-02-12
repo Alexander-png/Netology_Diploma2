@@ -1,6 +1,5 @@
 using Newtonsoft.Json;
 using Platformer.EditorExtentions;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ namespace Platformer.GameCore
         {
             public string LevelName;
             public LevelCompleteType Status;
-            public TimeSpan Time;
+            public float WalkthroughTime;
         }
 
         private static List<SaveData> _levelData;
@@ -47,11 +46,14 @@ namespace Platformer.GameCore
                 {
                     LevelName = levelName,
                     Status = LevelCompleteType.NotCompleted,
-                    Time = TimeSpan.Zero,
+                    WalkthroughTime = 0,
                 });
             }
-            PlayerPrefs.SetString(SaveFileName, JsonConvert.SerializeObject(_levelData));
+            SaveLevelData();
         }
+
+        private static void SaveLevelData() =>
+            PlayerPrefs.SetString(SaveFileName, JsonConvert.SerializeObject(_levelData));
 
         public static SaveData GetLevelInfo(string levelName)
         {
@@ -61,6 +63,21 @@ namespace Platformer.GameCore
                 return new SaveData();
             }
             return _levelData.Find(l => l.LevelName == levelName);
+        }
+
+        public static void OnLevelCompleted(string levelName, float walkthroughTime)
+        {
+            int index = _levelData.IndexOf(GetLevelInfo(levelName));
+            if (_levelData[index].WalkthroughTime < walkthroughTime)
+            {
+                _levelData[index] = new SaveData()
+                {
+                    LevelName = levelName,
+                    Status = LevelCompleteType.Bronze,
+                    WalkthroughTime = walkthroughTime,
+                };
+                SaveLevelData();
+            }
         }
     }
 }
