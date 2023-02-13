@@ -27,6 +27,8 @@ namespace Platformer.Scriptable.Characters
 		private float _dashDuration;
 		[SerializeField]
 		private float _dashRechargeTime;
+		[SerializeField]
+		private float _verticalDashDelimeter = 1f;
 
 		public MovementStatsInfo GetData() => new MovementStatsInfo()
 		{
@@ -40,6 +42,7 @@ namespace Platformer.Scriptable.Characters
 			DashForce = _dashForce,
 			DashDuration = _dashDuration,
 			DashRechargeTime = _dashRechargeTime,
+			VerticalDashDelimeter = _verticalDashDelimeter,
 		};
 	}
 }

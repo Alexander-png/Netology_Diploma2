@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxSpeed: 8
   _acceleration: 20
+  _inAirDrag: 0
   _jumps:
   - 7
   - 5
@@ -23,3 +24,4 @@ MonoBehaviour:
   _dashForce: 25
   _dashDuration: 0.3
   _dashRechargeTime: 0.1
+  _verticalDashDelimeter: 4

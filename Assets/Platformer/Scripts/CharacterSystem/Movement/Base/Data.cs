@@ -20,6 +20,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         public float DashForce;
         public float DashDuration;
         public float DashRechargeTime;
+        public float VerticalDashDelimeter;
 
         public float MaxJumpForce => Jumps.Max();
 
@@ -53,6 +54,7 @@ namespace Platformer.CharacterSystem.Movement.Base
             result.DashForce = first.DashForce + second.DashForce;
             result.DashDuration = first.DashDuration + second.DashDuration;
             result.DashRechargeTime = first.DashRechargeTime + second.DashRechargeTime;
+            result.VerticalDashDelimeter = first.VerticalDashDelimeter + second.VerticalDashDelimeter; 
             return result;
         }
 
@@ -77,6 +79,7 @@ namespace Platformer.CharacterSystem.Movement.Base
             result.DashForce = first.DashForce - second.DashForce;
             result.DashDuration = first.DashDuration - second.DashDuration;
             result.DashRechargeTime = first.DashRechargeTime - second.DashRechargeTime;
+            result.VerticalDashDelimeter = first.VerticalDashDelimeter - second.VerticalDashDelimeter;
             return result;
         }
     }
