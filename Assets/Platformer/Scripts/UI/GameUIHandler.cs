@@ -95,6 +95,6 @@ namespace Platformer.UI
 			_interactionTooltip.gameObject.SetActive(_gameSystem.CanCurrentTriggerPerformed);
 
 		private void OnCurrentTriggerPerformed(object sender, EventArgs e) =>
-			_interactionTooltip.gameObject.SetActive(false);
+			_interactionTooltip.gameObject.SetActive(_gameSystem.CanCurrentTriggerPerformed);
 	}
 }

@@ -93,6 +93,11 @@ namespace Platformer.CharacterSystem.Enemies
 
         protected override void CheckPlayerNearby()
         {
+            if (_player == null)
+            {
+                return;
+            }
+
             Vector3 playerPosition = _player.transform.position;
             float distanceToPlayer = (playerPosition - transform.position).sqrMagnitude;
 
@@ -176,7 +181,7 @@ namespace Platformer.CharacterSystem.Enemies
         private void OnDrawGizmos()
         {
             Color c = Color.cyan;
-            c.a = 0.6f;
+            c.a = 0.2f;
             Gizmos.color = c;
             Gizmos.DrawSphere(transform.position, Mathf.Sqrt(_behaviourConfig.ArgressionRadius));
         }

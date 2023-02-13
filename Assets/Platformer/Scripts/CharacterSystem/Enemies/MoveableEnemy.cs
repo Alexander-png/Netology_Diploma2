@@ -37,11 +37,17 @@ namespace Platformer.CharacterSystem.Enemies
         {
             base.Start();
             _attacker = gameObject.GetComponentInChildren<Attacker>();
+            _gameSystem.GameLoaded += OnGameLoaded;
 
-            _player = _gameSystem.GetPlayer();
             MovementController.MovementEnabled = true;
             MovementController.SetAnimator(EntityAnimator);
             SetBehaviourEnabled(true);
+        }
+
+        private void OnGameLoaded(object sender, EventArgs e)
+        {
+            _gameSystem.GameLoaded -= OnGameLoaded;
+            _player = _gameSystem.GetPlayer();
         }
 
         protected override void Update()

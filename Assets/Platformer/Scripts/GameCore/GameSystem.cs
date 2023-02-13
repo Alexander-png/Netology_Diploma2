@@ -8,6 +8,7 @@ using System.Collections;
 using UnityEngine;
 
 // TODO: find assets for all objects
+// Fix damage from enemies
 
 namespace Platformer.GameCore
 {
