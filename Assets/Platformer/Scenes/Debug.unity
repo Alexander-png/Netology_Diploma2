@@ -1865,7 +1865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800067266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.9, y: 10.003835, z: -12}
+  m_LocalPosition: {x: 22.51, y: 20.963835, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1898,7 +1898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878152735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.46, y: 26.449999, z: -10.54}
+  m_LocalPosition: {x: 12.32, y: 23.81, z: -10.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2187,7 +2187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.9, y: 10.003835, z: -12}
+  m_LocalPosition: {x: 22.51, y: 20.963835, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3979,7 +3979,6 @@ GameObject:
   - component: {fileID: 1745693119}
   - component: {fileID: 1745693122}
   - component: {fileID: 1745693121}
-  - component: {fileID: 1745693124}
   - component: {fileID: 1745693123}
   m_Layer: 5
   m_Name: LevelCompleteMenu
@@ -4106,7 +4105,7 @@ MonoBehaviour:
     - game_nextLevel
     - game_exitToMenu
     _values:
-    - {fileID: 1745693124}
+    - {fileID: 0}
     - {fileID: 1745693123}
 --- !u!114 &1745693122
 MonoBehaviour:
@@ -4148,18 +4147,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d89f6d02270a594f9c28e7babe1e0ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1745693124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745693116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7baccac692f929646aa9721f57dafc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1826520604
@@ -5288,11 +5275,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 63.9
+      value: 22.51
       objectReference: {fileID: 0}
     - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.9
+      value: 17.86
       objectReference: {fileID: 0}
     - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
       propertyPath: m_LocalPosition.z

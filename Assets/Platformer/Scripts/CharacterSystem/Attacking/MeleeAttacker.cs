@@ -40,17 +40,15 @@ namespace Platformer.CharacterSystem.Attacking
         private void OnDestroy() =>
             CurrentWeapon = null;
 
-        public override void OnMainAttackPressed()
-        {
-            StartAttackInternal();
-        }
+        public override void OnMainAttackPressed() =>
+            StartMainAttack();
 
         public override void OnSecondAttackPressed() =>
             CurrentWeapon.MakeAlternativeHit();
 
         public override void OnStrongAttackPressed() { }
 
-        protected virtual void StartAttackInternal()
+        protected virtual void StartMainAttack()
         {
             _currentWeapon?.MakeHit();
             _damageTrigger.enabled = true;
@@ -62,10 +60,8 @@ namespace Platformer.CharacterSystem.Attacking
             _damageTrigger.enabled = false;
         }
 
-        protected virtual void OnHitEnded(object sender, System.EventArgs e)
-        {
+        protected virtual void OnHitEnded(object sender, System.EventArgs e) =>
             OnAttackReleased();
-        }
 
         protected virtual IDamagable GetEnemyComponent(Collider other)
         {

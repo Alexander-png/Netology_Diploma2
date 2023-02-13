@@ -57,7 +57,7 @@ namespace Platformer.PlayerSystem
             }
         }
 
-        public Vector3 GetMousePositionInWorld()
+        public Vector3 GetWorldMousePosition()
         {
             // tooked form here: https://forum.unity.com/threads/mouse-to-world-position-using-perspective-camera-when-there-is-nothing-to-hit.1199350/
             Plane plane = new Plane(Vector3.back, Vector3.zero);
@@ -68,5 +68,8 @@ namespace Platformer.PlayerSystem
             }
             return Vector3.zero;
         }
+
+        public Vector3 GetRelativeMousePosition(Vector3 origin) =>
+            GetWorldMousePosition() - origin;
     }
 }

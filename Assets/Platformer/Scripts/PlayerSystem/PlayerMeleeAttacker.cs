@@ -77,7 +77,7 @@ namespace Platformer.PlayerSystem
                 _chargeAttackCoroutine = null;
             }
             SetDamageTriggerRadius(_currentTriggerRadius);
-            StartAttackInternal();
+            StartMainAttack();
         }
 
         protected override void OnHitEnded(object sender, EventArgs e)
@@ -90,9 +90,8 @@ namespace Platformer.PlayerSystem
 
         private void UpdateHitColliderPosition()
         {
-            Vector3 mousePosition = _inputListener.GetMousePositionInWorld();
-            Vector3 relativePosition = mousePosition - transform.parent.position;
-            Ray ray = new Ray(transform.parent.position, relativePosition);
+            Vector3 mousePosition = _inputListener.GetRelativeMousePosition(transform.parent.position);
+            Ray ray = new Ray(transform.parent.position, mousePosition);
             transform.position = ray.GetPoint(_currentAttackRadius);
         }
 

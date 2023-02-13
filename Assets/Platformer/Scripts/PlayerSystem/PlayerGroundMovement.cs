@@ -13,12 +13,8 @@ namespace Platformer.PlayerSystem
             _inputListener = gameObject.GetComponent<PlayerInputListener>();
         }
 
-        protected override Vector2 CalclulateDashDirection()
-        {
-            Vector3 mousePos = _inputListener.GetMousePositionInWorld();
-            Vector3 relativeMousePos = mousePos - transform.position;
-            return relativeMousePos.normalized;
-        }
+        protected override Vector2 CalclulateDashDirection() =>
+            _inputListener.GetRelativeMousePosition(transform.position).normalized;
 
         protected override void OnDashStarted() =>
             Physics.IgnoreLayerCollision(6, 7, true);

@@ -50,10 +50,7 @@ namespace Platformer.Weapons
 
         public virtual void MakeAlternativeHit() { }
 
-        public virtual void StopHit() 
-        {
-
-        }
+        public virtual void StopHit() { }
 
         protected IEnumerator ReloadMainAttack()
         {

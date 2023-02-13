@@ -47,6 +47,7 @@ namespace Platformer.CharacterSystem.Enemies
             if (_waitCoroutine != null)
             {
                 StopCoroutine(_waitCoroutine);
+                _waitCoroutine = null;
             }
         }
 

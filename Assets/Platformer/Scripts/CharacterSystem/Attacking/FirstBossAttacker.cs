@@ -8,7 +8,7 @@ namespace Platformer.CharacterSystem.Attacking
 	{
         public override void OnMainAttackPressed()
         {
-            StartAttackInternal();
+            StartMainAttack();
         }
 
         protected override IDamagable GetEnemyComponent(Collider other)
