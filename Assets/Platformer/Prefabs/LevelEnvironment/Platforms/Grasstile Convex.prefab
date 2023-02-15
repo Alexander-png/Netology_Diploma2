@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23201027827570170}
   - component: {fileID: 64051000153693614}
   - component: {fileID: 7910097123408091910}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grasstile Convex
   m_TagString: Untagged
   m_Icon: {fileID: 0}

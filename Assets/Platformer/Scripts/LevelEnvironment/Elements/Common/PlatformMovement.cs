@@ -15,7 +15,7 @@ namespace Platformer.LevelEnvironment.Elements.Common
         private void Move()
         {
             Vector3 position = transform.position;
-            position += _direciton * _speed * Time.deltaTime;
+            position += _speed * Time.deltaTime * _direciton.normalized;
             transform.position = position;
         }
     }

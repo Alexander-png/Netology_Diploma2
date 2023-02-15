@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2314964}
   - component: {fileID: 6467790}
   - component: {fileID: -805122890158553608}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Clifftile Diagonal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

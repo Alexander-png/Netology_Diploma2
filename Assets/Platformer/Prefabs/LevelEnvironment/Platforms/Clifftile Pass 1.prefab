@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2320378}
   - component: {fileID: 6419714}
   - component: {fileID: -6213814688770672628}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Clifftile Pass 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

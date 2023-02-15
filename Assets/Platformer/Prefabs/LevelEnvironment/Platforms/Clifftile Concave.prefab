@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2364672}
   - component: {fileID: 6425300}
   - component: {fileID: 4284106917456046356}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Clifftile Concave
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2343324}
   - component: {fileID: 6406300}
   - component: {fileID: 3620812202842627650}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rocktile Straight 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

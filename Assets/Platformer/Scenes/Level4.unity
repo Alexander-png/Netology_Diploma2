@@ -208,6 +208,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 870919294045048341, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 943818397969803668, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448906679944371975, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571024044402047540, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 9b7035578fb84c841addede0930a4560, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -267,6 +283,14 @@ PrefabInstance:
     - target: {fileID: 6871311131651655069, guid: 9b7035578fb84c841addede0930a4560, type: 3}
       propertyPath: m_Name
       value: StonePlatform2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -393,6 +417,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -448,6 +492,14 @@ PrefabInstance:
     - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_Name
       value: StonePlatform3 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -634,6 +686,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -690,6 +762,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform3 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
@@ -709,6 +789,10 @@ PrefabInstance:
     - target: {fileID: 157830, guid: 058b0f1b12300c84bb285b6f768998e7, type: 3}
       propertyPath: m_Name
       value: Clifftile Convex (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 157830, guid: 058b0f1b12300c84bb285b6f768998e7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 458554, guid: 058b0f1b12300c84bb285b6f768998e7, type: 3}
       propertyPath: m_RootOrder
@@ -806,73 +890,6 @@ Transform:
   m_Father: {fileID: 454243144}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &322361804
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 322361805}
-  - component: {fileID: 322361807}
-  - component: {fileID: 322361806}
-  m_Layer: 6
-  m_Name: SpiritSword
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &322361805
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322361804}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2016536382}
-  m_Father: {fileID: 916324851}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &322361806
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322361804}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e97049998c2243e4f9a658d23d62e36b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &322361807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322361804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d8e59b7df5ea14eb0c72663914ea30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: af5db329db212b549803c05853d9c73e, type: 2}
 --- !u!1001 &368925571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1080,6 +1097,10 @@ PrefabInstance:
     - target: {fileID: 157830, guid: 058b0f1b12300c84bb285b6f768998e7, type: 3}
       propertyPath: m_Name
       value: Clifftile Convex
+      objectReference: {fileID: 0}
+    - target: {fileID: 157830, guid: 058b0f1b12300c84bb285b6f768998e7, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 458554, guid: 058b0f1b12300c84bb285b6f768998e7, type: 3}
       propertyPath: m_RootOrder
@@ -1320,6 +1341,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1376,6 +1417,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform3 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
@@ -1384,64 +1433,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
   m_PrefabInstance: {fileID: 661188094}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &694657645
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 694657646}
-  - component: {fileID: 694657648}
-  - component: {fileID: 694657649}
-  m_Layer: 6
-  m_Name: Attacker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &694657646
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694657645}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 916324851}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &694657648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694657645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf3897ba4adbf9049af5e8ed06b1bcd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!135 &694657649
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694657645}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.93
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,6 +1535,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 870919294045048341, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 943818397969803668, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448906679944371975, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571024044402047540, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 9b7035578fb84c841addede0930a4560, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1604,6 +1611,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7035578fb84c841addede0930a4560, type: 3}
@@ -1612,104 +1627,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6871311131651655058, guid: 9b7035578fb84c841addede0930a4560, type: 3}
   m_PrefabInstance: {fileID: 709126208}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &709728021
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 709728022}
-  - component: {fileID: 709728025}
-  - component: {fileID: 709728024}
-  - component: {fileID: 709728023}
-  m_Layer: 6
-  m_Name: Capsule
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &709728022
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709728021}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1757313410}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &709728023
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709728021}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &709728024
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709728021}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &709728025
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709728021}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &732837971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1718,6 +1635,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1773,6 +1710,14 @@ PrefabInstance:
     - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_Name
       value: StonePlatform3 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -1959,7 +1904,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 916324851}
+  m_Follow: {fileID: 1507238089}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -1986,7 +1931,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800067266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.92, y: 3.6938345, z: -12.94}
+  m_LocalPosition: {x: 4.49, y: 3.3838346, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2160,6 +2105,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2216,6 +2181,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform3 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
@@ -2232,6 +2205,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2292,6 +2285,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform3 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
@@ -2308,6 +2309,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 870919294045048341, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 943818397969803668, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448906679944371975, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571024044402047540, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 9b7035578fb84c841addede0930a4560, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2368,6 +2385,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7035578fb84c841addede0930a4560, type: 3}
@@ -2384,6 +2409,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -2443,6 +2488,14 @@ PrefabInstance:
     - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_Name
       value: StonePlatform3 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -2516,297 +2569,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8622664127730325693, guid: 4654cdaebcf9c08478fc403d7dc3a9ae, type: 3}
   m_PrefabInstance: {fileID: 915738647}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &916324841
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 916324851}
-  - component: {fileID: 916324850}
-  - component: {fileID: 916324849}
-  - component: {fileID: 916324848}
-  - component: {fileID: 916324847}
-  - component: {fileID: 916324846}
-  - component: {fileID: 916324844}
-  - component: {fileID: 916324843}
-  - component: {fileID: 916324842}
-  - component: {fileID: 916324853}
-  - component: {fileID: 916324852}
-  - component: {fileID: 916324854}
-  m_Layer: 6
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &916324842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eaab4fba73bcc7458885d466d79c8a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &916324843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ebf598afe594bf4fb4d5da464ddc3b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _distinctSkillsOnly: 1
---- !u!114 &916324844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000664af05661864f9fd399cabdfe6d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &916324846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 403e8840b4d74a84195b710e2fbba328, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 312cbfbfd7f445147a8d7fe562364ddc, type: 2}
---- !u!114 &916324847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d34459e1cf1d2604aaa2d40f152cdc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &916324848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 485c8853117c84248af9db9ac76a8bb0, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: InGame
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!54 &916324849
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  serializedVersion: 2
-  m_Mass: 20
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 120
-  m_CollisionDetection: 0
---- !u!136 &916324850
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &916324851
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.92, y: 0.59, z: -0.94}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1757313410}
-  - {fileID: 694657646}
-  - {fileID: 322361805}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &916324852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd52f9605a7ddf4d9119c935b3fdd73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _defaultMovementStats: {fileID: 11400000, guid: c76b85df234256243b62382f6224c5f4, type: 2}
-  _movementEnabled: 1
---- !u!114 &916324853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b97842fa7773e434f9dc7e56ae539f43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _defaultMovementStats: {fileID: 11400000, guid: c76b85df234256243b62382f6224c5f4, type: 2}
-  _movementEnabled: 1
---- !u!82 &916324854
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916324841}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &940034358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2949,7 +2711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.92, y: 3.6938345, z: -12.94}
+  m_LocalPosition: {x: 4.49, y: 3.3838346, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2990,6 +2752,65 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1001 &963712286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8851354137677445963, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
 --- !u!1001 &994422258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3066,6 +2887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clifftile Straight 2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 132270, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 455812, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3127,7 +2952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1007510089}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3197,6 +3022,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clifftile Straight 2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 132270, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 455812, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3248,86 +3077,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 455812, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
   m_PrefabInstance: {fileID: 1040488224}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1051204036
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 2
-    m_TransformParent: {fileID: 2016536382}
-    m_Modifications:
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_RootOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8490961693052317815, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_Name
-      value: SpiritSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 8490961693052317815, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_AddedGameObjects: []
-  m_SourcePrefab: {fileID: 100100000, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
---- !u!4 &1051204037 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1062854206055904571, guid: eac1805de91d39548b8c11d0a983837c, type: 3}
-  m_PrefabInstance: {fileID: 1051204036}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1077389864
 PrefabInstance:
@@ -3404,6 +3153,10 @@ PrefabInstance:
     - target: {fileID: 1029645911732472, guid: 58c3ff84da0e02a428df97e62d1316d0, type: 3}
       propertyPath: m_Name
       value: Bridge_1_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1029645911732472, guid: 58c3ff84da0e02a428df97e62d1316d0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4369178817433266, guid: 58c3ff84da0e02a428df97e62d1316d0, type: 3}
       propertyPath: m_RootOrder
@@ -3558,6 +3311,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 870919294045048341, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 943818397969803668, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448906679944371975, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571024044402047540, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 9b7035578fb84c841addede0930a4560, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3618,6 +3387,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7035578fb84c841addede0930a4560, type: 3}
@@ -3634,6 +3411,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3689,6 +3486,14 @@ PrefabInstance:
     - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_Name
       value: StonePlatform3 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -3836,6 +3641,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3891,6 +3716,14 @@ PrefabInstance:
     - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_Name
       value: StonePlatform3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -3982,6 +3815,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 870919294045048341, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 943818397969803668, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448906679944371975, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571024044402047540, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 9b7035578fb84c841addede0930a4560, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4042,6 +3891,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7035578fb84c841addede0930a4560, type: 3}
@@ -4061,6 +3918,10 @@ PrefabInstance:
     - target: {fileID: 132270, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
       propertyPath: m_Name
       value: Clifftile Straight 2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 132270, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 455812, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
       propertyPath: m_RootOrder
@@ -4122,6 +3983,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 870919294045048341, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 943818397969803668, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448906679944371975, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571024044402047540, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 9b7035578fb84c841addede0930a4560, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4181,6 +4058,14 @@ PrefabInstance:
     - target: {fileID: 6871311131651655069, guid: 9b7035578fb84c841addede0930a4560, type: 3}
       propertyPath: m_Name
       value: StonePlatform2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -4333,6 +4218,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4392,6 +4297,14 @@ PrefabInstance:
     - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_Name
       value: StonePlatform3 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -4486,6 +4399,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 870919294045048341, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 943818397969803668, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448906679944371975, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571024044402047540, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 9b7035578fb84c841addede0930a4560, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4546,6 +4475,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7035578fb84c841addede0930a4560, type: 3}
@@ -4565,6 +4502,10 @@ PrefabInstance:
     - target: {fileID: 108976, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
       propertyPath: m_Name
       value: Clifftile Straight 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108976, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 411954, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
       propertyPath: m_RootOrder
@@ -4630,6 +4571,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clifftile Straight 1
       objectReference: {fileID: 0}
+    - target: {fileID: 132270, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 455812, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4677,6 +4622,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
+--- !u!4 &1507238089 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
+  m_PrefabInstance: {fileID: 963712286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1572943418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4685,6 +4635,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4741,6 +4711,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
@@ -4752,6 +4730,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4808,6 +4806,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform3 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
@@ -4824,6 +4830,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -4879,6 +4905,14 @@ PrefabInstance:
     - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_Name
       value: StonePlatform3 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -4965,6 +4999,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5021,6 +5075,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform3
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
@@ -5037,6 +5099,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 870919294045048341, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 943818397969803668, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448906679944371975, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571024044402047540, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 9b7035578fb84c841addede0930a4560, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5097,6 +5175,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform2
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 9b7035578fb84c841addede0930a4560, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b7035578fb84c841addede0930a4560, type: 3}
@@ -5111,6 +5197,10 @@ PrefabInstance:
     - target: {fileID: 108976, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
       propertyPath: m_Name
       value: Clifftile Straight 2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 108976, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 411954, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
       propertyPath: m_RootOrder
@@ -5164,38 +5254,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 411954, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
   m_PrefabInstance: {fileID: 1739816218}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1757313409
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1757313410}
-  m_Layer: 6
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1757313410
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757313409}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 709728022}
-  m_Father: {fileID: 916324851}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1779725396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5271,6 +5329,10 @@ PrefabInstance:
     - target: {fileID: 108976, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
       propertyPath: m_Name
       value: Clifftile Straight 2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 108976, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 411954, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
       propertyPath: m_RootOrder
@@ -5563,6 +5625,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5619,6 +5701,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
@@ -5630,6 +5720,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1007510089}
     m_Modifications:
+    - target: {fileID: 1549317013626587467, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3212196942236093804, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946101988911631222, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596343665611616408, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535075724330939434, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5686,6 +5796,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: StonePlatform3 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6871311131651655069, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871311133092738138, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
@@ -5694,51 +5812,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6871311131651655058, guid: 84bb2b895570d3040ab72ce90210d2b0, type: 3}
   m_PrefabInstance: {fileID: 1965287742}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2016536381
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2016536382}
-  - component: {fileID: 2016536383}
-  m_Layer: 6
-  m_Name: Visual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2016536382
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016536381}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3710022, y: 0.05200005, z: -0.71}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1051204037}
-  m_Father: {fileID: 322361805}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2016536383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016536381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 828977adc60ad7a4494a16262075a761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2018726432
 GameObject:
   m_ObjectHideFlags: 0
@@ -5816,6 +5889,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clifftile Straight 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 108976, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 411954, guid: 80beeb9e321d84a4d907e4439858a7bc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5879,6 +5956,10 @@ PrefabInstance:
     - target: {fileID: 132270, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
       propertyPath: m_Name
       value: Clifftile Straight 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 132270, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 455812, guid: 0b28b3fe3b1c00f4bb56e7f47e913f86, type: 3}
       propertyPath: m_RootOrder
@@ -6054,7 +6135,7 @@ PrefabInstance:
     - target: {fileID: 4494643502856936058, guid: 3f2117014d44f4f43aab0d56efaf27df, type: 3}
       propertyPath: _playerCharacter
       value: 
-      objectReference: {fileID: 916324846}
+      objectReference: {fileID: 0}
     - target: {fileID: 4494643502856936059, guid: 3f2117014d44f4f43aab0d56efaf27df, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6871311131651655058}
   - component: {fileID: 5840132501522395843}
   - component: {fileID: 244613416391114255}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StonePlatform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c613b77bd2faac42ae419fe93301e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _climbable: 1
 --- !u!1 &6871311133092738138
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +68,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6871311133092738139}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,6 +163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MidStone2
       objectReference: {fileID: 0}
+    - target: {fileID: 8508626764672331126, guid: d88073be3d6c7bf4b82801a866c04513, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d88073be3d6c7bf4b82801a866c04513, type: 3}
@@ -239,6 +242,10 @@ PrefabInstance:
     - target: {fileID: 8508626764672331126, guid: e115ab34109d15744b2777314e9178ae, type: 3}
       propertyPath: m_Name
       value: BigStone5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508626764672331126, guid: e115ab34109d15744b2777314e9178ae, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -316,6 +323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigStone5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8508626764672331126, guid: e115ab34109d15744b2777314e9178ae, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e115ab34109d15744b2777314e9178ae, type: 3}
@@ -392,6 +403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MidStone2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8508626764672331126, guid: d88073be3d6c7bf4b82801a866c04513, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d88073be3d6c7bf4b82801a866c04513, type: 3}
@@ -467,6 +482,10 @@ PrefabInstance:
     - target: {fileID: 8508626764672331126, guid: e115ab34109d15744b2777314e9178ae, type: 3}
       propertyPath: m_Name
       value: BigStone5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508626764672331126, guid: e115ab34109d15744b2777314e9178ae, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

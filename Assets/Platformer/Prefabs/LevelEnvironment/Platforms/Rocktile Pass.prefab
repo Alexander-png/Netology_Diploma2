@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2316142}
   - component: {fileID: 6444294}
   - component: {fileID: 2908262147477260088}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rocktile Pass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
