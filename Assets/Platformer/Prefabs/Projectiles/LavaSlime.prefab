@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -675316059204259646}
   - component: {fileID: 5540220329735947137}
   - component: {fileID: 6654300716456180111}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LavaSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4012557510402830870}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4012557510437795633}
   - component: {fileID: 4012557510437795639}
   - component: {fileID: 4012557510437795638}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

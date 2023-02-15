@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5215715450827365242}
   - component: {fileID: 5215715450827365243}
   - component: {fileID: 1220424719048621094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RockProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5215715451645105902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,6 +177,10 @@ PrefabInstance:
     - target: {fileID: 8508626764672331126, guid: 4e459f68afded244eb1b70db8837aea9, type: 3}
       propertyPath: m_Name
       value: SmallStone2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8508626764672331126, guid: 4e459f68afded244eb1b70db8837aea9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

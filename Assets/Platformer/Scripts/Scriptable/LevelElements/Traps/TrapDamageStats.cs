@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Platformer.Scriptable.LevelElements.Traps
 {
-	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Damage stats")]
+	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Trap Damage stats")]
 	public class TrapDamageStats : ScriptableObject
 	{
 		[SerializeField]
