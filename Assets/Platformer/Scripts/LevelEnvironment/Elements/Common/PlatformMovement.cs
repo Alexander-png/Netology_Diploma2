@@ -9,6 +9,18 @@ namespace Platformer.LevelEnvironment.Elements.Common
         [SerializeField]
 		private float _speed;
 
+        public Vector3 Direciton
+        {
+            get => _direciton;
+            set => _direciton = value;
+        }
+
+        public float Speed
+        {
+            get => _speed;
+            set => _speed = value;
+        }
+
         private void Update() =>
             Move();
 

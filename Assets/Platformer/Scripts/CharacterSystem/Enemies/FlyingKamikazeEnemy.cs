@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace Platformer.CharacterSystem.Enemies
 {
-    // todo: inherit this class from patrol enemy when point patrol mode will be implemented
-    // todo: get values of charge time and attack radius from weapon stats
+    // Todo: inherit this class from patrol enemy when point patrol mode will be implemented
+    // Todo: get values of charge time and attack radius from weapon stats
 	public class FlyingKamikazeEnemy : MoveableEnemy
     {
         [SerializeField]

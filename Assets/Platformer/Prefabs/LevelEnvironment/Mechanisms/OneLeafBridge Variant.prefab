@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6206652877550129510, guid: 6817682356cd68c4ab067f7876baf3d4, type: 3}
       propertyPath: m_Name
-      value: OneLeafBridge
+      value: OneLeafBridge Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6206652876924652102, guid: 6817682356cd68c4ab067f7876baf3d4, type: 3}
@@ -135,6 +135,10 @@ PrefabInstance:
     - target: {fileID: 1444570497609112, guid: 99687c5f5b7b7fc47b072294a2888938, type: 3}
       propertyPath: m_Name
       value: Bridge_4_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444570497609112, guid: 99687c5f5b7b7fc47b072294a2888938, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4539284606618918, guid: 99687c5f5b7b7fc47b072294a2888938, type: 3}
       propertyPath: m_RootOrder
@@ -213,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge_4_2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1444570497609112, guid: 99687c5f5b7b7fc47b072294a2888938, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4539284606618918, guid: 99687c5f5b7b7fc47b072294a2888938, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -290,6 +298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge_4_2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1444570497609112, guid: 99687c5f5b7b7fc47b072294a2888938, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4539284606618918, guid: 99687c5f5b7b7fc47b072294a2888938, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -366,6 +378,10 @@ PrefabInstance:
     - target: {fileID: 1444570497609112, guid: 99687c5f5b7b7fc47b072294a2888938, type: 3}
       propertyPath: m_Name
       value: Bridge_4_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444570497609112, guid: 99687c5f5b7b7fc47b072294a2888938, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4539284606618918, guid: 99687c5f5b7b7fc47b072294a2888938, type: 3}
       propertyPath: m_RootOrder

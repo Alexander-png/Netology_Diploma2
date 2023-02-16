@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1349503581817242596}
   - component: {fileID: 1341498181167490832}
   - component: {fileID: 1308686547946458574}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DoorR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 1349065662310368400}
   - component: {fileID: 1341252844784983754}
   - component: {fileID: 1309114505804025782}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DoorL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 1349039303761437152}
   - component: {fileID: 1341109044864009936}
   - component: {fileID: 1308926783361910306}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 1359655050864936080}
   - component: {fileID: 1359655050864936082}
   - component: {fileID: 1359655050864936081}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FortificationGate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,8 +319,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354470187102406304}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 65.83, y: -0.43050647, z: 7.24}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -329,7 +329,7 @@ Transform:
   - {fileID: 1355569113053649295}
   m_Father: {fileID: 0}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1359655050864936082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1355569113048164929}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1355569113053649295}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1355569113693959745}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftAxis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1355569113929034233}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
