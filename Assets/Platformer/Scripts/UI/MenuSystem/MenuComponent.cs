@@ -70,7 +70,7 @@ namespace Platformer.UI.MenuSystem
         {
             try
             {
-                _items = FindObjectsOfType<MenuItem>();
+                _items = GetComponentsInChildren<MenuItem>();
                 Array.Sort(_items, new Comparison<MenuItem>((item1, item2) => item1.SelectionIndex.CompareTo(item2.SelectionIndex)));
             }
             catch (InvalidOperationException)

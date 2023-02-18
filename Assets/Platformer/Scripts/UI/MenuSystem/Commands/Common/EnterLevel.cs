@@ -8,9 +8,9 @@ namespace Platformer.UI.MenuSystem.Commands.Common
 	{
         public override void Execute(object data)
         {
-            if (data is LevelData levelData)
+            if (data is string sceneName)
             {
-                GameObserver.SwitchScene(levelData.Name);
+                GameObserver.SwitchScene(sceneName);
             }
             else
             {
