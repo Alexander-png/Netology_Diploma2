@@ -1,4 +1,4 @@
-using System;
+using Platformer.GameCore.Helpers;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +10,6 @@ namespace Platformer.UI
 		private TMP_Text _timeText;
 
 		public void UpdateDisplayedTime(float time) =>
-			_timeText.text = TimeSpan.FromSeconds(time).ToString("mm\\:ss");
+			_timeText.text = TimeFormatter.GetFormattedTime(time);
 	}
 }

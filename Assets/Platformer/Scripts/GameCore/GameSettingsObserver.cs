@@ -61,8 +61,11 @@ namespace Platformer.GameCore
         private void OnEnable() =>
             SettingsChanged += OnSettingChanged;
 
-        private void OnDisable() =>
+        private void OnDisable()
+        {
             SettingsChanged -= OnSettingChanged;
+            _audioSources.Clear();
+        }
 
         // Let all audiosources load by waiting 1 frame passed.
         private void Start() =>

@@ -1,5 +1,5 @@
 using Platformer.GameCore;
-using System;
+using Platformer.GameCore.Helpers;
 using TMPro;
 using UnityEngine;
 
@@ -31,13 +31,10 @@ namespace Platformer.UI.MenuSystem.Items
         private void FillVisual()
         {
             _levelName.text = _levelData.Name;
-            _bestTime.text = GetFormattedTime(_levelData.BestTime);
-            _goldTime.text = GetFormattedTime(_levelData.GetTime(LevelCompletitionType.Gold));
-            _silverTime.text = GetFormattedTime(_levelData.GetTime(LevelCompletitionType.Silver));
-            _bronzeTime.text = GetFormattedTime(_levelData.GetTime(LevelCompletitionType.Bronze));
+            _bestTime.text = TimeFormatter.GetFormattedTime(_levelData.BestTime);
+            _goldTime.text = TimeFormatter.GetFormattedTime(_levelData.GetTime(LevelCompletitionType.Gold));
+            _silverTime.text = TimeFormatter.GetFormattedTime(_levelData.GetTime(LevelCompletitionType.Silver));
+            _bronzeTime.text = TimeFormatter.GetFormattedTime(_levelData.GetTime(LevelCompletitionType.Bronze));
         }
-
-        private string GetFormattedTime(float seconds) =>
-            TimeSpan.FromSeconds(seconds).ToString("mm\\:ss");
     }
 }

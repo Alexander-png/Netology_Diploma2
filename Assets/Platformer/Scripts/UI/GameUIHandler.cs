@@ -24,6 +24,8 @@ namespace Platformer.UI
 		private ConversationWidget _conversationWidget;
 		[SerializeField]
 		private LevelCompleteMessage _levelCompleteMenu;
+		[SerializeField]
+		private LevelTimer _levelTimer;
 
 		private bool _onConversation;
 
@@ -46,7 +48,7 @@ namespace Platformer.UI
             _gameSystem.ConversationPhraseChanged += OnConversationPhraseChanged;
             _gameSystem.CurrentTriggerChanged += OnCurrentInteractionTriggerChanged;
             _gameSystem.CurrentTriggerInteracted += OnCurrentTriggerPerformed;
-            _gameSystem.GameCompleted += OnGameCompleted;
+            _gameSystem.LevelCompleted += OnLevelCompleted;
 		}
 
         private void OnDisable()
@@ -56,7 +58,7 @@ namespace Platformer.UI
 			_gameSystem.ConversationPhraseChanged -= OnConversationPhraseChanged;
 			_gameSystem.CurrentTriggerChanged -= OnCurrentInteractionTriggerChanged;
 			_gameSystem.CurrentTriggerInteracted -= OnCurrentTriggerPerformed;
-			_gameSystem.GameCompleted -= OnGameCompleted;
+			_gameSystem.LevelCompleted -= OnLevelCompleted;
 		}
 
         private void OnPauseSwitch(InputValue input) =>
@@ -67,6 +69,7 @@ namespace Platformer.UI
 			_menuBackground.gameObject.SetActive(value);
 			_pauseMenu.gameObject.SetActive(value);
 			_statsBar.gameObject.SetActive(!value);
+			_levelTimer.gameObject.SetActive(!value);
 			_interactionTooltip.gameObject.SetActive(!value && _gameSystem.CanCurrentTriggerPerformed);
 		}
 
@@ -84,10 +87,12 @@ namespace Platformer.UI
 			_interactionTooltip.gameObject.SetActive(_gameSystem.CanCurrentTriggerPerformed);
         }
 
-		private void OnGameCompleted(object sender, EventArgs e)
+		private void OnLevelCompleted(object sender, EventArgs e)
 		{
-			_menuBackground.gameObject.SetActive(_gameSystem.IsGameCompleted);
-			_levelCompleteMenu.gameObject.SetActive(_gameSystem.IsGameCompleted);
+			_menuBackground.gameObject.SetActive(_gameSystem.IsLevelCompleted);
+			_statsBar.gameObject.SetActive(false);
+			_levelTimer.gameObject.SetActive(false);
+			_levelCompleteMenu.gameObject.SetActive(_gameSystem.IsLevelCompleted);
 			_levelCompleteMenu.UpdateDisplayedTime(_gameSystem.LevelTime);
 		}
 

@@ -20,7 +20,7 @@ namespace Platformer.UI
             _text = GetComponentInChildren<TMP_Text>();
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             if (_currentHealth != _damagableOwner.CurrentHealth)
             {

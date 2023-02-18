@@ -55,7 +55,7 @@ namespace Platformer.GameCore
         public MovementSkillContainer PlayerMovementSkillContainer => _playerMovementSkillContainer;
 
         public bool CanCurrentTriggerPerformed => CurrentTrigger != null && CurrentTrigger.CanInteract;
-        public bool IsGameCompleted => _isLevelCompleted;
+        public bool IsLevelCompleted => _isLevelCompleted;
         public float LevelTime => _levelTime;
 
         public event EventHandler PlayerRespawned;
@@ -65,7 +65,7 @@ namespace Platformer.GameCore
         public event EventHandler<string> ConversationPhraseChanged;
         public event EventHandler CurrentTriggerChanged;
         public event EventHandler CurrentTriggerInteracted;
-        public event EventHandler GameCompleted;
+        public event EventHandler LevelCompleted;
 
         private void Start()
         {
@@ -145,7 +145,7 @@ namespace Platformer.GameCore
             SetPlayerHandlingEnabled(false);
             SaveSystem.OnLevelCompleted(levelName, _levelTime);
             _playerCharacter.MovementController.Velocity = Vector3.zero;
-            GameCompleted?.Invoke(this, EventArgs.Empty);
+            LevelCompleted?.Invoke(this, EventArgs.Empty);
         }
 
         public Player GetPlayer() => _playerCharacter;
