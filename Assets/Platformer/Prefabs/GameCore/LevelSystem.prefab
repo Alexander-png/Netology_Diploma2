@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4494643502856935940}
   - component: {fileID: 4494643502856935941}
   - component: {fileID: 4494643502856936058}
-  - component: {fileID: 4494643502856935942}
+  - component: {fileID: 4660529050559361001}
   m_Layer: 0
   m_Name: LevelSystem
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 4494643503348297234}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4494643502856935943
 MonoBehaviour:
@@ -112,9 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gamePaused: 0
-  _playerCharacter: {fileID: 0}
   _playerMovementSkillContainer: {fileID: 0}
---- !u!114 &4494643502856935942
+--- !u!114 &4660529050559361001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

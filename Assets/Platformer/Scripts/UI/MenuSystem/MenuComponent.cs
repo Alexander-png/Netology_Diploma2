@@ -36,12 +36,10 @@ namespace Platformer.UI.MenuSystem
 
         protected int SelectionIndex => _selectionIndex;
 
-        protected void Start()
-        {
+        private void Start() =>
             Initialize();
-        }
 
-        private void Initialize()
+        protected virtual void Initialize()
         {
             FindAndSortMenuItems();
 

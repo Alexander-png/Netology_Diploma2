@@ -32,7 +32,7 @@ namespace Platformer.UI.MenuSystem.Items
 
         protected virtual void Start()
         {
-            // Reassign for refreshing selection
+            // Refreshing selection
             if (_isSelected)
             {
                 IsSelected = _isSelected;

@@ -1,81 +1,131 @@
 using Newtonsoft.Json;
 using Platformer.EditorExtentions;
+using RotaryHeart.Lib.SerializableDictionary;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Platformer.GameCore
 {
+    [Serializable]
+    public class TimeStatusDictionary : SerializableDictionaryBase<float, LevelCompletitionType> { }
+    [Serializable]
+    public class StatusRewardDictionary : SerializableDictionaryBase<LevelCompletitionType, string> { }
+
+    [Serializable]
+    public struct LevelData
+    {
+        public string Name;
+        public float BestTime;
+
+        public TimeStatusDictionary StatusDict;
+        public StatusRewardDictionary RewardDict;
+
+        private LevelCompletitionType GetStatus(float time)
+        {
+            KeyValuePair<float, LevelCompletitionType> res = StatusDict.First();
+            foreach (KeyValuePair<float, LevelCompletitionType> pair in StatusDict)
+            {
+                if (BestTime > pair.Key)
+                {
+                    res = pair;
+                }
+            }
+            return res.Value;
+        }
+
+        public float GetTime(LevelCompletitionType status)
+        {
+            foreach (KeyValuePair<float, LevelCompletitionType> pair in StatusDict)
+            {
+                if (status == pair.Value)
+                {
+                    return pair.Key;
+                }
+            }
+            return 0;
+        }
+
+        public void UpdateTime(float time) =>
+            BestTime = time;
+
+        public bool GetReward(out string reward) =>
+            RewardDict.TryGetValue(GetStatus(BestTime), out reward);
+    }
+
     public static class SaveSystem
 	{
         private const string SaveFileName = "Save01";
 
-        public struct SaveData
-        {
-            public string LevelName;
-            public LevelCompleteType Status;
-            public float WalkthroughTime;
-        }
+        private static List<LevelData> _levelData;
 
-        private static List<SaveData> _levelData;
+        public static bool NeedDefaultData { get; private set; }
 
         static SaveSystem()
         {
             string jsonSource = PlayerPrefs.GetString(SaveFileName);
             if (string.IsNullOrEmpty(jsonSource))
             {
-                SetDefaultData();
+                NeedDefaultData = true;
                 return;
             }
             try
             {
-                _levelData = JsonConvert.DeserializeObject<List<SaveData>>(jsonSource);
+                _levelData = JsonConvert.DeserializeObject<List<LevelData>>(jsonSource);
             }
             catch
             {
-                SetDefaultData();
+                NeedDefaultData = true;
             }
         }
 
-        private static void SetDefaultData()
+        private static bool CheckState()
         {
-            List<string> levelNames = GameObserver.GetLevelNames();
-            _levelData = new List<SaveData>(levelNames.Count);
-            foreach (var levelName in levelNames)
+            if (NeedDefaultData)
             {
-                _levelData.Add(new SaveData()
-                {
-                    LevelName = levelName,
-                    Status = LevelCompleteType.NotCompleted,
-                    WalkthroughTime = 0,
-                });
+                GameLogger.AddMessage($"Save file not initialized.", GameLogger.LogType.Fatal);
+                return false;
             }
-            SaveLevelData();
+            return true;
         }
 
         private static void SaveLevelData() =>
-            PlayerPrefs.SetString(SaveFileName, JsonConvert.SerializeObject(_levelData));
+            PlayerPrefs.SetString(SaveFileName, JsonConvert.SerializeObject(_levelData, Formatting.Indented));
 
-        public static SaveData GetLevelInfo(string levelName)
+        public static void SetDefaultData(List<LevelData> data)
         {
+            _levelData = new List<LevelData>(data);
+            SaveLevelData();
+            NeedDefaultData = false;
+        }
+
+        public static LevelData GetLevelInfo(string levelName)
+        {
+            if (!CheckState())
+            {
+                return new LevelData();
+            }
             if (!GameObserver.CheckLevelExists(levelName))
             {
                 GameLogger.AddMessage($"Level with name {levelName} does not exist.", GameLogger.LogType.Fatal);
-                return new SaveData();
+                return new LevelData();
             }
-            return _levelData.Find(l => l.LevelName == levelName);
+            return _levelData.Find(l => l.Name == levelName);
         }
 
-        public static void OnLevelCompleted(string levelName, float walkthroughTime)
+        public static void OnLevelCompleted(string levelName, float time)
         {
-            int index = _levelData.IndexOf(GetLevelInfo(levelName));
-            if (_levelData[index].WalkthroughTime < walkthroughTime)
+            if (!CheckState())
             {
-                _levelData[index] = new SaveData()
-                {
-                    LevelName = levelName,
-                    Status = LevelCompleteType.Bronze,
-                    WalkthroughTime = walkthroughTime,
-                };
+                return;
+            }
+            int index = _levelData.IndexOf(GetLevelInfo(levelName));
+            if (_levelData[index].BestTime < time)
+            {
+                LevelData data = _levelData[index];
+                data.BestTime = time;
+                _levelData[index] = data;
                 SaveLevelData();
             }
         }

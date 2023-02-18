@@ -6,29 +6,57 @@ using UnityEngine;
 
 namespace Platformer.GameCore
 {
-	public class GameSettingsManager : MonoBehaviour
+	public class GameSettingsObserver : MonoBehaviour
 	{
-        public const string VolumeKey = "GameSettings";
-        public static event EventHandler SettingsChanged;
-
-        public static void InvokeSettingsChanged()
-        {
-            SettingsChanged?.Invoke(null, null);
-        }
-
         public struct GameSettings
         {
             public float SoundMasterVolume;
         }
 
+        public const string VolumeKey = "GameSettings";
+        public static event EventHandler SettingsChanged;
+
         private GameSettings _currentSettings;
         private List<AudioSource> _audioSources;
 
-        private void Awake()
+        private static string GetSettingsRaw() =>
+            PlayerPrefs.GetString(VolumeKey);
+
+        private static GameSettings CreateDefaultSettings() =>
+            new GameSettings()
+            {
+                SoundMasterVolume = 0.5f,
+            };
+
+        private static void PrepareSettings()
+        {
+            string jsonSource = GetSettingsRaw();
+            if (string.IsNullOrEmpty(jsonSource))
+            {
+                string json = JsonConvert.SerializeObject(CreateDefaultSettings());
+                PlayerPrefs.SetString(VolumeKey, json);
+            }
+        }
+
+        public static GameSettings GetSettings()
         {
             PrepareSettings();
-            _audioSources = new List<AudioSource>();
+            string jsonSource = GetSettingsRaw();
+            return JsonConvert.DeserializeObject<GameSettings>(jsonSource);
         }
+
+        public static void SetSettings(GameSettings settings)
+        {
+            string json = JsonConvert.SerializeObject(settings);
+            PlayerPrefs.SetString(VolumeKey, json);
+            InvokeSettingsChanged();
+        }
+
+        public static void InvokeSettingsChanged() =>
+            SettingsChanged?.Invoke(null, null);
+
+        private void Awake() =>
+            _audioSources = new List<AudioSource>();
 
         private void OnEnable() =>
             SettingsChanged += OnSettingChanged;
@@ -40,19 +68,6 @@ namespace Platformer.GameCore
         private void Start() =>
             StartCoroutine(SkipFramesAndExecute(1, FindAudioSources, ApplySettings));
 
-        private void PrepareSettings()
-        {
-            string jsonSource = GetSettingsInJson();
-            if (string.IsNullOrEmpty(jsonSource))
-            {
-                string json = JsonConvert.SerializeObject(CreateDefaultSettings());
-                PlayerPrefs.SetString(VolumeKey, json);
-            }
-        }
-
-        private string GetSettingsInJson() =>
-            PlayerPrefs.GetString(VolumeKey);
-
         private void OnSettingChanged(object sender, EventArgs e) =>
             ApplySettings();
 
@@ -61,8 +76,7 @@ namespace Platformer.GameCore
 
         private void ApplySettings()
         {
-            string jsonSource = GetSettingsInJson();
-            _currentSettings = JsonConvert.DeserializeObject<GameSettings>(jsonSource);
+            _currentSettings = GetSettings();
 
             foreach (AudioSource audioSource in _audioSources)
             {
@@ -82,11 +96,5 @@ namespace Platformer.GameCore
                 action();
             }
         }
-
-        private GameSettings CreateDefaultSettings() =>
-            new GameSettings()
-            {
-                SoundMasterVolume = 0.5f,
-            };
     }
 }

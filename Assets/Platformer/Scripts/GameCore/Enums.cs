@@ -1,6 +1,6 @@
 namespace Platformer.GameCore
 {
-	public enum LevelCompleteType : byte
+	public enum LevelCompletitionType : byte
     {
         Blocked = 0,
         NotCompleted = 1,

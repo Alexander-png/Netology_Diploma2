@@ -56,7 +56,7 @@ namespace Platformer.GameCore
 
         public bool CanCurrentTriggerPerformed => CurrentTrigger != null && CurrentTrigger.CanInteract;
         public bool IsGameCompleted => _isLevelCompleted;
-        public TimeSpan LevelTime => TimeSpan.FromSeconds(_levelTime);
+        public float LevelTime => _levelTime;
 
         public event EventHandler PlayerRespawned;
         public event EventHandler<bool> PauseStateChanged;

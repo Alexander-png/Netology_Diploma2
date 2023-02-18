@@ -9,7 +9,7 @@ namespace Platformer.UI
 		[SerializeField]
 		private TMP_Text _timeText;
 
-		public void UpdateDisplayedTime(TimeSpan time) =>
-			_timeText.text = time.ToString("mm\\:ss");
+		public void UpdateDisplayedTime(float time) =>
+			_timeText.text = TimeSpan.FromSeconds(time).ToString("mm\\:ss");
 	}
 }
