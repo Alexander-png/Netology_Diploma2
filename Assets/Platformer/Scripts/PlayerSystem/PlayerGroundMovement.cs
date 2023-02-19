@@ -20,10 +20,16 @@ namespace Platformer.PlayerSystem
             return vector;
         }
 
-        protected override void OnDashStarted() =>
+        protected override void OnDashStarted()
+        {
+            base.OnDashStarted();
             Physics.IgnoreLayerCollision(6, 7, true);
+        }
 
-        protected override void OnDashEnded() =>
+        protected override void OnDashEnded()
+        {
+            base.OnDashEnded();
             Physics.IgnoreLayerCollision(6, 7, false);
+        }
     }
 }

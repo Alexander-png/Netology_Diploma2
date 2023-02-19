@@ -1,5 +1,7 @@
+using Platformer.CharacterSystem.Base;
 using Platformer.LevelEnvironment.Elements.Common;
 using Platformer.Scriptable.Characters;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -70,6 +72,8 @@ namespace Platformer.CharacterSystem.Movement.Base
             set => _body.velocity = value;
         }
 
+        public event EventHandler<EnitityEventTypes> EventInvoked;
+
         protected virtual void Awake()
         {
             _currentCollisions = new List<GameObject>();
@@ -103,6 +107,13 @@ namespace Platformer.CharacterSystem.Movement.Base
         protected virtual Vector2 CalclulateDashDirection() =>
             Vector2.zero;
 
+        protected virtual void ResetState()
+        {
+            HorizontalInput = 0f;
+            VerticalInput = 0f;
+            StopAllCoroutines();
+        }
+
         public virtual void StopImmediatly()
         {
             HorizontalInput = 0f;
@@ -132,11 +143,7 @@ namespace Platformer.CharacterSystem.Movement.Base
             }
         }
 
-        protected virtual void ResetState() 
-        {
-            HorizontalInput = 0f;
-            VerticalInput = 0f;
-            StopAllCoroutines();
-        }
+        public void InvokeEntityEvent(EnitityEventTypes e) =>
+            EventInvoked?.Invoke(this, e);
     }
 }

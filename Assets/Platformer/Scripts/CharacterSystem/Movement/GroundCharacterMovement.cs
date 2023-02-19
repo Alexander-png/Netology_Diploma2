@@ -1,3 +1,4 @@
+using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Movement.Base;
 using System.Collections;
 using UnityEngine;
@@ -63,6 +64,7 @@ namespace Platformer.CharacterSystem.Movement
             OnGround = !InAir;
             if (OnGround)
             {
+                InvokeEntityEvent(EnitityEventTypes.Landing);
                 ResetJumpState();
             }
         }
@@ -185,9 +187,11 @@ namespace Platformer.CharacterSystem.Movement
             return DashForce != 0 && DashDuration != 0;
         }
 
-        protected virtual void OnDashStarted() { }
+        protected virtual void OnDashStarted() =>
+            InvokeEntityEvent(EnitityEventTypes.DashStarted);
 
-        protected virtual void OnDashEnded() { }
+        protected virtual void OnDashEnded() =>
+            InvokeEntityEvent(EnitityEventTypes.DashEnded);
 
         private IEnumerator DashMove(float time)
         {

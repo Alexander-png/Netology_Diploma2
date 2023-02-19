@@ -27,7 +27,6 @@ namespace Platformer.PlayerSystem
                 {
                     StopAllCoroutines();
                     _canInteract = true;
-                    //StartCoroutine(ShowTooltipDelay(value.InteractionDelay));
                 }
 
                 if (value == null)
@@ -50,14 +49,6 @@ namespace Platformer.PlayerSystem
                 }
                 CurrentTrigger.Interact();
             }
-        }
-
-        // TODO: remove delay?
-        private IEnumerator ShowTooltipDelay(float time)
-        {
-            yield return new WaitForSeconds(time);
-            //_gameSystem.ShowInteractionTooltip();
-            _canInteract = true;
         }
     }
 }

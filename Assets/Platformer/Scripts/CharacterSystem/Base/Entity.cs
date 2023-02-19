@@ -6,6 +6,17 @@ using UnityEngine;
 
 namespace Platformer.CharacterSystem.Base
 {
+    public enum EnitityEventTypes : byte
+    { 
+        Heal,
+        Damage,
+        Death,
+        Respawn,
+        DashStarted,
+        DashEnded,
+        Landing,
+    }
+
     public abstract class Entity : MonoBehaviour
     {
         [SerializeField]
@@ -14,6 +25,7 @@ namespace Platformer.CharacterSystem.Base
         private Animator _entityAnimator;
 
         public event EventHandler Respawning;
+        public event EventHandler<EnitityEventTypes> EventInvoked;
 
         public string Name { get; protected set; }
         public Animator EntityAnimator => _entityAnimator;
@@ -40,12 +52,14 @@ namespace Platformer.CharacterSystem.Base
         protected virtual void Update() { }
         protected virtual void FixedUpdate() { }
 
-        protected virtual void SetDefaultParameters(CharacterStats stats)
-        {
+        protected virtual void SetDefaultParameters(CharacterStats stats) =>
             Name = stats.Name;
-        }
 
-        public virtual void NotifyRespawn() => Respawning?.Invoke(this, EventArgs.Empty);
+        public virtual void NotifyRespawn() => 
+            Respawning?.Invoke(this, EventArgs.Empty);
+
+        public void InvokeEntityEvent(EnitityEventTypes e) =>
+            EventInvoked?.Invoke(this, e);
 
         public void SetAnimatorState(string name, float value)
         {

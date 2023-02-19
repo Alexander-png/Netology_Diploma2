@@ -24,7 +24,20 @@ namespace Platformer.CharacterSystem.Base
         {
             base.Start();
             _movementController = gameObject.GetComponent<CharacterMovement>();
+            _movementController.EventInvoked += OnMovementEventInvoked;
         }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            if (_movementController != null)
+            {
+                _movementController.EventInvoked -= OnMovementEventInvoked;
+            }
+        }
+
+        private void OnMovementEventInvoked(object sender, EnitityEventTypes e) =>
+            InvokeEntityEvent(e);
 
         protected override void Update()
         {
