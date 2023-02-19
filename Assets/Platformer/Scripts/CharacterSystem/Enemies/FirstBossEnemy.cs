@@ -64,12 +64,6 @@ namespace Platformer.CharacterSystem.Enemies
             }
         }
 
-        public override void OnPlayerNearby()
-        {
-            base.OnPlayerNearby();
-            _attacker.OnSecondAttackPressed();
-        }
-
         public override void OnPlayerRanAway()
         {
             base.OnPlayerRanAway();
@@ -89,6 +83,7 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 return;
             }
+            _attacker.OnSecondAttackPressed();
             MovementController.HorizontalInput = CalculateHorizontalInput();
             BeginDash();
         }
