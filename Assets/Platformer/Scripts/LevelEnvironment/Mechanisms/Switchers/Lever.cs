@@ -7,8 +7,6 @@ namespace Platformer.LevelEnvironment.Mechanisms.Switchers
 	public class Lever : Switch
 	{
 		[SerializeField]
-		private GameObject _target;
-		[SerializeField]
 		private SimpleAnimation _switchAnimator;
 
 		private ISwitchTarget _switchTarget;
@@ -44,21 +42,20 @@ namespace Platformer.LevelEnvironment.Mechanisms.Switchers
         protected override void Start()
         {
 			base.Start();
-			if (_target == null)
+			if (Target == null)
             {
                 EditorExtentions.GameLogger.AddMessage($"{gameObject.name}: target not specified.", EditorExtentions.GameLogger.LogType.Warning);
                 return;
             }
 
-			_switchTarget = _target.GetComponent<ISwitchTarget>();
+			_switchTarget = Target.GetComponent<ISwitchTarget>();
             if (_switchTarget == null)
             {
-                EditorExtentions.GameLogger.AddMessage($"{gameObject.name}: the {_target.gameObject.name} does not contain ISwitcherTarget component.", EditorExtentions.GameLogger.LogType.Error);
+                EditorExtentions.GameLogger.AddMessage($"{gameObject.name}: the {Target.name} does not contain ISwitcherTarget component.", EditorExtentions.GameLogger.LogType.Error);
 				return;
             }
 
 			_switchTarget.InitState(IsSwitchedOn);
-			//_switchTarget.IsSwitchedOn = IsSwitchedOn;
 
 			if (_switchAnimator == null)
             {

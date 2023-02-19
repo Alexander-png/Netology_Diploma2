@@ -9,13 +9,15 @@ namespace Platformer.LevelEnvironment.Mechanisms.Switchers
 	{
 		[Inject]
 		private GameSystem _gameSystem;
-
+		[SerializeField]
+		private GameObject _target;
 		[SerializeField]
 		protected bool _isSwitchedOn;
 		[SerializeField]
 		private bool _isOneOff;
 
 		public GameSystem GameSystem => _gameSystem;
+		protected GameObject Target => _target;
 
 		public abstract bool IsSwitchedOn { get; set; }
 

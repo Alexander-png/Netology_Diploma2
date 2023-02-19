@@ -11,13 +11,12 @@ namespace Platformer.CharacterSystem.Enemies
 {
     public abstract class MoveableEnemy : MoveableEntity, IDamagable
     {
+        protected const int PlayerLayer = 1 << 6;
+
         [Inject]
         protected GameSystem _gameSystem;
-
         [SerializeField]
         protected EnemyBehaviourConfig _behaviourConfig;
-
-        protected const int PlayerLayer = 1 << 6;
 
         protected Attacker _attacker;
         protected float _currentHealth;
@@ -87,7 +86,7 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 InvokeDiedEvent();
                 SetBehaviourEnabled(false);
-                EditorExtentions.GameLogger.AddMessage($"Enemy with name {gameObject.name} was. Killed. You can implement respawn system");
+                EditorExtentions.GameLogger.AddMessage($"Enemy with name {gameObject.name} killed. You can implement respawn system");
                 gameObject.SetActive(false);
             }
         }

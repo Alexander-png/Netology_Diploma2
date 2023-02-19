@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5198011e0a0384fbd531a2e6f5d6cd, type: 3}
   m_Name: BossSpiderViewConfig
   m_EditorClassIdentifier: 
-  _viewOrigin: {x: 0, y: 0.33, z: 0}
-  _frontViewRange: 20
-  _behindViewRange: 20
+  _viewOrigin: {x: 0, y: 1.7, z: 0}
+  _frontViewRange: 50
+  _behindViewRange: 50

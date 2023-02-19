@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8286620595664151534}
   - component: {fileID: 8286620595664151535}
   - component: {fileID: 8286620595664151531}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SmallHeal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,4 +1,4 @@
-using Platformer.Scriptable.Characters.AIConfig;
+using Platformer.EditorExtentions;
 using System.Collections;
 using UnityEngine;
 
@@ -7,13 +7,37 @@ namespace Platformer.CharacterSystem.Enemies
     public class FirstBossEnemy : PatrolEnemy
     {
         [SerializeField]
-        private ViewFieldConfig _viewFieldConfig;
+        private TriggerEnterNotifier _fightTrigger;
 
         private bool _reloadingDash = false;
         private bool _chargingDash = false;
         private bool _dashCooldown = false;
         private int _dashesLeft;
         private Coroutine _dashChargeCoroutine;
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            if (_fightTrigger == null)
+            {
+                GameLogger.AddMessage($"No fight trigger specified for {gameObject.name}. The battle will not start.", GameLogger.LogType.Error);
+                return;
+            }
+            _fightTrigger.OnPlayerEnteredTrigger += OnBossFightBegin;
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            if (_fightTrigger == null)
+            {
+                return;
+            }
+            _fightTrigger.OnPlayerEnteredTrigger -= OnBossFightBegin;
+        }
+
+        private void OnBossFightBegin(object sender, System.EventArgs e) =>
+            OnPlayerNearby();
 
         protected override void Start()
         {
@@ -38,28 +62,6 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 Patrol();
             }
-        }
-
-        protected override void FixedUpdateBehaviour() =>
-            CheckPlayerNearby();
-
-        protected override void CheckPlayerNearby()
-        {
-            Ray visualRay = GetHorizontalCensorRay(_viewFieldConfig.ViewOrigin);
-
-            Physics.Raycast(visualRay, out RaycastHit frontHit, _viewFieldConfig.FrontViewRange, PlayerLayer);
-            Physics.Raycast(visualRay.origin, -visualRay.direction, out RaycastHit behindHit, _viewFieldConfig.BehindViewRange, PlayerLayer);
-
-            bool seePlayer = frontHit.transform != null || behindHit.transform != null;
-
-            if (seePlayer)
-            {
-                OnPlayerNearby();
-            }
-            else
-            {
-                OnPlayerRanAway();
-            }   
         }
 
         public override void OnPlayerNearby()
@@ -161,27 +163,5 @@ namespace Platformer.CharacterSystem.Enemies
             _reloadingDash = false;
             _dashesLeft = _behaviourConfig.DashCountWithoutReload;
         }
-
-#if UNITY_EDITOR
-        protected override void OnDrawGizmos()
-        {
-            base.OnDrawGizmos();
-
-            if (_viewFieldConfig != null)
-            {
-                Gizmos.color = Color.magenta;
-                Ray frontVisibility = GetHorizontalCensorRay(_viewFieldConfig.ViewOrigin);
-                Gizmos.DrawRay(frontVisibility.origin, frontVisibility.direction * _viewFieldConfig.FrontViewRange);
-
-                Gizmos.color = Color.cyan;
-                Ray behindVisibility = GetHorizontalCensorRay(_viewFieldConfig.ViewOrigin);
-                Gizmos.DrawRay(behindVisibility.origin, behindVisibility.direction * -_viewFieldConfig.BehindViewRange);
-            }
-            else
-            {
-                EditorExtentions.GameLogger.AddMessage("Please set view field config", EditorExtentions.GameLogger.LogType.Warning);
-            }
-        }
-#endif
     }
 }
