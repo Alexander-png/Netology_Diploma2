@@ -30,6 +30,7 @@ namespace Platformer.Collectables
         {
             _gameSystem.OnItemCollected(this);
             gameObject.SetActive(false);
+            CanInteract = false;
         }
 
         protected override void OnTriggerEnter(Collider other)

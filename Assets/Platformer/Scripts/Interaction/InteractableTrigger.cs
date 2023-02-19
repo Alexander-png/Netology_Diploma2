@@ -11,17 +11,14 @@ namespace Platformer.Interaction
 
     public abstract class InteractableTrigger : MonoBehaviour
 	{
-        //[SerializeField]
-        //private float _interactionDelay;
         [SerializeField]
         private bool _needStop;
 
         public event EventHandler Interacted;
 
-		public virtual bool CanInteract { get; } = true;
+		public virtual bool CanInteract { get; protected set; } = true;
 		public abstract void Interact();
 
-        //public float InteractionDelay => _interactionDelay;
         public bool NeedStop => _needStop;
 
         protected void InvokeInteracted() => 
