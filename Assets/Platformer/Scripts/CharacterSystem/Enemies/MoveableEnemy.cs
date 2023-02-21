@@ -80,6 +80,11 @@ namespace Platformer.CharacterSystem.Enemies
 
         public void SetDamage(float damage, Vector3 pushVector, bool forced = false)
         {
+            if (_currentHealth <= 0)
+            {
+                return;
+            }
+
             MovementController.Velocity = pushVector;
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _maxHealth);
             if (_currentHealth < 0.01f)
