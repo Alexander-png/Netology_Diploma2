@@ -27,13 +27,21 @@ namespace Platformer.CharacterSystem.AI.Patroling
         }
 
         public float ArriveRadius => _arriveRadius;
-
-        public void OnDrawGizmos()
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
         {
             Color pointColor = Color.blue;
             pointColor.a = 0.5f;
             Gizmos.color = pointColor;
             Gizmos.DrawSphere(transform.position, ArriveRadius);
+
+            Gizmos.color = Color.green;
+
+            foreach (var point in _nextPoints)
+            {
+                Gizmos.DrawLine(transform.position, point.Position);
+            }
         }
+#endif
     }
 }

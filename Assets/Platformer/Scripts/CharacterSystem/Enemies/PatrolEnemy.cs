@@ -56,8 +56,8 @@ namespace Platformer.CharacterSystem.Enemies
             Ray horizontalCensor = GetHorizontalCensorRay(_detectorConfig.HorizontalSensorOrigin);
             Ray verticalCensor = GetVerticalCensorRay(_detectorConfig.HorizontalSensorOrigin);
 
-            // TODO: move layer mapping to special static class
-            int mask = 1 << 3 | ~(1 << 7 | 1 << 8);
+            // TODO: move layer mapping to special static class (or better config)
+            int mask = 1 << 3 | ~(1 << 7 | 1 << 8 | 1 << 10 | 1 << 11);
             bool wallOnWay = Physics.Raycast(horizontalCensor, _detectorConfig.HorizontalSensorLength, mask);
             bool hollowOnWay = Physics.Raycast(verticalCensor, _detectorConfig.VerticalSensorLength, mask);
             return !wallOnWay && hollowOnWay;

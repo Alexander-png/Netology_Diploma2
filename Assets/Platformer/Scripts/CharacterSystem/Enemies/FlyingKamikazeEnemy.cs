@@ -184,6 +184,13 @@ namespace Platformer.CharacterSystem.Enemies
             c.a = 0.2f;
             Gizmos.color = c;
             Gizmos.DrawSphere(transform.position, Mathf.Sqrt(_behaviourConfig.ArgressionRadius));
+
+            Gizmos.color = Color.magenta;
+
+            if (_currentPoint != null)
+            {
+                Gizmos.DrawLine(transform.position, _currentPoint.Position);
+            }
         }
 #endif
     }
