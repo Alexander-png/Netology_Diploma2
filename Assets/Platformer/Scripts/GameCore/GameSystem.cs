@@ -7,13 +7,14 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-// TODO: find assets for all objects
 namespace Platformer.GameCore
 {
     public class GameSystem : MonoBehaviour
     {
         [SerializeField]
         private bool _gamePaused;
+        [SerializeField]
+        private float _levelReloadTime = 2f;
 
         [SerializeField, Space(15)]
         private MovementSkillContainer _playerMovementSkillContainer;
@@ -69,20 +70,16 @@ namespace Platformer.GameCore
 
         private void Start()
         {
-            _playerCharacter = FindObjectOfType<Player>();
-            if (_playerCharacter == null)
-            {
-                GameLogger.AddMessage("No player found!", GameLogger.LogType.Fatal);
-            }
-
             GamePaused = GamePaused;
             StartCoroutine(LoadedNotifier());
         }
 
-        private IEnumerator LoadedNotifier()
+
+
+        private void OnPlayerDied(object sender, EventArgs e)
         {
-            yield return null;
-            GameLoaded?.Invoke(this, EventArgs.Empty);
+            _playerCharacter.Died -= OnPlayerDied;
+            StartCoroutine(ReloadLevelCoroutine());
         }
 
         private void OnPauseStateChanged(object sender, bool e)
@@ -149,6 +146,24 @@ namespace Platformer.GameCore
         }
 
         public Player GetPlayer() => _playerCharacter;
+
+        private IEnumerator LoadedNotifier()
+        {
+            yield return null;
+            _playerCharacter = FindObjectOfType<Player>();
+            if (_playerCharacter == null)
+            {
+                GameLogger.AddMessage("No player found!", GameLogger.LogType.Fatal);
+            }
+            _playerCharacter.Died += OnPlayerDied;
+            GameLoaded?.Invoke(this, EventArgs.Empty);
+        }
+
+        private IEnumerator ReloadLevelCoroutine()
+        {
+            yield return new WaitForSeconds(_levelReloadTime);
+            GameObserver.ReloadCurrentScene();
+        }
 
 #if UNITY_EDITOR
         [ContextMenu("Fill fields")]

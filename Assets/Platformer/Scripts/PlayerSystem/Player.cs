@@ -73,6 +73,7 @@ namespace Platformer.PlayerSystem
             if (_currentHealth < 0.01f)
             {
                 InvokeEntityEvent(EnitityEventTypes.Death);
+                gameObject.SetActive(false);
                 Died?.Invoke(this, EventArgs.Empty);
             }
         }

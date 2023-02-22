@@ -44,6 +44,12 @@ namespace Platformer.GameCore
 		public static void SwitchScene(string sceneName) =>
 			SceneManager.LoadScene(sceneName);
 
+		public static void ReloadCurrentScene()
+        {
+			Scene scene = SceneManager.GetActiveScene(); 
+			SceneManager.LoadScene(scene.name);
+		}
+
 		public static List<string> GetLevelNames()
         {
 			var list = _sceneTypes.Values.ToList();
