@@ -30,7 +30,7 @@ namespace Platformer.Scriptable.Characters
 		[SerializeField]
 		private float _verticalDashDelimeter = 1f;
 
-		public MovementStatsInfo GetData() => new MovementStatsInfo()
+		public MovementStatsData GetData() => new MovementStatsData()
 		{
 			MaxSpeed = _maxSpeed,
 			Acceleration = _acceleration,

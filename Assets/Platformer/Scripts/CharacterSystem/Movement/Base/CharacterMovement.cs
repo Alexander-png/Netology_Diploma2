@@ -15,7 +15,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         private bool _movementEnabled = true;
 
 		private Rigidbody _body;
-        protected MovementStatsInfo MovementStats { get; private set; }
+        protected MovementStatsData MovementStats { get; private set; }
 
         private float _horizontalInput;
         private float _verticalInput;
@@ -129,10 +129,10 @@ namespace Platformer.CharacterSystem.Movement.Base
 
         public virtual void TriggerDash(float input) { }
 
-        public virtual void AddStats(MovementStatsInfo stats) =>
+        public virtual void AddStats(MovementStatsData stats) =>
             MovementStats += stats;
 
-        public virtual void RemoveStats(MovementStatsInfo stats) =>
+        public virtual void RemoveStats(MovementStatsData stats) =>
             MovementStats -= stats;
 
         public void SetAnimatorState(string name, float value)

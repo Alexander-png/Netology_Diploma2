@@ -28,7 +28,7 @@ namespace Platformer.UI.MenuSystem.Items
 
         public string CommandId => _commandId;
         public int SelectionIndex => _selectionIndex;
-        public virtual object Data => null;
+        public virtual object Data { get; set; } = null;
 
         protected virtual void Start()
         {

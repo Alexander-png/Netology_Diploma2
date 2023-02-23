@@ -22,16 +22,20 @@ namespace Platformer.UI.LevelSelector
 
         [SerializeField]
         private LevelData _levelData;
-        public override object Data => _levelData;
-
-        protected override void Start()
+        public override object Data
         {
-            base.Start();
-            FillVisual();
+            get => _levelData;
+            set
+            {
+                _levelData = (LevelData)value;
+                FillVisual();
+            }
         }
 
         private void FillVisual()
         {
+            _levelData = SaveSystem.GetLevelData(_levelData.Name);
+
             _levelName.text = _levelData.Name;
             _bestTime.text = TimeFormatter.GetFormattedTime(_levelData.BestTime);
 

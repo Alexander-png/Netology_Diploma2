@@ -160,13 +160,13 @@ namespace Platformer.CharacterSystem.Movement
             _jumpedFromGround = false;
         }
 
-        public override void AddStats(MovementStatsInfo stats)
+        public override void AddStats(MovementStatsData stats)
         {
             base.AddStats(stats);
             ResetJumpState();
         }
 
-        public override void RemoveStats(MovementStatsInfo stats)
+        public override void RemoveStats(MovementStatsData stats)
         {
             base.RemoveStats(stats);
             ResetJumpState();

@@ -257,7 +257,6 @@ GameObject:
   - component: {fileID: 8851354137677445965}
   - component: {fileID: 8851354137677445964}
   - component: {fileID: 8851354137677445966}
-  - component: {fileID: 8851354137677445961}
   - component: {fileID: 8851354137677445960}
   - component: {fileID: 8851354137677445975}
   - component: {fileID: 67993721364636511}
@@ -385,20 +384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000664af05661864f9fd399cabdfe6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8851354137677445961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8851354137677445963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ebf598afe594bf4fb4d5da464ddc3b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _skillContainer: {fileID: 0}
-  _distinctSkillsOnly: 1
 --- !u!114 &8851354137677445960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,7 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebf598afe594bf4fb4d5da464ddc3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillContainer: {fileID: 11400000, guid: 5b3768fc9aa6923449133df34fb8f04c, type: 2}
+  _movementSkillContainer: {fileID: 11400000, guid: 5b3768fc9aa6923449133df34fb8f04c, type: 2}
+  _statsSkillContainer: {fileID: 11400000, guid: d52596ade5e1f8e42b96e00a5bde0d2d, type: 2}
   _distinctSkillsOnly: 0
 --- !u!82 &8851354137677445972
 AudioSource:

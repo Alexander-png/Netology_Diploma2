@@ -13,6 +13,14 @@ namespace Platformer.GameCore
     [Serializable]
     public class StatusRewardDictionary : SerializableDictionaryBase<LevelCompletitionType, RewardData> { }
 
+    public enum LevelCompletitionType : byte
+    {
+        NotCompleted = 0,
+        Bronze = 1,
+        Silver = 2,
+        Gold = 3,
+    }
+
     [Serializable]
     public struct RewardData
     {
@@ -31,8 +39,13 @@ namespace Platformer.GameCore
 
         private LevelCompletitionType GetStatus()
         {
+            if (BestTime == float.NaN)
+            {
+                return LevelCompletitionType.NotCompleted;
+            }
+
             KeyValuePair<float, LevelCompletitionType> res = StatusDict.First();
-            foreach (KeyValuePair<float, LevelCompletitionType> pair in StatusDict)
+            foreach (var pair in StatusDict)
             {
                 if (BestTime > pair.Key)
                 {
@@ -42,7 +55,7 @@ namespace Platformer.GameCore
             return res.Value;
         }
 
-        private bool GetReward(LevelCompletitionType type, out RewardData result) =>
+        private bool GetRewardData(LevelCompletitionType type, out RewardData result) =>
             RewardDict.TryGetValue(type, out result);
 
         public float GetTime(LevelCompletitionType status)
@@ -57,23 +70,40 @@ namespace Platformer.GameCore
             return 0;
         }
 
-        public void UpdateTime(float time) =>
-            BestTime = time;
-
         public string GetRewardId(LevelCompletitionType type)
         {
-            GetReward(type, out RewardData result);
+            GetRewardData(type, out RewardData result);
             return result.Id;
         }
 
         public string GetRewardDescription(LevelCompletitionType type)
         {
-            GetReward(type, out RewardData result);
+            GetRewardData(type, out RewardData result);
             return result.Description;
         }
 
-        public bool GetRewardBestTime(out RewardData reward) =>
-            RewardDict.TryGetValue(GetStatus(), out reward);
+        public string[] GetRewardsForBestTime()
+        {
+            if (GetStatus() == LevelCompletitionType.NotCompleted)
+            {
+                return new string[0];
+            }
+
+            List<string> rewards = new List<string>();
+
+            foreach (var pair in StatusDict)
+            {
+                if (BestTime < pair.Key)
+                {
+                    string id = GetRewardId(pair.Value);
+                    if (!string.IsNullOrEmpty(id))
+                    {
+                        rewards.Add(id);
+                    }
+                }
+            }
+            return rewards.ToArray();
+        }
     }
 
     public static class SaveSystem
@@ -98,6 +128,7 @@ namespace Platformer.GameCore
             }
             catch
             {
+                GameLogger.AddMessage("Failed to load save data. Waiting default data.", GameLogger.LogType.Warning);
                 NeedDefaultData = true;
             }
         }
@@ -120,9 +151,10 @@ namespace Platformer.GameCore
             _levelData = new List<LevelData>(data);
             SaveLevelData();
             NeedDefaultData = false;
+            GameLogger.AddMessage("Default data setted.");
         }
 
-        public static LevelData GetLevelInfo(string levelName)
+        public static LevelData GetLevelData(string levelName)
         {
             if (!CheckState())
             {
@@ -142,14 +174,24 @@ namespace Platformer.GameCore
             {
                 return;
             }
-            int index = _levelData.IndexOf(GetLevelInfo(levelName));
-            if (_levelData[index].BestTime < time)
+            int index = _levelData.IndexOf(GetLevelData(levelName));
+            if (time < _levelData[index].BestTime)
             {
                 LevelData data = _levelData[index];
                 data.BestTime = time;
                 _levelData[index] = data;
                 SaveLevelData();
             }
+        }
+
+        public static string[] GetRewardList()
+        {
+            List<string> rewards = new List<string>();
+            foreach (LevelData data in _levelData)
+            {
+                rewards.AddRange(data.GetRewardsForBestTime());
+            }
+            return rewards.ToArray();
         }
     }
 }

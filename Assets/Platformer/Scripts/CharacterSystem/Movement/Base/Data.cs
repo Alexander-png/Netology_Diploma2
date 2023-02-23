@@ -3,12 +3,13 @@ using System.Linq;
 
 namespace Platformer.CharacterSystem.Movement.Base
 {
-    public struct CharacterStatsInfo
-    {
-
+    public struct CharacterStatsData
+    {   
+        public float MaxHealth;
+        public float DamageImmuneTime;
     }
 
-    public struct MovementStatsInfo
+    public struct MovementStatsData
     {
         public float Acceleration;
         public float MaxSpeed;
@@ -41,9 +42,9 @@ namespace Platformer.CharacterSystem.Movement.Base
             //return Jumps[JumpCountInRow - jumpsLeft];
         }
 
-        public static MovementStatsInfo operator +(MovementStatsInfo first, MovementStatsInfo second)
+        public static MovementStatsData operator +(MovementStatsData first, MovementStatsData second)
         {
-            var result = new MovementStatsInfo();
+            var result = new MovementStatsData();
             result.Acceleration = first.Acceleration + second.Acceleration;
             result.MaxSpeed = first.MaxSpeed + second.MaxSpeed;
             result.InAirDrag = first.InAirDrag + second.InAirDrag;
@@ -58,9 +59,9 @@ namespace Platformer.CharacterSystem.Movement.Base
             return result;
         }
 
-        public static MovementStatsInfo operator -(MovementStatsInfo first, MovementStatsInfo second)
+        public static MovementStatsData operator -(MovementStatsData first, MovementStatsData second)
         {
-            var result = new MovementStatsInfo();
+            var result = new MovementStatsData();
             result.Acceleration = first.Acceleration - second.Acceleration;
             result.MaxSpeed = first.MaxSpeed - second.MaxSpeed;
             result.InAirDrag = first.InAirDrag - second.InAirDrag;

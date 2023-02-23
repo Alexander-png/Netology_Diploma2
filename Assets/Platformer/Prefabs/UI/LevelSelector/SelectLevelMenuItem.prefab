@@ -793,7 +793,7 @@ MonoBehaviour:
       - 40
       - 60
       - 80
-      _values: 040302
+      _values: 030201
     RewardDict:
       reorderableList:
         canAdd: 1
@@ -817,12 +817,15 @@ MonoBehaviour:
         elementIcon: {fileID: 0}
       reqReferences: {fileID: 0}
       isExpanded: 1
-      _keyValues: 040302
-      _keys: 040302
+      _keyValues: 030201
+      _keys: 030201
       _values:
-      - 
-      - 
-      - 
+      - Id: 
+        Description: 
+      - Id: 
+        Description: 
+      - Id: 
+        Description: 
 --- !u!224 &7022798224823878915 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5944011361139094551, guid: 6ded4eccc0d3fb14f9c2bf5b45c25441, type: 3}

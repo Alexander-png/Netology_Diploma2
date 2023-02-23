@@ -17,10 +17,20 @@ namespace Platformer.UI.LevelSelector
                 {
                     if (item.Data != null)
                     {
-                        data.Add((LevelData)item.Data);
+                        var newData = (LevelData)item.Data;
+                        newData.BestTime = float.MaxValue;
+                        data.Add(newData);
                     }
                 }
                 SaveSystem.SetDefaultData(data);
+            }
+            foreach (var item in MenuItems)
+            {
+                if (item.Data != null)
+                {
+                    string levelName = ((LevelData)item.Data).Name;
+                    item.Data = SaveSystem.GetLevelData(levelName);
+                }
             }
         }
     }
