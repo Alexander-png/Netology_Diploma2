@@ -50,7 +50,14 @@ namespace Platformer.GameCore
         public void UpdateTime(float time) =>
             BestTime = time;
 
-        public bool GetReward(out string reward) =>
+        public string GetReward(LevelCompletitionType type)
+        {
+            string result = string.Empty;
+            RewardDict.TryGetValue(type, out result);
+            return result;
+        }
+
+        public bool GetRewardBestTime(out string reward) =>
             RewardDict.TryGetValue(GetStatus(BestTime), out reward);
     }
 

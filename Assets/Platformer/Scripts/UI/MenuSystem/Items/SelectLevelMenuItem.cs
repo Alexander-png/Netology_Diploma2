@@ -1,9 +1,10 @@
 using Platformer.GameCore;
 using Platformer.GameCore.Helpers;
+using Platformer.UI.MenuSystem.Items;
 using TMPro;
 using UnityEngine;
 
-namespace Platformer.UI.MenuSystem.Items
+namespace Platformer.UI.LevelSelector
 {
     public class SelectLevelMenuItem : MenuItem
     {
@@ -11,12 +12,13 @@ namespace Platformer.UI.MenuSystem.Items
         private TMP_Text _levelName;
         [SerializeField]
         private TMP_Text _bestTime;
+
         [SerializeField]
-        private TMP_Text _goldTime;
+        private RewardTable _goldReward;
         [SerializeField]
-        private TMP_Text _silverTime;
+        private RewardTable _silverReward;
         [SerializeField]
-        private TMP_Text _bronzeTime;
+        private RewardTable _bronzeReward;
 
         [SerializeField]
         private LevelData _levelData;
@@ -32,9 +34,13 @@ namespace Platformer.UI.MenuSystem.Items
         {
             _levelName.text = _levelData.Name;
             _bestTime.text = TimeFormatter.GetFormattedTime(_levelData.BestTime);
-            _goldTime.text = TimeFormatter.GetFormattedTime(_levelData.GetTime(LevelCompletitionType.Gold));
-            _silverTime.text = TimeFormatter.GetFormattedTime(_levelData.GetTime(LevelCompletitionType.Silver));
-            _bronzeTime.text = TimeFormatter.GetFormattedTime(_levelData.GetTime(LevelCompletitionType.Bronze));
+
+            UpdateData(_goldReward, LevelCompletitionType.Gold);
+            UpdateData(_silverReward, LevelCompletitionType.Silver);
+            UpdateData(_bronzeReward, LevelCompletitionType.Bronze);
         }
+
+        private void UpdateData(RewardTable table, LevelCompletitionType type) =>
+            table.UpdateData(type, _levelData.GetTime(type), _levelData.GetReward(type));
     }
 }

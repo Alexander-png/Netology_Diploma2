@@ -1,7 +1,8 @@
 using Platformer.GameCore;
+using Platformer.UI.MenuSystem;
 using System.Collections.Generic;
 
-namespace Platformer.UI.MenuSystem
+namespace Platformer.UI.LevelSelector
 {
 	public class SelectLevelMenu : MenuComponent
 	{
