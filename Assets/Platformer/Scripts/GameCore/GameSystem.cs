@@ -16,9 +16,6 @@ namespace Platformer.GameCore
         [SerializeField]
         private float _levelReloadTime = 2f;
 
-        [SerializeField, Space(15)]
-        private MovementSkillContainer _playerMovementSkillContainer;
-
         private Player _playerCharacter;
         private bool _isLevelCompleted;
         private float _levelTime;
@@ -52,8 +49,6 @@ namespace Platformer.GameCore
                 CurrentTriggerChanged?.Invoke(this, EventArgs.Empty);
             }
         }
-
-        public MovementSkillContainer PlayerMovementSkillContainer => _playerMovementSkillContainer;
 
         public bool CanCurrentTriggerPerformed => CurrentTrigger != null && CurrentTrigger.CanInteract;
         public bool IsLevelCompleted => _isLevelCompleted;

@@ -41,6 +41,6 @@ namespace Platformer.UI.LevelSelector
         }
 
         private void UpdateData(RewardTable table, LevelCompletitionType type) =>
-            table.UpdateData(type, _levelData.GetTime(type), _levelData.GetReward(type));
+            table.UpdateData(type, _levelData.GetTime(type), _levelData.GetRewardDescription(type));
     }
 }

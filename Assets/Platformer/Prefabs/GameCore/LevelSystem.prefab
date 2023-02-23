@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gamePaused: 0
+  _levelReloadTime: 2
   _playerMovementSkillContainer: {fileID: 0}
 --- !u!114 &4660529050559361001
 MonoBehaviour:

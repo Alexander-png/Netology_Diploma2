@@ -1,18 +1,16 @@
 using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Movement.Base;
-using Platformer.GameCore;
+using Platformer.Scriptable.Skills.Containers;
 using Platformer.SkillSystem.Skills;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 namespace Platformer.SkillSystem
 {
 	public class SkillObserver : MonoBehaviour
 	{
-        [Inject]
-        private GameSystem _gameSystem;
-
+        [SerializeField, Space(15)]
+        private MovementSkillContainer _skillContainer;
         [SerializeField]
         private bool _distinctSkillsOnly = true;
 
@@ -30,7 +28,7 @@ namespace Platformer.SkillSystem
 
         public void AddSkill(string skillId)
         {
-            var skill = _gameSystem.PlayerMovementSkillContainer.CreateSkill(skillId);
+            var skill = _skillContainer.CreateSkill(skillId);
             if (_distinctSkillsOnly)
             {
                 if (FindSkill(skill.SkillId) != null)

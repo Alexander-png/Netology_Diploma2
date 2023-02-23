@@ -11,7 +11,14 @@ namespace Platformer.GameCore
     [Serializable]
     public class TimeStatusDictionary : SerializableDictionaryBase<float, LevelCompletitionType> { }
     [Serializable]
-    public class StatusRewardDictionary : SerializableDictionaryBase<LevelCompletitionType, string> { }
+    public class StatusRewardDictionary : SerializableDictionaryBase<LevelCompletitionType, RewardData> { }
+
+    [Serializable]
+    public struct RewardData
+    {
+        public string Id;
+        public string Description;
+    }
 
     [Serializable]
     public struct LevelData
@@ -22,7 +29,7 @@ namespace Platformer.GameCore
         public TimeStatusDictionary StatusDict;
         public StatusRewardDictionary RewardDict;
 
-        private LevelCompletitionType GetStatus(float time)
+        private LevelCompletitionType GetStatus()
         {
             KeyValuePair<float, LevelCompletitionType> res = StatusDict.First();
             foreach (KeyValuePair<float, LevelCompletitionType> pair in StatusDict)
@@ -34,6 +41,9 @@ namespace Platformer.GameCore
             }
             return res.Value;
         }
+
+        private bool GetReward(LevelCompletitionType type, out RewardData result) =>
+            RewardDict.TryGetValue(type, out result);
 
         public float GetTime(LevelCompletitionType status)
         {
@@ -50,15 +60,20 @@ namespace Platformer.GameCore
         public void UpdateTime(float time) =>
             BestTime = time;
 
-        public string GetReward(LevelCompletitionType type)
+        public string GetRewardId(LevelCompletitionType type)
         {
-            string result = string.Empty;
-            RewardDict.TryGetValue(type, out result);
-            return result;
+            GetReward(type, out RewardData result);
+            return result.Id;
         }
 
-        public bool GetRewardBestTime(out string reward) =>
-            RewardDict.TryGetValue(GetStatus(BestTime), out reward);
+        public string GetRewardDescription(LevelCompletitionType type)
+        {
+            GetReward(type, out RewardData result);
+            return result.Description;
+        }
+
+        public bool GetRewardBestTime(out RewardData reward) =>
+            RewardDict.TryGetValue(GetStatus(), out reward);
     }
 
     public static class SaveSystem
