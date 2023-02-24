@@ -10,7 +10,6 @@ namespace Platformer.Scriptable.Skills.Data
         public float MaxSpeed;
         public float InAirDrag;
         public List<float> Jumps;
-        public int JumpCountInRow;
         public float ClimbForce;
         public float WallClimbRepulsion;
         public float DashForce;
@@ -22,19 +21,11 @@ namespace Platformer.Scriptable.Skills.Data
 
         public float GetJumpForce(int jumpsLeft)
         {
-            int counter = JumpCountInRow;
-            if (counter > Jumps.Count)
+            if (jumpsLeft == 0)
             {
-                counter = Jumps.Count;
-                EditorExtentions.GameLogger.AddMessage("Jumps count in row is larger than count of defined jump forces. Please check default player movement configuration and/or applied skills", EditorExtentions.GameLogger.LogType.Error);
+                return 0;
             }
-            int index = counter - jumpsLeft;
-            if (index < 0)
-            {
-                index = 0;
-            }
-            return Jumps[index];
-            //return Jumps[JumpCountInRow - jumpsLeft];
+            return Jumps[Jumps.Count - jumpsLeft];
         }
 
         public static MovementSkillData operator +(MovementSkillData first, MovementSkillData second)
@@ -43,8 +34,15 @@ namespace Platformer.Scriptable.Skills.Data
             result.Acceleration = first.Acceleration + second.Acceleration;
             result.MaxSpeed = first.MaxSpeed + second.MaxSpeed;
             result.InAirDrag = first.InAirDrag + second.InAirDrag;
-            result.JumpCountInRow = first.JumpCountInRow + second.JumpCountInRow;
-            result.Jumps = new List<float>(first.Jumps);
+
+            var longerList = first.Jumps.Count > second.Jumps.Count ? first.Jumps : second.Jumps;
+            var shorterList = first.Jumps.Count > second.Jumps.Count ? second.Jumps : first.Jumps;
+            result.Jumps = new List<float>(longerList);
+            for (int i = 0; i < shorterList.Count; i++)
+            {
+                result.Jumps[i] += shorterList[i];
+            }
+
             result.ClimbForce = first.ClimbForce + second.ClimbForce;
             result.WallClimbRepulsion = first.WallClimbRepulsion + second.WallClimbRepulsion;
             result.DashForce = first.DashForce + second.DashForce;
@@ -60,16 +58,19 @@ namespace Platformer.Scriptable.Skills.Data
             result.Acceleration = first.Acceleration - second.Acceleration;
             result.MaxSpeed = first.MaxSpeed - second.MaxSpeed;
             result.InAirDrag = first.InAirDrag - second.InAirDrag;
-            result.JumpCountInRow = first.JumpCountInRow - second.JumpCountInRow;
-            if (result.JumpCountInRow < 0)
+
+            var longerList = first.Jumps.Count > second.Jumps.Count ? first.Jumps : second.Jumps;
+            var shorterList = first.Jumps.Count > second.Jumps.Count ? second.Jumps : first.Jumps;
+            result.Jumps = new List<float>(longerList);
+            for (int i = 0; i < shorterList.Count; i++)
             {
-#if UNITY_EDITOR
-                EditorExtentions.GameLogger.AddMessage("Jump count in row is lower than zero! Something went wrong!", EditorExtentions.GameLogger.LogType.Fatal);
-#elif UNITY_STANDALONE
-                result.JumpCountInRow = 0;
-#endif
+                result.Jumps[i] -= shorterList[i];
+                if (result.Jumps[i] < 0)
+                {
+                    result.Jumps[i] = 0;
+                }
             }
-            result.Jumps = new List<float>(first.Jumps);
+
             result.ClimbForce = first.ClimbForce - second.ClimbForce;
             result.WallClimbRepulsion = first.WallClimbRepulsion - second.WallClimbRepulsion;
             result.DashForce = first.DashForce - second.DashForce;
@@ -87,26 +88,35 @@ namespace Platformer.Scriptable.Skills.Data
 		private float _maxSpeed;
 		[SerializeField]
 		private float _acceleration;
-		[SerializeField]
-		private int _jumpCountInRow;
+        [SerializeField]
+        private float _inAirDrag;
+        [SerializeField]
+        private float[] _jumpsInRow;
 		[SerializeField]
 		private float _climbForce;
 		[SerializeField]
 		private float _wallClimbRepulsion;
         [SerializeField]
+        private float _dashForce;
+        [SerializeField]
 		private float _dashDuration;
 		[SerializeField]
 		private float _dashRechargeTime;
+        [SerializeField]
+        private float _verticalDashDelimeter;
 
 		public override MovementSkillData GetData() => new MovementSkillData()
 		{
 			MaxSpeed = _maxSpeed,
 			Acceleration = _acceleration,
-			JumpCountInRow = _jumpCountInRow,
-			ClimbForce = _climbForce,
+            InAirDrag = _inAirDrag,
+            Jumps = new List<float>(_jumpsInRow),
+            ClimbForce = _climbForce,
 			WallClimbRepulsion = _wallClimbRepulsion,
+            DashForce = _dashForce,
 			DashDuration = _dashDuration,
 			DashRechargeTime = _dashRechargeTime,
+            VerticalDashDelimeter = _verticalDashDelimeter,
 		};
 	}
 }

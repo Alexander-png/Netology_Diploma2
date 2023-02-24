@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8cb85c7f611b704cb91d32464525b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: af967fe1b0ebf6f478bf76c9ac06f9d4, type: 2}
+  _baseStats: {fileID: 11400000, guid: 052da0b6db3a5b449ab8fe560c61b0be, type: 2}
   _behaviourConfig: {fileID: 11400000, guid: cafb83a481a7f4144b7faa1606a99941, type: 2}
   _detectorConfig: {fileID: 11400000, guid: 79eb1cd2fd3805b489b160e7a41b626a, type: 2}
   _viewFieldConfig: {fileID: 11400000, guid: 2f2e28f011379734d8857025b940b2b0, type: 2}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc5c9910da6e9d418edb009303ea849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultMovementStats: {fileID: 11400000, guid: 919a8b0da0d89e449b754fc9d257b605, type: 2}
+  _defaultMovementConfig: {fileID: 11400000, guid: c7257d8a3b76dad469d49314a5c8e067, type: 2}
   _movementEnabled: 1
 --- !u!1 &4650317872659134191
 GameObject:

@@ -1,13 +1,12 @@
 using Platformer.EditorExtentions;
 using Platformer.GameCore.Helpers;
-using Platformer.Scriptable.EntityConfig;
 using Platformer.Scriptable.Skills.Data;
 using System;
 using UnityEngine;
 
 namespace Platformer.CharacterSystem.Base
 {
-    public enum EnitityEventTypes : byte
+    public enum EntityEventTypes : byte
     { 
         Heal,
         Damage,
@@ -21,25 +20,24 @@ namespace Platformer.CharacterSystem.Base
     public abstract class Entity : MonoBehaviour
     {
         [SerializeField]
-        private CharacterStats _stats;
+        private StatsSkillConfiguration _baseStats;
 
         protected CharacterSkillData _currentStats;
-
         private Animator _entityAnimator;
 
         public event EventHandler Respawning;
-        public event EventHandler<EnitityEventTypes> EventInvoked;
+        public event EventHandler<EntityEventTypes> EventInvoked;
 
         public string Name { get; protected set; }
         public Animator EntityAnimator => _entityAnimator;
 
         protected virtual void Awake() 
         {
-            if (_stats == null)
+            if (_baseStats == null)
             {
                 GameLogger.AddMessage($"{nameof(Entity)} ({gameObject.name}): no stats assigned.", GameLogger.LogType.Fatal);
             }
-            _currentStats = _stats.GetStats();
+            _currentStats = _baseStats.GetData();
         }
 
         protected virtual void OnEnable() { }
@@ -65,7 +63,7 @@ namespace Platformer.CharacterSystem.Base
         public virtual void NotifyRespawn() => 
             Respawning?.Invoke(this, EventArgs.Empty);
 
-        public void InvokeEntityEvent(EnitityEventTypes e) =>
+        public void InvokeEntityEvent(EntityEventTypes e) =>
             EventInvoked?.Invoke(this, e);
 
         public void SetAnimatorState(string name, float value)

@@ -16,7 +16,6 @@ namespace Platformer.CharacterSystem.Attacking
         public float RawDamage => _combatSkillData.Damage;
         public float RawReloadTime => _combatSkillData.ReloadTime;
 
-
         private MeleeWeapon _currentWeapon;
         protected Collider _damageTrigger;
 

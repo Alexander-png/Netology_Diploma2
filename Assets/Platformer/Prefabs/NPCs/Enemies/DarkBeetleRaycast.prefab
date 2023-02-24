@@ -1433,7 +1433,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836675779015504957}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 62ac92fb7f6233b4aa98ac2cd30574fc, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.77
@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc5c9910da6e9d418edb009303ea849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultMovementStats: {fileID: 11400000, guid: 83d0a8ed49dccb347a4d2022eece3313, type: 2}
+  _defaultMovementConfig: {fileID: 11400000, guid: dfa6b4691cf5c32408a579ce348b05b3, type: 2}
   _movementEnabled: 1
 --- !u!114 &3923835951531144669
 MonoBehaviour:
@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0effad5b4eadcc04da7deb4be20af736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: e5da21a953c98c647916068d1b5ffba8, type: 2}
+  _baseStats: {fileID: 11400000, guid: 3385af06c1ebe3f46ae454352290f627, type: 2}
   _behaviourConfig: {fileID: 11400000, guid: 234f7423eda346449b6a987bc60c1cd5, type: 2}
   _detectorConfig: {fileID: 11400000, guid: 633f1ba65ff304b4ca72b90a73589b66, type: 2}
   _viewFieldConfig: {fileID: 11400000, guid: cdb8f9ccba800504ebbecce2d9f516c4, type: 2}

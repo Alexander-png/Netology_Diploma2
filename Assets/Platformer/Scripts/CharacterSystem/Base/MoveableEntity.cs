@@ -36,7 +36,7 @@ namespace Platformer.CharacterSystem.Base
             }
         }
 
-        private void OnMovementEventInvoked(object sender, EnitityEventTypes e) =>
+        private void OnMovementEventInvoked(object sender, EntityEventTypes e) =>
             InvokeEntityEvent(e);
 
         protected override void Update()

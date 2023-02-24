@@ -166,6 +166,12 @@ namespace Platformer.GameCore
         {
             _playerCharacter = FindObjectOfType<Player>();
         }
+
+        [ContextMenu("Clear save data")]
+        private void ClearSaveData()
+        {
+            PlayerPrefs.DeleteKey(SaveSystem.SaveFileName);
+        }
 #endif
     }
 }

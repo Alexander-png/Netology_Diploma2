@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b7ea862243caf47825475959aae865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: c4ab01009cfbb5247a98cecf304a15a7, type: 2}
+  _baseStats: {fileID: 11400000, guid: a951d7bb9134ef347ac122e197186010, type: 2}
   _attacker: {fileID: 701565693849926464}
 --- !u!65 &3743583013655628596
 BoxCollider:

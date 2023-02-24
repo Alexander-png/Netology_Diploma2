@@ -57,13 +57,13 @@ namespace Platformer.PlayerSystem
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, MaxHealth);
             if (_currentHealth > 0)
             {
-                InvokeEntityEvent(EnitityEventTypes.Damage);
+                InvokeEntityEvent(EntityEventTypes.Damage);
                 StartCoroutine(DamageImmuneCoroutine(DamageImmuneTime));
             }
 
             if (_currentHealth < 0.01f)
             {
-                InvokeEntityEvent(EnitityEventTypes.Death);
+                InvokeEntityEvent(EntityEventTypes.Death);
                 gameObject.SetActive(false);
                 Died?.Invoke(this, EventArgs.Empty);
             }
@@ -71,7 +71,7 @@ namespace Platformer.PlayerSystem
 
         public void Heal(float value)
         {
-            InvokeEntityEvent(EnitityEventTypes.Heal);
+            InvokeEntityEvent(EntityEventTypes.Heal);
             _currentHealth = Mathf.Clamp(_currentHealth + value, 0, MaxHealth);
         }
 

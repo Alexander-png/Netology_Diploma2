@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd52f9605a7ddf4d9119c935b3fdd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultMovementStats: {fileID: 11400000, guid: fdfb3a3329cad1b41a0c4040588abffe, type: 2}
+  _defaultMovementConfig: {fileID: 11400000, guid: f3ca51cb11e78274db55361351799f7a, type: 2}
   _movementEnabled: 1
 --- !u!114 &1792561558398356759
 MonoBehaviour:
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b40be2726abbd4c846cb5d883ebd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: 6c8b5f16077d4424d893fd8f3ec7fd08, type: 2}
+  _baseStats: {fileID: 11400000, guid: 2f4a75686f39718429e6b657277c4ddf, type: 2}
   _behaviourConfig: {fileID: 11400000, guid: f258672ee52da14468370e2b00b75854, type: 2}
   _currentPoint: {fileID: 0}
 --- !u!1 &7428256789343022223

@@ -2,11 +2,6 @@ using UnityEngine;
 
 namespace Platformer.Scriptable.Skills.Data
 {
-	//public string Name => _name;
-	//public float MaxHealth => _maxHealth;
-	//public float DamageImmuneTime => _damageImmuneTime;
-	//public bool Immortal => _immortal;
-	//public bool Interactable => _interactable;
 	public struct CharacterSkillData
 	{
 		public float MaxHealth;

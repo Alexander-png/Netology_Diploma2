@@ -108,7 +108,7 @@ namespace Platformer.GameCore
 
     public static class SaveSystem
 	{
-        private const string SaveFileName = "Save01";
+        public const string SaveFileName = "Save01";
 
         private static List<LevelData> _levelData;
 

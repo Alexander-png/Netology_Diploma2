@@ -21,20 +21,20 @@ namespace Platformer.EffectSystem
         private void OnDisable() =>
             TargetEntity.EventInvoked -= OnEntityEvent;
 
-        protected virtual void OnEntityEvent(object sender, EnitityEventTypes e)
+        protected virtual void OnEntityEvent(object sender, EntityEventTypes e)
         {
             switch (e)
             {
-                case EnitityEventTypes.Heal:
+                case EntityEventTypes.Heal:
                     _healEffect.Play();
                     break;
-                case EnitityEventTypes.Damage:
+                case EntityEventTypes.Damage:
                     GameLogger.AddMessage("Damage");
                     break;
-                case EnitityEventTypes.Death:
+                case EntityEventTypes.Death:
                     GameLogger.AddMessage("Death");
                     break;
-                case EnitityEventTypes.Respawn:
+                case EntityEventTypes.Respawn:
                     GameLogger.AddMessage("Respawn");
                     break;
             }

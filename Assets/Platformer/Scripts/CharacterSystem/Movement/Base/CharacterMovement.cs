@@ -1,6 +1,5 @@
 using Platformer.CharacterSystem.Base;
 using Platformer.LevelEnvironment.Elements.Common;
-using Platformer.Scriptable.EntityConfig;
 using Platformer.Scriptable.Skills.Data;
 using System;
 using System.Collections.Generic;
@@ -10,8 +9,9 @@ namespace Platformer.CharacterSystem.Movement.Base
 {
     public abstract class CharacterMovement : MonoBehaviour
 	{
-		[SerializeField]
-		private MovementStats _defaultMovementStats;
+        [SerializeField]
+        private MovementSkillConfiguration _defaultMovementConfig;
+
         [SerializeField]
         private bool _movementEnabled = true;
 
@@ -73,12 +73,12 @@ namespace Platformer.CharacterSystem.Movement.Base
             set => _body.velocity = value;
         }
 
-        public event EventHandler<EnitityEventTypes> EventInvoked;
+        public event EventHandler<EntityEventTypes> EventInvoked;
 
         protected virtual void Awake()
         {
             _currentCollisions = new List<GameObject>();
-            MovementStats = _defaultMovementStats.GetData();
+            MovementStats = _defaultMovementConfig.GetData();
         }
 
         protected virtual void Start() =>
@@ -144,7 +144,7 @@ namespace Platformer.CharacterSystem.Movement.Base
             }
         }
 
-        public void InvokeEntityEvent(EnitityEventTypes e) =>
+        public void InvokeEntityEvent(EntityEventTypes e) =>
             EventInvoked?.Invoke(this, e);
     }
 }

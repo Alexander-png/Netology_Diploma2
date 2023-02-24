@@ -11,18 +11,18 @@ namespace Platformer.EffectSystem
 		[SerializeField]
 		private ParticleSystemWrapper _hardLandingEffect;
 
-        protected override void OnEntityEvent(object sender, EnitityEventTypes e)
+        protected override void OnEntityEvent(object sender, EntityEventTypes e)
         {
             base.OnEntityEvent(sender, e);
             switch (e)
             {
-                case EnitityEventTypes.DashStarted:
+                case EntityEventTypes.DashStarted:
                     _dashEffect.enabled = true;
                     break;
-                case EnitityEventTypes.DashEnded:
+                case EntityEventTypes.DashEnded:
                     _dashEffect.enabled = false;
                     break;
-                case EnitityEventTypes.Landing:
+                case EntityEventTypes.Landing:
                     _hardLandingEffect.Play();
                     break;
             }

@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7d0c10d91004ea4380952b658d64ea4, type: 3}
-  m_Name: DarkBeetleStats
+  m_Script: {fileID: 11500000, guid: 5c3d19034d59f8646b68f8d9e89cc42c, type: 3}
+  m_Name: WallCannonSkill
   m_EditorClassIdentifier: 
-  _name: enemy_DarkBeetle
-  _side: 1
+  _skillId: 
   _maxHealth: 20
-  _maxMana: 0
   _damageImmuneTime: 0
-  _immortal: 0
-  _interactable: 0

@@ -20,7 +20,7 @@ namespace Platformer.CharacterSystem.Movement
         public bool CanJump => _jumpsLeft > 0;
         public float JumpForce => MovementStats.GetJumpForce(_jumpsLeft);
         public float MaxJumpForce => MovementStats.MaxJumpForce;
-        public int JumpCountInRow => MovementStats.JumpCountInRow;
+        public int JumpCountInRow => MovementStats.Jumps.Count;
 
         public override float VerticalInput
         {
@@ -65,7 +65,7 @@ namespace Platformer.CharacterSystem.Movement
             OnGround = !InAir;
             if (OnGround)
             {
-                InvokeEntityEvent(EnitityEventTypes.Landing);
+                InvokeEntityEvent(EntityEventTypes.Landing);
                 ResetJumpState();
             }
         }
@@ -189,10 +189,10 @@ namespace Platformer.CharacterSystem.Movement
         }
 
         protected virtual void OnDashStarted() =>
-            InvokeEntityEvent(EnitityEventTypes.DashStarted);
+            InvokeEntityEvent(EntityEventTypes.DashStarted);
 
         protected virtual void OnDashEnded() =>
-            InvokeEntityEvent(EnitityEventTypes.DashEnded);
+            InvokeEntityEvent(EntityEventTypes.DashEnded);
 
         private IEnumerator DashMove(float time)
         {

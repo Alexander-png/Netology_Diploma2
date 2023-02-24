@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: CombatSkillContainer
   m_EditorClassIdentifier: 
   _skills:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 422f8b952ca5c244f83c5f522f9d0a7b, type: 2}
+  - {fileID: 11400000, guid: e892fa02f032b294ead51fa8fbbcf7b3, type: 2}

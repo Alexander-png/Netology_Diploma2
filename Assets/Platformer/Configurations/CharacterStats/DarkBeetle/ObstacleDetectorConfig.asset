@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8d65c37706d8f4b9b77c5c7bde726d, type: 3}
   m_Name: ObstacleDetectorConfig
   m_EditorClassIdentifier: 
-  _horizontalSensorOrigin: {x: 0, y: 0, z: 0}
+  _horizontalSensorOrigin: {x: 0, y: -0.23, z: 0}
   _horizontalSensorLength: 1.3
   _verticalSensorLength: 1.58
   _verticalSensorOffset: 1.07

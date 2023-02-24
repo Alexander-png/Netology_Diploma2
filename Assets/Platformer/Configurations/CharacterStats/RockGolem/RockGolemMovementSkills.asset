@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e8357ef3112e4a4186f051ffb00c4f8, type: 3}
-  m_Name: ExplosiveWaspMovement
+  m_Script: {fileID: 11500000, guid: 3229aea951f6e4d44b1c96e63be9673a, type: 3}
+  m_Name: RockGolemMovementSkills
   m_EditorClassIdentifier: 
-  _maxSpeed: 5
-  _acceleration: 10
-  _inAirDrag: 10
-  _jumps: []
-  _jumpCountInRow: 0
+  _skillId: 
+  _maxSpeed: 8
+  _acceleration: 20
+  _inAirDrag: 0
+  _jumpsInRow: []
   _climbForce: 0
   _wallClimbRepulsion: 0
-  _dashForce: 10
-  _dashDuration: 10
-  _dashRechargeTime: 0.1
+  _dashForce: 0
+  _dashDuration: 0
+  _dashRechargeTime: 0
+  _verticalDashDelimeter: 1
