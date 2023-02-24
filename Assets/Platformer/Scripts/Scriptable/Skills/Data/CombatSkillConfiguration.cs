@@ -1,20 +1,42 @@
-using Platformer.CharacterSystem.StatsData;
 using UnityEngine;
 
 namespace Platformer.Scriptable.Skills.Data
 {
-	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Skills/Combat skill")]
-	public class CombatSkillConfiguration : SkillConfiguration<CombatStatsData>
+    // TODO: add proportions
+    public struct CombatSkillData
+    {
+        public float Damage;
+        public float ReloadTime;
+
+        public static CombatSkillData operator +(CombatSkillData first, CombatSkillData second)
+        {
+            CombatSkillData result = new CombatSkillData();
+            result.Damage = first.Damage + second.Damage;
+            result.ReloadTime = first.ReloadTime + second.ReloadTime;
+            return result;
+        }
+
+        public static CombatSkillData operator -(CombatSkillData first, CombatSkillData second)
+        {
+            CombatSkillData result = new CombatSkillData();
+            result.Damage = first.Damage - second.Damage;
+            result.ReloadTime = first.ReloadTime - second.ReloadTime;
+            return result;
+        }
+    }
+
+    [CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Skills/Combat skill")]
+	public class CombatSkillConfiguration : SkillConfiguration<CombatSkillData>
 	{
 		[SerializeField]
-		private float _maxHealth;
+		private float _damage;
 		[SerializeField]
-		private float _damageImmuneTime;
+		private float _reloadTime;
 
-        public override CombatStatsData GetData() => new CombatStatsData()
+        public override CombatSkillData GetData() => new CombatSkillData()
         {
-            //MaxHealth = _maxHealth,
-            //DamageImmuneTime = _damageImmuneTime,
+            Damage = _damage,
+            ReloadTime = _reloadTime
         };
     }
 }

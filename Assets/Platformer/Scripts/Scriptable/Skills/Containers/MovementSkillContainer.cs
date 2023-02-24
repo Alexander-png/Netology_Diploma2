@@ -1,4 +1,4 @@
-using Platformer.CharacterSystem.StatsData;
+using Platformer.Scriptable.EntityConfig;
 using Platformer.Scriptable.Skills.Data;
 using Platformer.SkillSystem.Skills;
 using System;
@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Platformer.Scriptable.Skills.Containers
 {
     [CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Skills/Containers/Movement skill container")]
-    public class MovementSkillContainer : SkillContainer<Skill<MovementStatsData>>
+    public class MovementSkillContainer : SkillContainer<Stats<MovementSkillData>>
     {
         [SerializeField]
         private MovementSkillConfiguration[] _skills;
@@ -15,7 +15,7 @@ namespace Platformer.Scriptable.Skills.Containers
         private MovementSkillConfiguration FindSkill(string id) =>
             Array.Find(_skills, x => x.SkillId == id);
 
-        public override Skill<MovementStatsData> CreateSkill(string skillId) =>
-            new Skill<MovementStatsData>(skillId, FindSkill(skillId).GetData());
+        public override Stats<MovementSkillData> CreateSkill(string skillId) =>
+            new Stats<MovementSkillData>(skillId, FindSkill(skillId).GetData());
     }
 }

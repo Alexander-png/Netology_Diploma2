@@ -1,6 +1,4 @@
 using Platformer.CharacterSystem.Base;
-using Platformer.CharacterSystem.StatsData;
-using Platformer.Scriptable.EntityConfig;
 using Platformer.SkillSystem;
 using System;
 using System.Collections;
@@ -15,12 +13,11 @@ namespace Platformer.PlayerSystem
         private PlayerInputListener _playerInputListener;
 
         private bool _damageImmune = false;
-        private float _damageImmuneTime;
         private float _currentHealth;
-        private float _maxHealth;
 
+        public float MaxHealth => _currentStats.MaxHealth;
+        public float DamageImmuneTime => _currentStats.DamageImmuneTime;
         public float CurrentHealth => _currentHealth;
-        public float MaxHealth => _maxHealth;
 
         public Inventory Inventory => _inventory;
         public SkillObserver SkillObserver => _skillObserver;
@@ -30,6 +27,7 @@ namespace Platformer.PlayerSystem
         protected override void Start()
         {
             base.Start();
+            _currentHealth = MaxHealth;
             _inventory = gameObject.GetComponent<Inventory>();
             _skillObserver = gameObject.GetComponent<SkillObserver>();
             _playerInputListener = gameObject.GetComponent<PlayerInputListener>();
@@ -47,24 +45,6 @@ namespace Platformer.PlayerSystem
             StopAllCoroutines();
         }
 
-        protected override void SetDefaultParameters(CharacterStats stats)
-        {
-            base.SetDefaultParameters(stats);
-            _maxHealth = stats.MaxHealth;
-            _currentHealth = _maxHealth;
-            _damageImmuneTime = stats.DamageImmuneTime;
-        }
-
-        //public override void AddStats(CharacterStatsData stats)
-        //{
-
-        //}
-
-        //public override void RemoveStats(MovementStatsData stats)
-        //{
-            
-        //}
-
         public void SetDamage(float damage, Vector3 pushVector, bool forced = false)
         {
             if (_damageImmune && !forced || _currentHealth <= 0f)
@@ -72,13 +52,13 @@ namespace Platformer.PlayerSystem
                 return;
             }
 
-            StopCoroutine(DamageImmuneCoroutine(_damageImmuneTime));
+            StopCoroutine(DamageImmuneCoroutine(DamageImmuneTime));
             MovementController.Velocity = pushVector;
-            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _maxHealth);
+            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, MaxHealth);
             if (_currentHealth > 0)
             {
                 InvokeEntityEvent(EnitityEventTypes.Damage);
-                StartCoroutine(DamageImmuneCoroutine(_damageImmuneTime));
+                StartCoroutine(DamageImmuneCoroutine(DamageImmuneTime));
             }
 
             if (_currentHealth < 0.01f)
@@ -92,7 +72,7 @@ namespace Platformer.PlayerSystem
         public void Heal(float value)
         {
             InvokeEntityEvent(EnitityEventTypes.Heal);
-            _currentHealth = Mathf.Clamp(_currentHealth + value, 0, _maxHealth);
+            _currentHealth = Mathf.Clamp(_currentHealth + value, 0, MaxHealth);
         }
 
         protected override void UpdateRotation()

@@ -1,10 +1,10 @@
 using Platformer.CharacterSystem.Attacking;
 using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Movement.Base;
-using Platformer.CharacterSystem.StatsData;
 using Platformer.EditorExtentions;
 using Platformer.GameCore;
 using Platformer.Scriptable.Skills.Containers;
+using Platformer.Scriptable.Skills.Data;
 using Platformer.SkillSystem.Skills;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,16 +26,17 @@ namespace Platformer.SkillSystem
         private Entity _entity;
         private CharacterMovement _movementController;
         private Attacker _attacker;
-        private List<GenericSkill> _appliedSkills = new List<GenericSkill>();
+        private List<GenericStats> _appliedSkills = new List<GenericStats>();
 
         private void Start()
         {
             _movementController = gameObject.GetComponent<CharacterMovement>();
             _entity = gameObject.GetComponent<Entity>();
+            _attacker = gameObject.GetComponentInChildren<Attacker>();
             AddSkill(SaveSystem.GetRewardList());
         }
 
-        private GenericSkill FindAppliedSkill(string id) =>
+        private GenericStats FindAppliedSkill(string id) =>
             _appliedSkills.Find(s => s.SkillId == id);
 
         public void AddSkill(string skillId)
@@ -62,7 +63,7 @@ namespace Platformer.SkillSystem
 
 		public void RemoveSkill(string skillId)
         {
-            GenericSkill skillToRemove = FindAppliedSkill(skillId);
+            GenericStats skillToRemove = FindAppliedSkill(skillId);
             if (skillToRemove != null)
             {
                 RemoveSkillFromEntity(skillToRemove);
@@ -73,19 +74,19 @@ namespace Platformer.SkillSystem
         public bool CheckSkillAdded(string skillId) =>
             FindAppliedSkill(skillId) != null;
 
-        private void AddSkillToEntity(GenericSkill skill)
+        private void AddSkillToEntity(GenericStats skill)
         {
-            if (skill is Skill<CharacterStatsData> stats)
+            if (skill is Stats<CharacterSkillData> stats)
             {
-                throw new System.NotImplementedException();
+                _entity.AddSkill(stats.Data);
             }
-            else if (skill is Skill<MovementStatsData> moves)
+            else if (skill is Stats<MovementSkillData> moves)
             {
-                _movementController.AddStats(moves.SkillData);
+                _movementController.AddSkill(moves.Data);
             }
-            else if (skill is Skill<CombatStatsData> combat)
+            else if (skill is Stats<CombatSkillData> combat)
             {
-                throw new System.NotImplementedException();
+                _attacker.AddSkill(combat.Data);
             }
             else
             {
@@ -93,19 +94,19 @@ namespace Platformer.SkillSystem
             }
         }
 
-        private void RemoveSkillFromEntity(GenericSkill skill)
+        private void RemoveSkillFromEntity(GenericStats skill)
         {
-            if (skill is Skill<CharacterStatsData> stats)
+            if (skill is Stats<CharacterSkillData> stats)
             {
-                throw new System.NotImplementedException();
+                _entity.RemoveSkill(stats.Data);
             }
-            else if (skill is Skill<MovementStatsData> moves)
+            else if (skill is Stats<MovementSkillData> moves)
             {
-                _movementController.RemoveStats(moves.SkillData);
+                _movementController.RemoveSkill(moves.Data);
             }
-            else if (skill is Skill<CombatStatsData> combat)
+            else if (skill is Stats<CombatSkillData> combat)
             {
-                throw new System.NotImplementedException();
+                _attacker.RemoveSkill(combat.Data);
             }
             else
             {

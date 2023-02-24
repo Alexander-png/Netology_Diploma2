@@ -1,6 +1,6 @@
 using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Movement.Base;
-using Platformer.CharacterSystem.StatsData;
+using Platformer.Scriptable.Skills.Data;
 using System.Collections;
 using UnityEngine;
 
@@ -161,15 +161,15 @@ namespace Platformer.CharacterSystem.Movement
             _jumpedFromGround = false;
         }
 
-        public override void AddStats(MovementStatsData stats)
+        public override void AddSkill(MovementSkillData stats)
         {
-            base.AddStats(stats);
+            base.AddSkill(stats);
             ResetJumpState();
         }
 
-        public override void RemoveStats(MovementStatsData stats)
+        public override void RemoveSkill(MovementSkillData stats)
         {
-            base.RemoveStats(stats);
+            base.RemoveSkill(stats);
             ResetJumpState();
         }
 

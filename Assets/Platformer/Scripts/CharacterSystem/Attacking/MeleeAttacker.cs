@@ -1,5 +1,6 @@
 using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Enemies;
+using Platformer.Scriptable.Skills.Data;
 using Platformer.Weapons;
 using UnityEngine;
 
@@ -7,6 +8,15 @@ namespace Platformer.CharacterSystem.Attacking
 {
 	public class MeleeAttacker : Attacker
 	{
+        [SerializeField]
+        private CombatSkillConfiguration _defaultSkills;
+
+        private CombatSkillData _combatSkillData;
+
+        public float RawDamage => _combatSkillData.Damage;
+        public float RawReloadTime => _combatSkillData.ReloadTime;
+
+
         private MeleeWeapon _currentWeapon;
         protected Collider _damageTrigger;
 
@@ -85,10 +95,13 @@ namespace Platformer.CharacterSystem.Attacking
             {
                 if (_currentWeapon != null)
                 {
-                    enemy.SetDamage(CurrentWeapon.Stats.Damage, (transform.position - other.transform.position) * CurrentWeapon.Stats.PushForce);
+                    enemy.SetDamage(GetDamageValue(), (transform.position - other.transform.position) * CurrentWeapon.Stats.PushForce);
                 }
             }
         }
+
+        protected virtual float GetDamageValue() =>
+            CurrentWeapon.Stats.Damage + RawDamage;
 
         public override float GetAttackChargeTime() =>
             CurrentWeapon.Stats.StrongAttackChargeTime;

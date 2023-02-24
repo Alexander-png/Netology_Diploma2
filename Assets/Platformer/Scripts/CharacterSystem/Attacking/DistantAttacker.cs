@@ -9,10 +9,12 @@ namespace Platformer.CharacterSystem.Attacking
         [SerializeField, ReadOnly]
 		protected DistantWeapon _currentWeapon;
 
+#if UNITY_EDITOR
         private void OnValidate() =>
             FindWeapon();
+#endif
 
-        private void Start() =>
+        protected virtual void Start() =>
             FindWeapon();
 
         private void FindWeapon()

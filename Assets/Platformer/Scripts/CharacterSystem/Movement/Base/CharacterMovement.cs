@@ -1,7 +1,7 @@
 using Platformer.CharacterSystem.Base;
-using Platformer.CharacterSystem.StatsData;
 using Platformer.LevelEnvironment.Elements.Common;
 using Platformer.Scriptable.EntityConfig;
+using Platformer.Scriptable.Skills.Data;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +16,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         private bool _movementEnabled = true;
 
 		private Rigidbody _body;
-        protected MovementStatsData MovementStats { get; private set; }
+        protected MovementSkillData MovementStats { get; private set; }
 
         private float _horizontalInput;
         private float _verticalInput;
@@ -130,10 +130,10 @@ namespace Platformer.CharacterSystem.Movement.Base
 
         public virtual void TriggerDash(float input) { }
 
-        public virtual void AddStats(MovementStatsData stats) =>
+        public virtual void AddSkill(MovementSkillData stats) =>
             MovementStats += stats;
 
-        public virtual void RemoveStats(MovementStatsData stats) =>
+        public virtual void RemoveSkill(MovementSkillData stats) =>
             MovementStats -= stats;
 
         public void SetAnimatorState(string name, float value)

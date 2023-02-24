@@ -20,7 +20,6 @@ namespace Platformer.CharacterSystem.Enemies
 
         protected Attacker _attacker;
         protected float _currentHealth;
-        protected float _maxHealth;
         protected Player _player;
 
         protected bool _behaviourEnabled;
@@ -30,7 +29,7 @@ namespace Platformer.CharacterSystem.Enemies
         public event EventHandler Died;
 
         public float CurrentHealth => _currentHealth;
-        public float MaxHealth => _maxHealth;
+        public float MaxHealth => _currentStats.MaxHealth;
 
         protected override void Start()
         {
@@ -41,6 +40,7 @@ namespace Platformer.CharacterSystem.Enemies
             MovementController.MovementEnabled = true;
             MovementController.SetAnimator(EntityAnimator);
             SetBehaviourEnabled(true);
+            _currentHealth = MaxHealth;
         }
 
         private void OnGameLoaded(object sender, EventArgs e)
@@ -61,13 +61,6 @@ namespace Platformer.CharacterSystem.Enemies
             FixedUpdateBehaviour();
         }
 
-        protected override void SetDefaultParameters(CharacterStats stats)
-        {
-            base.SetDefaultParameters(stats);
-            _maxHealth = stats.MaxHealth;
-            _currentHealth = _maxHealth;
-        }
-
         protected virtual void UpdateBehaviour() { }
         protected virtual void FixedUpdateBehaviour() { }
         protected virtual void CheckPlayerNearby() { }
@@ -86,7 +79,7 @@ namespace Platformer.CharacterSystem.Enemies
             }
 
             MovementController.Velocity = pushVector;
-            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _maxHealth);
+            _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, MaxHealth);
             if (_currentHealth < 0.01f)
             {
                 InvokeDiedEvent();
@@ -97,7 +90,7 @@ namespace Platformer.CharacterSystem.Enemies
         }
 
         public void Heal(float value) =>
-            _currentHealth = Mathf.Clamp(_currentHealth + value, 0, _maxHealth);
+            _currentHealth = Mathf.Clamp(_currentHealth + value, 0, MaxHealth);
 
         public virtual void OnPlayerNearby()
         {

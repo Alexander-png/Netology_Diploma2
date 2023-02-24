@@ -1,3 +1,4 @@
+using Platformer.Scriptable.Skills.Data;
 using UnityEngine;
 
 namespace Platformer.CharacterSystem.Attacking
@@ -10,5 +11,7 @@ namespace Platformer.CharacterSystem.Attacking
 		public virtual void OnAttackReleased() { }
 
 		public virtual float GetAttackChargeTime() => 0f;
+		public virtual void AddSkill(CombatSkillData toAdd) { }
+		public virtual void RemoveSkill(CombatSkillData toRemove) { }
 	}
 }

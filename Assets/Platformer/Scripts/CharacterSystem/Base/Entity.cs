@@ -1,7 +1,7 @@
-using Platformer.CharacterSystem.StatsData;
 using Platformer.EditorExtentions;
 using Platformer.GameCore.Helpers;
 using Platformer.Scriptable.EntityConfig;
+using Platformer.Scriptable.Skills.Data;
 using System;
 using UnityEngine;
 
@@ -23,6 +23,8 @@ namespace Platformer.CharacterSystem.Base
         [SerializeField]
         private CharacterStats _stats;
 
+        protected CharacterSkillData _currentStats;
+
         private Animator _entityAnimator;
 
         public event EventHandler Respawning;
@@ -37,7 +39,7 @@ namespace Platformer.CharacterSystem.Base
             {
                 GameLogger.AddMessage($"{nameof(Entity)} ({gameObject.name}): no stats assigned.", GameLogger.LogType.Fatal);
             }
-            SetDefaultParameters(_stats);
+            _currentStats = _stats.GetStats();
         }
 
         protected virtual void OnEnable() { }
@@ -50,15 +52,15 @@ namespace Platformer.CharacterSystem.Base
                 _entityAnimator = visual.transform.GetComponent<Animator>();
             }
         }
+
         protected virtual void Update() { }
         protected virtual void FixedUpdate() { }
 
-        protected virtual void SetDefaultParameters(CharacterStats stats) =>
-            Name = stats.Name;
+        public virtual void AddSkill(CharacterSkillData stats) =>
+            _currentStats += stats;
 
-        public virtual void AddStats(CharacterStatsData stats) { }
-
-        public virtual void RemoveStats(MovementStatsData stats) { }
+        public virtual void RemoveSkill(CharacterSkillData stats) =>
+            _currentStats -= stats;
 
         public virtual void NotifyRespawn() => 
             Respawning?.Invoke(this, EventArgs.Empty);

@@ -40,17 +40,8 @@ namespace Platformer.PlayerSystem
             ResetCurrentAttackStats();
         }
 
-        protected override void OnTriggerEnter(Collider other)
-        {
-            var enemy = GetEnemyComponent(other);
-            if (enemy != null)
-            {
-                if (CurrentWeapon != null)
-                {
-                    enemy.SetDamage(_currentDamage, (transform.position - other.transform.position) * CurrentWeapon.Stats.PushForce);
-                }
-            }
-        }
+        protected override float GetDamageValue() =>
+            _currentDamage + RawDamage;
 
         private void Update() =>
             UpdateHitColliderPosition();

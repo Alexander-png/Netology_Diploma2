@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3d19034d59f8646b68f8d9e89cc42c, type: 3}
   m_Name: HeathPlusHalfPoint
   m_EditorClassIdentifier: 
-  _skillId: skill_plusHalfPoint
+  _skillId: skill_healthPlusHalfPoint
   _maxHealth: 0.5
   _damageImmuneTime: 0

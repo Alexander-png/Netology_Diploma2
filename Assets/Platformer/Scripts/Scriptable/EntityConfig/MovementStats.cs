@@ -1,10 +1,12 @@
-using Platformer.CharacterSystem.StatsData;
+using Platformer.Scriptable.Skills.Data;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Platformer.Scriptable.EntityConfig
 {
-	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Movement stats")]
+    [CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Movement stats")]
+	[Obsolete("Must remove this class. Use Movement skills instead")]
 	public class MovementStats : ScriptableObject
 	{
 		[SerializeField]
@@ -30,7 +32,7 @@ namespace Platformer.Scriptable.EntityConfig
 		[SerializeField]
 		private float _verticalDashDelimeter = 1f;
 
-		public MovementStatsData GetData() => new MovementStatsData()
+		public MovementSkillData GetData() => new MovementSkillData()
 		{
 			MaxSpeed = _maxSpeed,
 			Acceleration = _acceleration,
