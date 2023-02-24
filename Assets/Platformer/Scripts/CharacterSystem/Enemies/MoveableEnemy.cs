@@ -2,7 +2,7 @@ using Platformer.CharacterSystem.Attacking;
 using Platformer.CharacterSystem.Base;
 using Platformer.GameCore;
 using Platformer.PlayerSystem;
-using Platformer.Scriptable.Characters;
+using Platformer.Scriptable.EntityConfig;
 using System;
 using UnityEngine;
 using Zenject;

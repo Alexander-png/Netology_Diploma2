@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Platformer.CharacterSystem.Movement.Base
+namespace Platformer.CharacterSystem.StatsData
 {
     public struct CharacterStatsData
     {   
@@ -83,5 +83,10 @@ namespace Platformer.CharacterSystem.Movement.Base
             result.VerticalDashDelimeter = first.VerticalDashDelimeter - second.VerticalDashDelimeter;
             return result;
         }
+    }
+
+    public struct CombatStatsData
+    {
+
     }
 }

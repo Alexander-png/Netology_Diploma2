@@ -1,4 +1,4 @@
-using Platformer.Scriptable.Characters.AIConfig;
+using Platformer.Scriptable.EntityConfig.AIConfig;
 using UnityEngine;
 
 namespace Platformer.CharacterSystem.Enemies

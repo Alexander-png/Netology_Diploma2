@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Platformer.Scriptable.Characters
+namespace Platformer.Scriptable.EntityConfig
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Shooting Stats")]
 	public class ShootingStats : ScriptableObject

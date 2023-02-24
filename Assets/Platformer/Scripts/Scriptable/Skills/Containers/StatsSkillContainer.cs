@@ -1,5 +1,5 @@
-using Platformer.CharacterSystem.Movement.Base;
-using Platformer.Scriptable.Skills.Configurations;
+using Platformer.CharacterSystem.StatsData;
+using Platformer.Scriptable.Skills.Data;
 using Platformer.SkillSystem.Skills;
 using System;
 using UnityEngine;

@@ -1,6 +1,7 @@
+using Platformer.CharacterSystem.StatsData;
 using Platformer.EditorExtentions;
 using Platformer.GameCore.Helpers;
-using Platformer.Scriptable.Characters;
+using Platformer.Scriptable.EntityConfig;
 using System;
 using UnityEngine;
 
@@ -54,6 +55,10 @@ namespace Platformer.CharacterSystem.Base
 
         protected virtual void SetDefaultParameters(CharacterStats stats) =>
             Name = stats.Name;
+
+        public virtual void AddStats(CharacterStatsData stats) { }
+
+        public virtual void RemoveStats(MovementStatsData stats) { }
 
         public virtual void NotifyRespawn() => 
             Respawning?.Invoke(this, EventArgs.Empty);

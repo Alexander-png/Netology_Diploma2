@@ -1255,12 +1255,20 @@ PrefabInstance:
       value: Damage +15%
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660798817680, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
+      propertyPath: _levelData.RewardDict._values.Array.data[0].Id
+      value: skill_plusHalfPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036067660798817680, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
+      propertyPath: _levelData.RewardDict._values.Array.data[1].Id
+      value: skill_plusHalfPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036067660798817680, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[0].Description
-      value: Health +0.5
+      value: Health + 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660798817680, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[1].Description
-      value: Health +0.5
+      value: Health + 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660931055562, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._keys.Array.size

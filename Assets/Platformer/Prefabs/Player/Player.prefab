@@ -424,6 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSkillContainer: {fileID: 11400000, guid: 5b3768fc9aa6923449133df34fb8f04c, type: 2}
   _statsSkillContainer: {fileID: 11400000, guid: d52596ade5e1f8e42b96e00a5bde0d2d, type: 2}
+  _combatSkillContainer: {fileID: 11400000, guid: d557785920894f446bd2b99b29ef3d1b, type: 2}
   _distinctSkillsOnly: 0
 --- !u!82 &8851354137677445972
 AudioSource:

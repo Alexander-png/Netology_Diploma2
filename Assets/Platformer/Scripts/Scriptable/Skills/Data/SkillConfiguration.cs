@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Platformer.Scriptable.Skills.Configurations
+namespace Platformer.Scriptable.Skills.Data
 {
 	public abstract class SkillConfiguration<T> : ScriptableObject
 	{

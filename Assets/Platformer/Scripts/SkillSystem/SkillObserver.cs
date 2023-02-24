@@ -1,5 +1,8 @@
+using Platformer.CharacterSystem.Attacking;
 using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Movement.Base;
+using Platformer.CharacterSystem.StatsData;
+using Platformer.EditorExtentions;
 using Platformer.GameCore;
 using Platformer.Scriptable.Skills.Containers;
 using Platformer.SkillSystem.Skills;
@@ -14,18 +17,21 @@ namespace Platformer.SkillSystem
         private MovementSkillContainer _movementSkillContainer;
         [SerializeField]
         private StatsSkillContainer _statsSkillContainer;
+        [SerializeField]
+        private CombatSkillContainer _combatSkillContainer;
 
         [SerializeField, Space(15)]
         private bool _distinctSkillsOnly = true;
 
-        private CharacterMovement _movementController;        
-        private Entity _character;
+        private Entity _entity;
+        private CharacterMovement _movementController;
+        private Attacker _attacker;
         private List<GenericSkill> _appliedSkills = new List<GenericSkill>();
 
         private void Start()
         {
             _movementController = gameObject.GetComponent<CharacterMovement>();
-            _character = gameObject.GetComponent<Entity>();
+            _entity = gameObject.GetComponent<Entity>();
             AddSkill(SaveSystem.GetRewardList());
         }
 
@@ -77,6 +83,14 @@ namespace Platformer.SkillSystem
             {
                 _movementController.AddStats(moves.SkillData);
             }
+            else if (skill is Skill<CombatStatsData> combat)
+            {
+                throw new System.NotImplementedException();
+            }
+            else
+            {
+                GameLogger.AddMessage($"Unknown skill type: {skill.GetType()}", GameLogger.LogType.Error);
+            }
         }
 
         private void RemoveSkillFromEntity(GenericSkill skill)
@@ -88,6 +102,14 @@ namespace Platformer.SkillSystem
             else if (skill is Skill<MovementStatsData> moves)
             {
                 _movementController.RemoveStats(moves.SkillData);
+            }
+            else if (skill is Skill<CombatStatsData> combat)
+            {
+                throw new System.NotImplementedException();
+            }
+            else
+            {
+                GameLogger.AddMessage($"Unknown skill type: {skill.GetType()}", GameLogger.LogType.Error);
             }
         }
     }

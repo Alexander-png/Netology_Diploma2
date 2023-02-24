@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Platformer.Scriptable.Characters.AIConfig
+namespace Platformer.Scriptable.EntityConfig.AIConfig
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/ObstacleDetectorConfig")]
 	public class ObstacleDetectorConfig : ScriptableObject

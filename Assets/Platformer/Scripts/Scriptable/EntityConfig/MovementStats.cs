@@ -1,8 +1,8 @@
-using Platformer.CharacterSystem.Movement.Base;
+using Platformer.CharacterSystem.StatsData;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer.Scriptable.Characters
+namespace Platformer.Scriptable.EntityConfig
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Movement stats")]
 	public class MovementStats : ScriptableObject

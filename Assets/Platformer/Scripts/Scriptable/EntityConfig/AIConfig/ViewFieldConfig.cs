@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Platformer.Scriptable.Characters.AIConfig
+namespace Platformer.Scriptable.EntityConfig.AIConfig
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/ViewFieldConfig")]
 	public class ViewFieldConfig : ScriptableObject

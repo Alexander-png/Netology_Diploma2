@@ -1,6 +1,7 @@
 using Platformer.CharacterSystem.Base;
+using Platformer.CharacterSystem.StatsData;
 using Platformer.LevelEnvironment.Elements.Common;
-using Platformer.Scriptable.Characters;
+using Platformer.Scriptable.EntityConfig;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

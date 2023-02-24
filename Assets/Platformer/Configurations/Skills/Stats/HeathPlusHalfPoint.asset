@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69708791eebd3484d890a5adba311222, type: 3}
-  m_Name: StatsSkillContainer
+  m_Script: {fileID: 11500000, guid: 5c3d19034d59f8646b68f8d9e89cc42c, type: 3}
+  m_Name: HeathPlusHalfPoint
   m_EditorClassIdentifier: 
-  _skills:
-  - {fileID: 11400000, guid: 85d49d1806511a743ab13fc5c5f4f920, type: 2}
+  _skillId: skill_plusHalfPoint
+  _maxHealth: 0.5
+  _damageImmuneTime: 0

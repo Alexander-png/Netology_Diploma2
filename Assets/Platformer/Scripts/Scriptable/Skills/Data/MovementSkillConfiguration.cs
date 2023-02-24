@@ -1,7 +1,7 @@
-using Platformer.CharacterSystem.Movement.Base;
+using Platformer.CharacterSystem.StatsData;
 using UnityEngine;
 
-namespace Platformer.Scriptable.Skills.Configurations
+namespace Platformer.Scriptable.Skills.Data
 {
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Skills/Movement skill")]
 	public class MovementSkillConfiguration : SkillConfiguration<MovementStatsData>

@@ -1,4 +1,4 @@
-using Platformer.Scriptable.Characters.AIConfig;
+using Platformer.Scriptable.EntityConfig.AIConfig;
 using System.Collections;
 using UnityEngine;
 

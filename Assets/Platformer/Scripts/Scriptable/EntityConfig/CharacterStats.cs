@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
 
-namespace Platformer.Scriptable.Characters
+namespace Platformer.Scriptable.EntityConfig
 {
+	// TODO: replace default stats with default skills.
 	[CreateAssetMenu(fileName = "NewObj", menuName = "ScriptableObjects/Character stats")]
+    [Obsolete("Must remove this class. Use Character skills instead")]
 	public class CharacterStats : ScriptableObject
 	{
-		// TODO: split this class by character types
 		[SerializeField]
 		private string _name;
 		[SerializeField]

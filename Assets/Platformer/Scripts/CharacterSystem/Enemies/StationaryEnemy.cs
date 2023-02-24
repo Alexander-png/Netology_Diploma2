@@ -1,5 +1,5 @@
 using Platformer.CharacterSystem.Base;
-using Platformer.Scriptable.Characters;
+using Platformer.Scriptable.EntityConfig;
 using System;
 using UnityEngine;
 

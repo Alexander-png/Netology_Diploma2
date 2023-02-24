@@ -1,5 +1,6 @@
 using Platformer.CharacterSystem.Base;
-using Platformer.Scriptable.Characters;
+using Platformer.CharacterSystem.StatsData;
+using Platformer.Scriptable.EntityConfig;
 using Platformer.SkillSystem;
 using System;
 using System.Collections;
@@ -53,6 +54,16 @@ namespace Platformer.PlayerSystem
             _currentHealth = _maxHealth;
             _damageImmuneTime = stats.DamageImmuneTime;
         }
+
+        //public override void AddStats(CharacterStatsData stats)
+        //{
+
+        //}
+
+        //public override void RemoveStats(MovementStatsData stats)
+        //{
+            
+        //}
 
         public void SetDamage(float damage, Vector3 pushVector, bool forced = false)
         {

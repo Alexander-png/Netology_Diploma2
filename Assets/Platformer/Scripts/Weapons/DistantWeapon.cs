@@ -1,7 +1,7 @@
 using Platformer.EditorExtentions;
 using Platformer.GameCore.Helpers;
 using Platformer.Projectiles;
-using Platformer.Scriptable.Characters;
+using Platformer.Scriptable.EntityConfig;
 using System.Collections;
 using UnityEngine;
 

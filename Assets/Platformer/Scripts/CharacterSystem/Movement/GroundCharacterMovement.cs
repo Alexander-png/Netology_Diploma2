@@ -1,5 +1,6 @@
 using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Movement.Base;
+using Platformer.CharacterSystem.StatsData;
 using System.Collections;
 using UnityEngine;
 
