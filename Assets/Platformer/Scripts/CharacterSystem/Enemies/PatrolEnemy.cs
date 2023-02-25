@@ -101,8 +101,9 @@ namespace Platformer.CharacterSystem.Enemies
         }
 
 #if UNITY_EDITOR
-        protected virtual void OnDrawGizmos()
+        protected override void OnDrawGizmos()
         {
+            base.OnDrawGizmos();
             Gizmos.color = Color.yellow;
 
             if (_detectorConfig != null)

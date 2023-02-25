@@ -13,6 +13,7 @@ namespace Platformer.CharacterSystem.Base
     {
 		public float MaxHealth { get; }
         public float CurrentHealth { get; }
+		public bool CanBeDamaged { get; }
 		public void SetDamage(float damage, Vector3 pushVector, bool forced = false);
 		public void Heal(float value);
 

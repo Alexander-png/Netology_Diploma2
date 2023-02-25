@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerSkill
   m_EditorClassIdentifier: 
   _skillId: skill_basePlayerStats
-  _maxHealth: 6
+  _maxHealth: 30000
   _damageImmuneTime: 1

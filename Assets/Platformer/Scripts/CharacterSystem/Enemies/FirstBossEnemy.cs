@@ -1,5 +1,6 @@
 using Platformer.CharacterSystem.Base;
 using Platformer.EditorExtentions;
+using Platformer.GameCore;
 using System.Collections;
 using UnityEngine;
 
@@ -94,7 +95,11 @@ namespace Platformer.CharacterSystem.Enemies
                 return;
             }
             _attacker.OnSecondAttackPressed();
-            InvokeEntityEvent(EntityEventTypes.Walk);
+
+            if (!CloseToPlayer)
+            {
+                InvokeEntityEvent(EntityEventTypes.Walk);
+            }
             MovementController.HorizontalInput = CalculateHorizontalInput();
             BeginDash();
         }

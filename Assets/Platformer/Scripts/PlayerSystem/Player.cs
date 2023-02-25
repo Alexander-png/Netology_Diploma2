@@ -11,6 +11,7 @@ namespace Platformer.PlayerSystem
         private Inventory _inventory;     
         private SkillObserver _skillObserver;     
         private PlayerInputListener _playerInputListener;
+        private Coroutine _damageImmuneCoroutine;
 
         private bool _damageImmune = false;
         private float _currentHealth;
@@ -18,6 +19,7 @@ namespace Platformer.PlayerSystem
         public float MaxHealth => _currentStats.MaxHealth;
         public float DamageImmuneTime => _currentStats.DamageImmuneTime;
         public float CurrentHealth => _currentHealth;
+        public bool CanBeDamaged => _damageImmuneCoroutine == null;
 
         public Inventory Inventory => _inventory;
         public SkillObserver SkillObserver => _skillObserver;
@@ -52,13 +54,12 @@ namespace Platformer.PlayerSystem
                 return;
             }
 
-            StopCoroutine(DamageImmuneCoroutine(DamageImmuneTime));
             MovementController.Velocity = pushVector;
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, MaxHealth);
             if (_currentHealth > 0)
             {
                 InvokeEntityEvent(EntityEventTypes.Damage);
-                StartCoroutine(DamageImmuneCoroutine(DamageImmuneTime));
+                _damageImmuneCoroutine = StartCoroutine(DamageImmuneCoroutine(DamageImmuneTime));
             }
 
             if (_currentHealth < 0.01f)
@@ -87,6 +88,7 @@ namespace Platformer.PlayerSystem
             _damageImmune = true;
             yield return new WaitForSeconds(time);
             _damageImmune = false;
+            _damageImmuneCoroutine = null;
         }
     }
 }

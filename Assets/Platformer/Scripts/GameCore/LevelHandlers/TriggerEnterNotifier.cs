@@ -3,45 +3,48 @@ using Platformer.PlayerSystem;
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
-public class TriggerEnterNotifier : MonoBehaviour
+namespace Platformer.GameCore
 {
-    [SerializeField, ReadOnly]
-    private BoxCollider _trigger;
-
-    public Vector3 Size => _trigger.size;
-    public event EventHandler OnPlayerEnteredTrigger;
-
-    private void Awake() =>
-        FindTrigger();
-
-    private void OnTriggerEnter(Collider other)
+    [RequireComponent(typeof(BoxCollider))]
+    public class TriggerEnterNotifier : MonoBehaviour
     {
-        if (other.TryGetComponent(out Player _))
-        {
-            OnPlayerEnteredTrigger?.Invoke(this, EventArgs.Empty);
-        }
-    }
+        [SerializeField, ReadOnly]
+        private BoxCollider _trigger;
 
-    private void FindTrigger()
-    {
-        if (_trigger == null)
+        public Vector3 Size => _trigger.size;
+        public event EventHandler OnPlayerEnteredTrigger;
+
+        private void Awake() =>
+            FindTrigger();
+
+        private void OnTriggerEnter(Collider other)
         {
-            _trigger = GetComponent<BoxCollider>();
+            if (other.TryGetComponent(out Player _))
+            {
+                OnPlayerEnteredTrigger?.Invoke(this, EventArgs.Empty);
+            }
         }
-    }
+
+        private void FindTrigger()
+        {
+            if (_trigger == null)
+            {
+                _trigger = GetComponent<BoxCollider>();
+            }
+        }
 
 #if UNITY_EDITOR
-    private void OnValidate() =>
-        FindTrigger();
+        private void OnValidate() =>
+            FindTrigger();
 
-    private void OnDrawGizmos()
-    {
-        FindTrigger();
-        Color c = Color.magenta;
-        c.a = 0.1f;
-        Gizmos.color = c;
-        Gizmos.DrawCube(transform.position, Size);
-    }
+        private void OnDrawGizmos()
+        {
+            FindTrigger();
+            Color c = Color.magenta;
+            c.a = 0.1f;
+            Gizmos.color = c;
+            Gizmos.DrawCube(transform.position, Size);
+        }
 #endif
+    }
 }

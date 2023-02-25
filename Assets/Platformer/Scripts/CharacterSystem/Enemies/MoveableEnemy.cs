@@ -1,5 +1,6 @@
 using Platformer.CharacterSystem.Attacking;
 using Platformer.CharacterSystem.Base;
+using Platformer.EditorExtentions;
 using Platformer.GameCore;
 using Platformer.PlayerSystem;
 using Platformer.Scriptable.EntityConfig;
@@ -32,20 +33,31 @@ namespace Platformer.CharacterSystem.Enemies
 
         public float CurrentHealth => _currentHealth;
         public float MaxHealth => _currentStats.MaxHealth;
+        public bool CanBeDamaged => true;
+
+        protected bool CloseToPlayer =>
+            Vector3.Distance(transform.position, _player.transform.position) < _behaviourConfig.CloseToPlayerDistance;
+
+        protected override void OnDisable()
+        {
+            if (_attacker != null)
+            {
+                _attacker.EventInvoked -= OnAttackerEvent;
+            }
+        }
 
         protected override void Start()
         {
             base.Start();
             _attacker = gameObject.GetComponentInChildren<Attacker>();
-            _gameSystem.GameLoaded += OnGameLoaded;
+            if (_attacker == null)
+            {
+                GameLogger.AddMessage("No attacker found. Can not attack enemies", GameLogger.LogType.Error);
+            }
+            _attacker.EventInvoked += OnAttackerEvent;
+             _gameSystem.GameLoaded += OnGameLoaded;
             SetBehaviourEnabled(true);
             _currentHealth = MaxHealth;
-        }
-
-        private void OnGameLoaded(object sender, EventArgs e)
-        {
-            _gameSystem.GameLoaded -= OnGameLoaded;
-            _player = _gameSystem.GetPlayer();
         }
 
         protected override void Update()
@@ -62,6 +74,15 @@ namespace Platformer.CharacterSystem.Enemies
         {
             base.FixedUpdate();
             FixedUpdateBehaviour();
+        }
+
+        private void OnAttackerEvent(object sender, EntityEventTypes e) =>
+            InvokeEntityEvent(e);
+
+        private void OnGameLoaded(object sender, EventArgs e)
+        {
+            _gameSystem.GameLoaded -= OnGameLoaded;
+            _player = _gameSystem.GetPlayer();
         }
 
         protected virtual void UpdateBehaviour() { }
@@ -160,6 +181,14 @@ namespace Platformer.CharacterSystem.Enemies
         private void Death()
         {
             SetDamage(_currentHealth, Vector3.zero);
+        }
+
+        protected virtual void OnDrawGizmos()
+        {
+            Color c = Color.cyan;
+            c.a = 0.2f;
+            Gizmos.color = c;
+            Gizmos.DrawSphere(transform.position, _behaviourConfig.CloseToPlayerDistance);
         }
 #endif
     }

@@ -50,7 +50,11 @@ namespace Platformer.CharacterSystem.Attacking
             {
                 if (CurrentWeapon != null)
                 {
-                    enemy.SetDamage(CurrentWeapon.Stats.Damage, (other.transform.position - transform.position) * CurrentWeapon.Stats.PushForce);
+                    if (enemy.CanBeDamaged)
+                    {
+                        InvokeAttackerEvent(EntityEventTypes.Attack);
+                        enemy.SetDamage(CurrentWeapon.Stats.Damage, (other.transform.position - transform.position) * CurrentWeapon.Stats.PushForce);
+                    }
                 }
             }
             if (CurrentWeapon.Stats.IsKamikazeAttack)
