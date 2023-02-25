@@ -1,5 +1,4 @@
 using Platformer.CharacterSystem.Base;
-using Platformer.EditorExtentions;
 using UnityEngine;
 
 namespace Platformer.EffectSystem

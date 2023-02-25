@@ -18,6 +18,8 @@ namespace Platformer.CharacterSystem.Enemies
         [SerializeField]
         protected EnemyBehaviourConfig _behaviourConfig;
 
+        private bool _dead;
+
         protected Attacker _attacker;
         protected float _currentHealth;
         protected Player _player;
@@ -36,9 +38,6 @@ namespace Platformer.CharacterSystem.Enemies
             base.Start();
             _attacker = gameObject.GetComponentInChildren<Attacker>();
             _gameSystem.GameLoaded += OnGameLoaded;
-
-            MovementController.MovementEnabled = true;
-            MovementController.SetAnimator(EntityAnimator);
             SetBehaviourEnabled(true);
             _currentHealth = MaxHealth;
         }
@@ -52,6 +51,10 @@ namespace Platformer.CharacterSystem.Enemies
         protected override void Update()
         {
             base.Update();
+            if (!_behaviourEnabled)
+            {
+                return;
+            }
             UpdateBehaviour();
         }
 
@@ -65,27 +68,60 @@ namespace Platformer.CharacterSystem.Enemies
         protected virtual void FixedUpdateBehaviour() { }
         protected virtual void CheckPlayerNearby() { }
 
-        protected void InvokeDiedEvent() => 
-            Died?.Invoke(this, EventArgs.Empty);
-
         public bool SetBehaviourEnabled(bool value) =>
             _behaviourEnabled = value;
 
-        public void SetDamage(float damage, Vector3 pushVector, bool forced = false)
+        public virtual void SetDamage(float damage, Vector3 pushVector, bool forced = false)
         {
             if (_currentHealth <= 0)
             {
                 return;
             }
 
+            SetBehaviourEnabled(false);
+            MovementController.MovementEnabled = false;
             MovementController.Velocity = pushVector;
+
             _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, MaxHealth);
             if (_currentHealth < 0.01f)
             {
-                InvokeDiedEvent();
-                SetBehaviourEnabled(false);
+                InvokeEntityEvent(EntityEventTypes.Death);
                 EditorExtentions.GameLogger.AddMessage($"Enemy with name {gameObject.name} killed. You can implement respawn system");
-                gameObject.SetActive(false);
+            }
+            else
+            {
+                InvokeEntityEvent(EntityEventTypes.Damage);
+            }
+        }
+
+        public override void InvokeEntityEvent(EntityEventTypes e)
+        {
+            base.InvokeEntityEvent(e);
+
+            if (_dead)
+            {
+                return;
+            }
+
+            if (e == EntityEventTypes.Death)
+            {
+                _dead = true;
+                Died?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        public override void OnEventProcessed(EntityEventTypes e)
+        {
+            switch (e)
+            {
+                case EntityEventTypes.Damage:
+                    SetBehaviourEnabled(true);
+                    MovementController.MovementEnabled = true;
+                    InvokeEntityEvent(EntityEventTypes.ResetState);
+                    break;
+                case EntityEventTypes.Death:
+                    gameObject.SetActive(false);
+                    break;
             }
         }
 
@@ -112,5 +148,19 @@ namespace Platformer.CharacterSystem.Enemies
             _pursuingPlayer = false;
             _attacker.OnAttackReleased();
         }
+
+#if UNITY_EDITOR
+        [ContextMenu("Invoke damage")]
+        private void Damage()
+        {
+            SetDamage(0, Vector3.zero);
+        }
+
+        [ContextMenu("Invoke death")]
+        private void Death()
+        {
+            SetDamage(_currentHealth, Vector3.zero);
+        }
+#endif
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BossSpiderSkill
   m_EditorClassIdentifier: 
   _skillId: skill_bossSpiderSkill
-  _maxHealth: 6
+  _maxHealth: 1
   _damageImmuneTime: 1

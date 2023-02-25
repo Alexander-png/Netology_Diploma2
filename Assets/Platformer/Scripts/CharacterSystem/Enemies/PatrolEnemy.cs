@@ -1,3 +1,4 @@
+using Platformer.CharacterSystem.Base;
 using Platformer.Scriptable.EntityConfig.AIConfig;
 using System.Collections;
 using UnityEngine;
@@ -27,6 +28,7 @@ namespace Platformer.CharacterSystem.Enemies
 
         protected virtual void Patrol()
         {
+            InvokeEntityEvent(EntityEventTypes.Walk);
             switch (_direction)
             {
                 case MovementDirection.Left:
@@ -84,6 +86,7 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 yield break;
             }
+            InvokeEntityEvent(EntityEventTypes.Idle);
             _inIdle = true;
             MovementController.HorizontalInput = 0;
             MovementController.Velocity = Vector3.zero;

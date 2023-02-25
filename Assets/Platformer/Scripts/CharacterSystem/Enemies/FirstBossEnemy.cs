@@ -1,3 +1,4 @@
+using Platformer.CharacterSystem.Base;
 using Platformer.EditorExtentions;
 using System.Collections;
 using UnityEngine;
@@ -77,6 +78,15 @@ namespace Platformer.CharacterSystem.Enemies
             StartCoroutine(DashCooldown());
         }
 
+        protected override void Patrol()
+        {
+            if (_chargingDash)
+            {
+                return;
+            }
+            base.Patrol();
+        }
+
         private void PursuitPlayer()
         {
             if (_chargingDash)
@@ -84,6 +94,7 @@ namespace Platformer.CharacterSystem.Enemies
                 return;
             }
             _attacker.OnSecondAttackPressed();
+            InvokeEntityEvent(EntityEventTypes.Walk);
             MovementController.HorizontalInput = CalculateHorizontalInput();
             BeginDash();
         }
@@ -122,11 +133,13 @@ namespace Platformer.CharacterSystem.Enemies
 
             UpdateRotation();
             MovementController.StopImmediatly();
+            InvokeEntityEvent(EntityEventTypes.Idle);
             _chargingDash = true;
             yield return new WaitForSeconds(_behaviourConfig.DashChargeTime);
             MovementController.HorizontalInput = CalculateHorizontalInput();
             _chargingDash = false;
             _dashesLeft -= 1;
+            InvokeEntityEvent(EntityEventTypes.DashStarted);
             MovementController.TriggerDash(1);
 
             StartCoroutine(DashCooldown());
@@ -158,5 +171,13 @@ namespace Platformer.CharacterSystem.Enemies
             _reloadingDash = false;
             _dashesLeft = _behaviourConfig.DashCountWithoutReload;
         }
+
+#if UNITY_EDITOR
+        [ContextMenu("Invoke dash")]
+        private void Dash()
+        {
+            BeginDash();
+        }
+#endif
     }
 }

@@ -94,7 +94,7 @@ namespace Platformer.CharacterSystem.Attacking
             {
                 if (_currentWeapon != null)
                 {
-                    enemy.SetDamage(GetDamageValue(), (transform.position - other.transform.position) * CurrentWeapon.Stats.PushForce);
+                    enemy.SetDamage(GetDamageValue(), (other.transform.position - transform.position) * CurrentWeapon.Stats.PushForce);
                 }
             }
         }
