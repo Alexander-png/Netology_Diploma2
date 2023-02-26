@@ -23,7 +23,7 @@ namespace Platformer.CharacterSystem.Ambient
             _eventSource = GetComponent<Entity>();
             if (_eventSource == null)
             {
-                GameLogger.AddMessage("No entity found. Animations will not work.", GameLogger.LogType.Error);
+                GameLogger.AddMessage($"No entity foundon {gameObject.name}.", GameLogger.LogType.Error);
                 return;
             }
             _eventSource.EventInvoked += OnEntityEvent;
@@ -32,7 +32,7 @@ namespace Platformer.CharacterSystem.Ambient
             _animationListner = GetComponentInChildren<AnimationListener>();
             if (_animationListner == null)
             {
-                GameLogger.AddMessage("Animation listener not found.", GameLogger.LogType.Error);
+                GameLogger.AddMessage("Animation listener not found. No animation callbacks will be processed", GameLogger.LogType.Warning);
                 return;
             }
             _animationListner.SetListener(OnAnimationEnd);

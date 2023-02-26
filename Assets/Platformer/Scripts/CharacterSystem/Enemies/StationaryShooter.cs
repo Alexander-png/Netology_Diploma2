@@ -1,4 +1,5 @@
 using Platformer.CharacterSystem.Attacking;
+using Platformer.CharacterSystem.Base;
 using Platformer.EditorExtentions;
 using UnityEngine;
 
@@ -9,10 +10,28 @@ namespace Platformer.CharacterSystem.Enemies
         [SerializeField, ReadOnly]
         private DistantAttacker _attacker;
 
+        protected override void OnDisable()
+        {
+            if (_attacker != null)
+            {
+                _attacker.EventInvoked -= OnAttackerEvent;
+            }
+        }
+
         protected override void Start()
         {
             base.Start();
             FindAttacker();
+            _attacker.EventInvoked += OnAttackerEvent;
+        }
+
+        private void OnAttackerEvent(object sender, EntityEventTypes e) =>
+            InvokeEntityEvent(e);
+
+        public override void OnEventProcessed(EntityEventTypes e)
+        {
+            base.OnEventProcessed(e);
+            _attacker.OnEventProcessed(e);
         }
 
         private void FindAttacker()
