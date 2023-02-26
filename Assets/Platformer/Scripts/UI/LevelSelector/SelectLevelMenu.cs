@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace Platformer.UI.LevelSelector
 {
+    // TODO: How to synchronize data in reward table and save data in right way?
 	public class SelectLevelMenu : MenuComponent
 	{
         protected override void Initialize()

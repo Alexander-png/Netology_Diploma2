@@ -110,7 +110,7 @@ namespace Platformer.Scriptable.Skills.Data
 			MaxSpeed = _maxSpeed,
 			Acceleration = _acceleration,
             InAirDrag = _inAirDrag,
-            Jumps = new List<float>(_jumpsInRow),
+            Jumps = new List<float>(_jumpsInRow ?? new float[0]),
             ClimbForce = _climbForce,
 			WallClimbRepulsion = _wallClimbRepulsion,
             DashForce = _dashForce,

@@ -1,23 +1,23 @@
 namespace Platformer.SkillSystem.Skills
 {
-    public abstract class GenericStats 
+    public abstract class GenericSkill 
     {
         private string _skillId;
         public string SkillId => _skillId;
         
-        public GenericStats(string id) =>
+        public GenericSkill(string id) =>
             _skillId = id;
     }
 
     /// <summary>
-    /// Stats modificator, that applied to character directly
+    /// Skill, that applied to character directly
     /// </summary>
-	public class Stats<T> : GenericStats
+	public class Skill<T> : GenericSkill
     {
         protected T _data;
         public T Data => _data;
 
-        public Stats(string id, T data) : base(id) =>
+        public Skill(string id, T data) : base(id) =>
             _data = data;
     }
 }

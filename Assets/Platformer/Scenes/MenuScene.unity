@@ -1248,19 +1248,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660260657494, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[0].Id
-      value: skill_damagePlus15Percent
+      value: skill_attackReloadMinus50
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660260657494, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[1].Id
-      value: 
+      value: skill_damagePlus15Percent
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660260657494, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[0].Description
-      value: Damage +15%
+      value: Attack reload -50%
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660260657494, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[1].Description
-      value: 
+      value: Damage +15%
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660798817680, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[0].Id
@@ -1324,19 +1324,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660931055562, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[0].Id
-      value: 
+      value: skill_doubleJump
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660931055562, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[1].Id
-      value: 
+      value: skill_dash
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660931055562, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[0].Description
-      value: 
+      value: Double jump
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660931055562, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[1].Description
-      value: 
+      value: Dash
       objectReference: {fileID: 0}
     - target: {fileID: 1036067660931055562, guid: 97dc0a4650ef60f4b9276c01da77630b, type: 3}
       propertyPath: _levelData.RewardDict._values.Array.data[2].Description

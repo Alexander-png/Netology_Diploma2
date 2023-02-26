@@ -1,3 +1,4 @@
+using Platformer.Scriptable.Skills.Data;
 using Platformer.Scriptable.WeaponStats;
 using System;
 using System.Collections;
@@ -9,7 +10,9 @@ namespace Platformer.Weapons
 	{
         [SerializeField]
         protected WeaponStats _stats;
-        
+
+        // TODO: IHMO: modifying weapon reload time from attacker stats is not good solution.
+        private float _reloadTimeOffset;
         protected bool _chargingAttack;
         protected Coroutine _chargeAttackCoroutine;
 
@@ -17,15 +20,11 @@ namespace Platformer.Weapons
         private bool _reloadingAttack;
 
         public WeaponStats Stats => _stats;
+        public float ReloadTime => Stats.ReloadTime + _reloadTimeOffset;
 
         public virtual bool CanNotAttack() => _attacking || _reloadingAttack;
 
         public event EventHandler HitEnded;
-
-        protected override void Start()
-        {
-            base.Start();
-        }
 
         protected virtual void OnEnable() =>
             HitEnded += OnHitEnded;
@@ -49,13 +48,18 @@ namespace Platformer.Weapons
         }
 
         public virtual void MakeAlternativeHit() { }
-
         public virtual void StopHit() { }
+
+        public virtual void OnSkillAddedToAttacker(CombatSkillData toAdd) =>
+            _reloadTimeOffset += toAdd.ReloadTime; 
+
+        public virtual void OnSkillRemovedFromAttacker(CombatSkillData toRemove) =>
+            _reloadTimeOffset -= toRemove.ReloadTime;
 
         protected IEnumerator ReloadMainAttack()
         {
             _reloadingAttack = true;
-            yield return new WaitForSeconds(Stats.ReloadTime);
+            yield return new WaitForSeconds(ReloadTime);
             _reloadingAttack = false;
         }
     }

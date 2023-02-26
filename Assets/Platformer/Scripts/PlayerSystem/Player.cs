@@ -1,4 +1,5 @@
 using Platformer.CharacterSystem.Base;
+using Platformer.Scriptable.Skills.Data;
 using Platformer.SkillSystem;
 using System;
 using System.Collections;
@@ -68,9 +69,30 @@ namespace Platformer.PlayerSystem
             }
         }
 
+        public override void AddSkill(CharacterSkillData stats)
+        {
+            bool maxHealth = CurrentHealth == MaxHealth;
+            base.AddSkill(stats);
+            if (maxHealth)
+            {
+                _eventInvokingEnabled = false;
+                Heal(MaxHealth);
+                _eventInvokingEnabled = true;
+            }
+        }
+
+        public override void RemoveSkill(CharacterSkillData stats)
+        {
+            base.RemoveSkill(stats);
+            Heal(0f);
+        }
+
         public void Heal(float value)
         {
-            InvokeEntityEvent(EntityEventTypes.Heal);
+            if (value != 0)
+            {
+                InvokeEntityEvent(EntityEventTypes.Heal);
+            }
             _currentHealth = Mathf.Clamp(_currentHealth + value, 0, MaxHealth);
         }
 

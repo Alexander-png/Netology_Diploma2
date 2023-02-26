@@ -423,6 +423,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebf598afe594bf4fb4d5da464ddc3b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _skillContainers:
+  - {fileID: 11400000, guid: d52596ade5e1f8e42b96e00a5bde0d2d, type: 2}
+  - {fileID: 11400000, guid: 5b3768fc9aa6923449133df34fb8f04c, type: 2}
+  - {fileID: 11400000, guid: d557785920894f446bd2b99b29ef3d1b, type: 2}
   _movementSkillContainer: {fileID: 11400000, guid: 5b3768fc9aa6923449133df34fb8f04c, type: 2}
   _statsSkillContainer: {fileID: 11400000, guid: d52596ade5e1f8e42b96e00a5bde0d2d, type: 2}
   _combatSkillContainer: {fileID: 11400000, guid: d557785920894f446bd2b99b29ef3d1b, type: 2}

@@ -2,6 +2,7 @@ using Platformer.CharacterSystem.Base;
 using Platformer.EditorExtentions;
 using Platformer.Interaction;
 using Platformer.PlayerSystem;
+using Platformer.SkillSystem;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -15,7 +16,10 @@ namespace Platformer.GameCore
         [SerializeField]
         private float _levelReloadTime = 2f;
 
-        private Player _playerCharacter;
+        [SerializeField]
+        private string[] _defaultLevelSkillIds;
+
+        private Player _player;
         private bool _isLevelCompleted;
         private float _levelTime;
         private InteractableTrigger _currentInteractable;
@@ -68,11 +72,9 @@ namespace Platformer.GameCore
             StartCoroutine(LoadedNotifier());
         }
 
-
-
         private void OnPlayerDied(object sender, EventArgs e)
         {
-            _playerCharacter.Died -= OnPlayerDied;
+            _player.Died -= OnPlayerDied;
             StartCoroutine(ReloadLevelCoroutine());
         }
 
@@ -101,28 +103,28 @@ namespace Platformer.GameCore
         private void OnAreaShowed(object sender, EventArgs e) =>
             SetPlayerHandlingEnabled(true);
 
-        public void SetPlayerHandlingEnabled(bool value) => _playerCharacter.HandlingEnabled = value;
+        public void SetPlayerHandlingEnabled(bool value) => _player.HandlingEnabled = value;
 
         public void AddSkillToPlayer(string skillId)
         {
-            (_playerCharacter as ISkillObservable).SkillObserver.AddSkill(skillId);
+            (_player as ISkillObservable).SkillObserver.AddSkill(skillId);
             GameLogger.AddMessage($"Given skill with id {skillId} to player.");
         }
 
         public bool CheckSkillAdded(string skillId) =>
-            (_playerCharacter as ISkillObservable).SkillObserver.CheckSkillAdded(skillId);
+            (_player as ISkillObservable).SkillObserver.CheckSkillAdded(skillId);
 
         public void OnItemCollected(IInventoryItem item) =>
-            _playerCharacter.Inventory.AddItem(item.ItemId);
+            _player.Inventory.AddItem(item.ItemId);
 
         public void AddItemToPlayer(IInventoryItem item) =>
-            _playerCharacter.Inventory.AddItem(item.ItemId);
+            _player.Inventory.AddItem(item.ItemId);
 
         public void RemoveItemFromPlayer(string itemId, int count = 1) =>
-            _playerCharacter.Inventory.RemoveItem(itemId, count);
+            _player.Inventory.RemoveItem(itemId, count);
 
         public bool CheckItemInInventory(string itemId, int count = 1) =>
-            _playerCharacter.Inventory.ContainsItem(itemId, count);
+            _player.Inventory.ContainsItem(itemId, count);
 
         public void SetConversationUIEnabled(bool value) =>
             ConversationUIEnabledChanged?.Invoke(this, value);
@@ -135,21 +137,30 @@ namespace Platformer.GameCore
             _isLevelCompleted = true;
             SetPlayerHandlingEnabled(false);
             SaveSystem.OnLevelCompleted(levelName, _levelTime);
-            _playerCharacter.MovementController.Velocity = Vector3.zero;
+            _player.MovementController.Velocity = Vector3.zero;
             LevelCompleted?.Invoke(this, EventArgs.Empty);
         }
 
-        public Player GetPlayer() => _playerCharacter;
+        public Player GetPlayer() => _player;
 
         private IEnumerator LoadedNotifier()
         {
             yield return null;
-            _playerCharacter = FindObjectOfType<Player>();
-            if (_playerCharacter == null)
+            _player = FindObjectOfType<Player>();
+            if (_player == null)
             {
                 GameLogger.AddMessage("No player found!", GameLogger.LogType.Fatal);
             }
-            _playerCharacter.Died += OnPlayerDied;
+            _player.Died += OnPlayerDied;
+            SkillObserver skillObserver;
+
+            _player.gameObject.TryGetComponent(out skillObserver);
+            if (skillObserver != null)
+            {
+                skillObserver.AddSkill(_defaultLevelSkillIds, true);
+                skillObserver.AddSkill(SaveSystem.GetRewardList());
+            }
+
             GameLoaded?.Invoke(this, EventArgs.Empty);
         }
 
@@ -163,7 +174,7 @@ namespace Platformer.GameCore
         [ContextMenu("Fill fields")]
         private void FindPlayerOnScene()
         {
-            _playerCharacter = FindObjectOfType<Player>();
+            _player = FindObjectOfType<Player>();
         }
 
         [ContextMenu("Clear save data")]

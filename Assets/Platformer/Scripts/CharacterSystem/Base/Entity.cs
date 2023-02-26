@@ -27,6 +27,7 @@ namespace Platformer.CharacterSystem.Base
         private StatsSkillConfiguration _baseStats;
 
         protected CharacterSkillData _currentStats;
+        protected bool _eventInvokingEnabled = true;
 
         public event EventHandler Respawning;
         public event EventHandler<EntityEventTypes> EventInvoked;
@@ -60,6 +61,10 @@ namespace Platformer.CharacterSystem.Base
 
         public virtual void InvokeEntityEvent(EntityEventTypes e)
         {
+            if (!_eventInvokingEnabled)
+            {
+                return;
+            }
             if (EventInvoked != null)
             {
                 EventInvoked.Invoke(this, e);

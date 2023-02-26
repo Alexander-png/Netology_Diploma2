@@ -41,6 +41,7 @@ namespace Platformer.CharacterSystem.Attacking
             CurrentWeapon = GetComponentInChildren<MeleeWeapon>();
             _damageTrigger = GetComponent<Collider>();
             _damageTrigger.enabled = false;
+            _combatSkillData = _defaultSkills.GetData();
         }
 
         private void OnDisable() =>
@@ -76,13 +77,13 @@ namespace Platformer.CharacterSystem.Attacking
         {
             // My game architechture went bad and this showed here.
             // TODO: resolve this problem.
-            if (other.TryGetComponent(out MoveableEnemy enemy))
+            other.TryGetComponent(out Entity entity);
+            if (entity != null)
             {
-                return enemy;
-            }
-            if (other.TryGetComponent(out StationaryEnemy enemy1))
-            {
-                return enemy1;
+                if (entity is MoveableEnemy || entity is StationaryEnemy)
+                { 
+                    return entity as IDamagable; 
+                }
             }
             return null;
         }
@@ -104,6 +105,20 @@ namespace Platformer.CharacterSystem.Attacking
 
         public override float GetAttackChargeTime() =>
             CurrentWeapon.Stats.StrongAttackChargeTime;
+
+        public override void AddSkill(CombatSkillData toAdd)
+        {
+            base.AddSkill(toAdd);
+            CurrentWeapon.OnSkillAddedToAttacker(toAdd);
+            _combatSkillData += toAdd;
+        }
+
+        public override void RemoveSkill(CombatSkillData toRemove)
+        {
+            base.RemoveSkill(toRemove);
+            CurrentWeapon.OnSkillRemovedFromAttacker(toRemove);
+            _combatSkillData -= toRemove;
+        }
 
 #if UNITY_EDITOR
         protected virtual void OnDrawGizmos()

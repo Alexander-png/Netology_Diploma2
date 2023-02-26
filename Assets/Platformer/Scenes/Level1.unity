@@ -5862,6 +5862,30 @@ PrefabInstance:
       propertyPath: _playerCharacter
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4494643502856936058, guid: 3f2117014d44f4f43aab0d56efaf27df, type: 3}
+      propertyPath: _defaultSkillIds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494643502856936058, guid: 3f2117014d44f4f43aab0d56efaf27df, type: 3}
+      propertyPath: _defaultSkillIds.Array.data[0]
+      value: skill_doubleJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494643502856936058, guid: 3f2117014d44f4f43aab0d56efaf27df, type: 3}
+      propertyPath: _defaultSkillIds.Array.data[1]
+      value: skill_dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494643502856936058, guid: 3f2117014d44f4f43aab0d56efaf27df, type: 3}
+      propertyPath: _defaultLevelSkillIds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494643502856936058, guid: 3f2117014d44f4f43aab0d56efaf27df, type: 3}
+      propertyPath: _defaultLevelSkillIds.Array.data[0]
+      value: skill_doubleJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494643502856936058, guid: 3f2117014d44f4f43aab0d56efaf27df, type: 3}
+      propertyPath: _defaultLevelSkillIds.Array.data[1]
+      value: skill_dash
+      objectReference: {fileID: 0}
     - target: {fileID: 4494643502856936059, guid: 3f2117014d44f4f43aab0d56efaf27df, type: 3}
       propertyPath: m_RootOrder
       value: 0

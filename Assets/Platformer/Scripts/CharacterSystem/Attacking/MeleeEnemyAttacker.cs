@@ -29,7 +29,7 @@ namespace Platformer.CharacterSystem.Attacking
                 _damageTrigger.enabled = true;
                 yield return new WaitForSeconds(CurrentWeapon.Stats.AttackDuration); 
                 _damageTrigger.enabled = false;
-                yield return new WaitForSeconds(CurrentWeapon.Stats.ReloadTime);
+                yield return new WaitForSeconds(CurrentWeapon.ReloadTime);
             }
             _attackerCoroutine = null;
         }

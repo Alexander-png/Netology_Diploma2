@@ -18,10 +18,9 @@ MonoBehaviour:
   _inAirDrag: 0
   _jumpsInRow:
   - 7
-  - 5
   _climbForce: 2
   _wallClimbRepulsion: 5
-  _dashForce: 25
-  _dashDuration: 0.3
-  _dashRechargeTime: 1
-  _verticalDashDelimeter: 4
+  _dashForce: 0
+  _dashDuration: 0
+  _dashRechargeTime: 0
+  _verticalDashDelimeter: 0

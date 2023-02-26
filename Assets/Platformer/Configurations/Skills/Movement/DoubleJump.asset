@@ -15,9 +15,13 @@ MonoBehaviour:
   _skillId: skill_doubleJump
   _maxSpeed: 0
   _acceleration: 0
-  _jumpCountInRow: 1
+  _inAirDrag: 0
+  _jumpsInRow:
+  - 0
+  - 5
   _climbForce: 0
   _wallClimbRepulsion: 0
-  _dashDistance: 0
+  _dashForce: 0
   _dashDuration: 0
   _dashRechargeTime: 0
+  _verticalDashDelimeter: 0

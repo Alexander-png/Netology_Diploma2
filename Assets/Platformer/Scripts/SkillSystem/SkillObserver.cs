@@ -2,7 +2,6 @@ using Platformer.CharacterSystem.Attacking;
 using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Movement.Base;
 using Platformer.EditorExtentions;
-using Platformer.GameCore;
 using Platformer.Scriptable.Skills.Containers;
 using Platformer.Scriptable.Skills.Data;
 using Platformer.SkillSystem.Skills;
@@ -14,77 +13,82 @@ namespace Platformer.SkillSystem
 	public class SkillObserver : MonoBehaviour
 	{
         [SerializeField]
-        private MovementSkillContainer _movementSkillContainer;
-        [SerializeField]
-        private StatsSkillContainer _statsSkillContainer;
-        [SerializeField]
-        private CombatSkillContainer _combatSkillContainer;
+        private SkillContainer[] _skillContainers;
 
-        [SerializeField, Space(15)]
+        [SerializeField]
         private bool _distinctSkillsOnly = true;
 
         private Entity _entity;
         private CharacterMovement _movementController;
         private Attacker _attacker;
-        private List<GenericStats> _appliedSkills = new List<GenericStats>();
+        private List<GenericSkill> _appliedSkills = new List<GenericSkill>();
 
         private void Start()
         {
             _movementController = gameObject.GetComponent<CharacterMovement>();
             _entity = gameObject.GetComponent<Entity>();
             _attacker = gameObject.GetComponentInChildren<Attacker>();
-            AddSkill(SaveSystem.GetRewardList());
         }
 
-        private GenericStats FindAppliedSkill(string id) =>
+        private GenericSkill FindAppliedSkill(string id) =>
             _appliedSkills.Find(s => s.SkillId == id);
 
-        public void AddSkill(string skillId)
+        public void AddSkill(string skillId, bool distinctForNow = false)
         {
-            var skill = _movementSkillContainer.CreateSkill(skillId);
-            if (_distinctSkillsOnly)
+            if (_distinctSkillsOnly || distinctForNow)
             {
-                if (FindAppliedSkill(skill.SkillId) != null)
+                if (FindAppliedSkill(skillId) != null)
                 {
                     return;
                 }
             }
-            AddSkillToEntity(skill);
-            _appliedSkills.Add(skill);
+            GenericSkill skill = null;
+            foreach (var container in _skillContainers)
+            {
+                container.TryCreateSkill(skillId, out skill);
+                if (skill != null)
+                {
+                    AddSkillToEntity(skill);
+                    break;
+                }
+            }
+            if (skill == null)
+            {
+                GameLogger.AddMessage($"Skill with id {skill} not found in containers.", GameLogger.LogType.Warning);
+            }
         }
 
-        public void AddSkill(string[] skillIds)
+        public void AddSkill(string[] skillIds, bool distinctForNow = false)
         {
             foreach (var id in skillIds)
             {
-                AddSkill(id);
+                AddSkill(id, distinctForNow);
             }
         }
 
 		public void RemoveSkill(string skillId)
         {
-            GenericStats skillToRemove = FindAppliedSkill(skillId);
+            GenericSkill skillToRemove = FindAppliedSkill(skillId);
             if (skillToRemove != null)
             {
                 RemoveSkillFromEntity(skillToRemove);
-                _appliedSkills.Remove(skillToRemove);
             }
         }
 
         public bool CheckSkillAdded(string skillId) =>
             FindAppliedSkill(skillId) != null;
 
-        private void AddSkillToEntity(GenericStats skill)
+        private void AddSkillToEntity(GenericSkill skill)
         {
-            if (skill is Stats<CharacterSkillData> stats)
+            if (skill is Skill<CharacterSkillData> stats)
             {
                 _entity.AddSkill(stats.Data);
             }
-            else if (skill is Stats<MovementSkillData> moves)
+            else if (skill is Skill<MovementSkillData> moves)
             {
                 _movementController.AddSkill(moves.Data);
             }
-            else if (skill is Stats<CombatSkillData> combat)
+            else if (skill is Skill<CombatSkillData> combat)
             {
                 _attacker.AddSkill(combat.Data);
             }
@@ -92,19 +96,20 @@ namespace Platformer.SkillSystem
             {
                 GameLogger.AddMessage($"Unknown skill type: {skill.GetType()}", GameLogger.LogType.Error);
             }
+            _appliedSkills.Add(skill);
         }
 
-        private void RemoveSkillFromEntity(GenericStats skill)
+        private void RemoveSkillFromEntity(GenericSkill skill)
         {
-            if (skill is Stats<CharacterSkillData> stats)
+            if (skill is Skill<CharacterSkillData> stats)
             {
                 _entity.RemoveSkill(stats.Data);
             }
-            else if (skill is Stats<MovementSkillData> moves)
+            else if (skill is Skill<MovementSkillData> moves)
             {
                 _movementController.RemoveSkill(moves.Data);
             }
-            else if (skill is Stats<CombatSkillData> combat)
+            else if (skill is Skill<CombatSkillData> combat)
             {
                 _attacker.RemoveSkill(combat.Data);
             }
@@ -112,6 +117,7 @@ namespace Platformer.SkillSystem
             {
                 GameLogger.AddMessage($"Unknown skill type: {skill.GetType()}", GameLogger.LogType.Error);
             }
+            _appliedSkills.Remove(skill);
         }
     }
 }
