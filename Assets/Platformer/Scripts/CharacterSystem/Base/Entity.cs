@@ -58,8 +58,17 @@ namespace Platformer.CharacterSystem.Base
         public virtual void NotifyRespawn() => 
             Respawning?.Invoke(this, EventArgs.Empty);
 
-        public virtual void InvokeEntityEvent(EntityEventTypes e) =>
-            EventInvoked?.Invoke(this, e);
+        public virtual void InvokeEntityEvent(EntityEventTypes e)
+        {
+            if (EventInvoked != null)
+            {
+                EventInvoked.Invoke(this, e);
+            }
+            else
+            {
+                OnEventProcessed(e);
+            }
+        }
 
         public virtual void OnEventProcessed(EntityEventTypes e) { }
     }
