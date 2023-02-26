@@ -22,7 +22,9 @@ namespace Platformer.CharacterSystem.Movement.Base
         private float _verticalInput;
         private float _dashInput;
 
-        protected List<GameObject> _currentCollisions;
+        protected bool _eventInvokingEnabled = true;
+
+        protected List<Collision> _currentCollisions;
 
         public Rigidbody Body => _body;
         
@@ -87,7 +89,7 @@ namespace Platformer.CharacterSystem.Movement.Base
 
         protected virtual void Awake()
         {
-            _currentCollisions = new List<GameObject>();
+            _currentCollisions = new List<Collision>();
             MovementStats = _defaultMovementConfig.GetData();
         }
 
@@ -103,7 +105,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         {
             if (collision.gameObject.TryGetComponent(out Platform _))
             {
-                _currentCollisions.Add(collision.gameObject);
+                _currentCollisions.Add(collision);
             }
         }
 
@@ -111,7 +113,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         {
             if (collision.gameObject.TryGetComponent(out Platform _))
             {
-                _currentCollisions.Remove(collision.gameObject);
+                _currentCollisions.Remove(collision);
             }
         }
 
@@ -146,8 +148,14 @@ namespace Platformer.CharacterSystem.Movement.Base
         public virtual void RemoveSkill(MovementSkillData stats) =>
             MovementStats -= stats;
 
-        public void InvokeEntityEvent(EntityEventTypes e) =>
+        public void InvokeEntityEvent(EntityEventTypes e)
+        {
+            if (!_eventInvokingEnabled)
+            {
+                return;
+            }
             EventInvoked?.Invoke(this, e);
+        }
 
         public virtual void OnEventProcessed(EntityEventTypes e) { }
     }

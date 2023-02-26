@@ -32,6 +32,19 @@ namespace Platformer.CharacterSystem.Movement
             }
         }
 
+        public override float HorizontalInput 
+        { 
+            get => base.HorizontalInput;
+            set 
+            {
+                if (IsPushingWall(value))
+                {
+                    return;
+                }
+                base.HorizontalInput = value;
+            }  
+        }
+
         public override float DashInput 
         {
             get => base.DashInput;
@@ -58,11 +71,36 @@ namespace Platformer.CharacterSystem.Movement
             }
         }
 
+        private bool IsPushingWall(float input)
+        {
+            foreach (var collision in _currentCollisions)
+            {
+                for (int i = 0; i < collision.contacts.Length; i++)
+                {
+                    Vector3 normal = collision.contacts[i].normal;
+                    bool towardsWall = (normal.x > 0 && input < 0) || (normal.x < 0 && input > 0);
+                    if (towardsWall && normal.y == 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         protected override void OnCollisionEnter(Collision collision)
         {
             base.OnCollisionEnter(collision);
 
-            OnGround = !InAir;
+            Vector3 normal = collision.contacts[0].normal;
+            OnGround = !InAir && normal.y > -1;
+
+            if (IsPushingWall(HorizontalInput))
+            {
+                _eventInvokingEnabled = false;
+                HorizontalInput = 0;
+                _eventInvokingEnabled = true;
+            }
             if (OnGround)
             {
                 InvokeEntityEvent(EntityEventTypes.Landing);

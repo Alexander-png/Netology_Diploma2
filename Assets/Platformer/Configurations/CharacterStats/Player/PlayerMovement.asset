@@ -23,5 +23,5 @@ MonoBehaviour:
   _wallClimbRepulsion: 5
   _dashForce: 25
   _dashDuration: 0.3
-  _dashRechargeTime: 0.1
+  _dashRechargeTime: 1
   _verticalDashDelimeter: 4
