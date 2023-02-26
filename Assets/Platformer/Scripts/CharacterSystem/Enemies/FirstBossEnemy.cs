@@ -98,9 +98,8 @@ namespace Platformer.CharacterSystem.Enemies
 
             if (!CloseToPlayer)
             {
-                InvokeEntityEvent(EntityEventTypes.Walk);
+                MovementController.HorizontalInput = CalculateHorizontalInput();
             }
-            MovementController.HorizontalInput = CalculateHorizontalInput();
             BeginDash();
         }
 

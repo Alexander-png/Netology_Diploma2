@@ -1193,7 +1193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800067266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.05, y: 10.223835, z: -12}
+  m_LocalPosition: {x: -8.2, y: 8.353834, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1401,7 +1401,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.05, y: 10.223835, z: -12}
+  m_LocalPosition: {x: -8.2, y: 8.353834, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2575,7 +2575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1836675779015504957, guid: b8e31060635023849aeca4eb99c08ad4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -2884,6 +2884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosiveWasp
       objectReference: {fileID: 0}
+    - target: {fileID: 1792561558398356747, guid: 387262be99d29db4bb1e7c85a589a52b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1792561558398356759, guid: 387262be99d29db4bb1e7c85a589a52b, type: 3}
       propertyPath: _currentPoint
       value: 
@@ -3017,6 +3021,10 @@ PrefabInstance:
     - target: {fileID: 3791373504146783886, guid: 32c1070e0e96f62449248aec87abbc37, type: 3}
       propertyPath: m_Name
       value: Cannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791373504146783886, guid: 32c1070e0e96f62449248aec87abbc37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5429428700196389056, guid: 32c1070e0e96f62449248aec87abbc37, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3160,6 +3168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossSpider
       objectReference: {fileID: 0}
+    - target: {fileID: 6867332622582049521, guid: 6a14322f9e39ca44890337a0bf38a90b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6867332622582049522, guid: 6a14322f9e39ca44890337a0bf38a90b, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3233,11 +3245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 63.05
+      value: -8.2
       objectReference: {fileID: 0}
     - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.12
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 8851354137677445969, guid: 29616727ab77a9241aba3a5651a8f6b6, type: 3}
       propertyPath: m_LocalPosition.z

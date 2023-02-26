@@ -48,7 +48,21 @@ namespace Platformer.CharacterSystem.Movement.Base
         public virtual float HorizontalInput
         {
             get => _horizontalInput;
-            set => _horizontalInput = value;
+            set
+            {
+                _horizontalInput = value;
+                if (MovementEnabled)
+                {
+                    if (_horizontalInput != 0f)
+                    {
+                        InvokeEntityEvent(EntityEventTypes.Walk);
+                    }
+                    else
+                    {
+                        InvokeEntityEvent(EntityEventTypes.Idle);
+                    }
+                }
+            }
         }
 
         public virtual float VerticalInput
@@ -134,5 +148,7 @@ namespace Platformer.CharacterSystem.Movement.Base
 
         public void InvokeEntityEvent(EntityEventTypes e) =>
             EventInvoked?.Invoke(this, e);
+
+        public virtual void OnEventProcessed(EntityEventTypes e) { }
     }
 }

@@ -107,7 +107,7 @@ namespace Platformer.CharacterSystem.Enemies
             if (_currentHealth < 0.01f)
             {
                 InvokeEntityEvent(EntityEventTypes.Death);
-                EditorExtentions.GameLogger.AddMessage($"Enemy with name {gameObject.name} killed. You can implement respawn system");
+                GameLogger.AddMessage($"Enemy with name {gameObject.name} killed. You can implement respawn system");
             }
             else
             {
@@ -144,6 +144,8 @@ namespace Platformer.CharacterSystem.Enemies
                     gameObject.SetActive(false);
                     break;
             }
+            MovementController.OnEventProcessed(e);
+            _attacker.OnEventProcessed(e);
         }
 
         public void Heal(float value) =>

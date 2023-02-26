@@ -20,5 +20,7 @@ namespace Platformer.CharacterSystem.Attacking
 		public virtual float GetAttackChargeTime() => 0f;
 		public virtual void AddSkill(CombatSkillData toAdd) { }
 		public virtual void RemoveSkill(CombatSkillData toRemove) { }
-	}
+
+        public virtual void OnEventProcessed(EntityEventTypes e) { }
+    }
 }

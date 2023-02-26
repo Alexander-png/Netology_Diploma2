@@ -17,14 +17,14 @@ namespace Platformer.Weapons
 		private ProjectileSpawnPoint _projectileSpawnPoint;
 
 		private ProjectilePool _projectilePool;
+		private bool _reloading;
 
 		private Transform ProjectilePoolTransform => _projectilePool.transform;
 		private Transform ProjectileSpawnPointTransform => _projectileSpawnPoint.transform;
 		public Vector3 ProjectileSpawnPosition => ProjectileSpawnPointTransform.localPosition;
 
 		public float ShootDistance => _stats.ShootDistance;
-
-		private bool _reloading;
+		public bool CanShoot => !_reloading;
 
         protected override void Start()
         {

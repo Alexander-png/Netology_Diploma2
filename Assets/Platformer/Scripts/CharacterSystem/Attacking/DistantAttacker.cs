@@ -1,3 +1,4 @@
+using Platformer.CharacterSystem.Base;
 using Platformer.EditorExtentions;
 using Platformer.Weapons;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace Platformer.CharacterSystem.Attacking
 	{
         [SerializeField, ReadOnly]
 		protected DistantWeapon _currentWeapon;
+
+        private bool _attackEventInvoked;
 
 #if UNITY_EDITOR
         private void OnValidate() =>
@@ -31,7 +34,22 @@ namespace Platformer.CharacterSystem.Attacking
 		public float GetShootDistance() =>
 			_currentWeapon.ShootDistance;
 
-        public override void OnMainAttackPressed() =>
-            _currentWeapon.Shoot();
+        public override void OnMainAttackPressed()
+        {
+            if (_currentWeapon.CanShoot && !_attackEventInvoked)
+            {
+                InvokeAttackerEvent(EntityEventTypes.Attack);
+            }
+        }
+
+        public override void OnEventProcessed(EntityEventTypes e)
+        {
+            base.OnEventProcessed(e);
+            if (e == EntityEventTypes.Attack)
+            {
+                _currentWeapon.Shoot();
+                _attackEventInvoked = false;
+            }
+        }
     }
 }

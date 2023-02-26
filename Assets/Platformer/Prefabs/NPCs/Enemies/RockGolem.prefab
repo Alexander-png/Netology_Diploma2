@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 2762582660237079654}
   - component: {fileID: 2762582660237079672}
   - component: {fileID: 2762582660237079675}
+  - component: {fileID: 575717812314600521}
   m_Layer: 7
   m_Name: RockGolem
   m_TagString: Untagged
@@ -281,6 +282,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultMovementConfig: {fileID: 11400000, guid: c7257d8a3b76dad469d49314a5c8e067, type: 2}
   _movementEnabled: 1
+--- !u!114 &575717812314600521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762582660237079677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bf166dfe81a9b409e4c28917bb3eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parameterMapping:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues: 0907010a02
+    _keys: 0907010a02
+    _values:
+    - Walk
+    - Idle
+    - Damage
+    - Attack
+    - Death
 --- !u!1 &4650317872659134191
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,3 +779,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 02bade672bae61c4a9dbbb4e33c14c89, type: 3}
   m_PrefabInstance: {fileID: 2762582658426128291}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3069136743277656818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 02bade672bae61c4a9dbbb4e33c14c89, type: 3}
+  m_PrefabInstance: {fileID: 2762582658426128291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7161118167341744610
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3069136743277656818}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e9d96f7511b3154e80fe2ce7e7d3033, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &64348068054738964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3069136743277656818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf424abf85b9a54ba764064d4445635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

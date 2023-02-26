@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RockGolemMovementSkills
   m_EditorClassIdentifier: 
   _skillId: 
-  _maxSpeed: 8
-  _acceleration: 20
+  _maxSpeed: 2.5
+  _acceleration: 60
   _inAirDrag: 0
   _jumpsInRow: []
   _climbForce: 0

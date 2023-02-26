@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RockGolemObstacleDetectorConfig
   m_EditorClassIdentifier: 
   _horizontalSensorOrigin: {x: 0, y: 0, z: 0}
-  _horizontalSensorLength: 3.4
+  _horizontalSensorLength: 1.57
   _verticalSensorLength: 2.25
-  _verticalSensorOffset: 2.44
+  _verticalSensorOffset: 1.32
