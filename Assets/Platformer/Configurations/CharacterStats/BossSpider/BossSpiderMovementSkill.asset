@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skillId: skill_bossSpiderMovementSkill
   _maxSpeed: 8
-  _acceleration: 20
+  _acceleration: 30
   _inAirDrag: 0
   _jumpsInRow: []
   _climbForce: 0

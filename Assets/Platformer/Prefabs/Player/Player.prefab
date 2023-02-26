@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8851354137494493388}
   - component: {fileID: 8851354137494493394}
-  - component: {fileID: 8851354137494493395}
+  - component: {fileID: 2863379841931879910}
   m_Layer: 6
   m_Name: Attacker
   m_TagString: Untagged
@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultSkills: {fileID: 11400000, guid: 1d16d2f2f4ed31c47a363787f1a16205, type: 2}
---- !u!135 &8851354137494493395
-SphereCollider:
+--- !u!65 &2863379841931879910
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -241,7 +241,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.93
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8851354137677445963
 GameObject:

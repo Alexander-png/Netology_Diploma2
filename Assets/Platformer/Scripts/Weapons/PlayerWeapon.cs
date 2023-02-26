@@ -31,7 +31,7 @@ namespace Platformer.Weapons
             base.Start();
             _visual = GetComponentInChildren<Visual>().transform;
             _animator = GetComponent<Animator>();
-            ResetValues();
+            ResetState();
         }
 
         public override void MakeHit()
@@ -40,11 +40,12 @@ namespace Platformer.Weapons
             {
                 return;
             }
+            _attacking = true;
             _animator.SetFloat("Hit", 1);
             _visual.gameObject.SetActive(true);
         }
 
-        private void ResetValues()
+        private void ResetState()
         {
             _animator.SetFloat("Hit", 0);
             _visual.gameObject.SetActive(false);
@@ -55,13 +56,13 @@ namespace Platformer.Weapons
             _attacking = false;
             InvokeHitEnded();
             StartCoroutine(ReloadMainAttack());
-            ResetValues();
+            ResetState();
         }
 
         private void OnPlayerRespawning(object sender, EventArgs e)
         {
             ResetAnimator();
-            ResetValues();
+            ResetState();
         }
 
         private void ResetAnimator()

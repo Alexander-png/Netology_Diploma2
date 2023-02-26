@@ -13,9 +13,9 @@ namespace Platformer.PlayerSystem
         private CharacterMovement _playerMovement;
 
         private float _currentDamage;
-        private SphereCollider _sphereDamageTrigger;
-        private float _defaultTriggerRadius;
-        private float _currentTriggerRadius;
+        private BoxCollider _boxDamageTrigger;
+        private float _defaultTriggerRadiusZ;
+        private float _damageTriggerRadiusZ;
         private float _currentAttackRadius;
 
         private Coroutine _chargeAttackCoroutine;
@@ -30,13 +30,14 @@ namespace Platformer.PlayerSystem
             _inputListener = transform.parent.GetComponentInChildren<PlayerInputListener>();
             CurrentWeapon = transform.parent.GetComponentInChildren<MeleeWeapon>();
 
-            _sphereDamageTrigger = _damageTrigger as SphereCollider;
-            if (_sphereDamageTrigger == null)
+            _boxDamageTrigger = _damageTrigger as BoxCollider;
+            if (_boxDamageTrigger == null)
             {
                 GameLogger.AddMessage($"{nameof(PlayerMeleeAttacker)} now supports only {nameof(SphereCollider)} as damage trigger for resizing on strong attack. The resizing will not work for now.", GameLogger.LogType.Warning);
                 return;
             }
-            _defaultTriggerRadius = _sphereDamageTrigger.radius;
+            _defaultTriggerRadiusZ = CurrentWeapon.Stats.AttackRadius;
+            SetDamageTriggerRadius(_defaultTriggerRadiusZ);
             ResetCurrentAttackStats();
         }
 
@@ -44,7 +45,7 @@ namespace Platformer.PlayerSystem
             _currentDamage + RawDamage;
 
         private void Update() =>
-            UpdateHitColliderPosition();
+            UpdateDamageColliderState();
 
         public override void OnMainAttackPressed()
         {
@@ -57,17 +58,26 @@ namespace Platformer.PlayerSystem
 
         public override void OnStrongAttackPressed()
         {
+            if (_chargeAttackCoroutine != null)
+            {
+                return;
+            }
             _chargeAttackCoroutine = StartCoroutine(ChargeAttack());
         }
 
         public override void OnAttackReleased()
         {
+            if (CurrentWeapon?.CanNotAttack() == true)
+            {
+                return;
+            }
             if (_chargeAttackCoroutine != null)
             {
                 StopCoroutine(_chargeAttackCoroutine);
                 _chargeAttackCoroutine = null;
+                _currentAttackRadius = (CurrentWeapon.Stats.AttackRadius + _damageTriggerRadiusZ) / 2;
             }
-            SetDamageTriggerRadius(_currentTriggerRadius);
+            SetDamageTriggerRadius(_damageTriggerRadiusZ);
             StartMainAttack();
         }
 
@@ -79,27 +89,31 @@ namespace Platformer.PlayerSystem
             ResetCurrentAttackStats();
         }
 
-        private void UpdateHitColliderPosition()
+        private void UpdateDamageColliderState()
         {
             Vector3 mousePosition = _inputListener.GetRelativeMousePosition(transform.parent.position);
             Ray ray = new Ray(transform.parent.position, mousePosition);
             transform.position = ray.GetPoint(_currentAttackRadius);
+            Vector3 absoluteMousePos = _inputListener.GetWorldMousePosition();
+            transform.LookAt(absoluteMousePos);
         }
 
         private void SetDamageTriggerRadius(float radius)
         {
-            if (_sphereDamageTrigger != null)
+            if (_boxDamageTrigger != null)
             {
-                _sphereDamageTrigger.radius = radius;
+                Vector3 triggerSize = _boxDamageTrigger.size;
+                triggerSize.z = radius;
+                _boxDamageTrigger.size = triggerSize;
             }
         }
 
         private void ResetCurrentAttackStats()
         {
             _currentDamage = CurrentWeapon.Stats.Damage;
-            _currentTriggerRadius = _defaultTriggerRadius;
+            _damageTriggerRadiusZ = _defaultTriggerRadiusZ;
             _currentAttackRadius = CurrentWeapon.Stats.AttackRadius;
-            SetDamageTriggerRadius(_defaultTriggerRadius);
+            SetDamageTriggerRadius(_defaultTriggerRadiusZ);
         }
 
         private IEnumerator ChargeAttack()
@@ -111,7 +125,7 @@ namespace Platformer.PlayerSystem
                 _currentDamage * CurrentWeapon.Stats.StrongAttackDamageMultipler * 0.01f;
 
             float triggerRadiusIncreaseStep =
-                _currentTriggerRadius * CurrentWeapon.Stats.StrongAttackRadiusMultipler * 0.01f;
+                _damageTriggerRadiusZ * CurrentWeapon.Stats.StrongAttackRadiusMultipler * 0.01f;
 
             float attackRadiusIncreaseStep =
                 _currentAttackRadius * CurrentWeapon.Stats.StrongAttackRadiusMultipler * 0.01f;
@@ -120,8 +134,9 @@ namespace Platformer.PlayerSystem
             {
                 yield return null;
                 timeLeft -= Time.deltaTime;
+
                 _currentDamage += damageIncreaseStep;
-                _currentTriggerRadius += triggerRadiusIncreaseStep;
+                _damageTriggerRadiusZ += triggerRadiusIncreaseStep;
                 _currentAttackRadius += attackRadiusIncreaseStep;
             }
         }
