@@ -11,6 +11,7 @@ namespace Platformer.PlayerSystem
 	public class PlayerMeleeAttacker : MeleeAttacker
 	{
         private CharacterMovement _playerMovement;
+        private SpriteRenderer _spriteRenderer;
 
         private float _currentDamage;
         private BoxCollider _boxDamageTrigger;
@@ -19,7 +20,6 @@ namespace Platformer.PlayerSystem
         private float _currentAttackRadius;
 
         private Coroutine _chargeAttackCoroutine;
-
         private PlayerInputListener _inputListener;
 
         protected override void Start()
@@ -29,6 +29,7 @@ namespace Platformer.PlayerSystem
             _playerMovement = transform.parent.GetComponent<CharacterMovement>();
             _inputListener = transform.parent.GetComponentInChildren<PlayerInputListener>();
             CurrentWeapon = transform.parent.GetComponentInChildren<MeleeWeapon>();
+            _spriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
 
             _boxDamageTrigger = _damageTrigger as BoxCollider;
             if (_boxDamageTrigger == null)
@@ -38,14 +39,26 @@ namespace Platformer.PlayerSystem
             }
             _defaultTriggerRadiusZ = CurrentWeapon.Stats.AttackRadius;
             SetDamageTriggerRadius(_defaultTriggerRadiusZ);
-            ResetCurrentAttackStats();
+            ResetState();
         }
+
+        private void Update() =>
+            UpdateDamageColliderState();
 
         protected override float GetDamageValue() =>
             _currentDamage + RawDamage;
 
-        private void Update() =>
-            UpdateDamageColliderState();
+        protected override void StartMainAttack()
+        {
+            SetDamageTriggerRadius(_damageTriggerRadiusZ);
+            _spriteRenderer.enabled = true;
+
+            Vector2 effectSize = new Vector2();
+            effectSize.x = _boxDamageTrigger.size.y;
+            effectSize.y = _boxDamageTrigger.size.z;
+            _spriteRenderer.size = effectSize;
+            base.StartMainAttack();
+        }
 
         public override void OnMainAttackPressed()
         {
@@ -53,7 +66,7 @@ namespace Platformer.PlayerSystem
             {
                 return;
             }
-            ResetCurrentAttackStats();
+            ResetState();
         }
 
         public override void OnStrongAttackPressed()
@@ -77,7 +90,6 @@ namespace Platformer.PlayerSystem
                 _chargeAttackCoroutine = null;
                 _currentAttackRadius = (CurrentWeapon.Stats.AttackRadius + _damageTriggerRadiusZ) / 2;
             }
-            SetDamageTriggerRadius(_damageTriggerRadiusZ);
             StartMainAttack();
         }
 
@@ -86,7 +98,7 @@ namespace Platformer.PlayerSystem
             CurrentWeapon?.StopHit();
             _damageTrigger.enabled = false;
             _playerMovement.MovementEnabled = true;
-            ResetCurrentAttackStats();
+            ResetState();
         }
 
         private void UpdateDamageColliderState()
@@ -108,11 +120,13 @@ namespace Platformer.PlayerSystem
             }
         }
 
-        private void ResetCurrentAttackStats()
+        private void ResetState()
         {
             _currentDamage = CurrentWeapon.Stats.Damage;
             _damageTriggerRadiusZ = _defaultTriggerRadiusZ;
             _currentAttackRadius = CurrentWeapon.Stats.AttackRadius;
+            _spriteRenderer.transform.localScale = _boxDamageTrigger.size;
+            _spriteRenderer.enabled = false;
             SetDamageTriggerRadius(_defaultTriggerRadiusZ);
         }
 
