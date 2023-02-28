@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1357
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 751
     height: 706
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 132
+  controlID: 134
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 133
+  controlID: 62
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 79
+  controlID: 63
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -333,7 +333,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1540152
+  m_LastSelectedObjectID: -2130
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -375,22 +375,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Platformer/Scenes
+    - Assets/Platformer/Prefabs/NPCs/Enemies
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Platformer/Scenes
+  - Assets/Platformer/Prefabs/NPCs/Enemies
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\UnityProj\Netology_Diploma2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 1120}
-    m_SelectedIDs: 46750000
-    m_LastClickedID: 30022
-    m_ExpandedIDs: 000000003c7400003e74000040740000427400004474000046740000487400004a7400004c7400004e74000050740000527400005474000056740000587400005a7400005c7400005e74000060740000627400006474000066740000687400006a7400006c7400006e74000070740000727400007474000076740000787400007a7400007c7400007e74000080740000827400008474000086740000887400008a7400008c740000c87400002e7500005e75000088750000a0750000a2750000a4750000a4d7010058f0060000ca9a3b
+    scrollPos: {x: 0, y: 928}
+    m_SelectedIDs: 68750000
+    m_LastClickedID: 30056
+    m_ExpandedIDs: 0000000060740000627400006474000066740000687400006a7400006c7400006e74000070740000727400007474000076740000787400007a7400007c7400007e74000080740000827400008474000086740000887400008a7400008c7400008e74000090740000927400009474000096740000987400009a7400009c7400009e740000a0740000a2740000a4740000a6740000a8740000aa740000ac740000ae740000b0740000b2740000b4740000b674000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -418,7 +418,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003c7400003e74000040740000427400004474000046740000487400004a7400004c7400004e74000050740000527400005474000056740000587400005a7400005c7400005e74000060740000627400006474000066740000687400006a7400006c7400006e74000070740000727400007474000076740000787400007a7400007c7400007e74000080740000827400008474000086740000887400008a7400008c740000
+    m_ExpandedIDs: 0000000060740000627400006474000066740000687400006a7400006c7400006e74000070740000727400007474000076740000787400007a7400007c7400007e74000080740000827400008474000086740000887400008a7400008c7400008e74000090740000927400009474000096740000987400009a7400009c7400009e740000a0740000a2740000a4740000a6740000a8740000aa740000ac740000ae740000b0740000b2740000b4740000b6740000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -446,7 +446,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300009e640000a86b0000f27c0000a483000002770000e664000034ae05001e6a000086640000e0700000
+    m_ExpandedInstanceIDs: c62300009e640000a86b0000f27c0000a483000002770000e664000034ae05001e6a000086640000e0700000b66a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -546,20 +546,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: d456e8ffe8bfe8ff96e7e9ff3aa9eaff2606ebffb624f0ff5e7af0ff687af0ff727af0ff767af0ff8a7af0ff007bf0ff468cf0fff8a0f0ffaee1f0ffd472f1ff08b0f1ff2e41f2ff627ef2ff880ff3ffcc54f3ff1eb1f3ff62f6f3ff8887f4ffccccf4ffdad7f4ff2c34f5ff7079f5ffccd6f5ff101cf6ff6278f6ff28bff6ff4e50f7ff9295f7ffe4f1f7ff2837f8ff1c94f8ff60d9f8ffb235f9ff367bf9ffbad7f9ff301dfaffe647faff20b0faffb2f7faffca03fbff9871fbff5ab7fbffb013fcfff658fcff4cb5fcff92fafcff5c59fdff6c62fdffc066fdff6cc1fdff3adafdffeae0fdff2629feff3cbafeff70f7feffea07ffff48f2ffff14fbffff06110300fc110300beb40500287c0600
+      m_SelectedIDs: 76f5ffff
+      m_LastClickedID: -2698
+      m_ExpandedIDs: 14fbffffb06200008c630000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Cinematic Camera
-        m_OriginalName: Cinematic Camera
+        m_Name: SpiritSword
+        m_OriginalName: SpiritSword
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -306404
+        m_UserData: 36780
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -830,9 +830,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.57269, y: 2.6827106, z: -5.570149}
+    m_Target: {x: 17.743374, y: -2.3604069, z: -0.5078001}
     speed: 2
-    m_Value: {x: 4.57269, y: 2.6827106, z: -5.570149}
+    m_Value: {x: 17.743374, y: -2.3604066, z: -0.50780004}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -878,13 +878,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.037732597, y: -0.04825479, z: 0.001765437, w: -0.9982149}
+    m_Target: {x: 0.07378196, y: -0.17830339, z: 0.013466664, w: 0.981116}
     speed: 2
-    m_Value: {x: -0.037729044, y: -0.048250247, z: 0.0017652707, w: -0.9981209}
+    m_Value: {x: 0.07525334, y: -0.17828248, z: 0.013734068, w: 0.98100144}
   m_Size:
-    m_Target: 9.511361
+    m_Target: 1.2247449
     speed: 2
-    m_Value: 9.511361
+    m_Value: 70.77771
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -940,7 +940,7 @@ MonoBehaviour:
   m_SerializedViewNames: []
   m_SerializedViewValues: []
   m_PlayModeViewName: GameView
-  m_ShowGizmos: 1
+  m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
   m_TargetSize: {x: 749, y: 664}
@@ -955,7 +955,7 @@ MonoBehaviour:
   m_suppressRenderingForFullscreen: 0
   m_VSyncEnabled: 0
   m_PlayFocused: 0
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_Stats: 0
   m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
