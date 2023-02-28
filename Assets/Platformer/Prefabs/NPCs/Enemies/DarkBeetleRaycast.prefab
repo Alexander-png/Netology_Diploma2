@@ -971,6 +971,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1836675778706071240}
+  - component: {fileID: 9046403066417607771}
+  - component: {fileID: 7338350903785908190}
   m_Layer: 7
   m_Name: ScareabSketch
   m_TagString: Untagged
@@ -995,6 +997,38 @@ Transform:
   m_Father: {fileID: 1836675779185987985}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!95 &9046403066417607771
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836675778706071241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18b2bb7de62209f45a0f82750e14bb8c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7338350903785908190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836675778706071241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf424abf85b9a54ba764064d4445635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1836675778719441168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1418,7 @@ GameObject:
   - component: {fileID: 1836675779015504953}
   - component: {fileID: 1836675779015504955}
   - component: {fileID: 3923835951531144669}
+  - component: {fileID: 7791183760891902283}
   m_Layer: 7
   m_Name: DarkBeetleRaycast
   m_TagString: Untagged
@@ -1470,6 +1505,47 @@ MonoBehaviour:
   _behaviourConfig: {fileID: 11400000, guid: 234f7423eda346449b6a987bc60c1cd5, type: 2}
   _detectorConfig: {fileID: 11400000, guid: 633f1ba65ff304b4ca72b90a73589b66, type: 2}
   _viewFieldConfig: {fileID: 11400000, guid: cdb8f9ccba800504ebbecce2d9f516c4, type: 2}
+--- !u!114 &7791183760891902283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836675779015504957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bf166dfe81a9b409e4c28917bb3eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parameterMapping:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues: 09070a
+    _keys: 09070a
+    _values:
+    - Walk
+    - Idle
+    - Attack
 --- !u!1 &1836675779045180275
 GameObject:
   m_ObjectHideFlags: 0

@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 1792561558398356745}
   - component: {fileID: 1792561558398356756}
   - component: {fileID: 1792561558398356759}
+  - component: {fileID: 7204717365829039715}
   m_Layer: 7
   m_Name: ExplosiveWasp
   m_TagString: Untagged
@@ -246,6 +247,45 @@ MonoBehaviour:
   _baseStats: {fileID: 11400000, guid: 2c4e32448a935724d86a9e90e02878ff, type: 2}
   _behaviourConfig: {fileID: 11400000, guid: ca3a235ad54614646b1d88f4c413b1f5, type: 2}
   _currentPoint: {fileID: 0}
+--- !u!114 &7204717365829039715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792561558398356747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bf166dfe81a9b409e4c28917bb3eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parameterMapping:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues: 09
+    _keys: 09
+    _values:
+    - Fly
 --- !u!1 &7428256789343022223
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +467,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b9bd3197acfbe3942af9bf9d81ac42ac, type: 3}
+--- !u!1 &1450472357760500908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b9bd3197acfbe3942af9bf9d81ac42ac, type: 3}
+  m_PrefabInstance: {fileID: 1792561557836380669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &821304863546660579
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450472357760500908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f2b660c6a9fafea47a5a831d1d827d75, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6007552085337537533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450472357760500908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf424abf85b9a54ba764064d4445635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2263846338802671126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b9bd3197acfbe3942af9bf9d81ac42ac, type: 3}
