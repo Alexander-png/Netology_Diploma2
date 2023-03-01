@@ -6,13 +6,11 @@ using UnityEngine;
 namespace Platformer.CharacterSystem.Enemies
 {
     // Todo: inherit this class from patrol enemy when point patrol mode will be implemented
-    // Todo: get values of charge time and attack radius from weapon stats
 	public class FlyingKamikazeEnemy : MoveableEnemy
     {
         [SerializeField]
         protected PatrolPoint _currentPoint;
 
-        //private Coroutine _waitCoroutine;
         private bool _chargingAttack;
         private bool _attacking;
         private Coroutine _chargeAttackCoroutine;
@@ -121,10 +119,6 @@ namespace Platformer.CharacterSystem.Enemies
             MovementController.StopImmediatly();
 
             base.OnPlayerNearby();
-            //if (_waitCoroutine != null)
-            //{
-            //    StopCoroutine(_waitCoroutine);
-            //}
         }
 
         private bool CheckSeePlayer()
@@ -165,7 +159,7 @@ namespace Platformer.CharacterSystem.Enemies
             }
             
             _chargingAttack = true;
-            yield return new WaitForSeconds(_attacker.GetAttackChargeTime());
+            yield return new WaitForSeconds(_behaviourConfig.DashChargeTime);
             AttackPlayer();
             _chargeAttackCoroutine = null;
         }
@@ -178,8 +172,9 @@ namespace Platformer.CharacterSystem.Enemies
         }
 
 #if UNITY_EDITOR
-        private void OnDrawGizmos()
+        protected override void OnDrawGizmos()
         {
+            base.OnDrawGizmos();
             Color c = Color.cyan;
             c.a = 0.2f;
             Gizmos.color = c;

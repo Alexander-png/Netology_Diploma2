@@ -15,5 +15,9 @@ MonoBehaviour:
   _idleTime: 3
   _attackRadius: 1.45
   _playerHeightDiffToJump: 2
-  _closeToPlayerDistance: 10
+  _closeToPlayerDistance: 0
   _argressionRadius: 0
+  _dashUsageReloadTime: 0
+  _dashCountWithoutReload: 0
+  _dashChargeTime: 0
+  _dashCooldownTime: 0

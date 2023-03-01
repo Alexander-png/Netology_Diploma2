@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ObstacleDetectorConfig
   m_EditorClassIdentifier: 
   _horizontalSensorOrigin: {x: 0, y: -0.23, z: 0}
-  _horizontalSensorLength: 1.3
+  _horizontalSensorLength: 2.49
   _verticalSensorLength: 1.58
   _verticalSensorOffset: 1.07

@@ -17,7 +17,7 @@ MonoBehaviour:
   _reloadTime: 0
   _attackDuration: 999
   _hasStrongAttack: 0
-  _strongAttackChargeTime: 0.5
+  _strongAttackChargeTime: 0
   _strongAttackDamageMultipler: 0
   _strongAttackRadiusMultipler: 0
   _pushForce: 20
