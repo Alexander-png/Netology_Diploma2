@@ -1,3 +1,4 @@
+using Platformer.GameCore;
 using Platformer.Scriptable.Skills.Data;
 using Platformer.Scriptable.WeaponStats;
 using System;
@@ -10,6 +11,8 @@ namespace Platformer.Weapons
 	{
         [SerializeField]
         protected WeaponStats _stats;
+        [SerializeField]
+        private AudioClip _swingSound;
 
         // TODO: IHMO: modifying weapon reload time from attacker stats is not good solution.
         private float _reloadTimeOffset;
@@ -43,6 +46,10 @@ namespace Platformer.Weapons
             if (CanNotAttack())
             {
                 return;
+            }
+            if (_swingSound != null)
+            {
+                AudioSource.PlayClipAtPoint(_swingSound, transform.position, GameSettingsObserver.GetSoundVolume());
             }
             _attacking = true;
         }

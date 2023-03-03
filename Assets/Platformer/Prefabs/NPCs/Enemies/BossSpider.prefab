@@ -319,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 3643eea961496e549ab58348ca92ad6e, type: 2}
+  _swingSound: {fileID: 0}
   _shootingStats: {fileID: 11400000, guid: f9309587cddb5ab4bb9b2bab1f644003, type: 2}
   _projectileSpawnPoints:
   - {fileID: 6867332622125550127}
@@ -408,6 +409,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultMovementConfig: {fileID: 11400000, guid: dbc829b681f42f447b5ef07311cb506e, type: 2}
   _movementEnabled: 1
+  _walkingSound: {fileID: 8300000, guid: f1686d7843b982c4e9775184d4f8a1b9, type: 3}
+  _jumpSound: {fileID: 8300000, guid: 69b6880aafc828749b34390866aa14a6, type: 3}
+  _landingSound: {fileID: 8300000, guid: beb4d432060c20a44b2af8a211bc7900, type: 3}
 --- !u!114 &6867332622582049535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseStats: {fileID: 11400000, guid: 296ccb7802f3d3a4696b09cf65487b14, type: 2}
+  _damageSound: {fileID: 8300000, guid: 6e4f7dd7d9ff6f144914b6ca61127227, type: 3}
   _behaviourConfig: {fileID: 11400000, guid: d43e29078b444a54f92de9b5dafbf413, type: 2}
   _detectorConfig: {fileID: 11400000, guid: 3d702d75cc147dd4abb4141d3ab0c613, type: 2}
   _fightTrigger: {fileID: 0}

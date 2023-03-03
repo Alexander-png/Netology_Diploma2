@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: b85e839d4e88df24d9c84d103ad1b43e, type: 2}
   _trigger: {fileID: 5540220329735947137}
+  _explosionSound: {fileID: 8300000, guid: ea30c2cc4c12ecf4fa6998b1a70fc703, type: 3}
 --- !u!135 &-675316059204259646
 SphereCollider:
   m_ObjectHideFlags: 0

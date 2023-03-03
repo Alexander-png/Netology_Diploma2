@@ -11,7 +11,7 @@ namespace Platformer.Projectiles
 		private ProjectileStats _stats;
         [SerializeField]
         private SphereCollider _trigger;
-
+        
 		private void Start()
         {
             _trigger.radius = _stats.TriggerDistance;
@@ -24,25 +24,20 @@ namespace Platformer.Projectiles
             rigidBody.AddForce(transform.up * value, ForceMode.Impulse);
         }
 
-        private void Explose()
-        {
-            Destroy(gameObject);
-        }
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Player player))
             {
                 StopAllCoroutines();
                 player.SetDamage(_stats.Damage, (player.transform.position - transform.position) * _stats.ImpactForce);
-                Explose();
+                Destroy();
             }
         }
 
         private IEnumerator ExplosionCoroutine()
         {
             yield return new WaitForSeconds(_stats.BlastTimeout);
-            Explose();
+            Destroy();
         }
 
 #if UNITY_EDITOR

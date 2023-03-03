@@ -13,14 +13,14 @@ namespace Platformer.GameCore
             public float SoundMasterVolume;
         }
 
-        public const string VolumeKey = "GameSettings";
+        public const string SettingsKey = "GameSettings";
         public static event EventHandler SettingsChanged;
+        private static GameSettings CurrentSettings;
 
-        private GameSettings _currentSettings;
         private List<AudioSource> _audioSources;
 
         private static string GetSettingsRaw() =>
-            PlayerPrefs.GetString(VolumeKey);
+            PlayerPrefs.GetString(SettingsKey);
 
         private static GameSettings CreateDefaultSettings() =>
             new GameSettings()
@@ -34,7 +34,7 @@ namespace Platformer.GameCore
             if (string.IsNullOrEmpty(jsonSource))
             {
                 string json = JsonConvert.SerializeObject(CreateDefaultSettings());
-                PlayerPrefs.SetString(VolumeKey, json);
+                PlayerPrefs.SetString(SettingsKey, json);
             }
         }
 
@@ -48,15 +48,21 @@ namespace Platformer.GameCore
         public static void SetSettings(GameSettings settings)
         {
             string json = JsonConvert.SerializeObject(settings);
-            PlayerPrefs.SetString(VolumeKey, json);
+            PlayerPrefs.SetString(SettingsKey, json);
             InvokeSettingsChanged();
         }
 
         public static void InvokeSettingsChanged() =>
             SettingsChanged?.Invoke(null, null);
 
-        private void Awake() =>
+        public static float GetSoundVolume() =>
+            CurrentSettings.SoundMasterVolume;
+
+        private void Awake()
+        {
             _audioSources = new List<AudioSource>();
+            ApplySettings();
+        }
 
         private void OnEnable() =>
             SettingsChanged += OnSettingChanged;
@@ -68,8 +74,11 @@ namespace Platformer.GameCore
         }
 
         // Let all audiosources load by waiting 1 frame passed.
-        private void Start() =>
-            StartCoroutine(SkipFramesAndExecute(1, FindAudioSources, ApplySettings));
+        private void Start()
+        {
+            
+            StartCoroutine(SkipFramesAndExecute(1, FindAudioSources));
+        }
 
         private void OnSettingChanged(object sender, EventArgs e) =>
             ApplySettings();
@@ -79,11 +88,14 @@ namespace Platformer.GameCore
 
         private void ApplySettings()
         {
-            _currentSettings = GetSettings();
+            CurrentSettings = GetSettings();
 
             foreach (AudioSource audioSource in _audioSources)
             {
-                audioSource.volume = _currentSettings.SoundMasterVolume;
+                if (audioSource != null)
+                {
+                    audioSource.volume = CurrentSettings.SoundMasterVolume;
+                }
             }
         }
 

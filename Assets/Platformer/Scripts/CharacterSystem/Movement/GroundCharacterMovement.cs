@@ -1,5 +1,6 @@
 using Platformer.CharacterSystem.Base;
 using Platformer.CharacterSystem.Movement.Base;
+using Platformer.GameCore;
 using Platformer.Scriptable.Skills.Data;
 using System.Collections;
 using UnityEngine;
@@ -8,6 +9,13 @@ namespace Platformer.CharacterSystem.Movement
 {
 	public class GroundCharacterMovement : CharacterMovement
 	{
+        [SerializeField]
+        protected AudioClip _walkingSound;
+        [SerializeField]
+        protected AudioClip _jumpSound;
+        [SerializeField]
+        protected AudioClip _landingSound;
+
         private bool _dashCharged = true;
         private bool _chargingDash = false;
         private float _dashDirection;
@@ -105,6 +113,7 @@ namespace Platformer.CharacterSystem.Movement
             {
                 InvokeEntityEvent(EntityEventTypes.Landing);
                 ResetJumpState();
+                PlaySound(_landingSound);
             }
         }
 
@@ -115,6 +124,7 @@ namespace Platformer.CharacterSystem.Movement
             {
                 _jumpsLeft -= 1;
             }
+            OnGround = !InAir;
         }
 
         protected override void ResetState()
@@ -190,6 +200,7 @@ namespace Platformer.CharacterSystem.Movement
 
                 IsJumping = false;
                 Velocity = velocity;
+                PlaySound(_jumpSound);
             }
         }
 
@@ -231,6 +242,14 @@ namespace Platformer.CharacterSystem.Movement
 
         protected virtual void OnDashEnded() =>
             InvokeEntityEvent(EntityEventTypes.DashEnded);
+
+        private void PlaySound(AudioClip clip)
+        {
+            if (clip != null)
+            {
+                AudioSource.PlayClipAtPoint(clip, transform.position, GameSettingsObserver.GetSoundVolume());
+            }
+        }
 
         private IEnumerator DashMove(float time)
         {

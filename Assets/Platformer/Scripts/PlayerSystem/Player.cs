@@ -1,4 +1,5 @@
 using Platformer.CharacterSystem.Base;
+using Platformer.GameCore;
 using Platformer.Scriptable.Skills.Data;
 using Platformer.SkillSystem;
 using System;
@@ -9,6 +10,9 @@ namespace Platformer.PlayerSystem
 {
     public class Player : MoveableEntity, IDamagable, ISkillObservable
     {
+        [SerializeField]
+        private AudioClip _damageSound;
+
         private Inventory _inventory;     
         private SkillObserver _skillObserver;     
         private PlayerInputListener _playerInputListener;
@@ -61,11 +65,15 @@ namespace Platformer.PlayerSystem
             {
                 _damageImmuneCoroutine = StartCoroutine(DamageImmuneCoroutine(DamageImmuneTime));
             }
-
             if (_currentHealth < 0.01f)
             {
                 gameObject.SetActive(false);
                 Died?.Invoke(this, EventArgs.Empty);
+            }
+
+            if (_damageSound != null)
+            {
+                AudioSource.PlayClipAtPoint(_damageSound, transform.position, GameSettingsObserver.GetSoundVolume());
             }
         }
 

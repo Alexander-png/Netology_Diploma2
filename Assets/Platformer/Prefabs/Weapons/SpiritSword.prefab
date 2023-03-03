@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: af5db329db212b549803c05853d9c73e, type: 2}
+  _swingSound: {fileID: 8300000, guid: ba6ebee7aac2e564b98123d50a23ed66, type: 3}
 --- !u!95 &2863691367172955550
 Animator:
   serializedVersion: 4

@@ -35,7 +35,7 @@ namespace Platformer.CharacterSystem.Movement.Base
         public float DashDuration => MovementStats.DashDuration;
         public float DashRechargeTime => MovementStats.DashRechargeTime;
 
-        public bool OnGround { get; protected set; }
+        public virtual bool OnGround { get; protected set; }
         public bool IsJumping { get; protected set; }
         public bool IsDashing { get; protected set; }
 

@@ -12,7 +12,11 @@ namespace Platformer.CharacterSystem.Enemies
 {
     public abstract class MoveableEnemy : MoveableEntity, IDamagable
     {
+        // TODO: move to configuration class
         protected const int PlayerLayer = 1 << 6;
+
+        [SerializeField]
+        private AudioClip _damageSound;
 
         [Inject]
         protected GameSystem _gameSystem;
@@ -112,6 +116,11 @@ namespace Platformer.CharacterSystem.Enemies
             else
             {
                 InvokeEntityEvent(EntityEventTypes.Damage);
+            }
+
+            if (_damageSound != null)
+            {
+                AudioSource.PlayClipAtPoint(_damageSound, transform.position, GameSettingsObserver.GetSoundVolume());
             }
         }
 

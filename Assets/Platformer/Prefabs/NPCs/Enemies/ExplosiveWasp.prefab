@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 3dce1a326afe81347a64f7cf9c83439f, type: 2}
+  _swingSound: {fileID: 0}
 --- !u!1 &1792561557646517379
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseStats: {fileID: 11400000, guid: 2c4e32448a935724d86a9e90e02878ff, type: 2}
+  _damageSound: {fileID: 8300000, guid: ea30c2cc4c12ecf4fa6998b1a70fc703, type: 3}
   _behaviourConfig: {fileID: 11400000, guid: ca3a235ad54614646b1d88f4c413b1f5, type: 2}
   _currentPoint: {fileID: 0}
 --- !u!114 &7204717365829039715

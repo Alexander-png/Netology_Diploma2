@@ -40,7 +40,7 @@ namespace Platformer.Weapons
             {
                 return;
             }
-            _attacking = true;
+            base.MakeHit();
             _animator.SetFloat("Hit", 1);
             _visual.gameObject.SetActive(true);
         }

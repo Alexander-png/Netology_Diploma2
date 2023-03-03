@@ -6,11 +6,46 @@ namespace Platformer.PlayerSystem
 	public class PlayerGroundMovement : GroundCharacterMovement
 	{
 		private PlayerInputListener _inputListener;
+        private AudioSource _walkAudioSource;
+
+        public override float HorizontalInput
+        {
+            get => base.HorizontalInput;
+            set
+            {
+                base.HorizontalInput = value;
+                UpdateWalkAudioSource();
+            }
+        }
+
+        public override bool OnGround
+        {
+            get => base.OnGround;
+            protected set
+            {
+                base.OnGround = value;
+                UpdateWalkAudioSource();
+            }
+        }
+
+        private void UpdateWalkAudioSource()
+        {
+            if (OnGround && HorizontalInput != 0 && !_walkAudioSource.isPlaying)
+            {
+                _walkAudioSource.Play();
+            }
+            else
+            {
+                _walkAudioSource.Stop();
+            }
+        }
 
         protected override void Start()
         {
             base.Start();
             _inputListener = gameObject.GetComponent<PlayerInputListener>();
+            _walkAudioSource = gameObject.GetComponent<AudioSource>();
+            _walkAudioSource.clip = _walkingSound;
         }
 
         protected override Vector2 CalclulateDashDirection()

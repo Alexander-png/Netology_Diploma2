@@ -17,13 +17,21 @@ namespace Platformer.Collectables
         [SerializeField]
         private bool _autoCollect;
 
+        private bool _collected;
+
         public string ItemId => _itemId;
         public string QuestTargetId => ItemId;
 
         public override void Interact()
         {
+            if (_collected)
+            {
+                return;
+            }
+
             Collect();
             InvokeInteracted();
+            _collected = true;
         }
 
         protected virtual void Collect()
