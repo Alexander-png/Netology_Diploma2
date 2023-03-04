@@ -22,6 +22,9 @@ namespace Platformer.GameCore
         private Player _player;
         private bool _isLevelCompleted;
         private float _levelTime;
+
+        private AudioSource _levelSoundTrack;
+        
         private InteractableTrigger _currentInteractable;
 
         public bool GamePaused
@@ -68,7 +71,6 @@ namespace Platformer.GameCore
 
         private void Start()
         {
-            GamePaused = GamePaused;
             StartCoroutine(LoadedNotifier());
         }
 
@@ -80,7 +82,19 @@ namespace Platformer.GameCore
 
         private void OnPauseStateChanged(object sender, bool e)
         {
-            Time.timeScale = _gamePaused ? 0f : 1f;
+            Time.timeScale = GamePaused ? 0f : 1f;
+
+            if (_levelSoundTrack != null)
+            {
+                if (GamePaused)
+                {
+                    _levelSoundTrack.Pause();
+                }
+                else
+                {
+                    _levelSoundTrack.Play();
+                }
+            }
         }
 
         private void OnEnable()
@@ -157,11 +171,13 @@ namespace Platformer.GameCore
             _player.gameObject.TryGetComponent(out skillObserver);
             if (skillObserver != null)
             {
-                skillObserver.AddSkill(_defaultLevelSkillIds, true);
                 skillObserver.AddSkill(SaveSystem.GetRewardList());
+                skillObserver.AddSkill(_defaultLevelSkillIds, true);
             }
+            _levelSoundTrack = GetComponent<AudioSource>();
 
             GameLoaded?.Invoke(this, EventArgs.Empty);
+            GamePaused = GamePaused;
         }
 
         private IEnumerator ReloadLevelCoroutine()
