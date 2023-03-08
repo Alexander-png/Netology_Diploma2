@@ -13,7 +13,8 @@ namespace Platformer.CharacterSystem.Enemies
     public abstract class MoveableEnemy : MoveableEntity, IDamagable
     {
         // TODO: move to configuration class
-        protected const int PlayerLayer = 1 << 6;
+        protected const int PlayerMask = 1 << 6;
+        protected const int ObstacleMask = 1 << 3 | ~(1 << 7 | 1 << 8 | 1 << 10 | 1 << 11);
 
         [SerializeField]
         private AudioClip _damageSound;

@@ -6,8 +6,11 @@ namespace Platformer.Scriptable.Skills.Data
 	{
 		[SerializeField]
 		private string _skillId;
+        [SerializeField]
+		private bool _isProprotion;
 
 		public string SkillId => _skillId;
+		public bool IsProprotion => _isProprotion;
 		public abstract T GetData();
 	}
 }

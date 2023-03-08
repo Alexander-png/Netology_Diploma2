@@ -36,8 +36,8 @@ namespace Platformer.CharacterSystem.Enemies
         {
             Ray visualRay = GetHorizontalCensorRay(_viewFieldConfig.ViewOrigin);
 
-            Physics.Raycast(visualRay, out RaycastHit frontHit, _viewFieldConfig.FrontViewRange, PlayerLayer);
-            Physics.Raycast(visualRay.origin, -visualRay.direction, out RaycastHit behindHit, _viewFieldConfig.BehindViewRange, PlayerLayer);
+            Physics.Raycast(visualRay, out RaycastHit frontHit, _viewFieldConfig.FrontViewRange, PlayerMask);
+            Physics.Raycast(visualRay.origin, -visualRay.direction, out RaycastHit behindHit, _viewFieldConfig.BehindViewRange, PlayerMask);
 
             bool seePlayer = frontHit.transform != null || behindHit.transform != null;
 

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: DamagePlus15Percent
   m_EditorClassIdentifier: 
   _skillId: skill_damagePlus15Percent
-  _damage: 0.9
+  _isProprotion: 1
+  _damage: 0.15
   _reloadTime: 0

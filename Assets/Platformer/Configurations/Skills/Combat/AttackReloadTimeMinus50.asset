@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: AttackReloadTimeMinus50
   m_EditorClassIdentifier: 
   _skillId: skill_attackReloadMinus50
+  _isProprotion: 1
   _damage: 0
-  _reloadTime: -0.25
+  _reloadTime: -0.5
