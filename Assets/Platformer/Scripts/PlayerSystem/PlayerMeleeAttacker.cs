@@ -34,7 +34,7 @@ namespace Platformer.PlayerSystem
             _boxDamageTrigger = _damageTrigger as BoxCollider;
             if (_boxDamageTrigger == null)
             {
-                GameLogger.AddMessage($"{nameof(PlayerMeleeAttacker)} now supports only {nameof(SphereCollider)} as damage trigger for resizing on strong attack. The resizing will not work for now.", GameLogger.LogType.Warning);
+                GameLogger.AddMessage($"{nameof(PlayerMeleeAttacker)} now supports only {nameof(BoxCollider)} as damage trigger for resizing on strong attack. The resizing will not work for now.", GameLogger.LogType.Warning);
                 return;
             }
             _defaultTriggerRadiusZ = CurrentWeapon.Stats.AttackRadius;

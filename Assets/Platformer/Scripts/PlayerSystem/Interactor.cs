@@ -1,6 +1,5 @@
 using Platformer.GameCore;
 using Platformer.Interaction;
-using System.Collections;
 using UnityEngine;
 using Zenject;
 

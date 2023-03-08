@@ -14,8 +14,7 @@ namespace Platformer.PlayerSystem
         private AudioClip _damageSound;
 
         private Inventory _inventory;     
-        private SkillObserver _skillObserver;     
-        private PlayerInputListener _playerInputListener;
+        private SkillObserver _skillObserver;
         private Coroutine _damageImmuneCoroutine;
 
         private bool _damageImmune = false;
@@ -37,7 +36,6 @@ namespace Platformer.PlayerSystem
             _currentHealth = MaxHealth;
             _inventory = gameObject.GetComponent<Inventory>();
             _skillObserver = gameObject.GetComponent<SkillObserver>();
-            _playerInputListener = gameObject.GetComponent<PlayerInputListener>();
         }
 
         protected override void OnEnable()
@@ -102,13 +100,6 @@ namespace Platformer.PlayerSystem
                 InvokeEntityEvent(EntityEventTypes.Heal);
             }
             _currentHealth = Mathf.Clamp(_currentHealth + value, 0, MaxHealth);
-        }
-
-        protected override void UpdateRotation()
-        {
-            Vector3 relativeMousePos = _playerInputListener.GetRelativeMousePosition(transform.position);
-            float rotation = relativeMousePos.x > 0 ? 0 : 180;
-            transform.rotation = Quaternion.Euler(new Vector3(0, rotation, 0));
         }
 
         private IEnumerator DamageImmuneCoroutine(float time)

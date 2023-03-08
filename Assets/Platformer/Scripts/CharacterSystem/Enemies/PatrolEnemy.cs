@@ -90,6 +90,7 @@ namespace Platformer.CharacterSystem.Enemies
             {
                 ChangePatrolDirection();
                 Patrol();
+                MovementController.UpdateRotation();
             }
             _waitCoroutine = null;
             _inIdle = false;

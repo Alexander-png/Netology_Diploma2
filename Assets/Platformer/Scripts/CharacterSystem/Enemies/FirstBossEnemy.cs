@@ -135,7 +135,7 @@ namespace Platformer.CharacterSystem.Enemies
                 yield break;
             }
 
-            UpdateRotation();
+            MovementController.UpdateRotation();
             MovementController.StopImmediatly();
             InvokeEntityEvent(EntityEventTypes.Idle);
             _chargingDash = true;

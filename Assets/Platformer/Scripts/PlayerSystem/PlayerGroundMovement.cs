@@ -66,5 +66,12 @@ namespace Platformer.PlayerSystem
             base.OnDashEnded();
             Physics.IgnoreLayerCollision(6, 7, false);
         }
+
+        public override void UpdateRotation()
+        {
+            Vector3 relativeMousePos = _inputListener.GetRelativeMousePosition(transform.position);
+            float rotation = relativeMousePos.x > 0 ? 0 : 180;
+            transform.rotation = Quaternion.Euler(new Vector3(0, rotation, 0));
+        }
     }
 }

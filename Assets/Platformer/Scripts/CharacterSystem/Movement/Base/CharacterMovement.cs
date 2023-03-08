@@ -96,6 +96,9 @@ namespace Platformer.CharacterSystem.Movement.Base
         protected virtual void Start() =>
             _body = gameObject.GetComponent<Rigidbody>();
 
+        public virtual void Update() =>
+            UpdateRotation();
+
         protected virtual void OnDisable()
         {
             ResetState();
@@ -114,6 +117,18 @@ namespace Platformer.CharacterSystem.Movement.Base
             if (collision.gameObject.TryGetComponent(out Platform _))
             {
                 _currentCollisions.Remove(collision);
+            }
+        }
+
+        public virtual void UpdateRotation()
+        {
+            if (HorizontalInput > 0f)
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            }
+            else if (HorizontalInput < 0f)
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
             }
         }
 
