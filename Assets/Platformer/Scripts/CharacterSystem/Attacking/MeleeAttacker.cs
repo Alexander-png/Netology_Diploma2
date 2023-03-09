@@ -123,7 +123,7 @@ namespace Platformer.CharacterSystem.Attacking
 #if UNITY_EDITOR
         protected virtual void OnDrawGizmos()
         {
-            // TODO: somehow draw rotated cube. It is pssible with gizmos.matrix.
+            // TODO: somehow draw rotated cube. It is possible with gizmos.matrix.
             Color c = Color.red;
             c.a = 0.3f;
             Gizmos.color = c;
